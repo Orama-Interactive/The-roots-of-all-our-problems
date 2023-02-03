@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-
 const SPEED := 300.0
 const JUMP_VELOCITY: = -400.0
 
@@ -15,7 +14,7 @@ func _physics_process(delta: float):
 	velocity.y += gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
