@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1d3f1724ta1f"]
+
+[ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
+[ext_resource type="PackedScene" uid="uid://ct00pd2smpo6q" path="res://src/player.tscn" id="2_n3d4c"]
+
+[node name="LevelTest" type="Node2D"]
+script = ExtResource("1_14okw")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_n3d4c")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
