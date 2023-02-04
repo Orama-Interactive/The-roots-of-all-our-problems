@@ -12,6 +12,11 @@ func _ready() -> void:
 	position.y = 1080
 
 
+func _physics_process(delta: float) -> void:
+	velocity.x = speed * delta
+	move_and_slide()
+
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("Game over")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/tree_1.png" id="1_qmpui"]
 [ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/tree_2.png" id="3_xrpnt"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_n7en4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucrgx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -18,7 +18,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_lhdwc"]
+[sub_resource type="Animation" id="Animation_yl765"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_bb6o8"]
+[sub_resource type="Animation" id="Animation_tkt7b"]
 resource_name = "collapse_left"
 length = 3.0
 tracks/0/type = "value"
@@ -73,7 +73,7 @@ tracks/1/keys = {
 "values": [0.0, -1.5708]
 }
 
-[sub_resource type="Animation" id="Animation_0v0gy"]
+[sub_resource type="Animation" id="Animation_ncjps"]
 resource_name = "collapse_right"
 length = 3.0
 tracks/0/type = "value"
@@ -101,11 +101,11 @@ tracks/1/keys = {
 "values": [0.0, 1.5708]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1g7iq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owgx8"]
 _data = {
-"RESET": SubResource("Animation_lhdwc"),
-"collapse_left": SubResource("Animation_bb6o8"),
-"collapse_right": SubResource("Animation_0v0gy")
+"RESET": SubResource("Animation_yl765"),
+"collapse_left": SubResource("Animation_tkt7b"),
+"collapse_right": SubResource("Animation_ncjps")
 }
 
 [node name="Tree" type="Node2D"]
@@ -113,14 +113,14 @@ script = ExtResource("1_3l4t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 193)
-sprite_frames = SubResource("SpriteFrames_n7en4")
+sprite_frames = SubResource("SpriteFrames_ucrgx")
 frame_progress = 0.664698
 centered = false
 offset = Vector2(-286, -1080)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1g7iq")
+"": SubResource("AnimationLibrary_owgx8")
 }
 
 [node name="DespawnTimer" type="Timer" parent="."]

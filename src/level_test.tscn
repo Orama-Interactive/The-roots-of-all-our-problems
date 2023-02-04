@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c1d3f1724ta1f"]
 
 [ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
-[ext_resource type="PackedScene" uid="uid://ct00pd2smpo6q" path="res://src/player.tscn" id="2_n3d4c"]
+[ext_resource type="PackedScene" uid="uid://cb4gnn6ytlbh7" path="res://src/player.tscn" id="2_n3d4c"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_tkx4l"]
 [ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_htyvd"]
 [ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="4_cwwh3"]
