@@ -9,17 +9,7 @@ var has_jumped := false
 
 
 func _ready() -> void:
-	jump_velocity = randf_range(-89000, -40000)
-
-
-func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
-	if not has_jumped:
-		has_jumped = true
-		velocity.y = jump_velocity * delta
-
-	velocity.x = speed * delta
-	move_and_slide()
+	position.y = 1080
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

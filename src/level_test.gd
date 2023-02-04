@@ -9,7 +9,7 @@ var tree_tscn := preload("res://src/tree.tscn")
 
 func _on_obstacle_timer_timeout() -> void:
 	var obstacle: Obstacle = obstacle_tscn.instantiate()
-	var pos := Vector2(player.position.x + 1940, 1080)
+	var pos := Vector2(player.position.x + 1940, 0)
 	obstacle.position = pos
 	add_child(obstacle)
 
