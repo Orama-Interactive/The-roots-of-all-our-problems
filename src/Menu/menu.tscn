@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckqsahi55idtj"]
+
+[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
+[ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
+[ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="3_55xt4"]
+[ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="4_76yoj"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_315d5")
+script = ExtResource("2_of2g4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_55xt4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 600)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -517.0
+offset_top = -383.0
+offset_right = -117.0
+offset_bottom = 383.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="New" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+layout_mode = 2
+actual_text = "New game"
+text_size = 128
+text_color = Color(0, 0, 0, 1)
+text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="Load" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+layout_mode = 2
+actual_text = "Load game"
+text_size = 128
+text_color = Color(0, 0, 0, 1)
+text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="Settings" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+layout_mode = 2
+actual_text = "Settings"
+text_size = 128
+text_color = Color(0, 0, 0, 1)
+text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="Credits" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+layout_mode = 2
+actual_text = "Credits"
+text_size = 128
+text_color = Color(0, 0, 0, 1)
+text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="Exit" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+layout_mode = 2
+actual_text = "Exit game"
+text_size = 128
+text_color = Color(0, 0, 0, 1)
+text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
+
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

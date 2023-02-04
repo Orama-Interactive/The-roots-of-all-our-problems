@@ -2,7 +2,7 @@ extends Node2D
 
 var obstacle_tscn := preload("res://src/obstacle.tscn")
 var tree_tscn := preload("res://src/tree.tscn")
-var checkpoints: Array[float] = [0, 2000, 5000]
+var checkpoints: Array[float] = [0, 700, 1200, 1700]
 var current_checkpoint := 0
 @onready var player: Player = $Player
 @onready var tree_parent: Node2D = $TreeParent
@@ -26,6 +26,8 @@ func change_checkpoint() -> void:
 			animation_player.play("forest_fade_1")
 		2:
 			animation_player.play("forest_fade_2")
+		3:
+			animation_player.play("town_fade_in_1")
 
 
 func _on_obstacle_timer_timeout() -> void:

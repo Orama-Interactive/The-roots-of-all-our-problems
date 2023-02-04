@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1d3f1724ta1f"]
+[gd_scene load_steps=19 format=3 uid="uid://c1d3f1724ta1f"]
 
 [ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
 [ext_resource type="PackedScene" uid="uid://cb4gnn6ytlbh7" path="res://src/player.tscn" id="2_n3d4c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_hy7gn"]
 [ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="4_qnvma"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_1vpqm"]
+[ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_tg8ca"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67rd6"]
 shader = ExtResource("4_qnvma")
@@ -91,6 +92,42 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_htyvd")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 553)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ParallaxBackground/ParallaxLayer2/FrontLayer:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 712)]
+}
 
 [sub_resource type="Animation" id="Animation_la8lf"]
 resource_name = "turn"
@@ -142,10 +179,34 @@ tracks/0/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:modula
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_htyvd")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 553)]
 }
 
 [sub_resource type="Animation" id="Animation_0oqf4"]
@@ -158,10 +219,62 @@ tracks/0/path = NodePath("../ParallaxBackground/ParallaxLayer2/FrontLayer:modula
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ParallaxBackground/ParallaxLayer2/FrontLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 712)]
+}
+
+[sub_resource type="Animation" id="Animation_pq0xr"]
+resource_name = "town_fade_in_1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_tg8ca")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 587)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h8q7"]
@@ -169,6 +282,7 @@ _data = {
 "RESET": SubResource("Animation_f7c4f"),
 "forest_fade_1": SubResource("Animation_idf0g"),
 "forest_fade_2": SubResource("Animation_0oqf4"),
+"town_fade_in_1": SubResource("Animation_pq0xr"),
 "turn": SubResource("Animation_la8lf")
 }
 
