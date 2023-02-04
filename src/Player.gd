@@ -14,7 +14,7 @@ func _physics_process(delta: float):
 	velocity.y += gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 
 	velocity.x = SPEED * delta
