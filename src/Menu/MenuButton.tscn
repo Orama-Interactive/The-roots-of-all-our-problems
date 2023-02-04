@@ -10,9 +10,6 @@ font_color = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(300, 150)
 flat = true
 script = ExtResource("1_rbyje")
-text_size = null
-text_color = null
-text_color_hover = null
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(9, 0)

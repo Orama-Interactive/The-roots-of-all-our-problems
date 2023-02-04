@@ -11,8 +11,8 @@ extends Button
 		text_size = value
 		$Label.label_settings.font_size = value
 
-@export var text_color := Color.BLACK
-@export var text_color_hover := Color.GRAY
+@export var text_color := Color(0.3, 0.3, 0.3, 1)
+@export var text_color_hover := Color.BLACK
 
 @onready var label: Label = $Label
 

@@ -1,22 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1d3f1724ta1f"]
+[gd_scene load_steps=19 format=3 uid="uid://nnj78cd3gojx"]
 
-[ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
-[ext_resource type="PackedScene" uid="uid://cb4gnn6ytlbh7" path="res://src/player.tscn" id="2_n3d4c"]
-[ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_tkx4l"]
-[ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_htyvd"]
-[ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="4_cwwh3"]
-[ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_hy7gn"]
-[ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="4_qnvma"]
-[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_1vpqm"]
-[ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_tg8ca"]
+[ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
+[ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
+[ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_2v5u0"]
+[ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_krh6g"]
+[ext_resource type="PackedScene" uid="uid://cb4gnn6ytlbh7" path="res://src/player.tscn" id="5_rirw7"]
+[ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="6_7hsq2"]
+[ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="7_142ly"]
+[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
+[ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_5kwmm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67rd6"]
-shader = ExtResource("4_qnvma")
-shader_parameter/old_tex = ExtResource("2_tkx4l")
-shader_parameter/new_tex = ExtResource("3_htyvd")
+shader = ExtResource("6_7hsq2")
+shader_parameter/old_tex = ExtResource("2_qq820")
+shader_parameter/new_tex = ExtResource("3_2v5u0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ox25j"]
-shader = ExtResource("4_cwwh3")
+shader = ExtResource("7_142ly")
 shader_parameter/half_right = true
 shader_parameter/rect_size = Vector2(1280, 720)
 shader_parameter/fov = 90.0
@@ -24,7 +24,7 @@ shader_parameter/cull_back = true
 shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
-shader_parameter/tex = ExtResource("2_tkx4l")
+shader_parameter/tex = ExtResource("2_qq820")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ebs0"]
 font_size = 64
@@ -54,7 +54,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_tkx4l")]
+"values": [ExtResource("2_qq820")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -102,7 +102,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_htyvd")]
+"values": [ExtResource("3_2v5u0")]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -127,46 +127,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 712)]
-}
-
-[sub_resource type="Animation" id="Animation_la8lf"]
-resource_name = "turn"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BookTurn:material:shader_parameter/y_rot")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 90.0, 8.55e-06]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BookTurn:material:shader_parameter/tex")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_tkx4l"), ExtResource("3_htyvd")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BookTurn:material:shader_parameter/half_right")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_idf0g"]
@@ -194,7 +154,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_htyvd")]
+"values": [ExtResource("3_2v5u0")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -262,7 +222,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_tg8ca")]
+"values": [ExtResource("9_5kwmm")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -277,6 +237,46 @@ tracks/2/keys = {
 "values": [Vector2(0, 587)]
 }
 
+[sub_resource type="Animation" id="Animation_la8lf"]
+resource_name = "turn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 90.0, 8.55e-06]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_qq820"), ExtResource("3_2v5u0")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h8q7"]
 _data = {
 "RESET": SubResource("Animation_f7c4f"),
@@ -286,13 +286,13 @@ _data = {
 "turn": SubResource("Animation_la8lf")
 }
 
-[node name="LevelTest" type="Node2D"]
-script = ExtResource("1_14okw")
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ljq6u")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground"]
-texture = ExtResource("2_tkx4l")
+texture = ExtResource("2_qq820")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -301,7 +301,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="MiddleLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(0, 553)
-texture = ExtResource("3_htyvd")
+texture = ExtResource("3_2v5u0")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -310,7 +310,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="FrontLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(0, 712)
-texture = ExtResource("4_hy7gn")
+texture = ExtResource("4_krh6g")
 centered = false
 
 [node name="ObstacleTimer" type="Timer" parent="."]
@@ -322,7 +322,7 @@ autostart = true
 
 [node name="TreeParent" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_n3d4c")]
+[node name="Player" parent="." instance=ExtResource("5_rirw7")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -347,7 +347,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
-theme = ExtResource("8_1vpqm")
+theme = ExtResource("8_0dkwy")
 text = "test"
 label_settings = SubResource("LabelSettings_2ebs0")
 

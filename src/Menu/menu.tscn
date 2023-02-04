@@ -43,36 +43,22 @@ theme_override_constants/separation = 32
 [node name="New" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "New game"
-text_size = 128
-text_color = Color(0, 0, 0, 1)
-text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
 
 [node name="Load" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Load game"
-text_size = 128
-text_color = Color(0, 0, 0, 1)
-text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
 
 [node name="Settings" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Settings"
-text_size = 128
-text_color = Color(0, 0, 0, 1)
-text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
 
 [node name="Credits" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Credits"
-text_size = 128
-text_color = Color(0, 0, 0, 1)
-text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
 
 [node name="Exit" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Exit game"
-text_size = 128
-text_color = Color(0, 0, 0, 1)
-text_color_hover = Color(0.745098, 0.745098, 0.745098, 1)
 
+[connection signal="pressed" from="VBoxContainer/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

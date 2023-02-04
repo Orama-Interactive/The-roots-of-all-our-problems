@@ -42,7 +42,9 @@ func _on_tree_timer_timeout() -> void:
 	var tree := tree_tscn.instantiate()
 	tree.position = pos
 	tree_parent.add_child(tree)
-	if player.position.x > checkpoints[2]:
+	if player.position.x > checkpoints[3]:
+		tree_timer.stop()
+	elif player.position.x > checkpoints[2]:
 		tree_timer.wait_time = randf_range(4, 7)
 	elif player.position.x > checkpoints[1]:
 		tree_timer.wait_time = randf_range(1, 4)
