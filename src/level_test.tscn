@@ -140,6 +140,8 @@ centered = false
 wait_time = 3.0
 autostart = true
 
+[node name="TreeParent" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_n3d4c")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
