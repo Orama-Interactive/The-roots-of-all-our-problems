@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("Game over")
+		GameManager.game_over()
 
 
 func _on_despawn_timer_timeout() -> void:

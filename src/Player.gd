@@ -16,6 +16,7 @@ func _ready() -> void:
 func _physics_process(delta: float):
 	# Add the gravity.
 	velocity.y += gravity * delta
+	velocity.y = clamp(velocity.y, JUMP_VELOCITY, 1200)
 
 	# Handle Jump.
 	if Input.is_action_pressed("jump"):
@@ -26,3 +27,6 @@ func _physics_process(delta: float):
 
 	velocity.x = SPEED * delta
 	move_and_slide()
+
+	if position.y < -80 or position.y > 1160:
+		GameManager.game_over()

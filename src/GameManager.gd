@@ -16,3 +16,9 @@ func load_game() -> int:
 	config_file.load(CONFIG_PATH)
 	var checkpoint = config_file.get_value("progress", "checkpoint", 0)
 	return checkpoint
+
+
+func game_over() -> void:
+	loaded = true
+	get_tree().current_scene.go_to_checkpoint()
+#	get_tree().reload_current_scene() # Why does this crash?

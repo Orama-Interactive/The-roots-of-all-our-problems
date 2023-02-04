@@ -44,7 +44,8 @@ class Checkpoint:
 func _ready() -> void:
 	if GameManager.loaded:
 		current_checkpoint = GameManager.load_game()
-		player.position.x = checkpoints[current_checkpoint].pos + 1
+		GameManager.loaded = false
+		go_to_checkpoint()
 	change_checkpoint()
 
 
@@ -56,6 +57,11 @@ func _process(_delta: float) -> void:
 	if pos >= checkpoints[current_checkpoint + 1].pos:
 		current_checkpoint += 1
 		change_checkpoint()
+
+
+func go_to_checkpoint() -> void:
+	player.position.x = checkpoints[current_checkpoint].pos + 1
+	player.position.y = 0
 
 
 func change_checkpoint() -> void:
