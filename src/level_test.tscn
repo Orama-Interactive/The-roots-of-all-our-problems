@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf0yyljrltosh"]
+[gd_scene load_steps=14 format=3 uid="uid://c1d3f1724ta1f"]
 
 [ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
 [ext_resource type="Texture2D" uid="uid://qwbu0sr3whb5" path="res://assets/showcase_landscape_v09_8x_omniscale.png" id="2_eei8x"]
 [ext_resource type="PackedScene" uid="uid://ct00pd2smpo6q" path="res://src/player.tscn" id="2_n3d4c"]
+[ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_tkx4l"]
+[ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_htyvd"]
 [ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="4_cwwh3"]
 [ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="4_qnvma"]
 [ext_resource type="Texture2D" uid="uid://hn1ma1ypyiom" path="res://assets/Sunset_City.png" id="5_dwucv"]
@@ -111,9 +113,20 @@ _data = {
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_14okw")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(508, 294)
-texture = ExtResource("2_eei8x")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+texture = ExtResource("2_tkx4l")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, 497)
+texture = ExtResource("3_htyvd")
+centered = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bugbfwfi4esyd" path="res://icon.svg" id="1_avlyj"]
 [ext_resource type="Script" path="res://src/obstacle.gd" id="1_tgx6a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcdix"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2162"]
 size = Vector2(58, 39)
 
 [node name="Obstacle" type="Area2D"]
@@ -16,6 +16,6 @@ texture = ExtResource("1_avlyj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 9.5)
-shape = SubResource("RectangleShape2D_bcdix")
+shape = SubResource("RectangleShape2D_s2162")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
