@@ -32,8 +32,8 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kt5ra"]
 font_size = 100
-font_color = Color(0, 0, 0, 1)
 outline_size = 24
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_f7c4f"]
 length = 0.001
