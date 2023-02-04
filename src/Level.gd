@@ -43,7 +43,7 @@ class Checkpoint:
 
 func _ready() -> void:
 	if GameManager.loaded:
-		current_checkpoint = GameManager.load()
+		current_checkpoint = GameManager.load_game()
 		player.position.x = checkpoints[current_checkpoint].pos + 1
 	change_checkpoint()
 
@@ -59,7 +59,7 @@ func _process(_delta: float) -> void:
 
 
 func change_checkpoint() -> void:
-	GameManager.save(current_checkpoint)
+	GameManager.save_game(current_checkpoint)
 	if not checkpoints[current_checkpoint].animation.is_empty():
 		animation_player.play(checkpoints[current_checkpoint].animation)
 	match current_checkpoint:

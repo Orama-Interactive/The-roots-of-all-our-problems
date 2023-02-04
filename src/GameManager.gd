@@ -7,12 +7,12 @@ var config_file := ConfigFile.new()
 var show_ambient_subtitles := true
 
 
-func save(checkpoint: int) -> void:
+func save_game(checkpoint: int) -> void:
 	config_file.set_value("progress", "checkpoint", checkpoint)
 	config_file.save(CONFIG_PATH)
 
 
-func load() -> int:
+func load_game() -> int:
 	config_file.load(CONFIG_PATH)
 	var checkpoint = config_file.get_value("progress", "checkpoint", 0)
 	return checkpoint
