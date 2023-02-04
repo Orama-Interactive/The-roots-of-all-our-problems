@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbfhvrmtpjvtd"]
+
+[ext_resource type="Shader" path="res://src/heat_displacement.gdshader" id="1_rtmal"]
+[ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="2_nsain"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0oke7"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wr2ob"]
+noise = SubResource("FastNoiseLite_0oke7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4ua7"]
+shader = ExtResource("1_rtmal")
+shader_parameter/noise = SubResource("NoiseTexture2D_wr2ob")
+
+[node name="HeatDisplacement" type="ColorRect"]
+material = SubResource("ShaderMaterial_v4ua7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuScreen1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(581, 204)
+texture = ExtResource("2_nsain")
