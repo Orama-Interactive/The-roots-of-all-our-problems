@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://ua8650j8e36q"]
+[gd_scene load_steps=5 format=3 uid="uid://ua8650j8e36q"]
+
+[ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="1_dpiho"]
+[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_oyalr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ngoc"]
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4x71d"]
+font_size = 96
+font_color = Color(0, 0, 0, 1)
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -7,3 +18,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_oyalr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dpiho")
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 999.0
+offset_right = -128.0
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "The roots of all our problems"
+label_settings = SubResource("LabelSettings_6ngoc")
+
+[node name="GameTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 999.0
+offset_top = 143.0
+offset_right = -128.0
+offset_bottom = 309.0
+grow_horizontal = 2
+text = "By Orama Interactive"
+label_settings = SubResource("LabelSettings_6ngoc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -930.0
+offset_top = 283.0
+offset_right = -35.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Emmanouil Papadeas: Programming
+
+WIP"
+label_settings = SubResource("LabelSettings_4x71d")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
