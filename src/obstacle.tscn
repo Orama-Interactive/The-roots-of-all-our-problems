@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bugbfwfi4esyd" path="res://icon.svg" id="1_avlyj"]
 [ext_resource type="Script" path="res://src/obstacle.gd" id="1_tgx6a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2162"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f1w5"]
 size = Vector2(58, 39)
 
 [node name="Obstacle" type="CharacterBody2D"]
@@ -18,6 +18,11 @@ texture = ExtResource("1_avlyj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(5, 9.5)
-shape = SubResource("RectangleShape2D_s2162")
+shape = SubResource("RectangleShape2D_6f1w5")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
