@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1d3f1724ta1f"]
+[gd_scene load_steps=13 format=3 uid="uid://c1d3f1724ta1f"]
 
 [ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
 [ext_resource type="PackedScene" uid="uid://ct00pd2smpo6q" path="res://src/player.tscn" id="2_n3d4c"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_tkx4l"]
 [ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_htyvd"]
 [ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="4_cwwh3"]
+[ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_hy7gn"]
 [ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="4_qnvma"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67rd6"]
@@ -122,8 +123,17 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(0, 497)
+position = Vector2(0, 553)
 texture = ExtResource("3_htyvd")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(0, 712)
+texture = ExtResource("4_hy7gn")
 centered = false
 
 [node name="Timer" type="Timer" parent="."]

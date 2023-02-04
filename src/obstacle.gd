@@ -3,14 +3,13 @@ extends CharacterBody2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
-var speed := -40000.0
+var speed := -60000.0
 var jump_velocity = -40000.0
 var has_jumped := false
-@onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
 
 
 func _ready() -> void:
-	jump_velocity = randf_range(-80000, -40000)
+	jump_velocity = randf_range(-89000, -40000)
 
 
 func _physics_process(delta: float) -> void:
