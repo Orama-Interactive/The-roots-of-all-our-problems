@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/Menu/MenuButton.gd" id="1_rbyje"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_mqkxf"]
+[sub_resource type="LabelSettings" id="LabelSettings_woukl"]
 font_size = 128
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(300, 150)
@@ -24,7 +24,7 @@ offset_top = -87.5
 offset_bottom = 87.5
 grow_horizontal = 0
 grow_vertical = 2
-label_settings = SubResource("LabelSettings_mqkxf")
+label_settings = SubResource("LabelSettings_woukl")
 horizontal_alignment = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

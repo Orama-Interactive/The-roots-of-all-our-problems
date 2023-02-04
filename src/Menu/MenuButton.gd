@@ -26,12 +26,12 @@ func _ready() -> void:
 func _on_mouse_entered() -> void:
 	var tw := create_tween()
 #	tw.tween_property(self, "custom_minimum_size", Vector2(320, 170), 1)
-	tw.tween_property(self, "text_size", 150, 0.4)
+	tw.tween_property(self, "text_size", 150, 0.1)
 
 
 func _on_mouse_exited() -> void:
 	var tw := create_tween()
-	tw.tween_property(self, "text_size", 128, 0.4)
+	tw.tween_property(self, "text_size", 128, 0.1)
 #	tw.tween_property(self, "custom_minimum_size", Vector2(300, 150), 1)
 #	tw.tween_property(self, "size", Vector2(300, 150), 1)
 
