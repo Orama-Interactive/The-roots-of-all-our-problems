@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://nnj78cd3gojx"]
+[gd_scene load_steps=20 format=3 uid="uid://nnj78cd3gojx"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
@@ -30,12 +30,17 @@ shader_parameter/tex = ExtResource("2_qq820")
 font_size = 64
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_kt5ra"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+outline_size = 24
+
 [sub_resource type="Animation" id="Animation_f7c4f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/0/path = NodePath("Control/BookTurn:material:shader_parameter/y_rot")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,7 +52,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/1/path = NodePath("Control/BookTurn:material:shader_parameter/tex")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -59,7 +64,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/2/path = NodePath("Control/BookTurn:material:shader_parameter/half_right")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -243,7 +248,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/0/path = NodePath("Control/BookTurn:material:shader_parameter/y_rot")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -255,7 +260,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/1/path = NodePath("Control/BookTurn:material:shader_parameter/tex")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -267,7 +272,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/2/path = NodePath("Control/BookTurn:material:shader_parameter/half_right")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -326,30 +331,55 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DualTexture" type="ColorRect" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_0dkwy")
+
+[node name="DualTexture" type="ColorRect" parent="CanvasLayer/Control"]
 visible = false
 material = SubResource("ShaderMaterial_67rd6")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BookTurn" type="ColorRect" parent="CanvasLayer"]
+[node name="BookTurn" type="ColorRect" parent="CanvasLayer/Control"]
 visible = false
 material = SubResource("ShaderMaterial_ox25j")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme = ExtResource("8_0dkwy")
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+offset_right = 70.0
+offset_bottom = 85.0
 text = "test"
 label_settings = SubResource("LabelSettings_2ebs0")
+
+[node name="Subtitles" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "The seed flew east, through a forest.
+(press [space] to jump) (forest ambience)"
+label_settings = SubResource("LabelSettings_kt5ra")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasLayer")
