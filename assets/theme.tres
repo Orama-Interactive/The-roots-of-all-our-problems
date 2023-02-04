@@ -1,9 +1,15 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://ben2451hr7117"]
 
-[ext_resource type="FontFile" uid="uid://bdct6cfrrnq6v" path="res://assets/fonts/AmaticSC-Regular.ttf" id="1_n8b31"]
+[ext_resource type="FontFile" uid="uid://b3xh01dc5sbn" path="res://assets/fonts/AmaticSC-Regular.ttf" id="1_n8b31"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osjix"]
 
 [resource]
 default_font = ExtResource("1_n8b31")
+default_font_size = 90
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.3, 0.3, 0.3, 1)
+Button/colors/font_hover_pressed_color = Color(0.3, 0.3, 0.3, 1)
+Button/colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_osjix")

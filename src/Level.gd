@@ -70,7 +70,8 @@ func change_checkpoint() -> void:
 		3:
 			animation_player.play("town_fade_in_1")
 	subtitles.text = subs[current_checkpoint]
-	subtitles.text += "\n" + ambient_sounds[current_checkpoint]
+	if GameManager.show_ambient_subtitles:
+		subtitles.text += "\n" + ambient_sounds[current_checkpoint]
 
 
 func _on_obstacle_timer_timeout() -> void:
