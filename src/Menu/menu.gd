@@ -1,14 +1,20 @@
 extends Control
 
+@onready var new_button: Button = $VBoxContainer/New
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	$VBoxContainer/New.grab_focus()
+	new_button.grab_focus()
 
 
 func _on_new_pressed() -> void:
 	animation_player.play("first_scene")
+
+
+func _on_load_pressed() -> void:
+	GameManager.loaded = true
+	get_tree().change_scene_to_file("res://src/Level.tscn")
 
 
 func _on_exit_pressed() -> void:

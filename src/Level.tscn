@@ -323,7 +323,6 @@ wait_time = 3.0
 autostart = true
 
 [node name="TreeTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="TreeParent" type="Node2D" parent="."]
 
@@ -361,6 +360,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 85.0
 text = "test"

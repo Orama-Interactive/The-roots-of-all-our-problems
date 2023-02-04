@@ -48,6 +48,9 @@ var current_checkpoint := 0
 
 
 func _ready() -> void:
+	if GameManager.loaded:
+		current_checkpoint = GameManager.load()
+		player.position.x = checkpoints[current_checkpoint] + 1
 	change_checkpoint()
 
 
@@ -62,7 +65,10 @@ func _process(_delta: float) -> void:
 
 
 func change_checkpoint() -> void:
+	GameManager.save(current_checkpoint)
 	match current_checkpoint:
+		0:
+			tree_timer.start()
 		1:
 			animation_player.play("forest_fade_1")
 		2:
