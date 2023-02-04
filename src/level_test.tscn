@@ -136,8 +136,11 @@ position = Vector2(0, 712)
 texture = ExtResource("4_hy7gn")
 centered = false
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
+
+[node name="TreeTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="TreeParent" type="Node2D" parent="."]
@@ -170,4 +173,5 @@ libraries = {
 "": SubResource("AnimationLibrary_6h8q7")
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
+[connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
