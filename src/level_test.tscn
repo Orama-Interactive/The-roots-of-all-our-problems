@@ -1,14 +1,150 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1d3f1724ta1f"]
+[gd_scene load_steps=12 format=3 uid="uid://bf0yyljrltosh"]
 
 [ext_resource type="Script" path="res://src/level_test.gd" id="1_14okw"]
+[ext_resource type="Texture2D" uid="uid://qwbu0sr3whb5" path="res://assets/showcase_landscape_v09_8x_omniscale.png" id="2_eei8x"]
 [ext_resource type="PackedScene" uid="uid://ct00pd2smpo6q" path="res://src/player.tscn" id="2_n3d4c"]
+[ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="4_cwwh3"]
+[ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="4_qnvma"]
+[ext_resource type="Texture2D" uid="uid://hn1ma1ypyiom" path="res://assets/Sunset_City.png" id="5_dwucv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67rd6"]
+shader = ExtResource("4_qnvma")
+shader_parameter/old_tex = ExtResource("2_eei8x")
+shader_parameter/new_tex = ExtResource("5_dwucv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ox25j"]
+shader = ExtResource("4_cwwh3")
+shader_parameter/half_right = true
+shader_parameter/rect_size = Vector2(1280, 720)
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/tex = ExtResource("2_eei8x")
+
+[sub_resource type="Animation" id="Animation_f7c4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_eei8x")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_la8lf"]
+resource_name = "turn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 90.0, 8.55e-06]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_eei8x"), ExtResource("5_dwucv")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6h8q7"]
+_data = {
+"RESET": SubResource("Animation_f7c4f"),
+"turn": SubResource("Animation_la8lf")
+}
 
 [node name="LevelTest" type="Node2D"]
 script = ExtResource("1_14okw")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(508, 294)
+texture = ExtResource("2_eei8x")
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("2_n3d4c")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DualTexture" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_67rd6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BookTurn" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_ox25j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer")
+libraries = {
+"": SubResource("AnimationLibrary_6h8q7")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
