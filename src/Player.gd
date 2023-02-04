@@ -15,7 +15,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float):
 	# Add the gravity.
-#	if not is_on_floor():
 	velocity.y += gravity * delta
 
 	# Handle Jump.
