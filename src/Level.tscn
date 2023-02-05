@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://nnj78cd3gojx"]
+[gd_scene load_steps=25 format=3 uid="uid://nnj78cd3gojx"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bs760pqmonjvf" path="res://assets/sky_background_city.png" id="8_ym4be"]
 [ext_resource type="AudioStream" uid="uid://fd4v7xwxgbhd" path="res://assets/audio/music/flapping_through_the_skies_part_1.ogg" id="9_0arn6"]
 [ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_5kwmm"]
+[ext_resource type="Texture2D" uid="uid://dvy5gmp2yd102" path="res://assets/bomb_1.png" id="10_4ahgg"]
+[ext_resource type="AudioStream" uid="uid://crnqhaekw1qfw" path="res://assets/audio/sounds/explosion.wav" id="11_ee73f"]
+[ext_resource type="Texture2D" uid="uid://bbvctcc5515o4" path="res://assets/bomb_2.png" id="11_fccme"]
+[ext_resource type="Texture2D" uid="uid://dodu50nrkkfhc" path="res://assets/sky_background_war.png" id="13_54jyp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ebs0"]
 font_size = 64
@@ -117,6 +121,42 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_qq820")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Bomb:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Bomb:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_idf0g"]
@@ -362,9 +402,101 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_qrvko"]
+resource_name = "bomb"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Bomb:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_4ahgg"), ExtResource("11_fccme")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Bomb:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_ee73f")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -32.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ParallaxBackground/ParallaxLayer/MiddleLayer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ParallaxBackground/ParallaxLayer2/FrontLayer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ParallaxBackground/Background:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_54jyp")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h8q7"]
 _data = {
 "RESET": SubResource("Animation_f7c4f"),
+"bomb": SubResource("Animation_qrvko"),
 "ending": SubResource("Animation_uqh4n"),
 "forest_fade_1": SubResource("Animation_idf0g"),
 "forest_fade_2": SubResource("Animation_0oqf4"),
@@ -429,6 +561,11 @@ offset_right = 70.0
 offset_bottom = 85.0
 text = "test"
 label_settings = SubResource("LabelSettings_2ebs0")
+
+[node name="Bomb" type="TextureRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Subtitles" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
