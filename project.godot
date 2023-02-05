@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ-2023"
-run/main_scene="res://src/Level.tscn"
+run/main_scene="res://src/Menu/menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
