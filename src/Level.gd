@@ -37,7 +37,7 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(13000, war_obstacles, "", "A parasite, here only to destroy. Periods of conflict followed, leaving fire and blood at their trails. Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."),
 ]
 var current_checkpoint := 0
-var max_distance := 1300
+var max_distance := 20000
 @onready var player: Player = $Player
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
