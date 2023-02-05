@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
 [ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_2v5u0"]
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_krh6g"]
-[ext_resource type="PackedScene" uid="uid://cb4gnn6ytlbh7" path="res://src/player.tscn" id="5_rirw7"]
+[ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_5kwmm"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb4gnn6ytlbh7"]
+[gd_scene load_steps=11 format=3 uid="uid://doa18a13ekdni"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_63eh7"]
 [ext_resource type="Texture2D" uid="uid://bpcbux4qkvsys" path="res://assets/player/fall_1.png" id="2_4wirq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bhaxy03f1gwlu" path="res://assets/player/fall_2.png" id="5_ttyru"]
 [ext_resource type="Texture2D" uid="uid://d4lq8yue2pypb" path="res://assets/player/fall_3.png" id="6_qeq0a"]
 [ext_resource type="Texture2D" uid="uid://cachws70fyds8" path="res://assets/player/fall_4.png" id="7_t2lrb"]
+[ext_resource type="AudioStream" uid="uid://slpbvnc58y04" path="res://assets/audio/sounds/dragonfly_2.wav" id="8_fdo5n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ux0rx"]
 animations = [{
@@ -64,3 +65,7 @@ offset = Vector2(800, 0)
 limit_top = 0
 limit_bottom = 1
 position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fdo5n")
+autoplay = true

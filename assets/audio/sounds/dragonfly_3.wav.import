@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bbu840y7xn2p7"
-path="res://.godot/imported/Dragonfly 3.wav-a67626199ffd4197868c498ae5bcadad.sample"
+path="res://.godot/imported/dragonfly_3.wav-78995fef9fb2bb7f18e4f587b147a294.sample"
 
 [deps]
 
-source_file="res://assets/audio/sounds/Dragonfly 3.wav"
-dest_files=["res://.godot/imported/Dragonfly 3.wav-a67626199ffd4197868c498ae5bcadad.sample"]
+source_file="res://assets/audio/sounds/dragonfly_3.wav"
+dest_files=["res://.godot/imported/dragonfly_3.wav-78995fef9fb2bb7f18e4f587b147a294.sample"]
 
 [params]
 

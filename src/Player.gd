@@ -4,10 +4,13 @@ extends CharacterBody2D
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
 
+var falling_sound := preload("res://assets/audio/sounds/dragonfly_2.wav")
+var flying_sound := preload("res://assets/audio/sounds/dragonfly_3.wav")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var falling := false
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -25,10 +28,16 @@ func _physics_process(delta: float):
 
 	# Handle Jump.
 	if not falling and Input.is_action_pressed("jump"):
-		animated_sprite_2d.speed_scale = 2
 		velocity.y = JUMP_VELOCITY
+		if animated_sprite_2d.speed_scale != 2:
+			animated_sprite_2d.speed_scale = 2
+			audio_stream_player.stream = flying_sound
+			audio_stream_player.play()
 	else:
-		animated_sprite_2d.speed_scale = 1
+		if animated_sprite_2d.speed_scale != 1:
+			animated_sprite_2d.speed_scale = 1
+			audio_stream_player.stream = falling_sound
+			audio_stream_player.play()
 
 	velocity.x = SPEED * delta
 	move_and_slide()
