@@ -19,8 +19,6 @@ func _ready() -> void:
 	var tex_size := sprite.texture.get_size()
 	position.x = player_pos.x + 1940
 	position.y = 1080.0 if place == Place.FLOOR else tex_size.y
-	if can_flip:
-		sprite.flip_h = rand_bool()
 
 
 func _physics_process(delta: float) -> void:
