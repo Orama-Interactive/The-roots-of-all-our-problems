@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt2st76jp3rxb"]
+[gd_scene load_steps=3 format=3 uid="uid://h35lv8da6237"]
 
-[ext_resource type="Script" path="res://src/obstacle.gd" id="1_tgx6a"]
-[ext_resource type="Texture2D" uid="uid://dumd6ppvpqrs7" path="res://assets/treetop_1.png" id="2_mm2cm"]
+[ext_resource type="Script" path="res://src/Obstacles/obstacle.gd" id="1_mr03y"]
+[ext_resource type="Texture2D" uid="uid://dumd6ppvpqrs7" path="res://assets/obstacles/treetop_1.png" id="2_pyy0f"]
 
 [node name="Obstacle" type="CharacterBody2D"]
-script = ExtResource("1_tgx6a")
+script = ExtResource("1_mr03y")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
 position = Vector2(-203, -448)
-texture = ExtResource("2_mm2cm")
+texture = ExtResource("2_pyy0f")
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

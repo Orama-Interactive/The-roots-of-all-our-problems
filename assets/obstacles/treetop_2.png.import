@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dumd6ppvpqrs7"
-path="res://.godot/imported/treetop_1.png-535a309794550145e1e614be0f0feaf5.ctex"
+uid="uid://dew36vb3puwcq"
+path="res://.godot/imported/treetop_2.png-659a761902b932943c21d268a76f1c03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/treetop_1.png"
-dest_files=["res://.godot/imported/treetop_1.png-535a309794550145e1e614be0f0feaf5.ctex"]
+source_file="res://assets/obstacles/treetop_2.png"
+dest_files=["res://.godot/imported/treetop_2.png-659a761902b932943c21d268a76f1c03.ctex"]
 
 [params]
 

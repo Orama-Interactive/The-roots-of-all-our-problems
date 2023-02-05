@@ -6,9 +6,11 @@ var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed := -60000.0
 var jump_velocity = -40000.0
 var has_jumped := false
+var player_pos := Vector2.ZERO
 
 
 func _ready() -> void:
+	position.x = player_pos.x + 1940
 	position.y = 1080
 
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dn6f4f41fw065" path="res://src/Obstacles/Treetop_1.tscn" id="1_50ug8"]
+[ext_resource type="Script" path="res://src/Obstacles/obstacle_curve.gd" id="2_wh81w"]
+
+[node name="ObstacleCurve" instance=ExtResource("1_50ug8")]
+script = ExtResource("2_wh81w")
