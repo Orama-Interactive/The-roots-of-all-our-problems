@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckqsahi55idtj"]
+[gd_scene load_steps=12 format=3 uid="uid://ckqsahi55idtj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
@@ -9,6 +9,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_55jyd"]
 font_size = 96
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_yilds"]
+action = &"jump"
+
+[sub_resource type="Shortcut" id="Shortcut_p2p13"]
+events = [SubResource("InputEventAction_yilds")]
 
 [sub_resource type="Animation" id="Animation_7kksi"]
 length = 0.001
@@ -119,6 +125,30 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(882, 121)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SkipButton:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SkipButton:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
@@ -233,6 +263,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(882, 121), Vector2(882, 121), Vector2(1325, 121)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SkipButton:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SkipButton:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
@@ -312,6 +366,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="SkipButton" parent="." instance=ExtResource("4_76yoj")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -150.0
+grow_horizontal = 0
+grow_vertical = 0
+disabled = true
+shortcut = SubResource("Shortcut_p2p13")
+actual_text = "Skip"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_dg4f2")
@@ -322,4 +392,5 @@ libraries = {
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

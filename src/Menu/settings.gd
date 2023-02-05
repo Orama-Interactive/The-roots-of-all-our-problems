@@ -1,6 +1,10 @@
 extends Control
 
 
+func _ready() -> void:
+	$VBoxContainer/AmbientSubs.grab_focus()
+
+
 func _on_ambient_subs_toggled(button_pressed: bool) -> void:
 	GameManager.show_ambient_subtitles = button_pressed
 
