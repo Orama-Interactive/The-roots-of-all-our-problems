@@ -1,10 +1,28 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckqsahi55idtj"]
+[gd_scene load_steps=16 format=3 uid="uid://ckqsahi55idtj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
 [ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="3_55xt4"]
+[ext_resource type="Shader" path="res://src/DualTexture.gdshader" id="4_5vb4m"]
 [ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="4_76yoj"]
 [ext_resource type="Texture2D" uid="uid://doqu2sbglr5i1" path="res://assets/menu_screen_2.png" id="5_xn6ax"]
+[ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="6_hu8vk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
+shader = ExtResource("4_5vb4m")
+shader_parameter/old_tex = ExtResource("3_55xt4")
+shader_parameter/new_tex = ExtResource("5_xn6ax")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_im725"]
+shader = ExtResource("6_hu8vk")
+shader_parameter/half_right = true
+shader_parameter/rect_size = Vector2(1920, 1080)
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/tex = ExtResource("3_55xt4")
 
 [sub_resource type="LabelSettings" id="LabelSettings_55jyd"]
 font_size = 96
@@ -150,10 +168,46 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_55xt4")]
+}
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
-length = 35.0
+length = 40.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -221,7 +275,7 @@ tracks/5/path = NodePath("Subtitles:text")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.7, 6.2, 10.5, 16.5, 23.1, 24.3, 29.4),
+"times": PackedFloat32Array(0, 1.7, 6.2, 10.5, 16.5, 23.1, 28.4, 33.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["", "Once upon a time… (music)", "There was a tree. A big, well established tree with roots reaching deep into the soil. ", "What was special about this tree was its seeds. ", "With a single blow of the wind, its seeds would scatter through the air ", "", "And they would fly far far away, looking for a place to root.", "This is the story of one of those seeds. 
@@ -287,6 +341,42 @@ tracks/10/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(23.2, 24.3, 25.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 90.0, 8.55e-06]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BookTurn:material:shader_parameter/half_right")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(23.2, 24.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BookTurn:material:shader_parameter/tex")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(23.2, 24.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_55xt4"), ExtResource("5_xn6ax")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
@@ -312,6 +402,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_55xt4")
+
+[node name="DualTexture" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_t5pev")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BookTurn" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_im725")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 600)
