@@ -10,6 +10,7 @@ func _ready() -> void:
 	var scale_value := randf_range(0.6, 1)
 	speed *= scale_value
 	scale = Vector2(scale_value, scale_value)
+	z_index = round(scale_value * 10)
 	animated_sprite_2d.frame = randi() % 2
 	animated_sprite_2d.flip_h = rand_bool()
 
