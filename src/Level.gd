@@ -71,6 +71,9 @@ func change_checkpoint() -> void:
 	match current_checkpoint:
 		0:
 			tree_timer.start()
+		4:
+			for tree in tree_parent.get_children():
+				tree.collapse()
 	subtitles.text = checkpoints[current_checkpoint].text
 	if GameManager.show_ambient_subtitles:
 		subtitles.text += "\n" + checkpoints[current_checkpoint].ambient_text
@@ -88,7 +91,8 @@ func _on_tree_timer_timeout() -> void:
 	var tree := tree_tscn.instantiate()
 	tree.position = pos
 	tree_parent.add_child(tree)
-	if player.position.x > checkpoints[3].pos:
+	if player.position.x > checkpoints[4].pos:
+		tree.collapse()
 		tree_timer.stop()
 	elif player.position.x > checkpoints[2].pos:
 		tree_timer.wait_time = randf_range(4, 7)

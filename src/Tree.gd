@@ -11,6 +11,7 @@ func _ready() -> void:
 	speed *= scale_value
 	scale = Vector2(scale_value, scale_value)
 	animated_sprite_2d.frame = randi() % 2
+	animated_sprite_2d.flip_h = rand_bool()
 
 
 func _process(delta: float) -> void:
@@ -18,7 +19,8 @@ func _process(delta: float) -> void:
 
 
 func collapse() -> void:
-	var collapse_direction := true if randi() % 2 == 0 else false
+	await get_tree().create_timer(randf_range(0.1, 2)).timeout
+	var collapse_direction := rand_bool()
 	if collapse_direction:
 		animation_player.play("collapse_right")
 	else:
@@ -27,3 +29,7 @@ func collapse() -> void:
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()
+
+
+func rand_bool() -> bool:
+	return true if randi() % 2 == 0 else false
