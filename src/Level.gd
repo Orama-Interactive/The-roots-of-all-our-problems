@@ -41,14 +41,13 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(15000, city_obstacles, "bomb", "And suddenly, a sound unlike any other.", "[bomb falling, exploding]"),
 	Checkpoint.new(16500, war_obstacles, "", "And everything was calm again."),
 	Checkpoint.new(18000, war_obstacles, "", "The forest was long gone."),
-	Checkpoint.new(19500, war_obstacles, "", "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
-	Checkpoint.new(21000, war_obstacles, "", "Maybe this place were never meant to be found. Because of a greedy species with zero consideration for nature or even its own kind was a bad encounter in the seed’s adventure that it shouldn’t have to have."),
-	Checkpoint.new(23000, war_obstacles, "", "A parasite, here only to destroy. Periods of conflict followed, leaving fire and blood at their trails. Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."),
+	Checkpoint.new(20000, war_obstacles, "", "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
 ]
 var current_checkpoint := 0
-var max_distance := 24000
+var max_distance := 21000
 var narrations: Array[AudioStream] = [
-	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"), preload("res://assets/audio/narration/dialogue_8.ogg"), preload("res://assets/audio/narration/dialogue_9.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"), preload("res://assets/audio/narration/dialogue_11.ogg"), preload("res://assets/audio/narration/dialogue_12.ogg"), preload("res://assets/audio/narration/dialogue_13.ogg"), preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_15.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_18.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"), preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg")
+	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"), preload("res://assets/audio/narration/dialogue_8.ogg"), preload("res://assets/audio/narration/dialogue_9.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"), preload("res://assets/audio/narration/dialogue_11.ogg"), preload("res://assets/audio/narration/dialogue_12.ogg"), preload("res://assets/audio/narration/dialogue_13.ogg"), preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_15.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_18.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"), 
+preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg"), preload("res://assets/audio/narration/dialogue_23.ogg")
 ]
 @onready var player: Player = $Player
 @onready var tree_parent: Node2D = $TreeParent
