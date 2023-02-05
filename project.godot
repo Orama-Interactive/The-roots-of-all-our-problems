@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GGJ-2023"
+config/name="The roots of all our problems"
 run/main_scene="res://src/Menu/menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
