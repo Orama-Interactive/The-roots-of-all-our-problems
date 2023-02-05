@@ -153,7 +153,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
-length = 21.0
+length = 35.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -221,7 +221,7 @@ tracks/5/path = NodePath("Subtitles:text")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.7, 4.4, 7.3, 10.5, 14, 15.2, 18.1),
+"times": PackedFloat32Array(0, 1.7, 6.2, 10.5, 16.5, 23.1, 24.3, 29.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["", "Once upon a time… (music)", "There was a tree. A big, well established tree with roots reaching deep into the soil. ", "What was special about this tree was its seeds. ", "With a single blow of the wind, its seeds would scatter through the air ", "", "And they would fly far far away, looking for a place to root.", "This is the story of one of those seeds. 
@@ -234,7 +234,7 @@ tracks/6/path = NodePath("TextureRect:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 14.5),
+"times": PackedFloat32Array(0, 23.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_55xt4"), ExtResource("5_xn6ax")]
@@ -246,7 +246,7 @@ tracks/7/path = NodePath("Subtitles:size")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 14, 14.1),
+"times": PackedFloat32Array(0, 23.1, 23.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(895, 815), Vector2(895, 815), Vector2(452, 815)]
@@ -258,7 +258,7 @@ tracks/8/path = NodePath("Subtitles:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 14, 14.1),
+"times": PackedFloat32Array(0, 23.1, 23.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(882, 121), Vector2(882, 121), Vector2(1325, 121)]
