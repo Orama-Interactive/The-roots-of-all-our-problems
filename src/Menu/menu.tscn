@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckqsahi55idtj"]
+[gd_scene load_steps=17 format=3 uid="uid://ckqsahi55idtj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="4_76yoj"]
 [ext_resource type="Texture2D" uid="uid://doqu2sbglr5i1" path="res://assets/menu_screen_2.png" id="5_xn6ax"]
 [ext_resource type="Shader" path="res://src/BookTurn.gdshader" id="6_hu8vk"]
+[ext_resource type="AudioStream" uid="uid://c7dxueela5r4c" path="res://assets/audio/music/intro.ogg" id="8_wd7ls"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
 shader = ExtResource("4_5vb4m")
@@ -204,6 +205,17 @@ tracks/13/keys = {
 "update": 1,
 "values": [ExtResource("3_55xt4")]
 }
+tracks/14/type = "audio"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AudioStreamPlayer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/14/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
@@ -377,6 +389,21 @@ tracks/13/keys = {
 "update": 1,
 "values": [ExtResource("3_55xt4"), ExtResource("5_xn6ax")]
 }
+tracks/14/type = "audio"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AudioStreamPlayer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_wd7ls")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/14/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
@@ -465,10 +492,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 882.0
+offset_left = -1038.0
 offset_top = 121.0
-offset_right = 1777.0
-offset_bottom = 936.0
+offset_right = -143.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
@@ -496,6 +523,9 @@ actual_text = "Skip"
 libraries = {
 "": SubResource("AnimationLibrary_dg4f2")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wd7ls")
 
 [connection signal="pressed" from="Buttons/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="Buttons/Load" to="." method="_on_load_pressed"]
