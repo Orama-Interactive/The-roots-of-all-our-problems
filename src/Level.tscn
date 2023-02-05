@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://nnj78cd3gojx"]
+[gd_scene load_steps=20 format=3 uid="uid://nnj78cd3gojx"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_krh6g"]
 [ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
+[ext_resource type="Texture2D" uid="uid://bs760pqmonjvf" path="res://assets/sky_background_city.png" id="8_ym4be"]
 [ext_resource type="AudioStream" uid="uid://fd4v7xwxgbhd" path="res://assets/audio/music/flapping_through_the_skies_part_1.ogg" id="9_0arn6"]
 [ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_5kwmm"]
 
@@ -105,6 +106,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ParallaxBackground/Background:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qq820")]
+}
 
 [sub_resource type="Animation" id="Animation_idf0g"]
 resource_name = "forest_fade_1"
@@ -144,6 +157,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [ExtResource("3_2v5u0")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ParallaxBackground/Background:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qq820")]
 }
 
 [sub_resource type="Animation" id="Animation_0oqf4"]
@@ -185,6 +210,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 712)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ParallaxBackground/Background:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qq820")]
+}
 
 [sub_resource type="Animation" id="Animation_pq0xr"]
 resource_name = "town_fade_in_1"
@@ -224,6 +261,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [ExtResource("9_5kwmm")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ParallaxBackground/Background:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ym4be")]
 }
 
 [sub_resource type="Animation" id="Animation_in4iq"]
@@ -374,6 +423,7 @@ grow_vertical = 2
 theme = ExtResource("8_0dkwy")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 85.0
