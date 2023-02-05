@@ -3,14 +3,14 @@ extends Node2D
 var tree_tscn := preload("res://src/tree.tscn")
 var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(0, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "The seed flew east, through a forest. (press [space] to jump)", "(forest ambience)"),
-	Checkpoint.new(700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_1", "Navigating its way through the forest, the seed had to avoid the tree tops"),
-	Checkpoint.new(1200, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_2", "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
-	Checkpoint.new(1700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "town_fade_in_1", "But then, the seed lost its train of thought to a cracking sound.", "(sound of a tree being chopped and sound of trees falling)"),
+	Checkpoint.new(700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "Navigating its way through the forest, the seed had to avoid the tree tops"),
+	Checkpoint.new(1200, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
+	Checkpoint.new(1700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But then, the seed lost its train of thought to a cracking sound.", "(sound of a tree being chopped and sound of trees falling)"),
 	Checkpoint.new(2000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
 	Checkpoint.new(3000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But as the seed navigated further into the forest it realised that this place is far from safe.", "(sounds of rocks and arrows+new obstacles)"),
-	Checkpoint.new(4000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "The trees were falling one after the other. What could have caused such a catastrophe?"),
-	Checkpoint.new(5000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
-	Checkpoint.new(6000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "(sounds of a busy city)"),
+	Checkpoint.new(4000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_1", "The trees were falling one after the other. What could have caused such a catastrophe?"),
+	Checkpoint.new(5000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_2", "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
+	Checkpoint.new(6000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "town_fade_in_1", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "(sounds of a busy city)"),
 	Checkpoint.new(7000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
 	Checkpoint.new(8000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "And suddenly, a sound unlike any other.", "(bomb falling, exploding)"),
 	Checkpoint.new(9000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "And everything was calm again.", "(sound of fire)"),
@@ -72,9 +72,6 @@ func change_checkpoint() -> void:
 	match current_checkpoint:
 		0:
 			tree_timer.start()
-		4:
-			for tree in tree_parent.get_children():
-				tree.collapse()
 	subtitles.text = checkpoints[current_checkpoint].text
 	if GameManager.show_ambient_subtitles:
 		subtitles.text += "\n" + checkpoints[current_checkpoint].ambient_text
@@ -91,12 +88,24 @@ func _on_tree_timer_timeout() -> void:
 	var tree := tree_tscn.instantiate()
 	tree.position = pos
 	tree_parent.add_child(tree)
-	if player.position.x > checkpoints[4].pos:
+	if player.position.x > checkpoints[7].pos:
 		tree.collapse()
 		tree_timer.stop()
-	elif player.position.x > checkpoints[2].pos:
-		tree_timer.wait_time = randf_range(4, 7)
-	elif player.position.x > checkpoints[1].pos:
+	elif player.position.x > checkpoints[6].pos:
+		tree_timer.wait_time = randf_range(3, 6)
+		if randi() % 2 == 0:
+			tree.collapse()
+	elif player.position.x > checkpoints[5].pos:
+		tree_timer.wait_time = randf_range(2, 5)
+		if randi() % 3 == 0:
+			tree.collapse()
+	elif player.position.x > checkpoints[4].pos:
 		tree_timer.wait_time = randf_range(1, 4)
+		if randi() % 4 == 0:
+			tree.collapse()
+	elif player.position.x > checkpoints[2].pos:
+		tree_timer.wait_time = randf_range(1, 3)
+	elif player.position.x > checkpoints[1].pos:
+		tree_timer.wait_time = randf_range(0.6, 3)
 	else:
-		tree_timer.wait_time = randf_range(0.2, 2)
+		tree_timer.wait_time = randf_range(0.1, 0.8)

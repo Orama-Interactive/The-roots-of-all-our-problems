@@ -323,6 +323,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="TreeTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="TreeParent" type="Node2D" parent="."]
 

@@ -18,6 +18,7 @@ func _ready() -> void:
 	var tex_size := sprite.texture.get_size()
 	position.x = player_pos.x + 1940
 	position.y = 1080.0 if place == Place.FLOOR else tex_size.y
+	sprite.flip_h = rand_bool()
 
 
 func _physics_process(delta: float) -> void:
@@ -32,3 +33,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()
+
+
+func rand_bool() -> bool:
+	return true if randi() % 2 == 0 else false
