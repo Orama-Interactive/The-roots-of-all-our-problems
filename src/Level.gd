@@ -46,10 +46,10 @@ var checkpoints: Array[Checkpoint] = [
 var current_checkpoint := 0
 var max_distance := 21000
 var narrations: Array[AudioStream] = [
-	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"), 
+	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"),
 	preload("res://assets/audio/narration/dialogue_8.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"),
 	preload("res://assets/audio/narration/dialogue_11.ogg"), preload("res://assets/audio/narration/dialogue_13.ogg"),
-	preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"), 
+	preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"),
 preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg"), preload("res://assets/audio/narration/dialogue_23.ogg")
 ]
 @onready var player: Player = $Player
