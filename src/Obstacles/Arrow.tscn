@@ -8,7 +8,6 @@ script = ExtResource("1_bybbh")
 can_flip = false
 
 [node name="Area2D" type="Area2D" parent="."]
-rotation = -1.5708
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_tvymm")

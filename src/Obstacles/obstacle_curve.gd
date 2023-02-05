@@ -13,5 +13,5 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity * delta
 
 	velocity.x = speed * delta
-	sprite.rotation = velocity.angle()
+	$Area2D.rotation = velocity.angle()
 	move_and_slide()
