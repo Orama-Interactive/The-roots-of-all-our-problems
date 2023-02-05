@@ -11,12 +11,17 @@ var forest_obstacles: Array[PackedScene] = [
 var city_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Antenna_1.tscn"),
 		preload("res://src/Obstacles/Antenna_2.tscn"),
+		preload("res://src/Obstacles/Rock_1.tscn"),
+		preload("res://src/Obstacles/Rock_2.tscn"),
 	]
 var war_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetrunk_1.tscn"),
 		preload("res://src/Obstacles/Treetrunk_2.tscn"),
 		preload("res://src/Obstacles/Treetrunk_3.tscn"),
 		preload("res://src/Obstacles/Treetrunk_4.tscn"),
+		preload("res://src/Obstacles/Rock_1.tscn"),
+		preload("res://src/Obstacles/Rock_2.tscn"),
+		preload("res://src/Obstacles/Arrow.tscn"),
 	]
 var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(0, forest_obstacles,"", "The seed flew east, through a forest. (press [space] to jump)", "(forest ambience)", preload("res://assets/audio/sounds/forest_ambience.wav"),),
