@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ua8650j8e36q"]
+[gd_scene load_steps=7 format=3 uid="uid://ua8650j8e36q"]
 
 [ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="1_dpiho"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_oyalr"]
@@ -12,11 +12,6 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mr767"]
 font_size = 64
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4x71d"]
-line_spacing = -14.0
-font_size = 50
 font_color = Color(0, 0, 0, 1)
 
 [node name="Credits" type="Control"]
@@ -43,49 +38,60 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 1060.0
+offset_top = 634.0
 offset_right = -1.0
-offset_bottom = 166.0
+offset_bottom = 800.0
 grow_horizontal = 2
 text = "The roots of all our problems"
 label_settings = SubResource("LabelSettings_6ngoc")
 
-[node name="GameTitle" type="Label" parent="."]
+[node name="ByOrama" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 1060.0
-offset_top = 107.0
+offset_top = 741.0
 offset_right = -5.0
-offset_bottom = 222.0
+offset_bottom = 856.0
 grow_horizontal = 2
 text = "By Orama Interactive"
 label_settings = SubResource("LabelSettings_mr767")
 
-[node name="Label" type="Label" parent="."]
+[node name="Text" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -860.0
-offset_top = 192.0
+offset_top = 851.0
 offset_right = -7.0
 offset_bottom = -83.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "Emmanouil Papadeas: Programming
+bbcode_enabled = true
+text = "[font_size=64]Emmanouil Papadeas:[/font_size]
+Game Programming, Dialogue Development
 
-Ioannis Nikitakis: Graphics
+[font_size=64]Ioannis Nikitakis[/font_size]
+Art Direction, Story/Dialogue Development, Graphic Design, Narration
 
-Sol Louloudaki: Graphics
+[font_size=64]Eleni Louloudaki[/font_size]
+Cutscene Design, Graphic Design, Storyboards
 
-Orion Bourazanis: Graphics
+[font_size=64]Orion Bourazanis[/font_size]
+Concept Art, Graphic Design
 
-Chris Douris: Music
+[font_size=64]Chris Douris[/font_size]
+Music Production
 
 Font: AmaticSc
 
-Made with Godot 4.0 for the Global Game Jam 2023"
-label_settings = SubResource("LabelSettings_4x71d")
-vertical_alignment = 1
+Game created with Godot within 48 hours for Global Game Jam 2023 (Jam theme: \"Roots\")
+
+Special thanks to
+- The GGJ team and GGJ Athens for organising this jam event and helping inspire this game
+
+Thank you for playing! "
+scroll_active = false
 autowrap_mode = 2
