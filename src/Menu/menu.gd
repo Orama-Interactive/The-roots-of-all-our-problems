@@ -1,6 +1,7 @@
 extends Control
 
-@onready var new_button: Button = $VBoxContainer/New
+@onready var buttons: VBoxContainer = $Buttons
+@onready var new_button: Button = $Buttons/New
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
@@ -10,6 +11,8 @@ func _ready() -> void:
 
 func _on_new_pressed() -> void:
 	animation_player.play("first_scene")
+	for button in buttons.get_children():
+		button.disabled = true
 
 
 func _on_load_pressed() -> void:

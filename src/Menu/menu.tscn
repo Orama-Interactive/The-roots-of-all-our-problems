@@ -15,7 +15,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/New:modulate")
+tracks/0/path = NodePath("Buttons/New:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/Load:modulate")
+tracks/1/path = NodePath("Buttons/Load:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/Settings:modulate")
+tracks/2/path = NodePath("Buttons/Settings:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +51,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/Credits:modulate")
+tracks/3/path = NodePath("Buttons/Credits:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -63,7 +63,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/Exit:modulate")
+tracks/4/path = NodePath("Buttons/Exit:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -127,7 +127,7 @@ length = 21.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/New:modulate")
+tracks/0/path = NodePath("Buttons/New:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -139,7 +139,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/Load:modulate")
+tracks/1/path = NodePath("Buttons/Load:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -151,7 +151,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/Settings:modulate")
+tracks/2/path = NodePath("Buttons/Settings:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -163,7 +163,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/Credits:modulate")
+tracks/3/path = NodePath("Buttons/Credits:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -175,7 +175,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/Exit:modulate")
+tracks/4/path = NodePath("Buttons/Exit:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -259,7 +259,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_55xt4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 600)
 layout_mode = 1
 anchors_preset = 6
@@ -275,23 +275,23 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 32
 
-[node name="New" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+[node name="New" parent="Buttons" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "New game"
 
-[node name="Load" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+[node name="Load" parent="Buttons" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Load game"
 
-[node name="Settings" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+[node name="Settings" parent="Buttons" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Settings"
 
-[node name="Credits" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+[node name="Credits" parent="Buttons" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Credits"
 
-[node name="Exit" parent="VBoxContainer" instance=ExtResource("4_76yoj")]
+[node name="Exit" parent="Buttons" instance=ExtResource("4_76yoj")]
 layout_mode = 2
 actual_text = "Exit game"
 
@@ -301,10 +301,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 882.0
+offset_left = -1038.0
 offset_top = 121.0
-offset_right = 1777.0
-offset_bottom = 936.0
+offset_right = -143.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
@@ -317,9 +317,9 @@ libraries = {
 "": SubResource("AnimationLibrary_dg4f2")
 }
 
-[connection signal="pressed" from="VBoxContainer/New" to="." method="_on_new_pressed"]
-[connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="Buttons/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
