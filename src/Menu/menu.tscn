@@ -236,7 +236,7 @@ tracks/15/keys = {
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
-length = 40.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
