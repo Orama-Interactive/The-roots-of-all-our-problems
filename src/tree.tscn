@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/tree_1.png" id="1_qmpui"]
 [ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/tree_2.png" id="3_xrpnt"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_so12h"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_55rlu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -18,7 +18,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_n4wjf"]
+[sub_resource type="Animation" id="Animation_g2jth"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_w0g81"]
+[sub_resource type="Animation" id="Animation_l4jyb"]
 resource_name = "collapse_left"
 length = 3.0
 tracks/0/type = "value"
@@ -73,7 +73,7 @@ tracks/1/keys = {
 "values": [0.0, -1.5708]
 }
 
-[sub_resource type="Animation" id="Animation_2bqf4"]
+[sub_resource type="Animation" id="Animation_lspin"]
 resource_name = "collapse_right"
 length = 3.0
 tracks/0/type = "value"
@@ -101,25 +101,25 @@ tracks/1/keys = {
 "values": [0.0, 1.5708]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_otvhr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4b4v"]
 _data = {
-"RESET": SubResource("Animation_n4wjf"),
-"collapse_left": SubResource("Animation_w0g81"),
-"collapse_right": SubResource("Animation_2bqf4")
+"RESET": SubResource("Animation_g2jth"),
+"collapse_left": SubResource("Animation_l4jyb"),
+"collapse_right": SubResource("Animation_lspin")
 }
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_3l4t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_so12h")
+sprite_frames = SubResource("SpriteFrames_55rlu")
 frame_progress = 0.664698
 centered = false
 offset = Vector2(-286, -1080)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_otvhr")
+"": SubResource("AnimationLibrary_m4b4v")
 }
 
 [node name="DespawnTimer" type="Timer" parent="."]
