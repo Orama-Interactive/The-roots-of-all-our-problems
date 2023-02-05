@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btgwps1ds3ro6"
+path="res://.godot/imported/Busy city 1.wav-1744c8b144fb95fb8b5fb4d9c1b4185b.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/Busy city 1.wav"
+dest_files=["res://.godot/imported/Busy city 1.wav-1744c8b144fb95fb8b5fb4d9c1b4185b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

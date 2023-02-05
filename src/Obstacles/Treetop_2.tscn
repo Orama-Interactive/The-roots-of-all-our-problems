@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnspijuqxf8k0"]
+
+[ext_resource type="Script" path="res://src/Obstacles/obstacle.gd" id="1_pfle6"]
+[ext_resource type="Texture2D" uid="uid://dew36vb3puwcq" path="res://assets/obstacles/treetop_2.png" id="2_lm5ea"]
+
+[node name="Obstacle" type="CharacterBody2D"]
+script = ExtResource("1_pfle6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
+position = Vector2(-203, -448)
+texture = ExtResource("2_lm5ea")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-203, -448)
+polygon = PackedVector2Array(264, 9, 264, 11.4, 269, 19.4, 269, 25.6, 275, 55.8, 275, 63, 277.8, 94.1, 298, 99.5, 298, 101.2, 309, 112.2, 309, 115.7, 319, 174.8, 319, 225, 318.2, 245.7, 353.1, 207, 378, 207, 378, 209, 391, 219, 391, 221.6, 395.4, 244, 393.5, 244, 385.6, 277.4, 400.5, 270, 414, 270, 414, 271.6, 424, 275.6, 424, 277.2, 431, 284.2, 431, 286.6, 436, 297.6, 436, 315.2, 434.6, 321, 433.4, 321, 427.4, 339, 426.1, 339, 413.6, 359, 435, 359, 435, 360.9, 450, 369.9, 450, 406, 447.9, 406, 409.6, 450, 54, 450, 26, 413.7, 26, 411.6, 16, 395.6, 16, 392.4, 0, 357.7, 0, 327, 14.2, 313, 16.5, 313, 23.5, 309, 37, 309, 37, 310.6, 46, 313.6, 46, 314.9, 97.1, 349.5, 88, 337.7, 88, 335.4, 65, 285.4, 65, 281.3, 62, 274.4, 62, 260.8, 63.4, 255, 65, 255, 72, 245, 74.4, 245, 82.4, 240, 98.5, 240, 101.2, 241.3, 92, 217.4, 92, 213, 90.8, 201, 92.4, 201, 94.4, 192, 96.1, 192, 105.1, 182, 107.7, 182, 114.6, 179, 122.2, 179, 125.4, 179.6, 138.5, 173, 153, 173, 153, 174.5, 163, 177.5, 163, 179.2, 171.6, 187.8, 176, 173.7, 176, 163.9, 179.2, 131, 180.4, 131, 205.4, 20, 206.7, 20, 211.7, 8, 213.3, 8, 223, 0.1, 252, 0)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

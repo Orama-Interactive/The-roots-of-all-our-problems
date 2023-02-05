@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://ua8650j8e36q"]
+
+[ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="1_dpiho"]
+[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_oyalr"]
+[ext_resource type="Script" path="res://src/Menu/credits.gd" id="2_ujgvv"]
+[ext_resource type="FontFile" uid="uid://baxd48svhm4ux" path="res://assets/fonts/AmaticSC-Bold.ttf" id="3_6mcyw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ngoc"]
+font = ExtResource("3_6mcyw")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mr767"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oyalr")
+script = ExtResource("2_ujgvv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dpiho")
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1060.0
+offset_top = 634.0
+offset_right = -1.0
+offset_bottom = 800.0
+grow_horizontal = 2
+text = "The roots of all our problems"
+label_settings = SubResource("LabelSettings_6ngoc")
+
+[node name="ByOrama" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1060.0
+offset_top = 741.0
+offset_right = -5.0
+offset_bottom = 856.0
+grow_horizontal = 2
+text = "By Orama Interactive"
+label_settings = SubResource("LabelSettings_mr767")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -860.0
+offset_top = 851.0
+offset_right = -7.0
+offset_bottom = -83.0
+grow_horizontal = 0
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=64]Emmanouil Papadeas[/font_size]
+Game Programming, Dialogue Development
+
+[font_size=64]Ioannis Nikitakis[/font_size]
+Art Direction, Story/Dialogue Development, Graphic Design, Narration
+
+[font_size=64]Eleni Louloudaki[/font_size]
+Cutscene Design, Graphic Design, Storyboards
+
+[font_size=64]Orion Bourazanis[/font_size]
+Concept Art, Graphic Design
+
+[font_size=64]Chris Douris[/font_size]
+Music Production
+
+Font: AmaticSc
+
+Game created with Godot within 48 hours for Global Game Jam 2023 (Jam theme: \"Roots\")
+
+Special thanks to
+- The GGJ team and GGJ Athens for organising this jam event and helping inspire this game
+
+Thank you for playing! "
+scroll_active = false
+autowrap_mode = 2

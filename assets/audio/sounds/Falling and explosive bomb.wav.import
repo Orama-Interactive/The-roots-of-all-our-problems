@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3tnkmy5ydqor"
+path="res://.godot/imported/Falling and explosive bomb.wav-b15c544a1fd875c2564dba121315559b.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/Falling and explosive bomb.wav"
+dest_files=["res://.godot/imported/Falling and explosive bomb.wav-b15c544a1fd875c2564dba121315559b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

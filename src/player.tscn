@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb4gnn6ytlbh7"]
+[gd_scene load_steps=10 format=3 uid="uid://cb4gnn6ytlbh7"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_63eh7"]
 [ext_resource type="Texture2D" uid="uid://bpcbux4qkvsys" path="res://assets/player/fall_1.png" id="2_4wirq"]
 [ext_resource type="Texture2D" uid="uid://cfop7qb6al3qy" path="res://assets/player/move_1.png" id="2_d0ex3"]
 [ext_resource type="Texture2D" uid="uid://dlgshkafcs2lk" path="res://assets/player/move_2.png" id="3_0e68n"]
+[ext_resource type="Texture2D" uid="uid://bhaxy03f1gwlu" path="res://assets/player/fall_2.png" id="5_ttyru"]
+[ext_resource type="Texture2D" uid="uid://d4lq8yue2pypb" path="res://assets/player/fall_3.png" id="6_qeq0a"]
+[ext_resource type="Texture2D" uid="uid://cachws70fyds8" path="res://assets/player/fall_4.png" id="7_t2lrb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ux0rx"]
 animations = [{
@@ -23,6 +26,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4wirq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ttyru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qeq0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t2lrb")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2liy7"]
@@ -33,7 +53,7 @@ script = ExtResource("1_63eh7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ux0rx")
-frame_progress = 0.316015
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3)

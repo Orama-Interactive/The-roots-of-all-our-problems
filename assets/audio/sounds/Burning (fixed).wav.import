@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6wr4aa3xs4ho"
+path="res://.godot/imported/Burning (fixed).wav-53aae5320cb77a7fde06d17135255c8c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/Burning (fixed).wav"
+dest_files=["res://.godot/imported/Burning (fixed).wav-53aae5320cb77a7fde06d17135255c8c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

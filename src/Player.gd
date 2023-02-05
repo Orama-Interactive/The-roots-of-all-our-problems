@@ -5,20 +5,26 @@ const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
+var falling := false
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
+	start()
+
+
+func start() -> void:
 	animated_sprite_2d.play("default")
 
 
 func _physics_process(delta: float):
 	# Add the gravity.
 	velocity.y += gravity * delta
+	velocity.y = clamp(velocity.y, JUMP_VELOCITY, 1200)
 
 	# Handle Jump.
-	if Input.is_action_pressed("jump"):
+	if not falling and Input.is_action_pressed("jump"):
 		animated_sprite_2d.speed_scale = 2
 		velocity.y = JUMP_VELOCITY
 	else:
@@ -26,3 +32,11 @@ func _physics_process(delta: float):
 
 	velocity.x = SPEED * delta
 	move_and_slide()
+
+	if position.y < -80 or position.y > 1160:
+		GameManager.game_over()
+
+
+func fall() -> void:
+	animated_sprite_2d.play("fall")
+	falling = true
