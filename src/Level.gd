@@ -1,23 +1,30 @@
 extends Node2D
 
 var tree_tscn := preload("res://src/tree.tscn")
+var forest_obstacles: Array[PackedScene] = [
+		preload("res://src/Obstacles/Treetop_1.tscn"),
+		preload("res://src/Obstacles/Treetop_2.tscn"),
+		preload("res://src/Obstacles/Rock_1.tscn"),
+		preload("res://src/Obstacles/Rock_2.tscn"),
+		preload("res://src/Obstacles/Arrow.tscn"),
+	]
 var checkpoints: Array[Checkpoint] = [
-	Checkpoint.new(0, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "The seed flew east, through a forest. (press [space] to jump)", "(forest ambience)", preload("res://assets/audio/sounds/forest_ambience.wav"),),
-	Checkpoint.new(700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "Navigating its way through the forest, the seed had to avoid the tree tops"),
-	Checkpoint.new(1200, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
-	Checkpoint.new(1700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But then, the seed lost its train of thought to a cracking sound.", "(sound of a tree being chopped and sound of trees falling)"),
-	Checkpoint.new(2000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
-	Checkpoint.new(3000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But as the seed navigated further into the forest it realised that this place is far from safe.", "(sounds of rocks and arrows+new obstacles)"),
-	Checkpoint.new(4000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_1", "The trees were falling one after the other. What could have caused such a catastrophe?"),
-	Checkpoint.new(5000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_2", "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
-	Checkpoint.new(6000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "town_fade_in_1", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "(sounds of a busy city)", preload("res://assets/audio/sounds/busy_city.wav")),
-	Checkpoint.new(7000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "town_fade_in_2", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
-	Checkpoint.new(8000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "And suddenly, a sound unlike any other.", "(bomb falling, exploding)"),
-	Checkpoint.new(9000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "And everything was calm again.", "(sound of fire)"),
-	Checkpoint.new(10000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "The forest was long gone."),
-	Checkpoint.new(11000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
-	Checkpoint.new(12000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "Maybe this place were never meant to be found. Because of a greedy species with zero consideration for nature or even its own kind was a bad encounter in the seed’s adventure that it shouldn’t have to have."),
-	Checkpoint.new(13000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "A parasite, here only to destroy. Periods of conflict followed, leaving fire and blood at their trails. Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."),
+	Checkpoint.new(0, forest_obstacles,"", "The seed flew east, through a forest. (press [space] to jump)", "(forest ambience)", preload("res://assets/audio/sounds/forest_ambience.wav"),),
+	Checkpoint.new(700, forest_obstacles, "", "Navigating its way through the forest, the seed had to avoid the tree tops"),
+	Checkpoint.new(1200, forest_obstacles, "", "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
+	Checkpoint.new(1700, forest_obstacles, "", "But then, the seed lost its train of thought to a cracking sound.", "(sound of a tree being chopped and sound of trees falling)"),
+	Checkpoint.new(2000, forest_obstacles, "", "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
+	Checkpoint.new(3000, forest_obstacles, "", "But as the seed navigated further into the forest it realised that this place is far from safe.", "(sounds of rocks and arrows+new obstacles)"),
+	Checkpoint.new(4000, forest_obstacles, "forest_fade_1", "The trees were falling one after the other. What could have caused such a catastrophe?"),
+	Checkpoint.new(5000, forest_obstacles, "forest_fade_2", "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
+	Checkpoint.new(6000, forest_obstacles, "town_fade_in_1", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "(sounds of a busy city)", preload("res://assets/audio/sounds/busy_city.wav")),
+	Checkpoint.new(7000, forest_obstacles, "town_fade_in_2", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
+	Checkpoint.new(8000, forest_obstacles, "", "And suddenly, a sound unlike any other.", "(bomb falling, exploding)"),
+	Checkpoint.new(9000, forest_obstacles, "", "And everything was calm again.", "(sound of fire)"),
+	Checkpoint.new(10000, forest_obstacles, "", "The forest was long gone."),
+	Checkpoint.new(11000, forest_obstacles, "", "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
+	Checkpoint.new(12000, forest_obstacles, "", "Maybe this place were never meant to be found. Because of a greedy species with zero consideration for nature or even its own kind was a bad encounter in the seed’s adventure that it shouldn’t have to have."),
+	Checkpoint.new(13000, forest_obstacles, "", "A parasite, here only to destroy. Periods of conflict followed, leaving fire and blood at their trails. Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."),
 ]
 var current_checkpoint := 0
 @onready var player: Player = $Player

@@ -6,7 +6,6 @@ extends Control
 @onready var text: RichTextLabel = $Text
 
 
-
 func _input(event: InputEvent) -> void:
 	if (event is InputEventKey
 	or event is InputEventMouseButton

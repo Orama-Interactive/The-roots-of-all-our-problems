@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf55ybsg0lxke"]
+
+[ext_resource type="Script" path="res://src/Obstacles/obstacle_curve.gd" id="1_5rukg"]
+[ext_resource type="Texture2D" uid="uid://dntecr84tw1ud" path="res://assets/obstacles/rock_1.png" id="2_232he"]
+
+[node name="Rock_1" type="CharacterBody2D"]
+script = ExtResource("1_5rukg")
+can_flip = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_232he")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(137, 10.6, 137, 11.9, 149, 19.9, 149, 22.5, 162.1, 45, 163.5, 45, 190, 59.8, 190, 64.6, 188.9, 66.2, 192, 83.6, 192, 97, 184.6, 101.8, 192, 109.2, 192, 120, 186, 127.7, 186, 135.5, 188.2, 140, 184.9, 140, 168.9, 158, 166.7, 158, 154.7, 167, 152.5, 167, 111.4, 188, 82.3, 188, 45, 170.3, 45, 167.8, 40, 162.8, 40, 160.5, 25.7, 131, 24.2, 131, 2, 108.8, 2, 81, 3.5, 81, 16.5, 38, 17.6, 38, 20.6, 30, 22.1, 30, 31.1, 19, 34.8, 19, 56, 16.8, 56, 18.3, 72.5, 21.6, 76, 19, 76, 16.6, 81.7, 3, 83.4, 3, 87.9, 0, 108.1, 0)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

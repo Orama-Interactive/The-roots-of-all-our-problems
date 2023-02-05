@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyses3cqi7527"
-path="res://.godot/imported/rock_2.png-50dcff6fbb5d2c5d7dac9a250ce5821c.ctex"
+uid="uid://buynfwxevs4me"
+path="res://.godot/imported/antenna_2.png-3088bd17205f2e462f44ae1c155f3a91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rock_2.png"
-dest_files=["res://.godot/imported/rock_2.png-50dcff6fbb5d2c5d7dac9a250ce5821c.ctex"]
+source_file="res://assets/obstacles/antenna_2.png"
+dest_files=["res://.godot/imported/antenna_2.png-3088bd17205f2e462f44ae1c155f3a91.ctex"]
 
 [params]
 

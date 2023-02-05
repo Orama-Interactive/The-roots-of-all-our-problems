@@ -4,6 +4,7 @@ extends CharacterBody2D
 enum Place { FLOOR, CEILING }
 
 @export var place := Place.FLOOR
+@export var can_flip := true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,7 +19,8 @@ func _ready() -> void:
 	var tex_size := sprite.texture.get_size()
 	position.x = player_pos.x + 1940
 	position.y = 1080.0 if place == Place.FLOOR else tex_size.y
-	sprite.flip_h = rand_bool()
+	if can_flip:
+		sprite.flip_h = rand_bool()
 
 
 func _physics_process(delta: float) -> void:

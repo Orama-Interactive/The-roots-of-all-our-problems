@@ -290,7 +290,6 @@ texture = ExtResource("4_krh6g")
 centered = false
 
 [node name="ObstacleTimer" type="Timer" parent="."]
-wait_time = 3.0
 autostart = true
 
 [node name="TreeTimer" type="Timer" parent="."]

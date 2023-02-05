@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmfbrhxi6cwgd"
-path="res://.godot/imported/arrow.png-af9c40b335090227900bc7e5c1ee343c.ctex"
+uid="uid://dntecr84tw1ud"
+path="res://.godot/imported/rock_1.png-e919392cac49280a8c3b045d9e48c1cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-af9c40b335090227900bc7e5c1ee343c.ctex"]
+source_file="res://assets/obstacles/rock_1.png"
+dest_files=["res://.godot/imported/rock_1.png-e919392cac49280a8c3b045d9e48c1cd.ctex"]
 
 [params]
 
