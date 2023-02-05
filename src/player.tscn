@@ -62,7 +62,7 @@ position = Vector2(0.5, 3)
 shape = SubResource("CapsuleShape2D_8fr7b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(800, 0)
+offset = Vector2(700, 0)
 limit_top = 0
 limit_bottom = 1
 
