@@ -20,5 +20,8 @@ func load_game() -> int:
 
 func game_over() -> void:
 	loaded = true
+	var player: Player = get_tree().current_scene.player
+	player.falling = false
+	player.start()
 	get_tree().current_scene.go_to_checkpoint()
 #	get_tree().reload_current_scene() # Why does this crash?
