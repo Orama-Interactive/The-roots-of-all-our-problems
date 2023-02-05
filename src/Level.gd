@@ -37,6 +37,7 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(13000, war_obstacles, "", "A parasite, here only to destroy. Periods of conflict followed, leaving fire and blood at their trails. Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."),
 ]
 var current_checkpoint := 0
+var max_distance := 1000
 @onready var player: Player = $Player
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
@@ -84,11 +85,21 @@ func _process(_delta: float) -> void:
 	if pos >= checkpoints[current_checkpoint + 1].pos:
 		current_checkpoint += 1
 		change_checkpoint()
+	if pos >= max_distance:
+		animation_player.play("ending")
 
 
 func go_to_checkpoint() -> void:
 	player.position.x = checkpoints[current_checkpoint].pos + 1
 	player.position.y = 160
+
+
+func free_camera() -> void:
+	player.camera_2d.queue_free()
+
+
+func ending() -> void:
+	get_tree().change_scene_to_file("res://src/ending.tscn")
 
 
 func change_checkpoint() -> void:

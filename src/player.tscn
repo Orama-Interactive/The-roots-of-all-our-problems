@@ -69,4 +69,5 @@ position_smoothing_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_fdo5n")
+volume_db = -9.0
 autoplay = true
