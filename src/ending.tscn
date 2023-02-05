@@ -1,0 +1,271 @@
+[gd_scene load_steps=17 format=3 uid="uid://dagb638t0ykpj"]
+
+[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_ldaek"]
+[ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="2_npoad"]
+[ext_resource type="Texture2D" uid="uid://dp5au5yy4exi1" path="res://assets/cutscene/ending_1.png" id="2_t56jj"]
+[ext_resource type="Texture2D" uid="uid://dl0n7bbyp4dwg" path="res://assets/cutscene/ending_2.png" id="3_jdy05"]
+[ext_resource type="Texture2D" uid="uid://cjs4o4h0qs65v" path="res://assets/cutscene/ending_3.png" id="4_836ah"]
+[ext_resource type="Texture2D" uid="uid://c4ovhof2ts8e2" path="res://assets/cutscene/ending_4.png" id="5_jy422"]
+[ext_resource type="Texture2D" uid="uid://206bxl6th6s1" path="res://assets/cutscene/soldier_1.png" id="6_upuld"]
+[ext_resource type="Texture2D" uid="uid://8crxaqoroicn" path="res://assets/cutscene/soldier_2.png" id="7_g1uc5"]
+[ext_resource type="Texture2D" uid="uid://d4noc768rw1y1" path="res://assets/cutscene/soldier_3.png" id="8_7c45y"]
+[ext_resource type="Texture2D" uid="uid://gibpw7myw6aw" path="res://assets/cutscene/soldier_4.png" id="9_dnb62"]
+[ext_resource type="Texture2D" uid="uid://tejcfqafhysc" path="res://assets/cutscene/soldier_5.png" id="10_3axdd"]
+[ext_resource type="Texture2D" uid="uid://2v7mv3jgdj73" path="res://assets/cutscene/ending_5.png" id="11_j5t5q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i58ny"]
+font_size = 50
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_rnp3n"]
+resource_name = "ending"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.4, 3.9, 4.7, 5.9, 8.3, 9.4, 10.4, 11.3, 12, 13.2, 14.5, 15.9, 17.1, 18, 20.1, 20.8, 22.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "Periods of conflict followed, leaving fire and blood at their trails.", "Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped.", "But grandpa, what happened to the seed? It just laid there having not found proper soil and died?", "Yes", "Then I don't like this story! ", "", "I'm glad you said that.", "You see.", "This story and stories like that is the root of all our problems.", "It was supposed to only contain dark truths.", "Truths that make us desperate, truths that make us give up all hope.", "Truths that are capable of killing each and every seed of hope left within us.", "But dark truths are only half the truth. ", "And sometimes even less.", "Be careful, for the world is full of stories like this.", "But they do not really represent us, they just sound believable enough to paralyze our efforts of something better.", "We already have the seeds of hope from the ones that came before us in our own hearts.", "Now we have to choose the endings to the stories we believe in", "for those seeds to really root for the ones who will come after."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.6, 7.01721, 9.9, 14.8, 15.7, 16.6, 18, 18.5, 20.1, 20.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_t56jj"), ExtResource("3_jdy05"), ExtResource("4_836ah"), ExtResource("5_jy422"), ExtResource("6_upuld"), ExtResource("7_g1uc5"), ExtResource("8_7c45y"), ExtResource("9_dnb62"), ExtResource("10_3axdd"), null, ExtResource("11_j5t5q")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.9, 3.5, 20.1, 20.2, 20.9, 22.9, 23.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 9.9, 14.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("2_npoad"), null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WhiteBars:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(22.9, 23.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Subtitles:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(24.9, 25.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rll08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_t56jj")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WhiteBars:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Subtitles:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iiq8o"]
+_data = {
+"RESET": SubResource("Animation_rll08"),
+"ending": SubResource("Animation_rnp3n")
+}
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ldaek")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_t56jj")
+
+[node name="Subtitles" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -176.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_i58ny")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iiq8o")
+}
+
+[node name="WhiteBars" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="WhiteBars"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 910.0
+offset_right = 551.0
+offset_bottom = 950.0
+scale = Vector2(8.52, 1.36)
+
+[node name="ColorRect3" type="ColorRect" parent="WhiteBars"]
+layout_mode = 0
+offset_left = 932.0
+offset_top = 910.0
+offset_right = 972.0
+offset_bottom = 950.0
+scale = Vector2(14, 1.36)

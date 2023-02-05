@@ -14,8 +14,8 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kt5ra"]
-font_size = 100
-outline_size = 24
+font_size = 50
+outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_f7c4f"]
@@ -325,7 +325,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -236.0
+offset_top = -176.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "The seed flew east, through a forest.
