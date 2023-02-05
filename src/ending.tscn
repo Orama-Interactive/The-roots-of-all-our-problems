@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dagb638t0ykpj"]
+[gd_scene load_steps=26 format=3 uid="uid://dagb638t0ykpj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_ldaek"]
 [ext_resource type="Script" path="res://src/ending.gd" id="2_d5h6a"]
@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://gibpw7myw6aw" path="res://assets/cutscene/soldier_4.png" id="9_dnb62"]
 [ext_resource type="Texture2D" uid="uid://tejcfqafhysc" path="res://assets/cutscene/soldier_5.png" id="10_3axdd"]
 [ext_resource type="Texture2D" uid="uid://2v7mv3jgdj73" path="res://assets/cutscene/ending_5.png" id="11_j5t5q"]
+[ext_resource type="AudioStream" uid="uid://bw8hh8mfi85ul" path="res://assets/audio/narration/dialogue_24.ogg" id="14_d1bgw"]
+[ext_resource type="AudioStream" uid="uid://ckni1rp2h7rn1" path="res://assets/audio/narration/dialogue_25.ogg" id="15_luln1"]
+[ext_resource type="AudioStream" uid="uid://chn5kap4exfxa" path="res://assets/audio/narration/dialogue_26.ogg" id="16_2pidm"]
+[ext_resource type="AudioStream" uid="uid://bydf65t4jiajk" path="res://assets/audio/narration/dialogue_27.ogg" id="17_j6dsv"]
+[ext_resource type="AudioStream" uid="uid://cglfh4ye7yh3m" path="res://assets/audio/narration/dialogue_28.ogg" id="18_5cbg7"]
+[ext_resource type="AudioStream" uid="uid://cpwha7khyr6bd" path="res://assets/audio/narration/dialogue_29.ogg" id="19_tgrx2"]
+[ext_resource type="AudioStream" uid="uid://bjakwrdugnxn" path="res://assets/audio/narration/dialogue_30.ogg" id="20_7vygn"]
+[ext_resource type="AudioStream" uid="uid://d4n2iq6meajw1" path="res://assets/audio/narration/dialogue_31.ogg" id="21_w4ki4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i58ny"]
 font_size = 50
@@ -108,7 +116,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_rnp3n"]
 resource_name = "ending"
-length = 30.0
+length = 95.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -116,10 +124,10 @@ tracks/0/path = NodePath("Subtitles:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 2.4, 3.9, 4.7, 5.9, 8.3, 9.4, 10.4, 11.3, 12, 13.2, 14.5, 15.9, 17.1, 18, 20.1, 20.8, 22.4),
+"times": PackedFloat32Array(0, 0.4, 5.2, 12.4, 20, 22.1, 23.3, 27.9, 30.3, 31.6, 36.2, 39.6, 42.8, 52.1, 54.7, 56.7, 60.3, 68.4, 73.8, 78.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "Periods of conflict followed, leaving fire and blood at their trails.", "Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped.", "But grandpa, what happened to the seed? It just laid there having not found proper soil and died?", "Yes", "Then I don't like this story! ", "", "I'm glad you said that.", "You see.", "This story and stories like that is the root of all our problems.", "It was supposed to only contain dark truths.", "Truths that make us desperate, truths that make us give up all hope.", "Truths that are capable of killing each and every seed of hope left within us.", "But dark truths are only half the truth. ", "And sometimes even less.", "Be careful, for the world is full of stories like this.", "But they do not really represent us, they just sound believable enough to paralyze our efforts of something better.", "We already have the seeds of hope from the ones that came before us in our own hearts.", "Now we have to choose the endings to the stories we believe in", "for those seeds to really root for the ones who will come after."]
+"values": ["", "Periods of conflict followed, leaving fire and blood at their trails.", "Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped.", "But grandpa, what happened to the seed? Did it just lie there without proper soil to root?", "Yes, that's right.", "Then I don't like this story! ", "", "I'm glad you said that.", "You see.", "This story and stories like that is the root of all our problems.", "It was supposed to only contain dark truths.", "Truths that make us desperate, truths that make us give up all hope.", "Truths that are capable of killing each and every seed of hope left within us.", "But dark truths are only half the truth. ", "And sometimes even less.", "Be careful, for the world is full of stories like this.", "But they do not really represent us, they just sound believable enough to paralyze our efforts of something better.", "We already have the seeds of hope from the ones that came before us in our own hearts.", "Now we have to choose the endings to the stories we believe in", "for those seeds to really root for the ones who will come after."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -128,7 +136,7 @@ tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.9),
+"times": PackedFloat32Array(0, 13.9, 16.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -140,10 +148,10 @@ tracks/2/path = NodePath("TextureRect:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 5.6, 7.01721, 9.9, 14.8, 15.7, 16.6, 18, 18.5, 20.1, 20.2),
+"times": PackedFloat32Array(0, 25, 26.4, 30.8, 34.1, 37.1, 40, 44, 45.5, 78.3, 92.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_t56jj"), ExtResource("3_jdy05"), ExtResource("4_836ah"), ExtResource("5_jy422"), ExtResource("6_upuld"), ExtResource("7_g1uc5"), ExtResource("8_7c45y"), ExtResource("9_dnb62"), ExtResource("10_3axdd"), null, ExtResource("11_j5t5q")]
+"values": [ExtResource("2_t56jj"), ExtResource("3_jdy05"), ExtResource("4_836ah"), ExtResource("5_jy422"), ExtResource("6_upuld"), ExtResource("7_g1uc5"), ExtResource("8_7c45y"), ExtResource("9_dnb62"), ExtResource("10_3axdd"), ExtResource("11_j5t5q"), null]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -152,10 +160,10 @@ tracks/3/path = NodePath("TextureRect:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.9, 3.5, 20.1, 20.2, 20.9, 22.9, 23.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 16.9, 19.7, 32.1, 40.8, 51, 51.8, 78.4, 83, 86.5, 88.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -164,7 +172,7 @@ tracks/4/path = NodePath("Background:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 9.9, 14.8),
+"times": PackedFloat32Array(0, 30.8, 34.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [null, ExtResource("2_npoad"), null]
@@ -176,7 +184,7 @@ tracks/5/path = NodePath("WhiteBars:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(22.9, 23.7),
+"times": PackedFloat32Array(86.5, 88.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -188,11 +196,54 @@ tracks/6/path = NodePath("Subtitles:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(24.9, 25.7),
+"times": PackedFloat32Array(92.1, 94.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_d1bgw")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_luln1")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_2pidm")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_j6dsv")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_5cbg7")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_tgrx2")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_7vygn")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("21_w4ki4")
+}],
+"times": PackedFloat32Array(0, 12.5, 20.2, 21.9, 27.8, 35.5, 51.7, 68.4)
+}
+tracks/7/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiq8o"]
 _data = {
@@ -274,3 +325,6 @@ scale = Vector2(14, 1.36)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 12.0
