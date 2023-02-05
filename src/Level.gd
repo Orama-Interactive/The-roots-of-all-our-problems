@@ -2,7 +2,7 @@ extends Node2D
 
 var tree_tscn := preload("res://src/tree.tscn")
 var checkpoints: Array[Checkpoint] = [
-	Checkpoint.new(0, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "The seed flew east, through a forest. (press [space] to jump)", "(forest ambience)"),
+	Checkpoint.new(0, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "The seed flew east, through a forest. (press [space] to jump)", "(forest ambience)", preload("res://assets/audio/sounds/forest_ambience.wav"),),
 	Checkpoint.new(700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "Navigating its way through the forest, the seed had to avoid the tree tops"),
 	Checkpoint.new(1200, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
 	Checkpoint.new(1700, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But then, the seed lost its train of thought to a cracking sound.", "(sound of a tree being chopped and sound of trees falling)"),
@@ -10,7 +10,7 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(3000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "But as the seed navigated further into the forest it realised that this place is far from safe.", "(sounds of rocks and arrows+new obstacles)"),
 	Checkpoint.new(4000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_1", "The trees were falling one after the other. What could have caused such a catastrophe?"),
 	Checkpoint.new(5000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "forest_fade_2", "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
-	Checkpoint.new(6000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "town_fade_in_1", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "(sounds of a busy city)"),
+	Checkpoint.new(6000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "town_fade_in_1", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "(sounds of a busy city)", preload("res://assets/audio/sounds/busy_city.wav")),
 	Checkpoint.new(7000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
 	Checkpoint.new(8000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "And suddenly, a sound unlike any other.", "(bomb falling, exploding)"),
 	Checkpoint.new(9000, [preload("res://src/Obstacles/Treetop_1.tscn"), preload("res://src/Obstacles/Treetop_2.tscn")], "", "And everything was calm again.", "(sound of fire)"),
@@ -25,6 +25,7 @@ var current_checkpoint := 0
 @onready var tree_timer: Timer = $TreeTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 class Checkpoint:
@@ -33,13 +34,21 @@ class Checkpoint:
 	var animation := ""
 	var text := ""
 	var ambient_text := ""
+	var audio: AudioStream
 
-	func _init(_pos: float, _obstacles: Array[PackedScene] = [], _animation := "", _text := "", _ambient_text := "") -> void:
+	func _init(_pos: float,
+	_obstacles: Array[PackedScene] = [],
+	_animation := "",
+	_text := "",
+	_ambient_text := "",
+	_audio: AudioStream = null,
+	) -> void:
 		pos = _pos
 		obstacles = _obstacles
 		animation = _animation
 		text = _text
 		ambient_text = _ambient_text
+		audio = _audio
 
 
 func _ready() -> void:
@@ -73,6 +82,9 @@ func change_checkpoint() -> void:
 		0:
 			tree_timer.start()
 	subtitles.text = checkpoints[current_checkpoint].text
+	if checkpoints[current_checkpoint].audio:
+		audio_stream_player.stream = checkpoints[current_checkpoint].audio
+		audio_stream_player.play()
 	if GameManager.show_ambient_subtitles:
 		subtitles.text += "\n" + checkpoints[current_checkpoint].ambient_text
 

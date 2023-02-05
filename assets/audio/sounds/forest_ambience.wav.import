@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8hl66od2a5ac"
-path="res://.godot/imported/Forest ambience.wav-a0d34c44781c46a01f82cfcb8f1b67cc.sample"
+path="res://.godot/imported/forest_ambience.wav-23cb168ae1b145039de2ef5787403177.sample"
 
 [deps]
 
-source_file="res://assets/audio/sounds/Forest ambience.wav"
-dest_files=["res://.godot/imported/Forest ambience.wav-a0d34c44781c46a01f82cfcb8f1b67cc.sample"]
+source_file="res://assets/audio/sounds/forest_ambience.wav"
+dest_files=["res://.godot/imported/forest_ambience.wav-23cb168ae1b145039de2ef5787403177.sample"]
 
 [params]
 
