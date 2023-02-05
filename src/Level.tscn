@@ -378,7 +378,7 @@ script = ExtResource("1_ljq6u")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground"]
-texture = ExtResource("2_qq820")
+texture = ExtResource("8_ym4be")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -386,8 +386,9 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="MiddleLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(0, 553)
-texture = ExtResource("3_2v5u0")
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 587)
+texture = ExtResource("9_5kwmm")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]

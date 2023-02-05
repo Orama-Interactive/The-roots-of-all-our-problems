@@ -65,7 +65,6 @@ shape = SubResource("CapsuleShape2D_8fr7b")
 offset = Vector2(800, 0)
 limit_top = 0
 limit_bottom = 1
-position_smoothing_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_fdo5n")

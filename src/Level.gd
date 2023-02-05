@@ -37,7 +37,7 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(13000, war_obstacles, "", "A parasite, here only to destroy. Periods of conflict followed, leaving fire and blood at their trails. Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."),
 ]
 var current_checkpoint := 0
-var max_distance := 1000
+var max_distance := 1300
 @onready var player: Player = $Player
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
@@ -95,7 +95,14 @@ func go_to_checkpoint() -> void:
 
 
 func free_camera() -> void:
-	player.camera_2d.queue_free()
+	player.can_move = false
+#	player.camera_2d.limit_left = 0
+#	player.camera_2d.limit_top = 0
+#	player.camera_2d.limit_right = 1
+#	player.camera_2d.limit_bottom = 1
+	player.global_position = Vector2.ZERO
+	player.camera_2d.offset.x = 960
+#	player.camera_2d.offset = Vector2.ZERO
 
 
 func ending() -> void:

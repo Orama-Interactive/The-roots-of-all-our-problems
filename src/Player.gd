@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
 
+var can_move := true
 var falling_sound := preload("res://assets/audio/sounds/dragonfly_2.wav")
 var flying_sound := preload("res://assets/audio/sounds/dragonfly_3.wav")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -23,6 +24,8 @@ func start() -> void:
 
 
 func _physics_process(delta: float):
+	if not can_move:
+		return
 	# Add the gravity.
 	velocity.y += gravity * delta
 	velocity.y = clamp(velocity.y, JUMP_VELOCITY, 1200)
