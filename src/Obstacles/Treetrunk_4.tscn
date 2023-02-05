@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpcrretgghvkw"]
+
+[ext_resource type="Script" path="res://src/Obstacles/obstacle.gd" id="1_vbhu4"]
+[ext_resource type="Texture2D" uid="uid://h7n224aw55w4" path="res://assets/obstacles/treetrunk_4.png" id="2_arlhy"]
+
+[node name="Treetrunk_4" type="CharacterBody2D"]
+script = ExtResource("1_vbhu4")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -481)
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_arlhy")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(124, 0.3, 124, 8, 128, 103, 126.3, 103, 115.3, 127, 114.1, 127, 100, 148.6, 100, 157, 98.4, 195.3, 104.7, 180, 106.1, 180, 112.1, 173, 116.2, 173, 120.3, 173.7, 130.4, 167, 134.7, 167, 143, 165.6, 143, 168.7, 143.8, 173.6, 145, 172, 146.3, 172, 160.3, 160, 168.5, 160, 174, 162.8, 174, 189, 172.1, 189, 145.1, 229, 143.8, 229, 132.8, 239, 130.5, 239, 113, 249.1, 113, 249.8, 96, 268.7, 96, 271.4, 89, 286.4, 89, 292.2, 82, 330.4, 82, 331, 83, 386.2, 99.5, 395, 105.9, 395, 123, 394.1, 123, 393.4, 143, 389.3, 165.4, 375, 171.3, 375, 181.7, 378.5, 201.4, 366, 211, 366, 211, 368.3, 217.3, 376.8, 216.2, 379, 214.7, 379, 206, 386, 216.4, 394.3, 215.4, 397, 213.5, 397, 207, 401, 220.3, 401, 239, 406.5, 239, 407.9, 243, 410.6, 243, 420, 238.8, 420, 235.8, 423, 230.2, 423, 236, 428.1, 236, 430.8, 232.8, 434, 230.1, 434, 197, 435.9, 197, 436.6, 166.2, 443, 160.7, 443, 138.7, 436, 133.4, 436, 126, 437.6, 115, 449.9, 115, 450.7, 123, 469.6, 123, 474, 124, 481, 0, 481, 0, 470.9, 14, 445.4, 14, 434, 9, 401.2, 9, 397, 10, 375, 11.6, 375, 20, 354.4, 20, 347.8, 36.4, 272, 37.6, 272, 54, 231.4, 54, 205, 52.9, 187, 54.5, 187, 63, 153, 63, 130.9, 71.2, 49, 72.4, 49, 76.4, 31, 78.5, 31, 83, 28.7, 84.3, 20, 86.2, 20, 88.5, 17.6, 91, 18.7, 91, 19.9, 92, 20.6, 92, 14.4, 97.9, 5, 103.3, 5, 109, 0.1, 122.3, 0)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

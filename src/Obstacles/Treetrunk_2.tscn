@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpjxl8ommg52e"]
+
+[ext_resource type="Script" path="res://src/Obstacles/obstacle.gd" id="1_l3i0a"]
+[ext_resource type="Texture2D" uid="uid://ccpy68ghvbcqm" path="res://assets/obstacles/treetrunk_2.png" id="2_a31x4"]
+
+[node name="Treetrunk_2" type="CharacterBody2D"]
+script = ExtResource("1_l3i0a")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -370)
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_a31x4")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(163, 11.1, 163, 16, 172.6, 75, 175.9, 70, 178.9, 70, 189, 67.4, 189, 70, 201, 79, 201, 88, 204.8, 123, 205.4, 123, 222, 165.6, 222, 171.2, 216.6, 193, 215.2, 193, 205, 212.5, 205, 214.3, 210, 221, 211.4, 221, 218, 223.6, 218, 226.7, 221, 233.6, 221, 243, 223.2, 266, 221.9, 266, 219.1, 308, 234.2, 340, 234.9, 340, 246, 353, 246, 370, 0, 370, 0, 365.6, 8, 350.5, 8, 345.7, 20, 309.7, 20, 303.9, 24.2, 262, 25.3, 262, 30.4, 238, 31.7, 238, 41.7, 217, 43.1, 217, 70, 184.3, 70, 182.6, 87, 144.6, 87, 135.9, 92, 92.8, 92, 81, 88, 46.1, 88, 39.8, 91.3, 20, 93.2, 20, 104.2, 9, 107.3, 9, 119, 12.5, 119, 14.2, 119.5, 14.7, 125.9, 4, 127.3, 4, 132, 0.1, 151, 0)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
