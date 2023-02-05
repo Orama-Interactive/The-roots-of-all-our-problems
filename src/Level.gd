@@ -48,7 +48,7 @@ var checkpoints: Array[Checkpoint] = [
 var current_checkpoint := 0
 var max_distance := 24000
 var narrations: Array[AudioStream] = [
-	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"), preload("res://assets/audio/narration/dialogue_8.ogg"), preload("res://assets/audio/narration/dialogue_9.ogg"), preload("res://assets/audio/narration/dialogue_10.ogg"), preload("res://assets/audio/narration/dialogue_11.ogg"), preload("res://assets/audio/narration/dialogue_12.ogg"), preload("res://assets/audio/narration/dialogue_13.ogg"), preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_15.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_18.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"), preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg")
+	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"), preload("res://assets/audio/narration/dialogue_8.ogg"), preload("res://assets/audio/narration/dialogue_9.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"), preload("res://assets/audio/narration/dialogue_11.ogg"), preload("res://assets/audio/narration/dialogue_12.ogg"), preload("res://assets/audio/narration/dialogue_13.ogg"), preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_15.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_18.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"), preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg")
 ]
 @onready var player: Player = $Player
 @onready var tree_parent: Node2D = $TreeParent
@@ -93,13 +93,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var pos := round(player.position.x)
 	$CanvasLayer/Control/Label.text = str(pos)
+	if pos >= max_distance:
+		animation_player.play("ending")
 	if current_checkpoint >= checkpoints.size() -1:
 		return
 	if pos >= checkpoints[current_checkpoint + 1].pos:
 		current_checkpoint += 1
 		change_checkpoint()
-	if pos >= max_distance:
-		animation_player.play("ending")
 
 
 func go_to_checkpoint() -> void:
