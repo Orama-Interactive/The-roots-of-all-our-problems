@@ -70,7 +70,7 @@ offset_bottom = -83.0
 grow_horizontal = 0
 grow_vertical = 2
 bbcode_enabled = true
-text = "[font_size=64]Emmanouil Papadeas:[/font_size]
+text = "[font_size=64]Emmanouil Papadeas[/font_size]
 Game Programming, Dialogue Development
 
 [font_size=64]Ioannis Nikitakis[/font_size]
