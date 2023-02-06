@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbfhvrmtpjvtd"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Shader" path="res://src/heat_displacement.gdshader" id="1_rtmal"]
+[ext_resource type="Shader" path="res://src/Shaders/heat_displacement.gdshader" id="1_rtmal"]
 [ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="2_nsain"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0oke7"]
