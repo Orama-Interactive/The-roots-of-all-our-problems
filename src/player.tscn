@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doa18a13ekdni"]
+[gd_scene load_steps=12 format=3 uid="uid://doa18a13ekdni"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_63eh7"]
 [ext_resource type="Texture2D" uid="uid://bpcbux4qkvsys" path="res://assets/player/fall_1.png" id="2_4wirq"]
@@ -50,6 +50,8 @@ animations = [{
 radius = 37.5
 height = 146.0
 
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_ur508"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_63eh7")
 
@@ -70,3 +72,8 @@ limit_bottom = 1
 stream = ExtResource("8_fdo5n")
 volume_db = -9.0
 autoplay = true
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_ur508")
+autoplay = true
+bus = &"Record"

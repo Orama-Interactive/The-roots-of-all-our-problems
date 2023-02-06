@@ -53,6 +53,10 @@ layout_mode = 2
 button_pressed = true
 text = "Show ambient subtitles"
 
+[node name="MicrophoneInput" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play with voice"
+
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
 layout_mode = 1
 anchors_preset = 3
@@ -69,4 +73,5 @@ grow_vertical = 0
 actual_text = "Return to menu"
 
 [connection signal="toggled" from="VBoxContainer/AmbientSubs" to="." method="_on_ambient_subs_toggled"]
+[connection signal="toggled" from="VBoxContainer/MicrophoneInput" to="." method="_on_microphone_input_toggled"]
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

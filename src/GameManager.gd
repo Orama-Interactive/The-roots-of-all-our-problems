@@ -5,6 +5,7 @@ const CONFIG_PATH := "user://save.cfg"
 var loaded := false
 var config_file := ConfigFile.new()
 var show_ambient_subtitles := true
+var play_with_voice := false
 
 
 func save_game(checkpoint: int) -> void:
@@ -19,6 +20,8 @@ func load_game() -> int:
 
 
 func game_over() -> void:
+	if get_tree().current_scene.name != "Level":
+		return
 	loaded = true
 	var player: Player = get_tree().current_scene.player
 	player.falling = false
