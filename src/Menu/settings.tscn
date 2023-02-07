@@ -61,6 +61,7 @@ text = "Play with voice"
 [node name="VolumeSlider" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+focus_mode = 2
 theme_type_variation = &"ValueSlider"
 value = 100.0
 nine_patch_stretch = true

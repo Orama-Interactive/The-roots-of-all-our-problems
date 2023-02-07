@@ -226,7 +226,7 @@ func _reset_display(theme_has_changed := false) -> void:
 	_line_edit.editable = false
 	if theme_has_changed and not Engine.is_editor_hint():
 		texture_under = get_theme_icon("texture_under", "ValueSlider")
-		texture_over = get_theme_icon("texture_over", "ValueSlider")
+#		texture_over = get_theme_icon("texture_over", "ValueSlider")
 		texture_progress = get_theme_icon("texture_progress", "ValueSlider")
 		_value_up_button.texture_normal = get_theme_icon("arrow_normal", "ValueSlider")
 		_value_up_button.texture_pressed = get_theme_icon("arrow_pressed", "ValueSlider")
