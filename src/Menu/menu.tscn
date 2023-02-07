@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckqsahi55idtj"]
+[gd_scene load_steps=22 format=3 uid="uid://bvhqihyic5lmx"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
@@ -15,12 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://jwwr65n566pk" path="res://assets/audio/narration/dialogue_5.ogg" id="13_m4jp8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
-shader = ExtResource("4_5vb4m")
+shader = ExtResource("4_rysc7")
 shader_parameter/old_tex = ExtResource("3_55xt4")
 shader_parameter/new_tex = ExtResource("5_xn6ax")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_im725"]
-shader = ExtResource("6_hu8vk")
+shader = ExtResource("6_qlyve")
 shader_parameter/half_right = true
 shader_parameter/rect_size = Vector2(1920, 1080)
 shader_parameter/fov = 90.0

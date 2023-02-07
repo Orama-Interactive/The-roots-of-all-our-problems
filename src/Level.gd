@@ -93,7 +93,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var pos := round(player.position.x)
+	var pos := roundf(player.position.x)
 	$CanvasLayer/Control/Label.text = str(pos)
 	if pos >= max_distance:
 		animation_player.play("ending")

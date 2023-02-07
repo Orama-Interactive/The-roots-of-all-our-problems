@@ -9,7 +9,7 @@ var falling_sound := preload("res://assets/audio/sounds/dragonfly_2.wav")
 var flying_sound := preload("res://assets/audio/sounds/dragonfly_3.wav")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var falling := false
-var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var record_bus_index: int
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer

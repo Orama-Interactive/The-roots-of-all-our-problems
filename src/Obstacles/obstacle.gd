@@ -7,7 +7,7 @@ enum Place { FLOOR, CEILING }
 @export var can_flip := true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity := ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed := -60000.0
 var jump_velocity = -40000.0
 var has_jumped := false
