@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4h7wskyd1qpj"]
+[gd_scene load_steps=7 format=3 uid="uid://b4h7wskyd1qpj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_cngr4"]
 [ext_resource type="Script" path="res://src/Menu/settings.gd" id="2_1qla6"]
 [ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="2_4ylr3"]
 [ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="4_2lcpq"]
+[ext_resource type="Script" path="res://src/Nodes/ValueSlider.gd" id="4_oh5nr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73jie"]
 font_size = 128
@@ -57,6 +58,20 @@ text = "Show ambient subtitles"
 layout_mode = 2
 text = "Play with voice"
 
+[node name="VolumeSlider" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_type_variation = &"ValueSlider"
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+script = ExtResource("4_oh5nr")
+prefix = "Master volume"
+suffix = ""
+
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
 layout_mode = 1
 anchors_preset = 3
@@ -74,4 +89,5 @@ actual_text = "Return to menu"
 
 [connection signal="toggled" from="VBoxContainer/AmbientSubs" to="." method="_on_ambient_subs_toggled"]
 [connection signal="toggled" from="VBoxContainer/MicrophoneInput" to="." method="_on_microphone_input_toggled"]
+[connection signal="value_changed" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
