@@ -109,17 +109,6 @@ func go_to_checkpoint() -> void:
 	player.position.y = 160
 
 
-func free_camera() -> void:
-	player.can_move = false
-#	player.camera_2d.limit_left = 0
-#	player.camera_2d.limit_top = 0
-#	player.camera_2d.limit_right = 1
-#	player.camera_2d.limit_bottom = 1
-	player.global_position = Vector2.ZERO
-	player.camera_2d.offset.x = 960
-#	player.camera_2d.offset = Vector2.ZERO
-
-
 func ending() -> void:
 	get_tree().change_scene_to_file("res://src/ending.tscn")
 
