@@ -37,7 +37,7 @@ func _physics_process(delta: float):
 	# Handle Jump.
 	if not falling and jump:
 		velocity.y = JUMP_VELOCITY
-		if animated_sprite_2d.speed_scale != 2:
+		if animated_sprite_2d.speed_scale != 3:
 			animated_sprite_2d.speed_scale = 3
 			audio_stream_player.stream = flying_sound
 			audio_stream_player.play()
