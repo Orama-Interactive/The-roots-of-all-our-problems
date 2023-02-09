@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvhqihyic5lmx"]
+[gd_scene load_steps=23 format=3 uid="uid://bvhqihyic5lmx"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dn7p3d5er2cct" path="res://assets/audio/narration/dialogue_3.ogg" id="11_6wgcv"]
 [ext_resource type="AudioStream" uid="uid://bmyy44q3jursr" path="res://assets/audio/narration/dialogue_4.ogg" id="12_346m3"]
 [ext_resource type="AudioStream" uid="uid://jwwr65n566pk" path="res://assets/audio/narration/dialogue_5.ogg" id="13_m4jp8"]
+[ext_resource type="AudioStream" uid="uid://rqog4vaqphgo" path="res://assets/audio/sounds/wind-1-44149.mp3" id="14_qhvya"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
 shader = ExtResource("4_rysc7")
@@ -464,6 +465,21 @@ tracks/16/keys = {
 "update": 0,
 "values": [12.0]
 }
+tracks/17/type = "audio"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sounds")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("14_qhvya")
+}],
+"times": PackedFloat32Array(22.7)
+}
+tracks/17/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
@@ -552,10 +568,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 882.0
+offset_left = -1038.0
 offset_top = 121.0
-offset_right = 1777.0
-offset_bottom = 936.0
+offset_right = -143.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
@@ -591,6 +607,9 @@ bus = &"Music"
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 volume_db = 10.0
 bus = &"Narration"
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
 
 [connection signal="pressed" from="Buttons/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="Buttons/Load" to="." method="_on_load_pressed"]
