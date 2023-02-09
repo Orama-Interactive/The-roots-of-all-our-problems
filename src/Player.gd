@@ -61,5 +61,6 @@ func get_mic_input() -> float:
 
 
 func fall() -> void:
-	animated_sprite_2d.play("fall")
-	falling = true
+	if not falling:
+		animated_sprite_2d.play("fall")
+		falling = true
