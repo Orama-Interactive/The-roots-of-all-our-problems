@@ -39,7 +39,7 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(12000, city_obstacles, "town_fade_in_1", "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "[sounds of a busy city]", preload("res://assets/audio/sounds/busy_city.wav")),
 	Checkpoint.new(13500, city_obstacles, "town_fade_in_2", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
 	Checkpoint.new(15000, city_obstacles, "bomb", "And suddenly, a sound unlike any other.", "[bomb falling, exploding]"),
-	Checkpoint.new(16500, war_obstacles, "", "And everything was calm again."),
+	Checkpoint.new(16500, war_obstacles, "war", "And everything was calm again."),
 	Checkpoint.new(18000, war_obstacles, "", "The forest was long gone."),
 	Checkpoint.new(20000, war_obstacles, "", "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
 ]
