@@ -1,29 +1,29 @@
-[gd_scene load_steps=28 format=3 uid="uid://nnj78cd3gojx"]
+[gd_scene load_steps=28 format=3 uid="uid://08x3f5ojdhm"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
-[ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
-[ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/sidescrolling_forest_2.png" id="3_2v5u0"]
-[ext_resource type="Texture2D" uid="uid://doohqcugciu78" path="res://assets/sidescrolling_town_2.png" id="4_6budo"]
-[ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/sidescrolling_forest_1.png" id="4_krh6g"]
+[ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/sky_background.png" id="2_by046"]
+[ext_resource type="Texture2D" uid="uid://dvy5gmp2yd102" path="res://assets/level_backgrounds/bomb_1.png" id="3_nh18q"]
+[ext_resource type="Texture2D" uid="uid://bbvctcc5515o4" path="res://assets/level_backgrounds/bomb_2.png" id="4_gs5lg"]
+[ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/level_backgrounds/sidescrolling_forest_2.png" id="5_3abp8"]
 [ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
+[ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/sidescrolling_forest_1.png" id="6_0k76i"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
-[ext_resource type="Texture2D" uid="uid://bs760pqmonjvf" path="res://assets/sky_background_city.png" id="8_ym4be"]
 [ext_resource type="AudioStream" uid="uid://fd4v7xwxgbhd" path="res://assets/audio/music/flapping_through_the_skies_part_1.ogg" id="9_0arn6"]
-[ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/sidescrolling_town.png" id="9_5kwmm"]
-[ext_resource type="Texture2D" uid="uid://dvy5gmp2yd102" path="res://assets/bomb_1.png" id="10_4ahgg"]
+[ext_resource type="Texture2D" uid="uid://doohqcugciu78" path="res://assets/level_backgrounds/sidescrolling_town_2.png" id="10_mtjjb"]
 [ext_resource type="AudioStream" uid="uid://crnqhaekw1qfw" path="res://assets/audio/sounds/explosion.wav" id="11_ee73f"]
-[ext_resource type="Texture2D" uid="uid://bbvctcc5515o4" path="res://assets/bomb_2.png" id="11_fccme"]
-[ext_resource type="Texture2D" uid="uid://dodu50nrkkfhc" path="res://assets/sky_background_war.png" id="13_54jyp"]
+[ext_resource type="Texture2D" uid="uid://dodu50nrkkfhc" path="res://assets/level_backgrounds/sky_background_war.png" id="11_w1igk"]
+[ext_resource type="Texture2D" uid="uid://bfg43lhj6b3g8" path="res://assets/level_backgrounds/sidescrolling_town.png" id="12_ef07n"]
+[ext_resource type="Texture2D" uid="uid://bs760pqmonjvf" path="res://assets/level_backgrounds/sky_background_city.png" id="13_k0yut"]
 [ext_resource type="AudioStream" uid="uid://bp4qe6ijk5yko" path="res://assets/audio/narration/dialogue_6.ogg" id="15_mdlpb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xj6hh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_4ahgg")
+"texture": ExtResource("3_nh18q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_fccme")
+"texture": ExtResource("4_gs5lg")
 }],
 "loop": true,
 "name": &"default",
@@ -78,7 +78,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("4_krh6g")]
+"values": [ExtResource("6_0k76i")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -90,7 +90,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("3_2v5u0")]
+"values": [ExtResource("5_3abp8")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -138,7 +138,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_qq820")]
+"values": [ExtResource("2_by046")]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -229,7 +229,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_6budo")]
+"values": [ExtResource("10_mtjjb")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -241,7 +241,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_54jyp")]
+"values": [ExtResource("11_w1igk")]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -253,7 +253,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_5kwmm")]
+"values": [ExtResource("12_ef07n")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -335,7 +335,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("3_2v5u0")]
+"values": [ExtResource("5_3abp8")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -347,7 +347,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_qq820")]
+"values": [ExtResource("2_by046")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -359,7 +359,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_krh6g")]
+"values": [ExtResource("6_0k76i")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -387,7 +387,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("4_krh6g")]
+"values": [ExtResource("6_0k76i")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -423,7 +423,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_qq820")]
+"values": [ExtResource("2_by046")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -435,7 +435,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_2v5u0")]
+"values": [ExtResource("5_3abp8")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -487,7 +487,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("9_5kwmm")]
+"values": [ExtResource("12_ef07n")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -499,7 +499,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_ym4be")]
+"values": [ExtResource("13_k0yut")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -539,7 +539,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("4_6budo")]
+"values": [ExtResource("10_mtjjb")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -575,7 +575,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_5kwmm")]
+"values": [ExtResource("12_ef07n")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h8q7"]
@@ -595,7 +595,7 @@ script = ExtResource("1_ljq6u")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground"]
-texture = ExtResource("2_qq820")
+texture = ExtResource("2_by046")
 centered = false
 
 [node name="Bomb" type="AnimatedSprite2D" parent="ParallaxBackground"]
@@ -609,7 +609,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="MiddleLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(0, 553)
-texture = ExtResource("3_2v5u0")
+texture = ExtResource("5_3abp8")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -618,7 +618,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="FrontLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(0, 712)
-texture = ExtResource("4_krh6g")
+texture = ExtResource("6_0k76i")
 centered = false
 
 [node name="ObstacleTimer" type="Timer" parent="."]

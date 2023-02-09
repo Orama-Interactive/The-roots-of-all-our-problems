@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dodu50nrkkfhc"
-path="res://.godot/imported/sky_background_war.png-8c341f355585951daf0621491aa12222.ctex"
+uid="uid://bbvctcc5515o4"
+path="res://.godot/imported/bomb_2.png-0be76da567c7778418f02b76675bad73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sky_background_war.png"
-dest_files=["res://.godot/imported/sky_background_war.png-8c341f355585951daf0621491aa12222.ctex"]
+source_file="res://assets/level_backgrounds/bomb_2.png"
+dest_files=["res://.godot/imported/bomb_2.png-0be76da567c7778418f02b76675bad73.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

@@ -71,7 +71,6 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Master volume"
-suffix = ""
 
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
 layout_mode = 1

@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkjfrs3r2fj6l"
-path.s3tc="res://.godot/imported/sidescrolling_forest_2.png-a025f021646b5c86a52550f6e437686a.s3tc.ctex"
+uid="uid://bs760pqmonjvf"
+path="res://.godot/imported/sky_background_city.png-e7db7b7288b9e6b6e118e6745d210d80.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sidescrolling_forest_2.png"
-dest_files=["res://.godot/imported/sidescrolling_forest_2.png-a025f021646b5c86a52550f6e437686a.s3tc.ctex"]
+source_file="res://assets/level_backgrounds/sky_background_city.png"
+dest_files=["res://.godot/imported/sky_background_city.png-e7db7b7288b9e6b6e118e6745d210d80.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

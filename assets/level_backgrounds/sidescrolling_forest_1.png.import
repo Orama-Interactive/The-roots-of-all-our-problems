@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs760pqmonjvf"
-path="res://.godot/imported/sky_background_city.png-408f740503387b110ebc09a8dc7d2d7d.ctex"
+uid="uid://2ut4llab487f"
+path="res://.godot/imported/sidescrolling_forest_1.png-0b8af89a7088cc7a0fa90f0250c30b97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sky_background_city.png"
-dest_files=["res://.godot/imported/sky_background_city.png-408f740503387b110ebc09a8dc7d2d7d.ctex"]
+source_file="res://assets/level_backgrounds/sidescrolling_forest_1.png"
+dest_files=["res://.godot/imported/sidescrolling_forest_1.png-0b8af89a7088cc7a0fa90f0250c30b97.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvy5gmp2yd102"
-path="res://.godot/imported/bomb_1.png-50dd269708552f32811924167fa582e7.ctex"
+uid="uid://bfg43lhj6b3g8"
+path="res://.godot/imported/sidescrolling_town.png-32288b6e955453fcdae853e6d6d09049.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bomb_1.png"
-dest_files=["res://.godot/imported/bomb_1.png-50dd269708552f32811924167fa582e7.ctex"]
+source_file="res://assets/level_backgrounds/sidescrolling_town.png"
+dest_files=["res://.godot/imported/sidescrolling_town.png-32288b6e955453fcdae853e6d6d09049.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

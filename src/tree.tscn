@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0ifp2a4ktydw"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://src/Tree.gd" id="1_3l4t6"]
-[ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/tree_1.png" id="1_qmpui"]
-[ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/tree_2.png" id="3_xrpnt"]
+[ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/level_backgrounds/tree_1.png" id="1_qmpui"]
+[ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/level_backgrounds/tree_2.png" id="3_xrpnt"]
 [ext_resource type="AudioStream" uid="uid://bycicmwbqsmo5" path="res://assets/audio/sounds/tree_falling.wav" id="4_lvyhv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tksmy"]
