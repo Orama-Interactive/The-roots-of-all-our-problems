@@ -50,7 +50,7 @@ func _physics_process(delta: float):
 	velocity.x = SPEED * delta
 	move_and_slide()
 
-	if position.y < -80 or position.y > 1160:
+	if position.y > 1160:
 		GameManager.game_over()
 
 

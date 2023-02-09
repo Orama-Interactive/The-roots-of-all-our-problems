@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://nnj78cd3gojx"]
+[gd_scene load_steps=28 format=3 uid="uid://nnj78cd3gojx"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/sky_background.png" id="2_qq820"]
@@ -29,6 +29,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
+normal = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ebs0"]
 font_size = 64
@@ -629,6 +632,11 @@ z_index = -200
 
 [node name="Player" parent="." instance=ExtResource("5_rirw7")]
 position = Vector2(79, 160)
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
+shape = SubResource("WorldBoundaryShape2D_8s0kk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

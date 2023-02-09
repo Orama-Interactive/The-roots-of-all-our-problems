@@ -44,7 +44,7 @@ var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(20000, war_obstacles, "", "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
 ]
 var current_checkpoint := 0
-var max_distance := 21000
+var max_distance := 22000
 var narrations: Array[AudioStream] = [
 	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"),
 	preload("res://assets/audio/narration/dialogue_8.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"),
