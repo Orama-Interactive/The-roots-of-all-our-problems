@@ -1,6 +1,10 @@
 extends Node2D
 
 var speed := 100.0
+var falling_sounds := [
+	preload("res://assets/audio/sounds/tree_falling.wav"),
+	preload("res://assets/audio/sounds/tree_falling_small.wav")
+]
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -26,6 +30,8 @@ func collapse() -> void:
 		animation_player.play("collapse_right")
 	else:
 		animation_player.play("collapse_left")
+	$AudioStreamPlayer2D.stream = falling_sounds.pick_random()
+	$AudioStreamPlayer2D.play()
 
 
 func _on_despawn_timer_timeout() -> void:
