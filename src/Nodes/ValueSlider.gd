@@ -70,10 +70,13 @@ func _input(event: InputEvent) -> void:
 		return
 	if not has_focus():
 		return
+	var ctrl_pressed := false
+	if event is InputEventWithModifiers:
+		ctrl_pressed = event.ctrl_pressed
 	if event.is_action("ui_left") and not event.is_action_released("ui_left"):
-		value -= step if event.ctrl_pressed else snap_step
+		value -= step if ctrl_pressed else snap_step
 	elif event.is_action("ui_right") and not event.is_action_released("ui_right"):
-		value += step if event.ctrl_pressed else snap_step
+		value += step if ctrl_pressed else snap_step
 
 
 func _gui_input(event: InputEvent) -> void:
