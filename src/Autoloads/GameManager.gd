@@ -7,6 +7,8 @@ var config_file := ConfigFile.new()
 var show_ambient_subtitles := true
 var play_with_voice := false
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 func save_game(checkpoint: int) -> void:
 	config_file.set_value("progress", "checkpoint", checkpoint)
@@ -28,3 +30,8 @@ func game_over() -> void:
 	player.start()
 	get_tree().current_scene.go_to_checkpoint()
 #	get_tree().reload_current_scene() # Why does this crash?
+
+
+func play_audio(audio: AudioStream) -> void:
+	audio_stream_player.stream = audio
+	audio_stream_player.play()

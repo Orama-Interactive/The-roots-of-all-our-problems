@@ -16,6 +16,8 @@ extends Button
 
 @onready var label: Label = $Label
 
+var sound := preload("res://assets/audio/sounds/pageturn-102978.mp3")
+
 
 func _ready() -> void:
 	label.label_settings = LabelSettings.new()
@@ -42,3 +44,7 @@ func _on_focus_entered() -> void:
 
 func _on_focus_exited() -> void:
 	label.label_settings.font_color = text_color
+
+
+func _on_pressed() -> void:
+	GameManager.play_audio(sound)

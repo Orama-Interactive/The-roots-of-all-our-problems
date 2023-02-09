@@ -21,7 +21,7 @@ driver/enable_input=true
 
 [autoload]
 
-GameManager="*res://src/GameManager.gd"
+GameManager="*res://src/Autoloads/GameManager.tscn"
 
 [display]
 
