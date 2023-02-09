@@ -213,7 +213,7 @@ tracks/13/keys = {
 tracks/14/type = "audio"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("AudioStreamPlayer")
+tracks/14/path = NodePath("Music")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -224,7 +224,7 @@ tracks/14/use_blend = true
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Narrations:volume_db")
+tracks/15/path = NodePath("Narration:volume_db")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -409,7 +409,7 @@ tracks/13/keys = {
 tracks/14/type = "audio"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("AudioStreamPlayer")
+tracks/14/path = NodePath("Music")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -424,7 +424,7 @@ tracks/14/use_blend = true
 tracks/15/type = "audio"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Narrations")
+tracks/15/path = NodePath("Narration")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -455,7 +455,7 @@ tracks/15/use_blend = true
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Narrations:volume_db")
+tracks/16/path = NodePath("Narration:volume_db")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -584,11 +584,13 @@ libraries = {
 "": SubResource("AnimationLibrary_dg4f2")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -15.0
+bus = &"Music"
 
-[node name="Narrations" type="AudioStreamPlayer" parent="."]
+[node name="Narration" type="AudioStreamPlayer" parent="."]
 volume_db = 10.0
+bus = &"Narration"
 
 [connection signal="pressed" from="Buttons/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="Buttons/Load" to="." method="_on_load_pressed"]

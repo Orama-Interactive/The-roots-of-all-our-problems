@@ -57,7 +57,7 @@ preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/a
 @onready var tree_timer: Timer = $TreeTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var sounds: AudioStreamPlayer = $Sounds
 @onready var narration: AudioStreamPlayer = $Narration
 
 
@@ -124,8 +124,8 @@ func change_checkpoint() -> void:
 	narration.stream = narrations[current_checkpoint]
 	narration.play()
 	if checkpoints[current_checkpoint].audio:
-		audio_stream_player.stream = checkpoints[current_checkpoint].audio
-		audio_stream_player.play()
+		sounds.stream = checkpoints[current_checkpoint].audio
+		sounds.play()
 	if GameManager.show_ambient_subtitles:
 		subtitles.text += "\n" + checkpoints[current_checkpoint].ambient_text
 

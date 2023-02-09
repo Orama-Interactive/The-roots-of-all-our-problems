@@ -50,7 +50,7 @@ animations = [{
 radius = 37.5
 height = 146.0
 
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_ur508"]
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_4a42a"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_63eh7")
@@ -72,8 +72,9 @@ limit_bottom = 1
 stream = ExtResource("8_fdo5n")
 volume_db = -9.0
 autoplay = true
+bus = &"Sounds"
 
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamMicrophone_ur508")
+stream = SubResource("AudioStreamMicrophone_4a42a")
 autoplay = true
 bus = &"Record"
