@@ -43,6 +43,7 @@ preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/a
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
+@onready var world_boundary: StaticBody2D = $WorldBoundary
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
 @onready var sounds: AudioStreamPlayer = $Sounds
 @onready var sounds_2: AudioStreamPlayer = $Sounds2
@@ -150,6 +151,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var pos := roundf(player.position.x)
+	world_boundary.position.x = player.position.x
 	$CanvasLayer/Control/Label.text = str(pos)
 	if current_checkpoint >= checkpoints.size() -1:
 		return
