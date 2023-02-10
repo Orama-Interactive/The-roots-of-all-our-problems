@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://prppsw3a7yp7"
-path="res://.godot/imported/tree_falling_small.wav-535deed17adedd0aa8b4cae35dd1f7c3.sample"
+path="res://.godot/imported/tree_falling_2.wav-678a98c5d7e6c6d3beba6579d14f7365.sample"
 
 [deps]
 
-source_file="res://assets/audio/sounds/tree_falling_small.wav"
-dest_files=["res://.godot/imported/tree_falling_small.wav-535deed17adedd0aa8b4cae35dd1f7c3.sample"]
+source_file="res://assets/audio/sounds/tree_falling_2.wav"
+dest_files=["res://.godot/imported/tree_falling_2.wav-678a98c5d7e6c6d3beba6579d14f7365.sample"]
 
 [params]
 

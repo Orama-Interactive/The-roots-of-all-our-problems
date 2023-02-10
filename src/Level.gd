@@ -58,7 +58,7 @@ preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/a
 	Checkpoint.new(3000, forest_obstacles, [], "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
 	Checkpoint.new(4500, forest_obstacles, [
 		Event.new(play_sound, [sounds_2, preload("res://assets/audio/sounds/chop_tree_far.mp3")]),
-		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")]),
+		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
 	], "But then, the seed lost its train of thought to a cracking sound.", "[sound of a tree being chopped and sound of trees falling]"),
 	Checkpoint.new(6000, forest_obstacles_2, [], "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
 	Checkpoint.new(7500, forest_obstacles_2, [], "But as the seed navigated further into the forest it realised that this place is far from safe.", "[sounds of rocks and arrows]"),
