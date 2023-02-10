@@ -54,8 +54,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	value_changed.connect(_on_value_changed)
-	_setup_nodes()
 	_reset_display(true)
+	_setup_nodes()
 
 
 func _notification(what: int) -> void:
@@ -157,25 +157,27 @@ func _setup_nodes() -> void:  # Only called once on _ready()
 	_line_edit.gui_input.connect(_on_LineEdit_gui_input)
 	add_child(_line_edit)
 
+	var value_up_texture_size := _value_up_button.texture_normal.get_size()
 	_value_up_button.scale.y = -1
 	_value_up_button.anchor_left = 1
 	_value_up_button.anchor_right = 1
-	_value_up_button.offset_left = -15
-	_value_up_button.offset_top = 12
+	_value_up_button.offset_left = -value_up_texture_size.x - 3
+	_value_up_button.offset_top = value_up_texture_size.y
 	_value_up_button.offset_right = -3
-	_value_up_button.offset_bottom = 24
+	_value_up_button.offset_bottom = value_up_texture_size.y * 2
 	_value_up_button.focus_mode = Control.FOCUS_NONE
 	_value_up_button.add_to_group("UIButtons")
 	_value_up_button.button_down.connect(_on_Value_button_down.bind(1))
 	_value_up_button.button_up.connect(_on_Value_button_up)
 	add_child(_value_up_button)
 
+	var value_down_texture_size := _value_down_button.texture_normal.get_size()
 	_value_down_button.anchor_left = 1
 	_value_down_button.anchor_top = 1
 	_value_down_button.anchor_right = 1
 	_value_down_button.anchor_bottom = 1
-	_value_down_button.offset_left = -15
-	_value_down_button.offset_top = -12
+	_value_down_button.offset_left = -value_down_texture_size.x - 3
+	_value_down_button.offset_top = -value_up_texture_size.y
 	_value_down_button.offset_right = -3
 	_value_down_button.offset_bottom = 0
 	_value_up_button.focus_mode = Control.FOCUS_NONE
