@@ -2,7 +2,6 @@ extends Node2D
 
 var speed := 100.0
 var falling_sounds := [
-	preload("res://assets/audio/sounds/tree_falling.wav"),
 	preload("res://assets/audio/sounds/tree_falling_2.wav"),
 	preload("res://assets/audio/sounds/tree_falling_3.wav"),
 ]
