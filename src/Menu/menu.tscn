@@ -36,7 +36,7 @@ font_size = 96
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_yilds"]
-action = &"jump"
+action = &"skip"
 
 [sub_resource type="Shortcut" id="Shortcut_p2p13"]
 events = [SubResource("InputEventAction_yilds")]
