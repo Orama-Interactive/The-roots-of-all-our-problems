@@ -58,7 +58,7 @@ text = "Show ambient subtitles"
 layout_mode = 2
 text = "Play with voice"
 
-[node name="VolumeSlider" type="TextureProgressBar" parent="VBoxContainer"]
+[node name="MasterVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 focus_mode = 2
@@ -71,6 +71,48 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Master volume"
+
+[node name="MusicVolume" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"ValueSlider"
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+script = ExtResource("4_oh5nr")
+prefix = "Music volume"
+
+[node name="SoundsVolume" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"ValueSlider"
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+script = ExtResource("4_oh5nr")
+prefix = "Sounds volume"
+
+[node name="NarrationVolume" type="TextureProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"ValueSlider"
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+script = ExtResource("4_oh5nr")
+prefix = "Narration volume"
 
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
 layout_mode = 1
@@ -89,5 +131,8 @@ actual_text = "Return to menu"
 
 [connection signal="toggled" from="VBoxContainer/AmbientSubs" to="." method="_on_ambient_subs_toggled"]
 [connection signal="toggled" from="VBoxContainer/MicrophoneInput" to="." method="_on_microphone_input_toggled"]
-[connection signal="value_changed" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Master"]]
+[connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Music"]]
+[connection signal="value_changed" from="VBoxContainer/SoundsVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Sounds"]]
+[connection signal="value_changed" from="VBoxContainer/NarrationVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Narration"]]
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
