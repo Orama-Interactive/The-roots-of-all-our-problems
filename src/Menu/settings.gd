@@ -6,6 +6,7 @@ extends Control
 @onready var music_volume: TextureProgressBar = $VBoxContainer/MusicVolume
 @onready var sounds_volume: TextureProgressBar = $VBoxContainer/SoundsVolume
 @onready var narration_volume: TextureProgressBar = $VBoxContainer/NarrationVolume
+@onready var mic_threshold: TextureProgressBar = $VBoxContainer/MicThreshold
 
 
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _ready() -> void:
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))) * 100
 	sounds_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sounds"))) * 100
 	narration_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Narration"))) * 100
+	mic_threshold.value = GameManager.mic_input_threshold * 100
 
 
 func _on_return_pressed() -> void:
@@ -28,8 +30,13 @@ func _on_ambient_subs_toggled(button_pressed: bool) -> void:
 
 func _on_microphone_input_toggled(button_pressed: bool) -> void:
 	GameManager.play_with_voice = button_pressed
+	mic_threshold.visible = button_pressed
 
 
 func _on_volume_slider_value_changed(value: float, bus: StringName) -> void:
 	var bus_index := AudioServer.get_bus_index(bus)
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value / 100.0))
+
+
+func _on_mic_threshold_value_changed(value: float) -> void:
+	GameManager.mic_input_threshold = value / 100

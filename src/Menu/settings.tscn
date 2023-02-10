@@ -49,15 +49,6 @@ offset_bottom = -264.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="AmbientSubs" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-button_pressed = true
-text = "Show ambient subtitles"
-
-[node name="MicrophoneInput" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-text = "Play with voice"
-
 [node name="MasterVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
@@ -114,6 +105,32 @@ stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Narration volume"
 
+[node name="AmbientSubs" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Show ambient subtitles"
+
+[node name="MicrophoneInput" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play with voice"
+
+[node name="MicThreshold" type="TextureProgressBar" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"ValueSlider"
+min_value = 10.0
+max_value = 90.0
+value = 20.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+script = ExtResource("4_oh5nr")
+prefix = "Microphone input threshold"
+
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
 layout_mode = 1
 anchors_preset = 3
@@ -129,10 +146,11 @@ grow_horizontal = 0
 grow_vertical = 0
 actual_text = "Return to menu"
 
-[connection signal="toggled" from="VBoxContainer/AmbientSubs" to="." method="_on_ambient_subs_toggled"]
-[connection signal="toggled" from="VBoxContainer/MicrophoneInput" to="." method="_on_microphone_input_toggled"]
 [connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Master"]]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Music"]]
 [connection signal="value_changed" from="VBoxContainer/SoundsVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Sounds"]]
 [connection signal="value_changed" from="VBoxContainer/NarrationVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Narration"]]
+[connection signal="toggled" from="VBoxContainer/AmbientSubs" to="." method="_on_ambient_subs_toggled"]
+[connection signal="toggled" from="VBoxContainer/MicrophoneInput" to="." method="_on_microphone_input_toggled"]
+[connection signal="value_changed" from="VBoxContainer/MicThreshold" to="." method="_on_mic_threshold_value_changed"]
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
