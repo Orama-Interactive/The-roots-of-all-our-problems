@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dagb638t0ykpj"]
+[gd_scene load_steps=26 format=3 uid="uid://cgm1te7b6o2yb"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_ldaek"]
 [ext_resource type="Script" path="res://src/ending.gd" id="2_d5h6a"]
@@ -13,14 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://gibpw7myw6aw" path="res://assets/cutscene/soldier_4.png" id="9_dnb62"]
 [ext_resource type="Texture2D" uid="uid://tejcfqafhysc" path="res://assets/cutscene/soldier_5.png" id="10_3axdd"]
 [ext_resource type="Texture2D" uid="uid://2v7mv3jgdj73" path="res://assets/cutscene/ending_5.png" id="11_j5t5q"]
-[ext_resource type="AudioStream" uid="uid://bw8hh8mfi85ul" path="res://assets/audio/narration/dialogue_24.ogg" id="14_d1bgw"]
-[ext_resource type="AudioStream" uid="uid://ckni1rp2h7rn1" path="res://assets/audio/narration/dialogue_25.ogg" id="15_luln1"]
-[ext_resource type="AudioStream" uid="uid://chn5kap4exfxa" path="res://assets/audio/narration/dialogue_26.ogg" id="16_2pidm"]
-[ext_resource type="AudioStream" uid="uid://bydf65t4jiajk" path="res://assets/audio/narration/dialogue_27.ogg" id="17_j6dsv"]
-[ext_resource type="AudioStream" uid="uid://cglfh4ye7yh3m" path="res://assets/audio/narration/dialogue_28.ogg" id="18_5cbg7"]
-[ext_resource type="AudioStream" uid="uid://cpwha7khyr6bd" path="res://assets/audio/narration/dialogue_29.ogg" id="19_tgrx2"]
-[ext_resource type="AudioStream" uid="uid://bjakwrdugnxn" path="res://assets/audio/narration/dialogue_30.ogg" id="20_7vygn"]
-[ext_resource type="AudioStream" uid="uid://d4n2iq6meajw1" path="res://assets/audio/narration/dialogue_31.ogg" id="21_w4ki4"]
+[ext_resource type="AudioStream" uid="uid://bw8hh8mfi85ul" path="res://assets/audio/narration/outro/1.ogg" id="14_d1bgw"]
+[ext_resource type="AudioStream" uid="uid://ckni1rp2h7rn1" path="res://assets/audio/narration/outro/2.ogg" id="15_luln1"]
+[ext_resource type="AudioStream" uid="uid://chn5kap4exfxa" path="res://assets/audio/narration/outro/3.ogg" id="16_2pidm"]
+[ext_resource type="AudioStream" uid="uid://bydf65t4jiajk" path="res://assets/audio/narration/outro/4.ogg" id="17_j6dsv"]
+[ext_resource type="AudioStream" uid="uid://cglfh4ye7yh3m" path="res://assets/audio/narration/outro/5.ogg" id="18_5cbg7"]
+[ext_resource type="AudioStream" uid="uid://cpwha7khyr6bd" path="res://assets/audio/narration/outro/6.ogg" id="19_tgrx2"]
+[ext_resource type="AudioStream" uid="uid://bjakwrdugnxn" path="res://assets/audio/narration/outro/7.ogg" id="20_7vygn"]
+[ext_resource type="AudioStream" uid="uid://d4n2iq6meajw1" path="res://assets/audio/narration/outro/8.ogg" id="21_w4ki4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i58ny"]
 font_size = 50
