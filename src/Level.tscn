@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://08x3f5ojdhm"]
+[gd_scene load_steps=15 format=3 uid="uid://08x3f5ojdhm"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/sky_background.png" id="2_by046"]
@@ -26,6 +26,8 @@ animations = [{
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ff1cu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ebs0"]
 font_size = 64
@@ -83,8 +85,12 @@ position = Vector2(194, 387)
 
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
+[node name="UpperLimit" type="CollisionShape2D" parent="WorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_8s0kk")
+
+[node name="BottomLimit" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(0, 1080)
+shape = SubResource("WorldBoundaryShape2D_ff1cu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -164,3 +170,4 @@ bus = &"Narration"
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
+[connection signal="fell" from="Player" to="." method="_on_player_fell"]

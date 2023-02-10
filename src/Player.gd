@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal fell
+
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
 
@@ -76,3 +78,4 @@ func fall() -> void:
 		falling_sound_player.play()
 		animated_sprite_2d.play("fall")
 		falling = true
+		emit_signal("fell")

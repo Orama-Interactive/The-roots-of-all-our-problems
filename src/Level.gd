@@ -210,6 +210,14 @@ func _on_tree_timer_timeout() -> void:
 			tree.collapse()
 
 
+func _on_player_fell() -> void:
+	world_boundary.get_node("BottomLimit").set_deferred("disabled", true)
+
+
+func enable_bottom_limit() -> void:
+	world_boundary.get_node("BottomLimit").disabled = false
+
+
 # Events
 func change_texture(sprite: Sprite2D, texture: Texture2D) -> void:
 	sprite.texture = texture

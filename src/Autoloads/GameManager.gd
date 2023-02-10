@@ -38,7 +38,7 @@ func game_over() -> void:
 	player.falling = false
 	player.start()
 	get_tree().current_scene.go_to_checkpoint()
-#	get_tree().reload_current_scene() # Why does this crash?
+	get_tree().current_scene.enable_bottom_limit()
 
 
 func show_tutorial() -> void:
