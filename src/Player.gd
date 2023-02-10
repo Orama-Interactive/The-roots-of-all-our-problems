@@ -4,7 +4,8 @@ extends CharacterBody2D
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
 
-var can_move := true
+var can_move := false
+var tutorial_shown := false
 var flying_sound := preload("res://assets/audio/sounds/dragonfly_2.wav")
 var flying_sound_2 := preload("res://assets/audio/sounds/dragonfly_3.wav")
 var falling_sound := preload("res://assets/audio/sounds/player_fall.mp3")
@@ -29,12 +30,20 @@ func start() -> void:
 
 func _physics_process(delta: float):
 	if not can_move:
+		velocity.x = SPEED * delta
+		move_and_slide()
+		if not tutorial_shown and position.x >= 810:
+			tutorial_shown = true
+			can_move = true
+			GameManager.show_tutorial()
 		return
 
 	velocity.y += gravity * delta
 	velocity.y = clamp(velocity.y, JUMP_VELOCITY, 1200)
 	var mic_input := get_mic_input() > 0.2 if GameManager.play_with_voice else false
-	var jump := Input.is_action_pressed("jump") or mic_input
+	var jump := Input.is_anything_pressed() or mic_input
+	if Input.is_action_pressed("pause"):
+		jump = false
 	if not falling:
 		if jump:
 			velocity.y = JUMP_VELOCITY

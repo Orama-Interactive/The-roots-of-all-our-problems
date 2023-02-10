@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://08x3f5ojdhm"]
+[gd_scene load_steps=14 format=3 uid="uid://08x3f5ojdhm"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/sky_background.png" id="2_by046"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/sidescrolling_forest_1.png" id="6_0k76i"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="AudioStream" uid="uid://fd4v7xwxgbhd" path="res://assets/audio/music/flapping_through_the_skies_part_1.ogg" id="9_0arn6"]
-[ext_resource type="AudioStream" uid="uid://bp4qe6ijk5yko" path="res://assets/audio/narration/dialogue_6.ogg" id="15_mdlpb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xj6hh"]
 animations = [{
@@ -33,7 +32,7 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kt5ra"]
-font_size = 50
+font_size = 70
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
@@ -74,12 +73,13 @@ autostart = true
 
 [node name="TreeTimer" type="Timer" parent="."]
 wait_time = 0.1
+autostart = true
 
 [node name="TreeParent" type="Node2D" parent="."]
 z_index = -200
 
 [node name="Player" parent="." instance=ExtResource("5_rirw7")]
-position = Vector2(79, 160)
+position = Vector2(-190, 160)
 
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
 
@@ -98,7 +98,6 @@ grow_vertical = 2
 theme = ExtResource("8_0dkwy")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 85.0
@@ -115,10 +114,20 @@ offset_top = -176.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "The seed flew east, through a forest.
-(press [space] to jump) (forest ambience)"
 label_settings = SubResource("LabelSettings_kt5ra")
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Tutorial" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_kt5ra")
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="SceneEnd" type="ColorRect" parent="CanvasLayer/Control"]
@@ -147,7 +156,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_mdlpb")
 volume_db = 12.0
 autoplay = true
 bus = &"Narration"

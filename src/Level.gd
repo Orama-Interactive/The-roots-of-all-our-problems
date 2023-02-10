@@ -28,7 +28,7 @@ var war_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Arrow.tscn"),
 	]
 
-var current_checkpoint := 0
+var current_checkpoint := -1
 var narrations: Array[AudioStream] = [
 	preload("res://assets/audio/narration/dialogue_6.ogg"), preload("res://assets/audio/narration/dialogue_7.ogg"),
 	preload("res://assets/audio/narration/dialogue_8.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"),
@@ -47,6 +47,7 @@ var tree_collapse_percentage := -1
 @onready var tree_timer: Timer = $TreeTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
+@onready var tutorial: Label = $CanvasLayer/Control/Tutorial
 @onready var sounds: AudioStreamPlayer = $Sounds
 @onready var sounds_2: AudioStreamPlayer = $Sounds2
 @onready var sounds_3: AudioStreamPlayer = $Sounds3
@@ -54,10 +55,10 @@ var tree_collapse_percentage := -1
 @onready var narration: AudioStreamPlayer = $Narration
 
 @onready var checkpoints: Array[Checkpoint] = [
-	Checkpoint.new(0, forest_obstacles, [
+	Checkpoint.new(900, [], [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.wav")]),
 		Event.new(spawn_trees, [0.1, 0.4])
-	], "The seed flew east, through a forest. (hold [space] to jump)", "[forest ambience]"),
+	], "The seed flew east, through a forest.", "[forest ambience]"),
 	Checkpoint.new(1500, forest_obstacles, [Event.new(spawn_trees, [0.4, 2])], "Navigating its way through the forest, the seed had to avoid the tree tops"),
 	Checkpoint.new(3000, forest_obstacles, [Event.new(spawn_trees, [1, 2])], "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
 	Checkpoint.new(4500, forest_obstacles, [
@@ -152,10 +153,11 @@ class Checkpoint:
 
 func _ready() -> void:
 	if GameManager.loaded:
+		player.can_move = true
 		current_checkpoint = GameManager.load_game()
 		GameManager.loaded = false
 		go_to_checkpoint()
-	change_checkpoint()
+		change_checkpoint()
 
 
 func _process(_delta: float) -> void:
@@ -198,7 +200,8 @@ func _on_obstacle_timer_timeout() -> void:
 
 
 func _on_tree_timer_timeout() -> void:
-	var pos := Vector2(player.position.x + 2040, 1080)
+	var offset := 2080 if player.position.x < checkpoints[0].pos else 1300
+	var pos := Vector2(player.position.x + player.camera_2d.offset.x + offset, 1080)
 	var tree := tree_tscn.instantiate()
 	tree.position = pos
 	tree_parent.add_child(tree)

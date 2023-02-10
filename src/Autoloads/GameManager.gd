@@ -10,6 +10,15 @@ var play_with_voice := false
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
+func _input(event: InputEvent) -> void:
+	if get_tree().current_scene.name != "Level":
+		return
+	if not event is InputEventMouseMotion:
+		if get_tree().paused:
+			get_tree().paused = false
+			get_tree().current_scene.tutorial.text = ""
+
+
 func save_game(checkpoint: int) -> void:
 	config_file.set_value("progress", "checkpoint", checkpoint)
 	config_file.save(CONFIG_PATH)
@@ -30,6 +39,19 @@ func game_over() -> void:
 	player.start()
 	get_tree().current_scene.go_to_checkpoint()
 #	get_tree().reload_current_scene() # Why does this crash?
+
+
+func show_tutorial() -> void:
+	if get_tree().current_scene.name != "Level":
+		return
+	get_tree().paused = true
+	var tutorial := "Hold any key to fly\nRelease to fall"
+	if DisplayServer.is_touchscreen_available():
+		tutorial = "Touch and hold to fly\nRelease to fall"
+	if play_with_voice:
+		tutorial = "Talk to fly\nStop talking to fall"
+
+	get_tree().current_scene.tutorial.text = tutorial
 
 
 func play_audio(audio: AudioStream) -> void:

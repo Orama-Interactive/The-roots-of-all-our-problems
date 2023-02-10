@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/Autoloads/GameManager.gd" id="1_1fo1e"]
 
 [node name="GameManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_1fo1e")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
