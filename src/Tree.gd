@@ -1,3 +1,4 @@
+class_name BackgroundTree
 extends Node2D
 
 var speed := 100.0
@@ -5,6 +6,7 @@ var falling_sounds := [
 	preload("res://assets/audio/sounds/tree_falling_2.wav"),
 	preload("res://assets/audio/sounds/tree_falling_3.wav"),
 ]
+var despawn_limit := 1000.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -21,6 +23,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.x -= speed * delta
+	if position.x <= despawn_limit:
+		queue_free()
 
 
 func collapse() -> void:
@@ -32,10 +36,6 @@ func collapse() -> void:
 		animation_player.play("collapse_left")
 	$AudioStreamPlayer2D.stream = falling_sounds.pick_random()
 	$AudioStreamPlayer2D.play()
-
-
-func _on_despawn_timer_timeout() -> void:
-	queue_free()
 
 
 func rand_bool() -> bool:

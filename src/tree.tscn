@@ -122,10 +122,4 @@ libraries = {
 "": SubResource("AnimationLibrary_wnpy2")
 }
 
-[node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

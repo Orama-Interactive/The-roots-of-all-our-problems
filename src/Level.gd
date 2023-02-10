@@ -200,9 +200,11 @@ func _on_obstacle_timer_timeout() -> void:
 
 
 func _on_tree_timer_timeout() -> void:
-	var offset := 2080 if player.position.x < checkpoints[0].pos else 1300
+	var offset := 1680 if player.position.x < checkpoints[0].pos else 1300
 	var pos := Vector2(player.position.x + player.camera_2d.offset.x + offset, 1080)
-	var tree := tree_tscn.instantiate()
+	var tree: BackgroundTree = tree_tscn.instantiate()
+	if current_checkpoint > -1:
+		tree.despawn_limit = checkpoints[current_checkpoint].pos - 400
 	tree.position = pos
 	tree_parent.add_child(tree)
 	if tree_collapse_percentage > -1:

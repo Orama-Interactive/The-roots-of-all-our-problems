@@ -593,6 +593,7 @@ grow_horizontal = 0
 grow_vertical = 0
 disabled = true
 shortcut = SubResource("Shortcut_p2p13")
+shortcut_in_tooltip = false
 actual_text = "Skip (space)"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
