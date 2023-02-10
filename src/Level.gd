@@ -38,6 +38,7 @@ var narrations: Array[AudioStream] = [
 ]
 var tree_collapse_percentage := -1
 @onready var player: Player = $Player
+@onready var background: Sprite2D = $ParallaxBackground/Background
 @onready var bomb: AnimatedSprite2D = $ParallaxBackground/Bomb
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/MiddleLayer
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/FrontLayer
@@ -78,6 +79,7 @@ var tree_collapse_percentage := -1
 	], "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
 	Checkpoint.new(12000, city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav")]),
+		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
 		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")]),
 		Event.new(fade_in, [middle_layer]),
 		Event.new(stop_trees)
@@ -88,6 +90,7 @@ var tree_collapse_percentage := -1
 	], "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
 	Checkpoint.new(15000, city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
+		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
 		Event.new(fade_in, [bomb]),
 		Event.new(fade_out, [middle_layer]),
 		Event.new(fade_out, [front_layer], 1),
