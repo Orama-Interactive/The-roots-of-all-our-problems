@@ -74,6 +74,12 @@ volume_db = -9.0
 autoplay = true
 bus = &"Sounds"
 
+[node name="FallingSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fdo5n")
+volume_db = -9.0
+autoplay = true
+bus = &"Sounds"
+
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_4a42a")
 autoplay = true
