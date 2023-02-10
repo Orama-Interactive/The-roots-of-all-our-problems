@@ -34,8 +34,9 @@ var narrations: Array[AudioStream] = [
 	preload("res://assets/audio/narration/dialogue_8.ogg"),preload("res://assets/audio/narration/dialogue_10.ogg"),
 	preload("res://assets/audio/narration/dialogue_11.ogg"), preload("res://assets/audio/narration/dialogue_13.ogg"),
 	preload("res://assets/audio/narration/dialogue_14.ogg"), preload("res://assets/audio/narration/dialogue_16.ogg"), preload("res://assets/audio/narration/dialogue_17.ogg"), preload("res://assets/audio/narration/dialogue_19.ogg"), preload("res://assets/audio/narration/dialogue_20.ogg"),
-preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg"), preload("res://assets/audio/narration/dialogue_23.ogg")
+	preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/audio/narration/dialogue_22.ogg"), preload("res://assets/audio/narration/dialogue_23.ogg")
 ]
+var tree_collapse_percentage := -1
 @onready var player: Player = $Player
 @onready var bomb: AnimatedSprite2D = $ParallaxBackground/Bomb
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/MiddleLayer
@@ -53,28 +54,33 @@ preload("res://assets/audio/narration/dialogue_21.ogg"), preload("res://assets/a
 
 @onready var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new(0, forest_obstacles, [
-		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.wav")])
+		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.wav")]),
+		Event.new(spawn_trees, [0.1, 0.4])
 	], "The seed flew east, through a forest. (hold [space] to jump)", "[forest ambience]"),
-	Checkpoint.new(1500, forest_obstacles, [], "Navigating its way through the forest, the seed had to avoid the tree tops"),
-	Checkpoint.new(3000, forest_obstacles, [], "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
+	Checkpoint.new(1500, forest_obstacles, [Event.new(spawn_trees, [0.4, 2])], "Navigating its way through the forest, the seed had to avoid the tree tops"),
+	Checkpoint.new(3000, forest_obstacles, [Event.new(spawn_trees, [1, 2])], "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
 	Checkpoint.new(4500, forest_obstacles, [
 		Event.new(play_sound, [sounds_2, preload("res://assets/audio/sounds/chop_tree_far.mp3")]),
 		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
+		Event.new(spawn_trees, [1, 3, 3])
 	], "But then, the seed lost its train of thought to a cracking sound.", "[sound of a tree being chopped and sound of trees falling]"),
 	Checkpoint.new(6000, forest_obstacles_2, [], "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
 	Checkpoint.new(7500, forest_obstacles_2, [], "But as the seed navigated further into the forest it realised that this place is far from safe.", "[sounds of rocks and arrows]"),
 	Checkpoint.new(9000, forest_obstacles_2, [
 		Event.new(fade_out, [middle_layer]),
 		Event.new(stop_sound, [sounds_2]),
+		Event.new(spawn_trees, [2, 4, 2])
 	], "The trees were falling one after the other. What could have caused such a catastrophe?"),
 	Checkpoint.new(10500, forest_obstacles_2, [
 		Event.new(fade_out, [front_layer]),
 		Event.new(stop_sound, [sounds_3]),
+		Event.new(spawn_trees, [3, 5, 1])
 	], "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
 	Checkpoint.new(12000, city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav")]),
 		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")]),
-		Event.new(fade_in, [middle_layer])
+		Event.new(fade_in, [middle_layer]),
+		Event.new(stop_trees)
 	], "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "[sounds of a busy city]"),
 	Checkpoint.new(13500, city_obstacles, [
 		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")]),
@@ -193,26 +199,9 @@ func _on_tree_timer_timeout() -> void:
 	var tree := tree_tscn.instantiate()
 	tree.position = pos
 	tree_parent.add_child(tree)
-	if player.position.x > checkpoints[7].pos:
-		tree.collapse()
-		tree_timer.stop()
-	elif player.position.x > checkpoints[6].pos:
-		tree_timer.wait_time = randf_range(3, 5)
-		tree.collapse()
-	elif player.position.x > checkpoints[5].pos:
-		tree_timer.wait_time = randf_range(2, 4)
-		if randi() % 2 == 0:
+	if tree_collapse_percentage > -1:
+		if randi() % tree_collapse_percentage == 0:
 			tree.collapse()
-	elif player.position.x > checkpoints[4].pos:
-		tree_timer.wait_time = randf_range(1, 3)
-		if randi() % 3 == 0:
-			tree.collapse()
-	elif player.position.x > checkpoints[2].pos:
-		tree_timer.wait_time = randf_range(1, 2)
-	elif player.position.x > checkpoints[1].pos:
-		tree_timer.wait_time = randf_range(0.4, 2)
-	else:
-		tree_timer.wait_time = randf_range(0.1, 0.4)
 
 
 # Events
@@ -245,6 +234,16 @@ func play_sound(asp: AudioStreamPlayer, audio: AudioStream, volume: float = 99, 
 
 func stop_sound(asp: AudioStreamPlayer) -> void:
 	asp.stop()
+
+
+func spawn_trees(from: float, to: float, collapse := -1) -> void:
+	tree_timer.wait_time = randf_range(from, to)
+	tree_collapse_percentage = collapse
+	tree_timer.start()
+
+
+func stop_trees() -> void:
+	tree_timer.stop()
 
 
 func ending() -> void:
