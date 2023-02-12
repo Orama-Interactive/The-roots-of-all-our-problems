@@ -5,6 +5,9 @@ signal fell
 
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
+const SHAKE_SPEED := 20.0
+const SHAKE_STRENGTH := 150.0
+const SHAKE_DECAY_RATE := 4.0
 
 var can_move := false
 var tutorial_shown := false
@@ -15,6 +18,10 @@ var falling_sound := preload("res://assets/audio/sounds/player_fall.mp3")
 var falling := false
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var record_bus_index: int
+var noise_i := 0.0
+var shake_strength := 0.0
+var noise := FastNoiseLite.new()
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var falling_sound_player: AudioStreamPlayer = $FallingSoundPlayer
@@ -22,12 +29,18 @@ var record_bus_index: int
 
 
 func _ready() -> void:
+	noise.frequency = 1
 	record_bus_index = AudioServer.get_bus_index("Record")
 	start()
 
 
 func start() -> void:
 	animated_sprite_2d.play("default")
+
+
+func _process(delta: float) -> void:
+	shake_strength = lerpf(shake_strength, 0, SHAKE_DECAY_RATE * delta)
+	camera_2d.offset.x = _get_noise_offset(delta)
 
 
 func _physics_process(delta: float):
@@ -76,8 +89,14 @@ func get_mic_input() -> float:
 
 func fall() -> void:
 	if not falling:
+		shake_strength = SHAKE_STRENGTH  # Shake camera
 		falling_sound_player.stream = falling_sound
 		falling_sound_player.play()
 		animated_sprite_2d.play("fall")
 		falling = true
 		emit_signal("fell")
+
+
+func _get_noise_offset(delta: float) -> float:
+	noise_i += delta * SHAKE_SPEED
+	return noise.get_noise_1d(noise_i) * shake_strength
