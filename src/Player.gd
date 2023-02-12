@@ -8,7 +8,7 @@ const JUMP_VELOCITY: = -400.0
 const INVINCIBILITY_SECONDS := 3
 const SHAKE_SPEED := 20.0
 const SHAKE_STRENGTH := 150.0
-const SHAKE_DECAY_RATE := 4.0
+const SHAKE_DECAY_RATE := 2.0
 
 var can_move := false
 var can_get_hit := true
@@ -46,7 +46,7 @@ func start() -> void:
 
 
 func _process(delta: float) -> void:
-	shake_strength = lerpf(shake_strength, 0, SHAKE_DECAY_RATE * delta)
+	shake_strength = lerpf(shake_strength, 0, pow(SHAKE_DECAY_RATE, 2) * delta)
 	camera_2d.offset.x = _get_noise_offset(delta)
 
 
