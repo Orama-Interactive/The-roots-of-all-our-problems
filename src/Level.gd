@@ -53,42 +53,41 @@ var tree_collapse_percentage := -1
 @onready var narration: AudioStreamPlayer = $Narration
 
 @onready var checkpoints: Array[Checkpoint] = [
-	Checkpoint.new(900, [], [
+	Checkpoint.new([], [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.wav")]),
 		Event.new(spawn_trees, [0.1, 0.4])
 	], "[forest ambience]"),
-	Checkpoint.new(1500, forest_obstacles, [Event.new(spawn_trees, [0.4, 2])],),
-	Checkpoint.new(3000, forest_obstacles, [Event.new(spawn_trees, [1, 2])]),
-	Checkpoint.new(4500, forest_obstacles, [
+	Checkpoint.new(forest_obstacles, [Event.new(spawn_trees, [0.4, 2])],),
+	Checkpoint.new(forest_obstacles, [Event.new(spawn_trees, [1, 2])]),
+	Checkpoint.new(forest_obstacles, [
 		Event.new(play_sound, [sounds_2, preload("res://assets/audio/sounds/chop_tree_far.mp3")]),
 		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
 		Event.new(spawn_trees, [1, 3, 3])
 	], "[Trees being chopped with axes and trees falling]"),
-	Checkpoint.new(6000, forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])],),
-	Checkpoint.new(7500, forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
-
-	Checkpoint.new(9000, forest_obstacles_2, [
+	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])],),
+	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
+	Checkpoint.new(forest_obstacles_2, [
 		Event.new(fade_out, [middle_layer]),
 		Event.new(stop_sound, [sounds_2]),
 		Event.new(spawn_trees, [2, 4, 2])
 	]),
-	Checkpoint.new(10500, forest_obstacles_2, [
+	Checkpoint.new(forest_obstacles_2, [
 		Event.new(fade_out, [front_layer]),
 		Event.new(stop_sound, [sounds_3]),
 		Event.new(spawn_trees, [3, 5, 1])
 	]),
-	Checkpoint.new(12000, city_obstacles, [
+	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav")]),
 		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
 		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")]),
 		Event.new(fade_in, [middle_layer]),
 		Event.new(stop_trees)
 	], "[sounds of a busy city]"),
-	Checkpoint.new(13500, city_obstacles, [
+	Checkpoint.new(city_obstacles, [
 		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")]),
 		Event.new(fade_in, [front_layer])
 	]),
-	Checkpoint.new(15000, city_obstacles, [
+	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
 		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
 		Event.new(fade_in, [bomb]),
@@ -96,12 +95,12 @@ var tree_collapse_percentage := -1
 		Event.new(fade_out, [front_layer], 1),
 		Event.new(fade_out, [bomb], 12),
 	], "[bomb falling, exploding]"),
-	Checkpoint.new(20500, war_obstacles, [
+	Checkpoint.new(war_obstacles, [
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0])
 	]),
-	Checkpoint.new(22000, war_obstacles, []),
-	Checkpoint.new(24000, war_obstacles, []),
-	Checkpoint.new(27000, [], [
+	Checkpoint.new(war_obstacles, []),
+	Checkpoint.new(war_obstacles, []),
+	Checkpoint.new([], [
 		Event.new(fade_in, [scene_end]),
 		Event.new(ending, [], 2)
 	]),
@@ -126,18 +125,16 @@ class Event:
 
 
 class Checkpoint:
-	var pos := 0.0
 	var obstacles: Array[PackedScene] = []
 	var events: Array[Event] = []
 	var text := ""
 	var ambient_text := ""
 
-	func _init(_pos: float,
+	func _init(
 	_obstacles: Array[PackedScene] = [],
 	_events: Array[Event] = [],
 	_ambient_text := "",
 	) -> void:
-		pos = _pos
 		obstacles = _obstacles
 		events = _events
 		ambient_text = _ambient_text
@@ -165,13 +162,13 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/Control/Label.text = str(pos)
 	if current_checkpoint >= checkpoints.size() -1:
 		return
-	if pos >= checkpoints[current_checkpoint + 1].pos:
+	if pos >= _calculate_checkpoint_position(current_checkpoint + 1):
 		current_checkpoint += 1
 		change_checkpoint()
 
 
 func go_to_checkpoint() -> void:
-	player.position.x = checkpoints[current_checkpoint].pos + 1
+	player.position.x = _calculate_checkpoint_position(current_checkpoint) + 1
 	player.position.y = 160
 
 
@@ -187,6 +184,13 @@ func change_checkpoint() -> void:
 		subtitles.text += "\n" + checkpoints[current_checkpoint].ambient_text
 
 
+func _calculate_checkpoint_position(index: int) -> float:
+	if index < 8:
+		return index * 2000.0 + 1000.0
+	else:  # Increase checkpoint distance exponentially
+		return pow(index / 2.0, 2) * 1000.0 + 1000.0
+
+
 func _on_obstacle_timer_timeout() -> void:
 	if checkpoints[current_checkpoint].obstacles.is_empty():
 		return
@@ -196,11 +200,11 @@ func _on_obstacle_timer_timeout() -> void:
 
 
 func _on_tree_timer_timeout() -> void:
-	var offset := 1680 if player.position.x < checkpoints[0].pos else 1300
+	var offset := 1680 if player.position.x < 1000 else 1300
 	var pos := Vector2(player.position.x + player.camera_2d.position.x + offset, 1080)
 	var tree: BackgroundTree = tree_tscn.instantiate()
 	if current_checkpoint > -1:
-		tree.despawn_limit = checkpoints[current_checkpoint].pos - 400
+		tree.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 400
 	tree.position = pos
 	tree_parent.add_child(tree)
 	if tree_collapse_percentage > -1:
