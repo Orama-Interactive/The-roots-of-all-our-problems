@@ -75,7 +75,6 @@ autostart = true
 
 [node name="TreeTimer" type="Timer" parent="."]
 wait_time = 0.1
-autostart = true
 
 [node name="TreeParent" type="Node2D" parent="."]
 z_index = -200

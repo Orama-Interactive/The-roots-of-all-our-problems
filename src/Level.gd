@@ -62,8 +62,8 @@ var tree_collapse_percentage := -1
 		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
 		Event.new(spawn_trees, [1, 3, 3])
 	], "But then, the seed lost its train of thought to a cracking sound.", "[sound of a tree being chopped and sound of trees falling]"),
-	Checkpoint.new(6000, forest_obstacles_2, [], "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
-	Checkpoint.new(7500, forest_obstacles_2, [], "But as the seed navigated further into the forest it realised that this place is far from safe.", "[sounds of rocks and arrows]"),
+	Checkpoint.new(6000, forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])], "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
+	Checkpoint.new(7500, forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])], "But as the seed navigated further into the forest it realised that this place is far from safe.", "[sounds of rocks and arrows]"),
 	Checkpoint.new(9000, forest_obstacles_2, [
 		Event.new(fade_out, [middle_layer]),
 		Event.new(stop_sound, [sounds_2]),
@@ -154,6 +154,8 @@ func _ready() -> void:
 		GameManager.loaded = false
 		go_to_checkpoint()
 		change_checkpoint()
+	else:
+		tree_timer.start()
 
 
 func _process(_delta: float) -> void:
@@ -176,9 +178,6 @@ func change_checkpoint() -> void:
 	if current_checkpoint < checkpoints.size() - 1:  # Do not save the final checkpoint
 		GameManager.save_game(current_checkpoint)
 	checkpoints[current_checkpoint].fire_events(self)
-	match current_checkpoint:
-		0:
-			tree_timer.start()
 	subtitles.text = checkpoints[current_checkpoint].text
 	if current_checkpoint < narrations.size():
 		narration.stream = narrations[current_checkpoint]

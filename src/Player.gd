@@ -61,7 +61,7 @@ func _physics_process(delta: float):
 		return
 
 	velocity.y += gravity * delta
-	velocity.y = clamp(velocity.y, JUMP_VELOCITY, 1200)
+	velocity.y = clampf(velocity.y, JUMP_VELOCITY, 1200)
 	var mic_input := false
 	if GameManager.play_with_voice:
 		mic_input = _get_mic_input() > GameManager.mic_input_threshold
