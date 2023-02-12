@@ -6,9 +6,9 @@ signal fell
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
 const INVINCIBILITY_SECONDS := 3
-const SHAKE_SPEED := 20.0
-const SHAKE_STRENGTH := 150.0
-const SHAKE_DECAY_RATE := 4.0
+const SHAKE_DECAY_RATE := 0.7
+const CAMERA_MAX_OFFSET := Vector2(100, 0)
+const TRAUMA_POWER := 3
 
 var can_move := false
 var can_get_hit := true
@@ -21,7 +21,7 @@ var falling := false
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var record_bus_index: int
 var noise_i := 0.0
-var shake_strength := 0.0
+var trauma := 0.0
 var noise := FastNoiseLite.new()
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -46,8 +46,8 @@ func start() -> void:
 
 
 func _process(delta: float) -> void:
-	shake_strength = lerpf(shake_strength, 0, SHAKE_DECAY_RATE * delta)
-	camera_2d.offset.x = _get_noise_offset(delta)
+	trauma = max(trauma - SHAKE_DECAY_RATE * delta, 0)
+	_shake()
 
 
 func _physics_process(delta: float):
@@ -92,12 +92,18 @@ func fall() -> void:
 	if not can_get_hit:
 		return
 	if not falling:
-		shake_strength = SHAKE_STRENGTH  # Shake camera
+		trauma = 1.0
 		falling_sound_player.stream = falling_sound
 		falling_sound_player.play()
 		animated_sprite_2d.play("fall")
 		falling = true
 		emit_signal("fell")
+
+
+func _shake() -> void:
+	var shake_amount := pow(trauma, TRAUMA_POWER)
+	noise_i += 1
+	camera_2d.offset.x = CAMERA_MAX_OFFSET.x * shake_amount * noise.get_noise_1d(noise_i)
 
 
 func _make_invincible() -> void:
@@ -113,8 +119,3 @@ func _get_mic_input() -> float:
 	var sample := AudioServer.get_bus_peak_volume_left_db(record_bus_index, 0)
 	var linear_sample := db_to_linear(sample)
 	return linear_sample
-
-
-func _get_noise_offset(delta: float) -> float:
-	noise_i += delta * SHAKE_SPEED
-	return noise.get_noise_1d(noise_i) * shake_strength
