@@ -222,18 +222,6 @@ tracks/14/keys = {
 "times": PackedFloat32Array()
 }
 tracks/14/use_blend = true
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Narration:volume_db")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10.0]
-}
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
@@ -453,25 +441,13 @@ tracks/15/keys = {
 "times": PackedFloat32Array(1.7, 4.5, 10.6, 14.4, 25.6)
 }
 tracks/15/use_blend = true
-tracks/16/type = "value"
+tracks/16/type = "audio"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Narration:volume_db")
+tracks/16/path = NodePath("Sounds")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(2.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [12.0]
-}
-tracks/17/type = "audio"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Sounds")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -479,7 +455,7 @@ tracks/17/keys = {
 }],
 "times": PackedFloat32Array(22.7)
 }
-tracks/17/use_blend = true
+tracks/16/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
@@ -568,10 +544,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 882.0
+offset_left = -1038.0
 offset_top = 121.0
-offset_right = 1777.0
-offset_bottom = 936.0
+offset_right = -143.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
@@ -606,7 +582,6 @@ volume_db = -15.0
 bus = &"Music"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
-volume_db = 10.0
 bus = &"Narration"
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]

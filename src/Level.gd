@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_multiline var dialogue_lines: Array[String] = []
+
 var tree_tscn := preload("res://src/tree.tscn")
 var forest_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetop_1.tscn"),
@@ -30,7 +32,7 @@ var war_obstacles: Array[PackedScene] = [
 
 var current_checkpoint := -1
 var narrations: Array[AudioStream] = [
-	preload("res://assets/audio/narration/level/1.ogg"), preload("res://assets/audio/narration/level/2.ogg"), preload("res://assets/audio/narration/level/3.ogg"), preload("res://assets/audio/narration/level/4.ogg"), preload("res://assets/audio/narration/level/5.ogg"), preload("res://assets/audio/narration/level/6.ogg"), preload("res://assets/audio/narration/level/7.ogg"), preload("res://assets/audio/narration/level/8.ogg"), preload("res://assets/audio/narration/level/9.ogg"), preload("res://assets/audio/narration/level/10.ogg"), preload("res://assets/audio/narration/level/11.ogg"), preload("res://assets/audio/narration/level/12.ogg"), preload("res://assets/audio/narration/level/13.ogg"), preload("res://assets/audio/narration/level/14.ogg")
+	preload("res://assets/audio/narration/level/1.ogg"), preload("res://assets/audio/narration/level/2.ogg"), preload("res://assets/audio/narration/level/3.ogg"), preload("res://assets/audio/narration/level/4.ogg"), preload("res://assets/audio/narration/level/5.ogg"), preload("res://assets/audio/narration/level/6.ogg"), preload("res://assets/audio/narration/level/7.ogg"), preload("res://assets/audio/narration/level/8.ogg"), preload("res://assets/audio/narration/level/9.ogg"), preload("res://assets/audio/narration/level/10.ogg"), preload("res://assets/audio/narration/level/11.ogg"), preload("res://assets/audio/narration/level/12.ogg"), preload("res://assets/audio/narration/level/13.ogg"), preload("res://assets/audio/narration/level/14.ogg"), preload("res://assets/audio/narration/level/15.ogg"), preload("res://assets/audio/narration/level/16.ogg"), preload("res://assets/audio/narration/level/17.ogg"), preload("res://assets/audio/narration/level/18.ogg"), preload("res://assets/audio/narration/level/19.ogg"), preload("res://assets/audio/narration/level/20.ogg"), preload("res://assets/audio/narration/level/21.ogg")
 ]
 var tree_collapse_percentage := -1
 @onready var player: Player = $Player
@@ -54,37 +56,38 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(900, [], [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.wav")]),
 		Event.new(spawn_trees, [0.1, 0.4])
-	], "The seed flew east, through a forest.", "[forest ambience]"),
-	Checkpoint.new(1500, forest_obstacles, [Event.new(spawn_trees, [0.4, 2])], "Navigating its way through the forest, the seed had to avoid the tree tops"),
-	Checkpoint.new(3000, forest_obstacles, [Event.new(spawn_trees, [1, 2])], "“This forest is way too dense” the seed thought. I won’t be able to root properly here, with so little sun."),
+	], "[forest ambience]"),
+	Checkpoint.new(1500, forest_obstacles, [Event.new(spawn_trees, [0.4, 2])],),
+	Checkpoint.new(3000, forest_obstacles, [Event.new(spawn_trees, [1, 2])]),
 	Checkpoint.new(4500, forest_obstacles, [
 		Event.new(play_sound, [sounds_2, preload("res://assets/audio/sounds/chop_tree_far.mp3")]),
 		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
 		Event.new(spawn_trees, [1, 3, 3])
-	], "But then, the seed lost its train of thought to a cracking sound.", "[sound of a tree being chopped and sound of trees falling]"),
-	Checkpoint.new(6000, forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])], "Why are the trees falling out of nowhere? Maybe that’s my chance to root!"),
-	Checkpoint.new(7500, forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])], "But as the seed navigated further into the forest it realised that this place is far from safe.", "[sounds of rocks and arrows]"),
+	], "[Trees being chopped with axes and trees falling]"),
+	Checkpoint.new(6000, forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])],),
+	Checkpoint.new(7500, forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
+
 	Checkpoint.new(9000, forest_obstacles_2, [
 		Event.new(fade_out, [middle_layer]),
 		Event.new(stop_sound, [sounds_2]),
 		Event.new(spawn_trees, [2, 4, 2])
-	], "The trees were falling one after the other. What could have caused such a catastrophe?"),
+	]),
 	Checkpoint.new(10500, forest_obstacles_2, [
 		Event.new(fade_out, [front_layer]),
 		Event.new(stop_sound, [sounds_3]),
 		Event.new(spawn_trees, [3, 5, 1])
-	], "I have to travel further, the seed thought and it gathered all of its strength and courage to go even further."),
+	]),
 	Checkpoint.new(12000, city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav")]),
 		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
 		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")]),
 		Event.new(fade_in, [middle_layer]),
 		Event.new(stop_trees)
-	], "But things were getting even more weird the further it went. The forest lost its colours and the sound became louder and louder", "[sounds of a busy city]"),
+	], "[sounds of a busy city]"),
 	Checkpoint.new(13500, city_obstacles, [
 		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")]),
 		Event.new(fade_in, [front_layer])
-	], "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traveled even further in that gray looking forest."),
+	]),
 	Checkpoint.new(15000, city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
 		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
@@ -92,16 +95,16 @@ var tree_collapse_percentage := -1
 		Event.new(fade_out, [middle_layer]),
 		Event.new(fade_out, [front_layer], 1),
 		Event.new(fade_out, [bomb], 12),
-	], "And suddenly, a sound unlike any other.", "[bomb falling, exploding]"),
+	], "[bomb falling, exploding]"),
 	Checkpoint.new(20500, war_obstacles, [
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0])
-	], "And everything was calm again."),
-	Checkpoint.new(22000, war_obstacles, [], "The forest was long gone."),
-	Checkpoint.new(24000, war_obstacles, [], "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
+	]),
+	Checkpoint.new(22000, war_obstacles, []),
+	Checkpoint.new(24000, war_obstacles, []),
 	Checkpoint.new(27000, [], [
 		Event.new(fade_in, [scene_end]),
 		Event.new(ending, [], 2)
-	], "But the poor seed had little strength, for it had used all of its energy looking for a better place to root."),
+	]),
 ]
 
 
@@ -132,13 +135,11 @@ class Checkpoint:
 	func _init(_pos: float,
 	_obstacles: Array[PackedScene] = [],
 	_events: Array[Event] = [],
-	_text := "",
 	_ambient_text := "",
 	) -> void:
 		pos = _pos
 		obstacles = _obstacles
 		events = _events
-		text = _text
 		ambient_text = _ambient_text
 
 
@@ -177,8 +178,8 @@ func go_to_checkpoint() -> void:
 func change_checkpoint() -> void:
 	if current_checkpoint < checkpoints.size() - 1:  # Do not save the final checkpoint
 		GameManager.save_game(current_checkpoint)
+		subtitles.text = dialogue_lines[current_checkpoint]
 	checkpoints[current_checkpoint].fire_events(self)
-	subtitles.text = checkpoints[current_checkpoint].text
 	if current_checkpoint < narrations.size():
 		narration.stream = narrations[current_checkpoint]
 		narration.play()

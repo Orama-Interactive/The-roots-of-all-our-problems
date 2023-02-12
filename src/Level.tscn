@@ -40,6 +40,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ljq6u")
+dialogue_lines = Array[String](["The seed flew away, through a forest with big spruce trees.", "Navigating its way through the forest, the seed had to avoid the treetops.", "“This forest is way too dense” the seed thought. “I won’t be able to root properly here, with so little sun reaching the forest bed.”", "Suddenly, a cracking sound scared the little seed.", "“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”", "“But what will happen when I root and I become a tree myself? Will I fall like those trees are?”", "The forest became less and less dense the further the seed traveled.", "\"What could have caused such a catastrophe?\" The seed thought.", "\"I need to travel further, it's not safe here!\"", "But after a while things became even weirder. The forest lost its colours and the surroundings got very noisy.", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traversed through that gray looking forest.", "It was getting more and more difficult for the seed to navigate between this place's obstacles but it was determined to find the perfect spot to root, so it carried on.", "After some time, the seed realized that this place isn't suitable for a tree to live there either.", "The seed was tired, but determined, so it went even further.", "\"This place really has no end\" it thought. But it was abruptly interrupted by a sound. A scary sound unlike any other.", "And everything was calm.", "The forest was long gone.", "The seed felt scared and alone. Everything, even the sky, looked so hostile.", "“I can’t go on for much longer. It’s so cold and lonely out here.” ", "After all this way it had traveled the poor seed had no strength left within it. Even the air stopped supporting its journey. The seed was for the first time truly alone."])
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -163,7 +164,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
-volume_db = 12.0
 autoplay = true
 bus = &"Narration"
 
