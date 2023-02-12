@@ -13,8 +13,8 @@ const TRAUMA_POWER := 3
 var can_move := false
 var can_get_hit := true
 var tutorial_shown := false
-var flying_sound := preload("res://assets/audio/sounds/dragonfly_2.wav")
-var flying_sound_2 := preload("res://assets/audio/sounds/dragonfly_3.wav")
+var flying_sound := preload("res://assets/audio/sounds/dragonfly_2.ogg")
+var flying_sound_2 := preload("res://assets/audio/sounds/dragonfly_3.ogg")
 var falling_sound := preload("res://assets/audio/sounds/player_fall.mp3")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var falling := false
