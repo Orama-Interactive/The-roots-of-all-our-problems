@@ -66,6 +66,7 @@ var tree_collapse_percentage := -1
 	], "[Trees being chopped with axes and trees falling]"),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])],),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
+	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [
 		Event.new(fade_out, [middle_layer]),
 		Event.new(stop_sound, [sounds_2]),
@@ -87,6 +88,9 @@ var tree_collapse_percentage := -1
 		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")]),
 		Event.new(fade_in, [front_layer])
 	]),
+	Checkpoint.new(city_obstacles),
+	Checkpoint.new(city_obstacles),
+	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
 		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
@@ -98,6 +102,8 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(war_obstacles, [
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0])
 	]),
+	Checkpoint.new(war_obstacles, []),
+	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new([], [
@@ -175,9 +181,9 @@ func go_to_checkpoint() -> void:
 func change_checkpoint() -> void:
 	if current_checkpoint < checkpoints.size() - 1:  # Do not save the final checkpoint
 		GameManager.save_game(current_checkpoint)
-		subtitles.text = dialogue_lines[current_checkpoint]
 	checkpoints[current_checkpoint].fire_events(self)
 	if current_checkpoint < narrations.size():
+		subtitles.text = dialogue_lines[current_checkpoint]
 		narration.stream = narrations[current_checkpoint]
 		narration.play()
 	if GameManager.show_ambient_subtitles:
