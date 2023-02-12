@@ -5,11 +5,13 @@ signal fell
 
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
+const INVINCIBILITY_SECONDS := 3
 const SHAKE_SPEED := 20.0
 const SHAKE_STRENGTH := 150.0
 const SHAKE_DECAY_RATE := 4.0
 
 var can_move := false
+var can_get_hit := true
 var tutorial_shown := false
 var flying_sound := preload("res://assets/audio/sounds/dragonfly_2.wav")
 var flying_sound_2 := preload("res://assets/audio/sounds/dragonfly_3.wav")
@@ -36,6 +38,11 @@ func _ready() -> void:
 
 func start() -> void:
 	animated_sprite_2d.play("default")
+	if can_move:
+		can_get_hit = false
+		_make_invincible()
+		await get_tree().create_timer(INVINCIBILITY_SECONDS).timeout
+		can_get_hit = true
 
 
 func _process(delta: float) -> void:
@@ -57,7 +64,7 @@ func _physics_process(delta: float):
 	velocity.y = clamp(velocity.y, JUMP_VELOCITY, 1200)
 	var mic_input := false
 	if GameManager.play_with_voice:
-		mic_input = get_mic_input() > GameManager.mic_input_threshold
+		mic_input = _get_mic_input() > GameManager.mic_input_threshold
 	var jump := Input.is_anything_pressed() or mic_input
 	if Input.is_action_pressed("pause"):
 		jump = false
@@ -81,13 +88,9 @@ func _physics_process(delta: float):
 		GameManager.game_over()
 
 
-func get_mic_input() -> float:
-	var sample := AudioServer.get_bus_peak_volume_left_db(record_bus_index, 0)
-	var linear_sample := db_to_linear(sample)
-	return linear_sample
-
-
 func fall() -> void:
+	if not can_get_hit:
+		return
 	if not falling:
 		shake_strength = SHAKE_STRENGTH  # Shake camera
 		falling_sound_player.stream = falling_sound
@@ -95,6 +98,21 @@ func fall() -> void:
 		animated_sprite_2d.play("fall")
 		falling = true
 		emit_signal("fell")
+
+
+func _make_invincible() -> void:
+	if can_get_hit:
+		return
+	var tween := create_tween()
+	tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 0), 0.1)
+	tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.finished.connect(_make_invincible)
+
+
+func _get_mic_input() -> float:
+	var sample := AudioServer.get_bus_peak_volume_left_db(record_bus_index, 0)
+	var linear_sample := db_to_linear(sample)
+	return linear_sample
 
 
 func _get_noise_offset(delta: float) -> float:
