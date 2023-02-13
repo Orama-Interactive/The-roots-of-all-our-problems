@@ -225,7 +225,7 @@ tracks/14/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
-length = 30.0
+length = 35.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -293,10 +293,10 @@ tracks/5/path = NodePath("Subtitles:text")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.7, 4.6, 10.5, 14.4, 18.2, 18.7, 22.7, 25.7),
+"times": PackedFloat32Array(0, 1.7, 4.6, 10.9, 16.6, 20.4, 20.9, 24.9, 27.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "Once upon a time… (music)", "There was a tree. A big, well established tree with roots reaching deep into the soil. ", "What was special about this tree was its seeds. ", "With a single blow of the wind, its seeds would scatter through the air ", "", "And they would fly far far away, looking for a place to root.", "", "This is the story of one of those seeds. 
+"values": ["", "Once upon a time… (music)", "There was a tree. A big, well established tree with roots reaching deep into the soil. ", "What was special about this tree was its seeds. ", "With a single blow of the wind, its seeds would scatter through the air ", "", "And fly far far away, looking for a place to root.", "", "This is the story of one of those seeds. 
 "]
 }
 tracks/6/type = "value"
@@ -306,7 +306,7 @@ tracks/6/path = NodePath("TextureRect:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 23.1),
+"times": PackedFloat32Array(0, 25.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_55xt4"), ExtResource("5_xn6ax")]
@@ -318,7 +318,7 @@ tracks/7/path = NodePath("Subtitles:size")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 23.1, 23.2),
+"times": PackedFloat32Array(0, 25.3, 25.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(895, 815), Vector2(895, 815), Vector2(452, 815)]
@@ -330,7 +330,7 @@ tracks/8/path = NodePath("Subtitles:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 23.1, 23.2),
+"times": PackedFloat32Array(0, 25.3, 25.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(882, 121), Vector2(882, 121), Vector2(1325, 121)]
@@ -366,7 +366,7 @@ tracks/11/path = NodePath("BookTurn:material:shader_parameter/y_rot")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(23.2, 24.3, 25.4),
+"times": PackedFloat32Array(25.4, 26.5, 27.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 90.0, 8.55e-06]
@@ -378,7 +378,7 @@ tracks/12/path = NodePath("BookTurn:material:shader_parameter/half_right")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(23.2, 24.3),
+"times": PackedFloat32Array(25.4, 26.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -390,7 +390,7 @@ tracks/13/path = NodePath("BookTurn:material:shader_parameter/tex")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(23.2, 24.3),
+"times": PackedFloat32Array(25.4, 26.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("3_55xt4"), ExtResource("5_xn6ax")]
@@ -438,7 +438,7 @@ tracks/15/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("13_edfm0")
 }],
-"times": PackedFloat32Array(1.7, 4.5, 10.6, 14.4, 25.6)
+"times": PackedFloat32Array(1.7, 4.5, 11, 16.3, 28.4)
 }
 tracks/15/use_blend = true
 tracks/16/type = "audio"
@@ -453,7 +453,7 @@ tracks/16/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("14_qhvya")
 }],
-"times": PackedFloat32Array(22.7)
+"times": PackedFloat32Array(25.4)
 }
 tracks/16/use_blend = true
 
@@ -544,10 +544,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 882.0
+offset_left = -1038.0
 offset_top = 121.0
-offset_right = 1777.0
-offset_bottom = 936.0
+offset_right = -143.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
