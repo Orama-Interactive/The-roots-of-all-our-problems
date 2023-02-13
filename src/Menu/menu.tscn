@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://jwwr65n566pk" path="res://assets/audio/narration/intro/5.ogg" id="13_edfm0"]
 [ext_resource type="AudioStream" uid="uid://c4tg8g2dm6np4" path="res://assets/audio/music/Menu.ogg" id="14_oookk"]
 [ext_resource type="AudioStream" uid="uid://rqog4vaqphgo" path="res://assets/audio/sounds/wind-1-44149.mp3" id="14_qhvya"]
-[ext_resource type="AudioStream" uid="uid://bxbbsnptrnjxl" path="res://assets/audio/music/Story Intro.ogg" id="15_hti1m"]
+[ext_resource type="AudioStream" uid="uid://dy83ypasnm2im" path="res://assets/audio/music/Story Intro.ogg" id="15_hti1m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
 shader = ExtResource("4_rysc7")
