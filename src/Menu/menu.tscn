@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8vfn0xp7w4fl"]
+[gd_scene load_steps=24 format=3 uid="uid://b8vfn0xp7w4fl"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
@@ -7,13 +7,14 @@
 [ext_resource type="Shader" path="res://src/Shaders/DualTexture.gdshader" id="4_rysc7"]
 [ext_resource type="Texture2D" uid="uid://doqu2sbglr5i1" path="res://assets/menu_screen_2.png" id="5_xn6ax"]
 [ext_resource type="Shader" path="res://src/Shaders/BookTurn.gdshader" id="6_qlyve"]
-[ext_resource type="AudioStream" uid="uid://c7dxueela5r4c" path="res://assets/audio/music/intro.ogg" id="8_wd7ls"]
 [ext_resource type="AudioStream" uid="uid://jv2ajecwgcfx" path="res://assets/audio/narration/intro/1.ogg" id="9_sv7et"]
 [ext_resource type="AudioStream" uid="uid://cc0qvmccd7qts" path="res://assets/audio/narration/intro/2.ogg" id="10_7vhc1"]
 [ext_resource type="AudioStream" uid="uid://dn7p3d5er2cct" path="res://assets/audio/narration/intro/3.ogg" id="11_wpf82"]
 [ext_resource type="AudioStream" uid="uid://bmyy44q3jursr" path="res://assets/audio/narration/intro/4.ogg" id="12_6yatg"]
 [ext_resource type="AudioStream" uid="uid://jwwr65n566pk" path="res://assets/audio/narration/intro/5.ogg" id="13_edfm0"]
+[ext_resource type="AudioStream" uid="uid://c4tg8g2dm6np4" path="res://assets/audio/music/Menu.ogg" id="14_oookk"]
 [ext_resource type="AudioStream" uid="uid://rqog4vaqphgo" path="res://assets/audio/sounds/wind-1-44149.mp3" id="14_qhvya"]
+[ext_resource type="AudioStream" uid="uid://bxbbsnptrnjxl" path="res://assets/audio/music/Story Intro.ogg" id="15_hti1m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
 shader = ExtResource("4_rysc7")
@@ -214,7 +215,7 @@ tracks/13/keys = {
 tracks/14/type = "audio"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Music")
+tracks/14/path = NodePath("menuMusic")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -398,14 +399,14 @@ tracks/13/keys = {
 tracks/14/type = "audio"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Music")
+tracks/14/path = NodePath("menuMusic")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_wd7ls")
+"stream": null
 }],
 "times": PackedFloat32Array(0)
 }
@@ -577,15 +578,20 @@ libraries = {
 "": SubResource("AnimationLibrary_dg4f2")
 }
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-volume_db = -15.0
-bus = &"Music"
+[node name="menuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_oookk")
+autoplay = true
+bus = &"Menu"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 bus = &"Narration"
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
 bus = &"Sounds"
+
+[node name="introMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_hti1m")
+bus = &"Intro"
 
 [connection signal="pressed" from="Buttons/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="Buttons/Load" to="." method="_on_load_pressed"]
