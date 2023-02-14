@@ -92,6 +92,10 @@ autostart = true
 [node name="TreeTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="SubtitleTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
 [node name="Player" parent="." instance=ExtResource("5_rirw7")]
 position = Vector2(194, 387)
 
@@ -128,12 +132,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -176.0
-offset_bottom = 60.0
+offset_top = -536.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_kt5ra")
 horizontal_alignment = 1
+vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="Tutorial" type="Label" parent="CanvasLayer/Control"]
@@ -181,4 +186,5 @@ bus = &"Narration"
 [connection signal="timeout" from="BackgroundObstacleTimer" to="." method="_on_background_obstacle_timer_timeout"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
+[connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]
 [connection signal="fell" from="Player" to="." method="_on_player_fell"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-const CITY_FIRST_CHECKPOINT := 10
+const CITY_FIRST_CHECKPOINT := 9
 const WAR_FIRST_CHECKPOINT := 15
 
 const BACKGROUND_CITY_SKY := preload("res://assets/level_backgrounds/city_sky.png")
@@ -56,6 +56,7 @@ var tree_collapse_percentage := -1
 @onready var tree_parent: Node2D = $TreeParent
 @onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
 @onready var tree_timer: Timer = $TreeTimer
+@onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
 @onready var tutorial: Label = $CanvasLayer/Control/Tutorial
@@ -211,6 +212,7 @@ func change_checkpoint() -> void:
 	checkpoints[current_checkpoint].fire_events(self)
 	if current_checkpoint < narrations.size():
 		subtitles.text = dialogue_lines[current_checkpoint]
+		subtitle_timer.start()
 		narration.stream = narrations[current_checkpoint]
 		narration.play()
 	if GameManager.show_ambient_subtitles:
@@ -250,6 +252,10 @@ func _on_tree_timer_timeout() -> void:
 	if tree_collapse_percentage > -1:
 		if randi() % tree_collapse_percentage == 0:
 			tree.collapse()
+
+
+func _on_subtitle_timer_timeout() -> void:
+	subtitles.text = ""
 
 
 func _on_player_fell() -> void:
