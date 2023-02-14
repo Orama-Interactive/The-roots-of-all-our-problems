@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" path="res://src/Menu/MenuButton.gd" id="1_rbyje"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_arcva"]
-font_size = 128
+[sub_resource type="LabelSettings" id="LabelSettings_y7uqc"]
+font_size = 80
 font_color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(300, 150)
+offset_right = 300.0
+offset_bottom = 150.0
 flat = true
 script = ExtResource("1_rbyje")
 
@@ -24,8 +26,9 @@ offset_top = -87.5
 offset_bottom = 87.5
 grow_horizontal = 0
 grow_vertical = 2
-label_settings = SubResource("LabelSettings_arcva")
+label_settings = SubResource("LabelSettings_y7uqc")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

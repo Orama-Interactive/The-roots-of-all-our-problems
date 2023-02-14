@@ -557,6 +557,7 @@ autowrap_mode = 2
 
 [node name="SkipButton" parent="." instance=ExtResource("4_76yoj")]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 80)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -564,13 +565,16 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -300.0
-offset_top = -150.0
+offset_top = -80.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 disabled = true
 shortcut = SubResource("Shortcut_p2p13")
 shortcut_in_tooltip = false
 actual_text = "Skip (space)"
+text_size = 80
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

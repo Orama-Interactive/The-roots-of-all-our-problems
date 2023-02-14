@@ -17,25 +17,22 @@ extends Button
 @onready var label: Label = $Label
 
 var sound := preload("res://assets/audio/sounds/pageturn-102978.mp3")
+var initial_text_size: int
 
 
 func _ready() -> void:
 	label.label_settings = LabelSettings.new()
 	label.label_settings.font_size = text_size
 	label.label_settings.font_color = text_color
+	initial_text_size = text_size
 
 
 func _on_mouse_entered() -> void:
-	var tw := create_tween()
-#	tw.tween_property(self, "custom_minimum_size", Vector2(320, 170), 1)
-	tw.tween_property(self, "text_size", 150, 0.1)
+	create_tween().tween_property(self, "text_size", initial_text_size + 22, 0.1)
 
 
 func _on_mouse_exited() -> void:
-	var tw := create_tween()
-	tw.tween_property(self, "text_size", 128, 0.1)
-#	tw.tween_property(self, "custom_minimum_size", Vector2(300, 150), 1)
-#	tw.tween_property(self, "size", Vector2(300, 150), 1)
+	create_tween().tween_property(self, "text_size", initial_text_size, 0.1)
 
 
 func _on_focus_entered() -> void:
