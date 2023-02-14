@@ -1,5 +1,15 @@
 extends Node2D
 
+const CITY_FIRST_CHECKPOINT := 10
+const WAR_FIRST_CHECKPOINT := 15
+
+const BACKGROUND_CITY_SKY := preload("res://assets/level_backgrounds/city_sky.png")
+const BACKGROUND_CITY_BACK := preload("res://assets/level_backgrounds/city_back.png")
+const BACKGROUND_CITY_MIDDLE := preload("res://assets/level_backgrounds/city_middle.png")
+const BACKGROUND_WAR_SKY := preload("res://assets/level_backgrounds/war_sky.png")
+const BACKGROUND_WAR_BACK := preload("res://assets/level_backgrounds/war_back.png")
+const BACKGROUND_WAR_MIDDLE := preload("res://assets/level_backgrounds/war_middle.png")
+
 @export_multiline var dialogue_lines: Array[String] = []
 
 var tree_tscn := preload("res://src/tree.tscn")
@@ -81,9 +91,9 @@ var tree_collapse_percentage := -1
 		Event.new(stop_trees),
 		Event.new(fade_out, [back_layer]),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
-		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/city_sky.png")]),
-		Event.new(change_texture, [back_layer, preload("res://assets/level_backgrounds/city_back.png")], 2),
-		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/city_middle.png")], 2),
+		Event.new(change_texture, [sky_background, BACKGROUND_CITY_SKY]),
+		Event.new(change_texture, [back_layer, BACKGROUND_CITY_BACK], 2),
+		Event.new(change_texture, [middle_layer, BACKGROUND_CITY_MIDDLE], 2),
 		Event.new(fade_in, [back_layer], 2.3),
 		Event.new(fade_in, [middle_layer], 5)
 	], "[sounds of a busy city]"),
@@ -93,7 +103,7 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
-		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/war_sky.png")]),
+		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY]),
 		Event.new(fade_in, [bomb]),
 		Event.new(fade_out, [back_layer]),
 		Event.new(fade_out, [middle_layer], 1),
@@ -101,9 +111,8 @@ var tree_collapse_percentage := -1
 	], "[bomb falling, exploding]"),
 	Checkpoint.new(war_obstacles, [
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
-		Event.new(change_texture, [back_layer, preload("res://assets/level_backgrounds/war_back.png")]),
-		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/war_middle.png")]),
-		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/war_front.png")]),
+		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
+		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE]),
 		Event.new(fade_in, [back_layer]),
 		Event.new(fade_in, [middle_layer], 2),
 		Event.new(fade_in, [front_layer], 4)
@@ -164,6 +173,14 @@ func _ready() -> void:
 		GameManager.loaded = false
 		go_to_checkpoint()
 		change_checkpoint()
+		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
+			change_texture(sky_background, BACKGROUND_WAR_SKY)
+			change_texture(back_layer, BACKGROUND_WAR_BACK)
+			change_texture(middle_layer, BACKGROUND_WAR_MIDDLE)
+		elif current_checkpoint >= CITY_FIRST_CHECKPOINT:
+			change_texture(sky_background, BACKGROUND_CITY_SKY)
+			change_texture(back_layer, BACKGROUND_CITY_BACK)
+			change_texture(middle_layer, BACKGROUND_CITY_MIDDLE)
 	else:
 		tree_timer.start()
 
