@@ -64,30 +64,29 @@ var tree_collapse_percentage := -1
 		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
 		Event.new(spawn_trees, [1, 3, 3])
 	], "[Trees being chopped with axes and trees falling]"),
-	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])],),
+	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [
-		Event.new(fade_out, [middle_layer]),
+		Event.new(fade_out, [front_layer]),
 		Event.new(stop_sound, [sounds_2]),
 		Event.new(spawn_trees, [2, 4, 2])
 	]),
 	Checkpoint.new(forest_obstacles_2, [
-		Event.new(fade_out, [front_layer]),
 		Event.new(stop_sound, [sounds_3]),
 		Event.new(spawn_trees, [3, 5, 1])
 	]),
 	Checkpoint.new(city_obstacles, [
-		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav")]),
+		Event.new(stop_trees),
+		Event.new(fade_out, [middle_layer]),
+		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
 		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
-		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")]),
-		Event.new(fade_in, [middle_layer]),
-		Event.new(stop_trees)
+		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")], 2),
+		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")], 2),
+		Event.new(fade_in, [middle_layer], 2.3),
+		Event.new(fade_in, [front_layer], 5)
 	], "[sounds of a busy city]"),
-	Checkpoint.new(city_obstacles, [
-		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")]),
-		Event.new(fade_in, [front_layer])
-	]),
+	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
