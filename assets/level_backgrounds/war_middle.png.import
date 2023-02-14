@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ut4llab487f"
-path="res://.godot/imported/sidescrolling_forest_1.png-0b8af89a7088cc7a0fa90f0250c30b97.ctex"
+uid="uid://c0xbljrup1qm2"
+path="res://.godot/imported/war_middle.png-a48563d9871dda86311eff4e2486691f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_backgrounds/sidescrolling_forest_1.png"
-dest_files=["res://.godot/imported/sidescrolling_forest_1.png-0b8af89a7088cc7a0fa90f0250c30b97.ctex"]
+source_file="res://assets/level_backgrounds/war_middle.png"
+dest_files=["res://.godot/imported/war_middle.png-a48563d9871dda86311eff4e2486691f.ctex"]
 
 [params]
 

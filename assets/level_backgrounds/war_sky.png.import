@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doohqcugciu78"
-path="res://.godot/imported/sidescrolling_town_2.png-9feae71d56c40a12b02c371227d5bbc2.ctex"
+uid="uid://dodu50nrkkfhc"
+path="res://.godot/imported/war_sky.png-b7784d43f49729d43666fb9df15ade95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_backgrounds/sidescrolling_town_2.png"
-dest_files=["res://.godot/imported/sidescrolling_town_2.png-9feae71d56c40a12b02c371227d5bbc2.ctex"]
+source_file="res://assets/level_backgrounds/war_sky.png"
+dest_files=["res://.godot/imported/war_sky.png-b7784d43f49729d43666fb9df15ade95.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkjfrs3r2fj6l"
-path.s3tc="res://.godot/imported/sidescrolling_forest_2.png-4dd17660c61c75f27a319149df50f7ed.s3tc.ctex"
+path.s3tc="res://.godot/imported/forest_back.png-b186a3f27009b03717fece8e5834f7f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/level_backgrounds/sidescrolling_forest_2.png"
-dest_files=["res://.godot/imported/sidescrolling_forest_2.png-4dd17660c61c75f27a319149df50f7ed.s3tc.ctex"]
+source_file="res://assets/level_backgrounds/forest_back.png"
+dest_files=["res://.godot/imported/forest_back.png-b186a3f27009b03717fece8e5834f7f0.s3tc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0xbljrup1qm2"
-path="res://.godot/imported/war_bg_1.png-44b6c31feb44f8fbb5063b5f2bc10ac4.ctex"
+uid="uid://2ut4llab487f"
+path="res://.godot/imported/forest_middle.png-443f6424a29a40d90b8356b64ce65098.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_backgrounds/war_bg_1.png"
-dest_files=["res://.godot/imported/war_bg_1.png-44b6c31feb44f8fbb5063b5f2bc10ac4.ctex"]
+source_file="res://assets/level_backgrounds/forest_middle.png"
+dest_files=["res://.godot/imported/forest_middle.png-443f6424a29a40d90b8356b64ce65098.ctex"]
 
 [params]
 

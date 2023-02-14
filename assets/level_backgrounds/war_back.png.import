@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dodu50nrkkfhc"
-path="res://.godot/imported/sky_background_war.png-c960fcec55faf4c8d417eb94d0fde24e.ctex"
+uid="uid://colspts1iihi2"
+path="res://.godot/imported/war_back.png-dce86da058e87f493e218345866969d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_backgrounds/sky_background_war.png"
-dest_files=["res://.godot/imported/sky_background_war.png-c960fcec55faf4c8d417eb94d0fde24e.ctex"]
+source_file="res://assets/level_backgrounds/war_back.png"
+dest_files=["res://.godot/imported/war_back.png-dce86da058e87f493e218345866969d3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs760pqmonjvf"
-path="res://.godot/imported/sky_background_city.png-e7db7b7288b9e6b6e118e6745d210d80.ctex"
+uid="uid://d048cvpcb6gim"
+path="res://.godot/imported/war_front.png-308b743d07af9573dff1a961b1ab4bd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_backgrounds/sky_background_city.png"
-dest_files=["res://.godot/imported/sky_background_city.png-e7db7b7288b9e6b6e118e6745d210d80.ctex"]
+source_file="res://assets/level_backgrounds/war_front.png"
+dest_files=["res://.godot/imported/war_front.png-308b743d07af9573dff1a961b1ab4bd8.ctex"]
 
 [params]
 

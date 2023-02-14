@@ -40,6 +40,7 @@ var tree_collapse_percentage := -1
 @onready var bomb: AnimatedSprite2D = $ParallaxBackground/Bomb
 @onready var back_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/BackLayer
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
+@onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
@@ -80,9 +81,9 @@ var tree_collapse_percentage := -1
 		Event.new(stop_trees),
 		Event.new(fade_out, [back_layer]),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
-		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
-		Event.new(change_texture, [back_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")], 2),
-		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")], 2),
+		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/city_sky.png")]),
+		Event.new(change_texture, [back_layer, preload("res://assets/level_backgrounds/city_back.png")], 2),
+		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/city_middle.png")], 2),
 		Event.new(fade_in, [back_layer], 2.3),
 		Event.new(fade_in, [middle_layer], 5)
 	], "[sounds of a busy city]"),
@@ -92,14 +93,20 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
-		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
+		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/war_sky.png")]),
 		Event.new(fade_in, [bomb]),
 		Event.new(fade_out, [back_layer]),
 		Event.new(fade_out, [middle_layer], 1),
 		Event.new(fade_out, [bomb], 12),
 	], "[bomb falling, exploding]"),
 	Checkpoint.new(war_obstacles, [
-		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0])
+		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
+		Event.new(change_texture, [back_layer, preload("res://assets/level_backgrounds/war_back.png")]),
+		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/war_middle.png")]),
+		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/war_front.png")]),
+		Event.new(fade_in, [back_layer]),
+		Event.new(fade_in, [middle_layer], 2),
+		Event.new(fade_in, [front_layer], 4)
 	]),
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new(war_obstacles, []),
