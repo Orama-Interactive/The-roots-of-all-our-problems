@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhaxy03f1gwlu"
-path="res://.godot/imported/fall_2.png-77bf447f080dd1cc07fde67778327f6f.ctex"
+uid="uid://dd2k5esw4gttf"
+path="res://.godot/imported/treetop_4.png-4132120903cd34c529dbb3d15b31bbe1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/fall_2.png"
-dest_files=["res://.godot/imported/fall_2.png-77bf447f080dd1cc07fde67778327f6f.ctex"]
+source_file="res://assets/obstacles/treetop_4.png"
+dest_files=["res://.godot/imported/treetop_4.png-4132120903cd34c529dbb3d15b31bbe1.ctex"]
 
 [params]
 

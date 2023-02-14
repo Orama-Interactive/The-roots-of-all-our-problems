@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhaxy03f1gwlu"
-path="res://.godot/imported/fall_2.png-77bf447f080dd1cc07fde67778327f6f.ctex"
+uid="uid://1bj8lk4dtdrj"
+path="res://.godot/imported/barbedwire.png-0e1ef1cf212aba46e67316963ba4dc53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/fall_2.png"
-dest_files=["res://.godot/imported/fall_2.png-77bf447f080dd1cc07fde67778327f6f.ctex"]
+source_file="res://assets/obstacles/barbedwire.png"
+dest_files=["res://.godot/imported/barbedwire.png-0e1ef1cf212aba46e67316963ba4dc53.ctex"]
 
 [params]
 

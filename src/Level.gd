@@ -17,10 +17,14 @@ var tree_tscn := preload("res://src/tree.tscn")
 var forest_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetop_1.tscn"),
 		preload("res://src/Obstacles/Treetop_2.tscn"),
+		preload("res://src/Obstacles/Treetop_3.tscn"),
+		preload("res://src/Obstacles/Treetop_4.tscn"),
 	]
 var forest_obstacles_2: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetop_1.tscn"),
 		preload("res://src/Obstacles/Treetop_2.tscn"),
+		preload("res://src/Obstacles/Treetop_3.tscn"),
+		preload("res://src/Obstacles/Treetop_4.tscn"),
 		preload("res://src/Obstacles/Rock_1.tscn"),
 		preload("res://src/Obstacles/Rock_2.tscn"),
 		preload("res://src/Obstacles/Arrow.tscn"),
