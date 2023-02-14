@@ -10,6 +10,7 @@ const BACKGROUND_WAR_SKY := preload("res://assets/level_backgrounds/war_sky.png"
 const BACKGROUND_WAR_BACK := preload("res://assets/level_backgrounds/war_back.png")
 const BACKGROUND_WAR_MIDDLE := preload("res://assets/level_backgrounds/war_middle.png")
 const BACKGROUND_WAR_OBSTACLE := preload("res://src/Obstacles/background_obstacle.tscn")
+const BARBED_WIRE_OBSTACLE := preload("res://src/Obstacles/BarbedWire.tscn")
 
 @export_multiline var dialogue_lines: Array[String] = []
 
@@ -58,6 +59,7 @@ var tree_collapse_percentage := -1
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
 @onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
+@onready var barbed_wire_timer: Timer = $BarbedWireTimer
 @onready var tree_timer: Timer = $TreeTimer
 @onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
@@ -181,6 +183,8 @@ func _ready() -> void:
 		GameManager.loaded = false
 		go_to_checkpoint()
 		change_checkpoint()
+		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
+			front_layer.modulate.a = 1
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
@@ -231,6 +235,13 @@ func _calculate_checkpoint_position(index: int) -> float:
 
 func _on_background_obstacle_timer_timeout() -> void:
 	var obstacle: BackgroundObstacle = BACKGROUND_WAR_OBSTACLE.instantiate()
+	obstacle.player_pos = player.position
+	obstacle.despawn_limit = _calculate_checkpoint_position(WAR_FIRST_CHECKPOINT) - 400
+	add_child(obstacle)
+
+
+func _on_barbed_wire_timer_timeout() -> void:
+	var obstacle: BackgroundObstacle = BARBED_WIRE_OBSTACLE.instantiate()
 	obstacle.player_pos = player.position
 	obstacle.despawn_limit = _calculate_checkpoint_position(WAR_FIRST_CHECKPOINT) - 400
 	add_child(obstacle)
@@ -304,6 +315,8 @@ func stop_sound(asp: AudioStreamPlayer) -> void:
 func spawn_background_obstacles() -> void:
 	background_obstacle_timer.start()
 	background_obstacle_timer.wait_time = 5  # Magic number but eh
+	barbed_wire_timer.start()
+	barbed_wire_timer.wait_time = 0.55
 
 
 func spawn_trees(from: float, to: float, collapse := -1) -> void:

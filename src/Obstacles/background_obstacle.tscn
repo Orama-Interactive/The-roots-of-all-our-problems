@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr2nq5kj34vka"]
 
 [ext_resource type="Script" path="res://src/Obstacles/background_obstacle.gd" id="1_l7yaf"]
-[ext_resource type="Texture2D" uid="uid://cghnmyhk66xlt" path="res://assets/level_backgrounds/war_obstacle.png" id="1_x5awu"]
+[ext_resource type="Texture2D" uid="uid://cghnmyhk66xlt" path="res://assets/level_backgrounds/war_obstacle.png" id="2_piyya"]
 
 [node name="BackgroundObstacle" type="Area2D"]
 script = ExtResource("1_l7yaf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_x5awu")
+texture = ExtResource("2_piyya")
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
