@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/Menu/MenuButton.gd" id="1_rbyje"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_y7uqc"]
-font_size = 80
+[sub_resource type="LabelSettings" id="LabelSettings_3lvsp"]
+font_size = 128
 font_color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Button" type="Button"]
@@ -26,7 +26,7 @@ offset_top = -87.5
 offset_bottom = 87.5
 grow_horizontal = 0
 grow_vertical = 2
-label_settings = SubResource("LabelSettings_y7uqc")
+label_settings = SubResource("LabelSettings_3lvsp")
 horizontal_alignment = 1
 vertical_alignment = 1
 

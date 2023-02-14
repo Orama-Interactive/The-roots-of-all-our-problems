@@ -44,7 +44,7 @@ dialogue_lines = Array[String](["The seed flew away, through a forest with big s
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Background" type="Sprite2D" parent="ParallaxBackground"]
+[node name="SkyBackground" type="Sprite2D" parent="ParallaxBackground"]
 texture = ExtResource("2_by046")
 centered = false
 
@@ -57,7 +57,7 @@ centered = false
 motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="MiddleLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="BackLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(0, 553)
 texture = ExtResource("5_3abp8")
 centered = false
@@ -66,19 +66,19 @@ centered = false
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="FrontLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="MiddleLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(0, 716)
 texture = ExtResource("6_0k76i")
 centered = false
+
+[node name="TreeParent" type="Node2D" parent="."]
+z_index = -200
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="TreeTimer" type="Timer" parent="."]
 wait_time = 0.1
-
-[node name="TreeParent" type="Node2D" parent="."]
-z_index = -200
 
 [node name="Player" parent="." instance=ExtResource("5_rirw7")]
 position = Vector2(194, 387)

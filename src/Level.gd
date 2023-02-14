@@ -36,10 +36,10 @@ var narrations: Array[AudioStream] = [
 ]
 var tree_collapse_percentage := -1
 @onready var player: Player = $Player
-@onready var background: Sprite2D = $ParallaxBackground/Background
+@onready var sky_background: Sprite2D = $ParallaxBackground/SkyBackground
 @onready var bomb: AnimatedSprite2D = $ParallaxBackground/Bomb
-@onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/MiddleLayer
-@onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/FrontLayer
+@onready var back_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/BackLayer
+@onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
@@ -68,7 +68,7 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [
-		Event.new(fade_out, [front_layer]),
+		Event.new(fade_out, [middle_layer]),
 		Event.new(stop_sound, [sounds_2]),
 		Event.new(spawn_trees, [2, 4, 2])
 	]),
@@ -78,13 +78,13 @@ var tree_collapse_percentage := -1
 	]),
 	Checkpoint.new(city_obstacles, [
 		Event.new(stop_trees),
-		Event.new(fade_out, [middle_layer]),
+		Event.new(fade_out, [back_layer]),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
-		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
-		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")], 2),
-		Event.new(change_texture, [front_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")], 2),
-		Event.new(fade_in, [middle_layer], 2.3),
-		Event.new(fade_in, [front_layer], 5)
+		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/sky_background_city.png")]),
+		Event.new(change_texture, [back_layer, preload("res://assets/level_backgrounds/sidescrolling_town.png")], 2),
+		Event.new(change_texture, [middle_layer, preload("res://assets/level_backgrounds/sidescrolling_town_2.png")], 2),
+		Event.new(fade_in, [back_layer], 2.3),
+		Event.new(fade_in, [middle_layer], 5)
 	], "[sounds of a busy city]"),
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
@@ -92,10 +92,10 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
-		Event.new(change_texture, [background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
+		Event.new(change_texture, [sky_background, preload("res://assets/level_backgrounds/sky_background_war.png")]),
 		Event.new(fade_in, [bomb]),
-		Event.new(fade_out, [middle_layer]),
-		Event.new(fade_out, [front_layer], 1),
+		Event.new(fade_out, [back_layer]),
+		Event.new(fade_out, [middle_layer], 1),
 		Event.new(fade_out, [bomb], 12),
 	], "[bomb falling, exploding]"),
 	Checkpoint.new(war_obstacles, [
