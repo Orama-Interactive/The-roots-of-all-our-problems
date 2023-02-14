@@ -84,6 +84,8 @@ centered = false
 [node name="TreeParent" type="Node2D" parent="."]
 z_index = -200
 
+[node name="BackgroundObstacleTimer" type="Timer" parent="."]
+
 [node name="ObstacleTimer" type="Timer" parent="."]
 autostart = true
 
@@ -176,6 +178,7 @@ bus = &"Music"
 autoplay = true
 bus = &"Narration"
 
+[connection signal="timeout" from="BackgroundObstacleTimer" to="." method="_on_background_obstacle_timer_timeout"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
 [connection signal="fell" from="Player" to="." method="_on_player_fell"]

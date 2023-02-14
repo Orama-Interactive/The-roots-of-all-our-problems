@@ -9,6 +9,7 @@ const BACKGROUND_CITY_MIDDLE := preload("res://assets/level_backgrounds/city_mid
 const BACKGROUND_WAR_SKY := preload("res://assets/level_backgrounds/war_sky.png")
 const BACKGROUND_WAR_BACK := preload("res://assets/level_backgrounds/war_back.png")
 const BACKGROUND_WAR_MIDDLE := preload("res://assets/level_backgrounds/war_middle.png")
+const BACKGROUND_WAR_OBSTACLE := preload("res://src/Obstacles/background_obstacle.tscn")
 
 @export_multiline var dialogue_lines: Array[String] = []
 
@@ -53,6 +54,7 @@ var tree_collapse_percentage := -1
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
+@onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
 @onready var tree_timer: Timer = $TreeTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
@@ -117,7 +119,9 @@ var tree_collapse_percentage := -1
 		Event.new(fade_in, [middle_layer], 2),
 		Event.new(fade_in, [front_layer], 4)
 	]),
-	Checkpoint.new(war_obstacles, []),
+	Checkpoint.new(war_obstacles, [
+		Event.new(spawn_background_obstacles)
+	]),
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new(war_obstacles, []),
@@ -220,6 +224,13 @@ func _calculate_checkpoint_position(index: int) -> float:
 		return pow(index / 2.0, 2) * 1000.0 + 1000.0
 
 
+func _on_background_obstacle_timer_timeout() -> void:
+	var obstacle: BackgroundObstacle = BACKGROUND_WAR_OBSTACLE.instantiate()
+	obstacle.player_pos = player.position
+	obstacle.despawn_limit = _calculate_checkpoint_position(WAR_FIRST_CHECKPOINT) - 400
+	add_child(obstacle)
+
+
 func _on_obstacle_timer_timeout() -> void:
 	if checkpoints[current_checkpoint].obstacles.is_empty():
 		return
@@ -279,6 +290,11 @@ func play_sound(asp: AudioStreamPlayer, audio: AudioStream, volume: float = 99, 
 
 func stop_sound(asp: AudioStreamPlayer) -> void:
 	asp.stop()
+
+
+func spawn_background_obstacles() -> void:
+	background_obstacle_timer.start()
+	background_obstacle_timer.wait_time = 5  # Magic number but eh
 
 
 func spawn_trees(from: float, to: float, collapse := -1) -> void:
