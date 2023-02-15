@@ -121,7 +121,7 @@ script = ExtResource("1_k78vd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tksmy")
-frame_progress = 0.150649
+frame_progress = 0.823303
 centered = false
 offset = Vector2(-286, -1080)
 

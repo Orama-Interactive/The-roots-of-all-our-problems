@@ -97,7 +97,7 @@ var tree_collapse_percentage := -1
 		Event.new(spawn_trees, [3, 5, 1])
 	]),
 	Checkpoint.new(city_obstacles, [
-		Event.new(spawn_trees, [3, 5, -1]),
+		Event.new(spawn_trees, [1, 2, -1]),
 		Event.new(fade_out, [back_layer]),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
 		Event.new(change_texture, [sky_background, BACKGROUND_CITY_SKY]),
