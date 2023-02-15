@@ -1,7 +1,36 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cr0d2sl7q0rv"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://cr0d2sl7q0rv"]
 
 [sub_resource type="AudioEffectRecord" id="AudioEffectRecord_2wjd1"]
 resource_name = "Record"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_4ktad"]
+resource_name = "Compressor"
+threshold = -16.9
+ratio = 7.8
+attack_us = 96.0
+release_ms = 504.0
+sidechain = &"Narration"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ynrgx"]
+resource_name = "Amplify"
+volume_db = 2.0
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_0dxlh"]
+resource_name = "EQ10"
+band_db/31_hz = -60.0
+band_db/62_hz = -8.8
+band_db/250_hz = -15.2
+band_db/500_hz = -4.8
+band_db/1000_hz = -6.8
+band_db/16000_hz = -13.2
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_0am7x"]
+resource_name = "Amplify"
+volume_db = 5.0
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_cwmyd"]
+resource_name = "Amplify"
+volume_db = 3.0
 
 [resource]
 bus/1/name = &"RecordOutput"
@@ -24,15 +53,37 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectCompressor_4ktad")
+bus/3/effect/0/enabled = true
 bus/4/name = &"Narration"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectAmplify_ynrgx")
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectEQ10_0dxlh")
+bus/4/effect/1/enabled = true
 bus/5/name = &"Sounds"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"Master"
+bus/6/name = &"Menu"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Music"
+bus/6/effect/0/effect = SubResource("AudioEffectAmplify_0am7x")
+bus/6/effect/0/enabled = true
+bus/7/name = &"Intro"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"Music"
+bus/7/effect/0/effect = SubResource("AudioEffectAmplify_cwmyd")
+bus/7/effect/0/enabled = true
