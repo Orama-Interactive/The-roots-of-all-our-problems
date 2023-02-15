@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1xavs0w7aupn"]
+[gd_scene load_steps=15 format=3 uid="uid://b1xavs0w7aupn"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
-[ext_resource type="Texture2D" uid="uid://dvy5gmp2yd102" path="res://assets/level_backgrounds/bomb_1.png" id="3_nh18q"]
-[ext_resource type="Texture2D" uid="uid://bbvctcc5515o4" path="res://assets/level_backgrounds/bomb_2.png" id="4_gs5lg"]
+[ext_resource type="Texture2D" uid="uid://b2tlvpbfhftl7" path="res://assets/level_backgrounds/nuclear_explosion.png" id="3_h3axc"]
 [ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/level_backgrounds/forest_back.png" id="5_2n4jg"]
 [ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/forest_middle.png" id="6_e22s8"]
@@ -15,10 +14,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_nh18q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_gs5lg")
+"texture": ExtResource("3_h3axc")
 }],
 "loop": true,
 "name": &"default",
@@ -51,6 +47,7 @@ centered = false
 
 [node name="Bomb" type="AnimatedSprite2D" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(563, 0)
 sprite_frames = SubResource("SpriteFrames_xj6hh")
 centered = false
 
@@ -120,6 +117,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_0dkwy")
+
+[node name="BombFlash" type="ColorRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0

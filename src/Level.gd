@@ -57,6 +57,7 @@ var tree_collapse_percentage := -1
 @onready var back_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/BackLayer
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
+@onready var bomb_flash: ColorRect = $CanvasLayer/Control/BombFlash
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
 @onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
@@ -109,14 +110,23 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles, [Event.new(stop_trees)]),
-	Checkpoint.new(city_obstacles, [
-		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
-		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY]),
-		Event.new(fade_in, [bomb]),
-		Event.new(fade_out, [back_layer]),
-		Event.new(fade_out, [middle_layer], 1),
-		Event.new(fade_out, [bomb], 12),
+	Checkpoint.new(city_obstacles, []),
+	Checkpoint.new([], [
+		Event.new(spawn_trees, [2, 2.5, -1]),
+		Event.new(fade_in, [bomb_flash], 4),
+		Event.new(fade_out, [bomb_flash], 8),
+		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0, 3]),
+		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY], 5),
+		Event.new(fade_in, [bomb], 5),
+		Event.new(fade_in, [bomb_flash], 18),
+		Event.new(fade_out, [bomb_flash], 24),
+		Event.new(stop_trees, [], 17),
+		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK], 19),
+		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE], 19),
+		Event.new(fade_in, [front_layer], 19),
+#		Event.new(fade_out, [back_layer], 4),
+#		Event.new(fade_out, [middle_layer], 6),
+		Event.new(fade_out, [bomb], 19),
 	], "[bomb falling, exploding]"),
 	Checkpoint.new(war_obstacles, [
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
@@ -186,7 +196,7 @@ func _ready() -> void:
 		change_checkpoint()
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
 			front_layer.modulate.a = 1
-		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
+		if current_checkpoint > WAR_FIRST_CHECKPOINT:
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
 			change_texture(middle_layer, BACKGROUND_WAR_MIDDLE)
