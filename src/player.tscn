@@ -83,5 +83,4 @@ bus = &"Sounds"
 
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_4a42a")
-autoplay = true
 bus = &"Record"

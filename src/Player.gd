@@ -25,15 +25,18 @@ var trauma := 0.0
 var noise := FastNoiseLite.new()
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera_2d: Camera2D = $Camera2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var falling_sound_player: AudioStreamPlayer = $FallingSoundPlayer
-@onready var camera_2d: Camera2D = $Camera2D
+@onready var audio_stream_record: AudioStreamPlayer = $AudioStreamRecord
 
 
 func _ready() -> void:
 	noise.frequency = 1
 	record_bus_index = AudioServer.get_bus_index("Record")
 	start()
+	if GameManager.play_with_voice:
+		audio_stream_record.play()
 
 
 func start() -> void:
