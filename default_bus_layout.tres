@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://cr0d2sl7q0rv"]
+[gd_resource type="AudioBusLayout" load_steps=9 format=3 uid="uid://cr0d2sl7q0rv"]
 
 [sub_resource type="AudioEffectRecord" id="AudioEffectRecord_2wjd1"]
 resource_name = "Record"
@@ -29,6 +29,14 @@ resource_name = "Amplify"
 volume_db = 5.0
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_cwmyd"]
+resource_name = "Amplify"
+volume_db = 3.0
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_yf03n"]
+resource_name = "Amplify"
+volume_db = 5.0
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_aqla4"]
 resource_name = "Amplify"
 volume_db = 3.0
 
@@ -87,3 +95,19 @@ bus/7/volume_db = 0.0
 bus/7/send = &"Music"
 bus/7/effect/0/effect = SubResource("AudioEffectAmplify_cwmyd")
 bus/7/effect/0/enabled = true
+bus/8/name = &"Gameplay"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 0.0
+bus/8/send = &"Master"
+bus/8/effect/0/effect = SubResource("AudioEffectAmplify_yf03n")
+bus/8/effect/0/enabled = true
+bus/9/name = &"Outro"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = &"Master"
+bus/9/effect/0/effect = SubResource("AudioEffectAmplify_aqla4")
+bus/9/effect/0/enabled = true
