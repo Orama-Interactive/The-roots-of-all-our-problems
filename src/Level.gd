@@ -106,12 +106,12 @@ var tree_collapse_percentage := -1
 		Event.new(fade_in, [back_layer], 2.3),
 		Event.new(fade_in, [middle_layer], 5)
 	], "[sounds of a busy city]"),
-	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles, []),
+	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
+	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
+	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
+	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
 	Checkpoint.new([], [
-		Event.new(spawn_trees, [1.9, 2.1, -1]),
+		Event.new(spawn_trees, [1, 2, -1]),
 		Event.new(fade_in, [bomb_flash], 4),
 		Event.new(fade_out, [bomb_flash, 2.5], 8),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0, 3]),
@@ -335,7 +335,7 @@ func spawn_background_obstacles() -> void:
 	barbed_wire_timer.start()
 	barbed_wire_timer.wait_time = 0.55
 
-
+# TODO: Rename method name, as this also spawns buildings
 func spawn_trees(from: float, to: float, collapse := -1) -> void:
 	tree_timer.wait_time = randf_range(from, to)
 	tree_collapse_percentage = collapse
