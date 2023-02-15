@@ -172,7 +172,7 @@ process_mode = 3
 stream = ExtResource("9_sh2ld")
 volume_db = -18.0
 autoplay = true
-bus = &"Music"
+bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 autoplay = true
