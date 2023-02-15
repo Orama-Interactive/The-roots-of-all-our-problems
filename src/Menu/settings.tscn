@@ -134,6 +134,7 @@ button_pressed = true
 text = "Show ambient subtitles"
 
 [node name="MicrophoneInput" type="CheckBox" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Play with voice"
 
