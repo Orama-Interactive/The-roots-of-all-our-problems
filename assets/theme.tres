@@ -49,6 +49,7 @@ HSlider/icons/grabber_highlight = ExtResource("3_34yhh")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_2nxd8")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_7kmo0")
 HSlider/styles/slider = SubResource("StyleBoxTexture_mqbf1")
+LineEdit/colors/font_uneditable_color = Color(0.87451, 0.87451, 0.87451, 0)
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/line_separation = -20
 RichTextLabel/font_sizes/normal_font_size = 50

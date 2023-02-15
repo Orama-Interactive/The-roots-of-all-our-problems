@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4h7wskyd1qpj"]
+[gd_scene load_steps=8 format=3 uid="uid://b4h7wskyd1qpj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_cngr4"]
 [ext_resource type="Script" path="res://src/Menu/settings.gd" id="2_1qla6"]
@@ -8,6 +8,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_73jie"]
 font_size = 128
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpwpc"]
+font_size = 50
 font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control"]
@@ -43,11 +47,15 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -683.0
-offset_top = 135.0
 offset_right = -63.0
-offset_bottom = -264.0
+offset_bottom = -200.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Master volume: 100"
+label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MasterVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -61,8 +69,12 @@ stretch_margin_top = 3
 stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
-prefix = "Master volume"
 show_arrows = false
+
+[node name="MusicVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music volume: 100"
+label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MusicVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -76,8 +88,12 @@ stretch_margin_top = 3
 stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
-prefix = "Music volume"
 show_arrows = false
+
+[node name="SoundsVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sounds volume: 100"
+label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="SoundsVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -91,8 +107,12 @@ stretch_margin_top = 3
 stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
-prefix = "Sounds volume"
 show_arrows = false
+
+[node name="NarrationVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Narration volume: 100"
+label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="NarrationVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -106,7 +126,6 @@ stretch_margin_top = 3
 stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
-prefix = "Narration volume"
 show_arrows = false
 
 [node name="AmbientSubs" type="CheckBox" parent="VBoxContainer"]
@@ -117,6 +136,12 @@ text = "Show ambient subtitles"
 [node name="MicrophoneInput" type="CheckBox" parent="VBoxContainer"]
 layout_mode = 2
 text = "Play with voice"
+
+[node name="MicThresholdLabel" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Microphone input threshold: 20"
+label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MicThreshold" type="TextureProgressBar" parent="VBoxContainer"]
 visible = false
@@ -133,7 +158,6 @@ stretch_margin_top = 3
 stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
-prefix = "Microphone input threshold"
 show_arrows = false
 
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
@@ -144,9 +168,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -672.0
-offset_top = -280.0
+offset_top = -189.0
 offset_right = -64.0
-offset_bottom = -130.0
+offset_bottom = -39.0
 grow_horizontal = 0
 grow_vertical = 0
 actual_text = "Return to menu"
