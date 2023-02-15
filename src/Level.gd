@@ -244,7 +244,9 @@ func _calculate_checkpoint_position(index: int) -> float:
 		return pow(index / 2.0, 2) * 1000.0 + 1000.0
 	if index == WAR_FIRST_CHECKPOINT:
 			return index * 3666.6 # 54999
-	return index * 7500 - 57500.0
+	var distance := 7500
+	var offset := WAR_FIRST_CHECKPOINT * distance - (WAR_FIRST_CHECKPOINT * 3666.6)
+	return index * distance - offset
 
 
 func _on_background_obstacle_timer_timeout() -> void:
