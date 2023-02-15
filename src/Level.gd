@@ -111,7 +111,7 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles, []),
 	Checkpoint.new([], [
-		Event.new(spawn_trees, [2, 2.5, -1]),
+		Event.new(spawn_trees, [1.9, 2.1, -1]),
 		Event.new(fade_in, [bomb_flash], 4),
 		Event.new(fade_out, [bomb_flash, 2.5], 8),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0, 3]),
@@ -241,6 +241,8 @@ func _calculate_checkpoint_position(index: int) -> float:
 	if index < 8:
 		return index * 2000.0 + 1000.0
 	else:  # Increase checkpoint distance exponentially
+		if index == WAR_FIRST_CHECKPOINT:
+			return index * 3666.6
 		return pow(index / 2.0, 2) * 1000.0 + 1000.0
 
 
