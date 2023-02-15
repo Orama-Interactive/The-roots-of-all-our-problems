@@ -18,7 +18,9 @@ var player_pos := Vector2.ZERO
 func _ready() -> void:
 #	var tex_size := sprite.texture.get_size()
 	position.x = player_pos.x + 1940
-	position.y = 1080.0 if place == Place.FLOOR else 0.0
+	var rand_pos := randf_range(0.0, 100.0)
+	position.y = 1080.0 + rand_pos if place == Place.FLOOR else -rand_pos
+	scale.y = randf_range(1.0, 1.2)
 
 
 func _physics_process(delta: float) -> void:
