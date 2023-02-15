@@ -240,10 +240,11 @@ func change_checkpoint() -> void:
 func _calculate_checkpoint_position(index: int) -> float:
 	if index < 8:
 		return index * 2000.0 + 1000.0
-	else:  # Increase checkpoint distance exponentially
-		if index == WAR_FIRST_CHECKPOINT:
-			return index * 3666.6
+	if index < WAR_FIRST_CHECKPOINT:  # Increase checkpoint distance exponentially
 		return pow(index / 2.0, 2) * 1000.0 + 1000.0
+	if index == WAR_FIRST_CHECKPOINT:
+			return index * 3666.6 # 54999
+	return index * 7500 - 57500.0
 
 
 func _on_background_obstacle_timer_timeout() -> void:
