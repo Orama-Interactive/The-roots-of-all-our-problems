@@ -16,9 +16,9 @@ var player_pos := Vector2.ZERO
 
 
 func _ready() -> void:
-	var tex_size := sprite.texture.get_size()
+#	var tex_size := sprite.texture.get_size()
 	position.x = player_pos.x + 1940
-	position.y = 1080.0 if place == Place.FLOOR else tex_size.y
+	position.y = 1080.0 if place == Place.FLOOR else 0.0
 
 
 func _physics_process(delta: float) -> void:

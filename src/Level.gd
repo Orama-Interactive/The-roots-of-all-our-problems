@@ -33,8 +33,7 @@ var forest_obstacles_2: Array[PackedScene] = [
 var city_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Antenna_1.tscn"),
 		preload("res://src/Obstacles/Antenna_2.tscn"),
-		preload("res://src/Obstacles/Rock_1.tscn"),
-		preload("res://src/Obstacles/Rock_2.tscn"),
+		preload("res://src/Obstacles/Cables.tscn"),
 	]
 var war_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetrunk_1.tscn"),
