@@ -119,6 +119,7 @@ var tree_collapse_percentage := -1
 		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY], 5),
 		Event.new(fade_in, [bomb], 5),
 		Event.new(fade_in, [bomb_flash], 18),
+		Event.new(bomb.play_animation, [], 8),
 		Event.new(fade_out, [bomb_flash], 24),
 		Event.new(stop_trees, [], 17),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK], 19),

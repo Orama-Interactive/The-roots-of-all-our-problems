@@ -1,25 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1xavs0w7aupn"]
+[gd_scene load_steps=14 format=3 uid="uid://b1xavs0w7aupn"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
-[ext_resource type="Texture2D" uid="uid://b2tlvpbfhftl7" path="res://assets/level_backgrounds/nuclear_explosion.png" id="3_h3axc"]
+[ext_resource type="PackedScene" uid="uid://15xerprwyomp" path="res://src/bomb.tscn" id="3_ttjuj"]
 [ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/level_backgrounds/forest_back.png" id="5_2n4jg"]
 [ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/forest_middle.png" id="6_e22s8"]
 [ext_resource type="Texture2D" uid="uid://d048cvpcb6gim" path="res://assets/level_backgrounds/war_front.png" id="7_um18n"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="AudioStream" uid="uid://fd4v7xwxgbhd" path="res://assets/audio/music/flapping_through_the_skies_part_1.ogg" id="9_0arn6"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xj6hh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_h3axc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
@@ -45,11 +34,8 @@ dialogue_lines = Array[String](["The seed flew away, through a forest with big s
 texture = ExtResource("2_4uuu4")
 centered = false
 
-[node name="Bomb" type="AnimatedSprite2D" parent="ParallaxBackground"]
+[node name="Bomb" parent="ParallaxBackground" instance=ExtResource("3_ttjuj")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(563, 0)
-sprite_frames = SubResource("SpriteFrames_xj6hh")
-centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0.3)
