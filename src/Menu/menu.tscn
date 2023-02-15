@@ -584,6 +584,7 @@ libraries = {
 
 [node name="menuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_k083u")
+volume_db = -8.0
 autoplay = true
 bus = &"Menu"
 
