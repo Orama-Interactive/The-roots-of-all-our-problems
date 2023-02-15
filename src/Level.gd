@@ -250,14 +250,14 @@ func _calculate_checkpoint_position(index: int) -> float:
 func _on_background_obstacle_timer_timeout() -> void:
 	var obstacle: BackgroundObstacle = BACKGROUND_WAR_OBSTACLE.instantiate()
 	obstacle.player_pos = player.position
-	obstacle.despawn_limit = _calculate_checkpoint_position(WAR_FIRST_CHECKPOINT) - 400
+	obstacle.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 6000
 	add_child(obstacle)
 
 
 func _on_barbed_wire_timer_timeout() -> void:
 	var obstacle: BackgroundObstacle = BARBED_WIRE_OBSTACLE.instantiate()
 	obstacle.player_pos = player.position
-	obstacle.despawn_limit = _calculate_checkpoint_position(WAR_FIRST_CHECKPOINT) - 400
+	obstacle.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 1000
 	add_child(obstacle)
 
 
