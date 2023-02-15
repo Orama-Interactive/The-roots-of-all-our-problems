@@ -62,6 +62,7 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Master volume"
+show_arrows = false
 
 [node name="MusicVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -76,6 +77,7 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Music volume"
+show_arrows = false
 
 [node name="SoundsVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -90,6 +92,7 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Sounds volume"
+show_arrows = false
 
 [node name="NarrationVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -104,6 +107,7 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Narration volume"
+show_arrows = false
 
 [node name="AmbientSubs" type="CheckBox" parent="VBoxContainer"]
 layout_mode = 2
@@ -130,6 +134,7 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 script = ExtResource("4_oh5nr")
 prefix = "Microphone input threshold"
+show_arrows = false
 
 [node name="Return" parent="." instance=ExtResource("4_2lcpq")]
 layout_mode = 1
