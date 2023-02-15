@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://canj2m8u5gtxs"]
+
+[ext_resource type="Script" path="res://src/Tree.gd" id="1_k78vd"]
+[ext_resource type="Texture2D" uid="uid://b7gbboq7yxhk4" path="res://assets/level_backgrounds/building_1.png" id="2_60xl8"]
+[ext_resource type="Texture2D" uid="uid://bbkxvhkgmmbq5" path="res://assets/level_backgrounds/building_2.png" id="3_cx8xw"]
+[ext_resource type="Texture2D" uid="uid://dtcvnd8so5ayh" path="res://assets/level_backgrounds/building_3.png" id="4_h2ho3"]
+[ext_resource type="Texture2D" uid="uid://182c8guyifhd" path="res://assets/level_backgrounds/building_4.png" id="5_lrb81"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tksmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_60xl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cx8xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h2ho3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lrb81")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_6kg8w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mwv3i"]
+resource_name = "collapse_left"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 310)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_0c6wb"]
+resource_name = "collapse_right"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 310)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wnpy2"]
+_data = {
+"RESET": SubResource("Animation_6kg8w"),
+"collapse_left": SubResource("Animation_mwv3i"),
+"collapse_right": SubResource("Animation_0c6wb")
+}
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_k78vd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tksmy")
+frame_progress = 0.823303
+centered = false
+offset = Vector2(-286, -1080)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wnpy2")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

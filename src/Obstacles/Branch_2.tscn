@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://38xgllv1un08"]
+
+[ext_resource type="Script" path="res://src/Obstacles/obstacle_curve.gd" id="1_a3gx5"]
+[ext_resource type="Texture2D" uid="uid://cov340eq16e43" path="res://assets/obstacles/branch_2.png" id="2_oct0p"]
+
+[node name="Branch_1" type="CharacterBody2D"]
+script = ExtResource("1_a3gx5")
+rotation_behavior = 1
+can_flip = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_oct0p")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(228, 7.4, 228, 21.3, 220.3, 42.7, 227.4, 38, 235.6, 38, 242, 42.6, 242, 59.4, 226.4, 80.1, 240, 88.9, 240, 94.1, 238.7, 103, 236.9, 103, 218.9, 125, 215.7, 125, 213, 127, 221, 134.1, 221, 141.4, 218.4, 148, 216.9, 148, 209.9, 156, 207.5, 156, 194, 164.1, 195.2, 175, 193, 175, 185, 185, 182.5, 185, 156.9, 200, 166, 202.5, 166, 204.2, 169, 207.2, 169, 209.4, 162.4, 226, 160.7, 226, 131, 249, 133.3, 252.9, 132.2, 255, 131.5, 255, 129.5, 262, 127.8, 262, 106, 282.8, 106, 284, 108.6, 294, 106.1, 294, 96.1, 310, 93.5, 310, 38, 336.3, 22.7, 354, 2.8, 354, 0, 347.8, 0, 308.5, 9.3, 244, 11, 244, 18, 234, 20.6, 234, 24, 233.3, 24, 229.8, 31.4, 198, 32.9, 198, 41, 183.5, 41, 173.8, 48.4, 142, 49.9, 142, 53.9, 136, 56.5, 136, 62, 132.9, 62, 131.2, 72.1, 120, 77.8, 120, 78, 119.5, 78, 114.9, 80.1, 83, 81.5, 83, 87.4, 59, 89.2, 59, 98.2, 50, 105.5, 50, 113.3, 53.9, 122.5, 25, 123.7, 25, 129.7, 11, 131.1, 11, 136.1, 5, 138.7, 5, 153, 2.6, 153, 4.9, 159, 8.9, 159, 15, 160.1, 15, 174.3, 3, 176.6, 3, 188, 0.5, 188, 2.9, 194, 6.9, 194, 12.2, 206, 0.2, 223, 0)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -18.0
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

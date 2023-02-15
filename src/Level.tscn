@@ -1,29 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1xavs0w7aupn"]
+[gd_scene load_steps=14 format=3 uid="uid://b1xavs0w7aupn"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
-[ext_resource type="Texture2D" uid="uid://dvy5gmp2yd102" path="res://assets/level_backgrounds/bomb_1.png" id="3_nh18q"]
-[ext_resource type="Texture2D" uid="uid://bbvctcc5515o4" path="res://assets/level_backgrounds/bomb_2.png" id="4_gs5lg"]
+[ext_resource type="PackedScene" uid="uid://15xerprwyomp" path="res://src/bomb.tscn" id="3_ttjuj"]
 [ext_resource type="Texture2D" uid="uid://dkjfrs3r2fj6l" path="res://assets/level_backgrounds/forest_back.png" id="5_2n4jg"]
 [ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/forest_middle.png" id="6_e22s8"]
 [ext_resource type="Texture2D" uid="uid://d048cvpcb6gim" path="res://assets/level_backgrounds/war_front.png" id="7_um18n"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="AudioStream" uid="uid://fd4v7xwxgbhd" path="res://assets/audio/music/flapping_through_the_skies_part_1.ogg" id="9_0arn6"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xj6hh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_nh18q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_gs5lg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
@@ -49,10 +34,8 @@ dialogue_lines = Array[String](["The seed flew away, through a forest with big s
 texture = ExtResource("2_4uuu4")
 centered = false
 
-[node name="Bomb" type="AnimatedSprite2D" parent="ParallaxBackground"]
+[node name="Bomb" parent="ParallaxBackground" instance=ExtResource("3_ttjuj")]
 modulate = Color(1, 1, 1, 0)
-sprite_frames = SubResource("SpriteFrames_xj6hh")
-centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0.3)
@@ -86,6 +69,8 @@ z_index = -200
 
 [node name="BackgroundObstacleTimer" type="Timer" parent="."]
 
+[node name="BarbedWireTimer" type="Timer" parent="."]
+
 [node name="ObstacleTimer" type="Timer" parent="."]
 autostart = true
 
@@ -118,6 +103,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_0dkwy")
+
+[node name="BombFlash" type="ColorRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -184,6 +178,7 @@ autoplay = true
 bus = &"Narration"
 
 [connection signal="timeout" from="BackgroundObstacleTimer" to="." method="_on_background_obstacle_timer_timeout"]
+[connection signal="timeout" from="BarbedWireTimer" to="." method="_on_barbed_wire_timer_timeout"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
 [connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]

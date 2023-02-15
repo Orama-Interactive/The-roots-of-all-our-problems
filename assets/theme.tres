@@ -1,12 +1,37 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ben2451hr7117"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://ben2451hr7117"]
 
+[ext_resource type="Texture2D" uid="uid://vm81wr1k77sc" path="res://assets/ui/checkbox_1.png" id="1_3me0f"]
 [ext_resource type="Texture2D" uid="uid://csklqphu0bwr3" path="res://assets/ui/value_arrow_hover.svg" id="1_jtjqq"]
 [ext_resource type="FontFile" uid="uid://bdct6cfrrnq6v" path="res://assets/fonts/AmaticSC-Regular.ttf" id="1_n8b31"]
+[ext_resource type="Texture2D" uid="uid://2fp8rftpac13" path="res://assets/ui/checkbox_0.png" id="2_fdy00"]
 [ext_resource type="Texture2D" uid="uid://d6joj4dajisc" path="res://assets/ui/value_arrow.svg" id="2_ne87e"]
+[ext_resource type="Texture2D" uid="uid://dngqnlhhy516s" path="res://assets/ui/grabber.png" id="3_34yhh"]
 [ext_resource type="Texture2D" uid="uid://dgwlft4pte8mn" path="res://assets/ui/value_arrow_press.svg" id="3_sik4p"]
-[ext_resource type="Texture2D" uid="uid://d227xklxdo86s" path="res://assets/ui/value_slider.png" id="4_nr02t"]
+[ext_resource type="Texture2D" uid="uid://bu5s3m0dpq3aa" path="res://assets/ui/ninepatchrect_full.png" id="6_2b1hk"]
+[ext_resource type="Texture2D" uid="uid://d28uuhlb2wuuw" path="res://assets/ui/ninepatchrect_empty.png" id="7_mj7q0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osjix"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nxd8"]
+texture = ExtResource("7_mj7q0")
+texture_margin_left = 20.0
+texture_margin_top = 18.1818
+texture_margin_right = 32.7273
+texture_margin_bottom = 14.5455
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7kmo0"]
+texture = ExtResource("6_2b1hk")
+texture_margin_left = 20.0
+texture_margin_top = 18.1818
+texture_margin_right = 32.7273
+texture_margin_bottom = 14.5455
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqbf1"]
+texture = ExtResource("7_mj7q0")
+texture_margin_left = 20.0
+texture_margin_top = 18.1818
+texture_margin_right = 32.7273
+texture_margin_bottom = 14.5455
 
 [resource]
 default_font = ExtResource("1_n8b31")
@@ -17,6 +42,13 @@ Button/colors/font_hover_color = Color(0.301961, 0.301961, 0.301961, 1)
 Button/colors/font_hover_pressed_color = Color(0.3, 0.3, 0.3, 1)
 Button/colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_osjix")
+CheckBox/icons/checked = ExtResource("1_3me0f")
+CheckBox/icons/unchecked = ExtResource("2_fdy00")
+HSlider/icons/grabber = ExtResource("3_34yhh")
+HSlider/icons/grabber_highlight = ExtResource("3_34yhh")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_2nxd8")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_7kmo0")
+HSlider/styles/slider = SubResource("StyleBoxTexture_mqbf1")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/line_separation = -20
 RichTextLabel/font_sizes/normal_font_size = 50
@@ -26,5 +58,5 @@ ValueSlider/icons/arrow_hover = ExtResource("1_jtjqq")
 ValueSlider/icons/arrow_normal = ExtResource("2_ne87e")
 ValueSlider/icons/arrow_pressed = ExtResource("3_sik4p")
 ValueSlider/icons/texture_over = null
-ValueSlider/icons/texture_progress = ExtResource("4_nr02t")
-ValueSlider/icons/texture_under = ExtResource("4_nr02t")
+ValueSlider/icons/texture_progress = ExtResource("6_2b1hk")
+ValueSlider/icons/texture_under = ExtResource("7_mj7q0")

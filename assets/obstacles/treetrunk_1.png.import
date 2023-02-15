@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/treetrunk_1.png-f9f2a6ab3ced0cb73332c60d7c013
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

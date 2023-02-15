@@ -1,17 +1,17 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqkbu3bchjcs7"]
 
 [ext_resource type="Script" path="res://src/Tree.gd" id="1_3l4t6"]
-[ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/level_backgrounds/tree_1.png" id="2_buxgv"]
-[ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/level_backgrounds/tree_2.png" id="3_vbjvi"]
+[ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/level_backgrounds/tree_1.png" id="2_bw4q5"]
+[ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/level_backgrounds/tree_2.png" id="3_bi0ua"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tksmy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_buxgv")
+"texture": ExtResource("2_bw4q5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_vbjvi")
+"texture": ExtResource("3_bi0ua")
 }],
 "loop": true,
 "name": &"default",

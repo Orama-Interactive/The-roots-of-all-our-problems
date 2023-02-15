@@ -10,26 +10,30 @@ const BACKGROUND_WAR_SKY := preload("res://assets/level_backgrounds/war_sky.png"
 const BACKGROUND_WAR_BACK := preload("res://assets/level_backgrounds/war_back.png")
 const BACKGROUND_WAR_MIDDLE := preload("res://assets/level_backgrounds/war_middle.png")
 const BACKGROUND_WAR_OBSTACLE := preload("res://src/Obstacles/background_obstacle.tscn")
+const BARBED_WIRE_OBSTACLE := preload("res://src/Obstacles/BarbedWire.tscn")
 
 @export_multiline var dialogue_lines: Array[String] = []
 
 var tree_tscn := preload("res://src/tree.tscn")
+var building_tscn := preload("res://src/Building.tscn")
 var forest_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetop_1.tscn"),
 		preload("res://src/Obstacles/Treetop_2.tscn"),
+		preload("res://src/Obstacles/Treetop_3.tscn"),
+		preload("res://src/Obstacles/Treetop_4.tscn"),
 	]
 var forest_obstacles_2: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetop_1.tscn"),
 		preload("res://src/Obstacles/Treetop_2.tscn"),
-		preload("res://src/Obstacles/Rock_1.tscn"),
-		preload("res://src/Obstacles/Rock_2.tscn"),
-		preload("res://src/Obstacles/Arrow.tscn"),
+		preload("res://src/Obstacles/Treetop_3.tscn"),
+		preload("res://src/Obstacles/Treetop_4.tscn"),
+		preload("res://src/Obstacles/Branch_1.tscn"),
+		preload("res://src/Obstacles/Branch_2.tscn"),
 	]
 var city_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Antenna_1.tscn"),
 		preload("res://src/Obstacles/Antenna_2.tscn"),
-		preload("res://src/Obstacles/Rock_1.tscn"),
-		preload("res://src/Obstacles/Rock_2.tscn"),
+		preload("res://src/Obstacles/Cables.tscn"),
 	]
 var war_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetrunk_1.tscn"),
@@ -52,9 +56,11 @@ var tree_collapse_percentage := -1
 @onready var back_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/BackLayer
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
+@onready var bomb_flash: ColorRect = $CanvasLayer/Control/BombFlash
 @onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
 @onready var tree_parent: Node2D = $TreeParent
 @onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
+@onready var barbed_wire_timer: Timer = $BarbedWireTimer
 @onready var tree_timer: Timer = $TreeTimer
 @onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
@@ -91,7 +97,7 @@ var tree_collapse_percentage := -1
 		Event.new(spawn_trees, [3, 5, 1])
 	]),
 	Checkpoint.new(city_obstacles, [
-		Event.new(stop_trees),
+		Event.new(spawn_trees, [1, 2, -1]),
 		Event.new(fade_out, [back_layer]),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
 		Event.new(change_texture, [sky_background, BACKGROUND_CITY_SKY]),
@@ -103,14 +109,24 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles, [
-		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
-		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY]),
-		Event.new(fade_in, [bomb]),
-		Event.new(fade_out, [back_layer]),
-		Event.new(fade_out, [middle_layer], 1),
-		Event.new(fade_out, [bomb], 12),
+	Checkpoint.new(city_obstacles, []),
+	Checkpoint.new([], [
+		Event.new(spawn_trees, [2, 2.5, -1]),
+		Event.new(fade_in, [bomb_flash], 4),
+		Event.new(fade_out, [bomb_flash, 2.5], 8),
+		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0, 3]),
+		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY], 5),
+		Event.new(fade_in, [bomb], 5),
+		Event.new(fade_in, [bomb_flash], 18),
+		Event.new(bomb.play_animation, [], 8),
+		Event.new(fade_out, [bomb_flash], 24),
+		Event.new(stop_trees, [], 17),
+		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK], 19),
+		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE], 19),
+		Event.new(fade_in, [front_layer], 19),
+#		Event.new(fade_out, [back_layer], 4),
+#		Event.new(fade_out, [middle_layer], 6),
+		Event.new(fade_out, [bomb], 19),
 	], "[bomb falling, exploding]"),
 	Checkpoint.new(war_obstacles, [
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
@@ -178,7 +194,9 @@ func _ready() -> void:
 		GameManager.loaded = false
 		go_to_checkpoint()
 		change_checkpoint()
-		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
+		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
+			front_layer.modulate.a = 1
+		if current_checkpoint > WAR_FIRST_CHECKPOINT:
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
 			change_texture(middle_layer, BACKGROUND_WAR_MIDDLE)
@@ -233,6 +251,13 @@ func _on_background_obstacle_timer_timeout() -> void:
 	add_child(obstacle)
 
 
+func _on_barbed_wire_timer_timeout() -> void:
+	var obstacle: BackgroundObstacle = BARBED_WIRE_OBSTACLE.instantiate()
+	obstacle.player_pos = player.position
+	obstacle.despawn_limit = _calculate_checkpoint_position(WAR_FIRST_CHECKPOINT) - 400
+	add_child(obstacle)
+
+
 func _on_obstacle_timer_timeout() -> void:
 	if checkpoints[current_checkpoint].obstacles.is_empty():
 		return
@@ -244,7 +269,11 @@ func _on_obstacle_timer_timeout() -> void:
 func _on_tree_timer_timeout() -> void:
 	var offset := 1680 if player.position.x < 1000 else 1300
 	var pos := Vector2(player.position.x + player.camera_2d.position.x + offset, 1080)
-	var tree: BackgroundTree = tree_tscn.instantiate()
+	var tree: BackgroundTree
+	if current_checkpoint < CITY_FIRST_CHECKPOINT:
+		tree = tree_tscn.instantiate()
+	else:
+		tree = building_tscn.instantiate()
 	if current_checkpoint > -1:
 		tree.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 400
 	tree.position = pos
@@ -301,6 +330,8 @@ func stop_sound(asp: AudioStreamPlayer) -> void:
 func spawn_background_obstacles() -> void:
 	background_obstacle_timer.start()
 	background_obstacle_timer.wait_time = 5  # Magic number but eh
+	barbed_wire_timer.start()
+	barbed_wire_timer.wait_time = 0.55
 
 
 func spawn_trees(from: float, to: float, collapse := -1) -> void:
