@@ -114,7 +114,7 @@ var tree_collapse_percentage := -1
 	Checkpoint.new([], [
 		Event.new(spawn_trees, [2, 2.5, -1]),
 		Event.new(fade_in, [bomb_flash], 4),
-		Event.new(fade_out, [bomb_flash], 8),
+		Event.new(fade_out, [bomb_flash, 2.5], 8),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0, 3]),
 		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY], 5),
 		Event.new(fade_in, [bomb], 5),
