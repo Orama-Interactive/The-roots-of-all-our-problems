@@ -15,6 +15,7 @@ const BARBED_WIRE_OBSTACLE := preload("res://src/Obstacles/BarbedWire.tscn")
 @export_multiline var dialogue_lines: Array[String] = []
 
 var tree_tscn := preload("res://src/tree.tscn")
+var building_tscn := preload("res://src/Building.tscn")
 var forest_obstacles: Array[PackedScene] = [
 		preload("res://src/Obstacles/Treetop_1.tscn"),
 		preload("res://src/Obstacles/Treetop_2.tscn"),
@@ -96,7 +97,7 @@ var tree_collapse_percentage := -1
 		Event.new(spawn_trees, [3, 5, 1])
 	]),
 	Checkpoint.new(city_obstacles, [
-		Event.new(stop_trees),
+		Event.new(spawn_trees, [3, 5, -1]),
 		Event.new(fade_out, [back_layer]),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/busy_city.wav"), 2]),
 		Event.new(change_texture, [sky_background, BACKGROUND_CITY_SKY]),
@@ -108,7 +109,7 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
 	Checkpoint.new(city_obstacles),
-	Checkpoint.new(city_obstacles),
+	Checkpoint.new(city_obstacles, [Event.new(stop_trees)]),
 	Checkpoint.new(city_obstacles, [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0]),
 		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY]),
@@ -258,7 +259,11 @@ func _on_obstacle_timer_timeout() -> void:
 func _on_tree_timer_timeout() -> void:
 	var offset := 1680 if player.position.x < 1000 else 1300
 	var pos := Vector2(player.position.x + player.camera_2d.position.x + offset, 1080)
-	var tree: BackgroundTree = tree_tscn.instantiate()
+	var tree: BackgroundTree
+	if current_checkpoint < CITY_FIRST_CHECKPOINT:
+		tree = tree_tscn.instantiate()
+	else:
+		tree = building_tscn.instantiate()
 	if current_checkpoint > -1:
 		tree.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 400
 	tree.position = pos

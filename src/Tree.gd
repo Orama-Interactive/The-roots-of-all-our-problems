@@ -12,12 +12,14 @@ var despawn_limit := 1000.0
 
 
 func _ready() -> void:
+	var frame_index := randi() % animated_sprite_2d.sprite_frames.get_frame_count("default")
+#	position.y = animated_sprite_2d.sprite_frames.get_frame_texture("default", frame_index).get_height()
 	position.y += randf_range(20, 120)
 	var scale_value := randf_range(0.6, 1)
 	speed *= scale_value
 	scale = Vector2(scale_value, scale_value)
 	z_index = round(scale_value * 10)
-	animated_sprite_2d.frame = randi() % 2
+	animated_sprite_2d.frame = frame_index
 	animated_sprite_2d.flip_h = rand_bool()
 
 

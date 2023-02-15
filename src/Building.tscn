@@ -1,17 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqkbu3bchjcs7"]
+[gd_scene load_steps=11 format=3 uid="uid://canj2m8u5gtxs"]
 
-[ext_resource type="Script" path="res://src/Tree.gd" id="1_3l4t6"]
-[ext_resource type="Texture2D" uid="uid://bb0wrnnqj6stq" path="res://assets/level_backgrounds/tree_1.png" id="2_bw4q5"]
-[ext_resource type="Texture2D" uid="uid://d2qo4amdcvks6" path="res://assets/level_backgrounds/tree_2.png" id="3_bi0ua"]
+[ext_resource type="Script" path="res://src/Tree.gd" id="1_k78vd"]
+[ext_resource type="Texture2D" uid="uid://b7gbboq7yxhk4" path="res://assets/level_backgrounds/building_1.png" id="2_60xl8"]
+[ext_resource type="Texture2D" uid="uid://bbkxvhkgmmbq5" path="res://assets/level_backgrounds/building_2.png" id="3_cx8xw"]
+[ext_resource type="Texture2D" uid="uid://dtcvnd8so5ayh" path="res://assets/level_backgrounds/building_3.png" id="4_h2ho3"]
+[ext_resource type="Texture2D" uid="uid://182c8guyifhd" path="res://assets/level_backgrounds/building_4.png" id="5_lrb81"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tksmy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bw4q5")
+"texture": ExtResource("2_60xl8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_bi0ua")
+"texture": ExtResource("3_cx8xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h2ho3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lrb81")
 }],
 "loop": true,
 "name": &"default",
@@ -108,12 +116,12 @@ _data = {
 "collapse_right": SubResource("Animation_0c6wb")
 }
 
-[node name="Tree" type="Node2D"]
-script = ExtResource("1_3l4t6")
+[node name="Building" type="Node2D"]
+script = ExtResource("1_k78vd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tksmy")
-frame_progress = 0.664698
+frame_progress = 0.150649
 centered = false
 offset = Vector2(-286, -1080)
 
