@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_resource type="AudioBusLayout" load_steps=12 format=3 uid="uid://cr0d2sl7q0rv"]
+=======
+[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://cr0d2sl7q0rv"]
+>>>>>>> 45544e8 (Removed an old file)
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_3vpy1"]
 resource_name = "Amplify"
@@ -21,11 +25,14 @@ threshold = -17.0
 ratio = 5.0
 sidechain = &"SFX"
 
+<<<<<<< HEAD
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_h6m8r"]
 resource_name = "Compressor"
 threshold = -12.0
 gain = 3.0
 
+=======
+>>>>>>> 45544e8 (Removed an old file)
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ynrgx"]
 resource_name = "Amplify"
 volume_db = 2.0
@@ -80,8 +87,11 @@ bus/3/effect/0/effect = SubResource("AudioEffectCompressor_4ktad")
 bus/3/effect/0/enabled = true
 bus/3/effect/1/effect = SubResource("AudioEffectCompressor_km3ht")
 bus/3/effect/1/enabled = true
+<<<<<<< HEAD
 bus/3/effect/2/effect = SubResource("AudioEffectCompressor_h6m8r")
 bus/3/effect/2/enabled = true
+=======
+>>>>>>> 45544e8 (Removed an old file)
 bus/4/name = &"Narration"
 bus/4/solo = false
 bus/4/mute = false

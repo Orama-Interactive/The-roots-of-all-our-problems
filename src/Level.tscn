@@ -206,12 +206,15 @@ bus = &"Gameplay"
 process_mode = 3
 stream = ExtResource("13_0qqpw")
 volume_db = -18.0
+<<<<<<< HEAD
 bus = &"Gameplay"
 
 [node name="s" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("14_ylew0")
 volume_db = -18.0
+=======
+>>>>>>> 45544e8 (Removed an old file)
 bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
@@ -226,4 +229,7 @@ bus = &"Narration"
 [connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
 [connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
 [connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]
+<<<<<<< HEAD
 [connection signal="finished" from="s" to="." method="_on_part_4_finished"]
+=======
+>>>>>>> 45544e8 (Removed an old file)

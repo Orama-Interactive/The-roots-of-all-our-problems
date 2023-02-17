@@ -79,6 +79,8 @@ var current_barbed_wire_position := Vector2.ZERO
 var hasMusicStarted = false
 var isLastPart = false
 
+#@onready var mixer: AudioBusLayout = load("res://default_bus_layout.tres")
+
 @onready var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new([], [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.ogg")]),
@@ -377,6 +379,7 @@ func StartMusic():
 	$Part1.play()
 	hasMusicStarted = true
 
+
 func LowerMusicVolume():
 	if (getMusicVolume >= -80):
 		getMusicVolume -= 0.02
@@ -391,6 +394,7 @@ func PlayLastPart():
 	$Part4.stop()
 	$Part5.play()
 	isLastPart = true
+
 
 func _on_part_1_finished():
 	$Part2.play()
@@ -410,4 +414,3 @@ func _on_part_3_finished():
 
 func _on_part_4_finished():
 	$Part4.play()
-
