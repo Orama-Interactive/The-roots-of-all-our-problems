@@ -70,7 +70,7 @@ var tree_collapse_percentage := -1
 @onready var sounds: AudioStreamPlayer = $Sounds
 @onready var sounds_2: AudioStreamPlayer = $Sounds2
 @onready var sounds_3: AudioStreamPlayer = $Sounds3
-@onready var music: AudioStreamPlayer = $Music
+#@onready var music: AudioStreamPlayer = $Music
 @onready var narration: AudioStreamPlayer = $Narration
 
 @onready var checkpoints: Array[Checkpoint] = [
@@ -132,7 +132,7 @@ var tree_collapse_percentage := -1
 		Event.new(fade_out, [bomb], 19),
 	], "[bomb falling, exploding]"),
 	Checkpoint.new(war_obstacles, [
-		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
+		#Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE]),
 		Event.new(fade_in, [back_layer]),
