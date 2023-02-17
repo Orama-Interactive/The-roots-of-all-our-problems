@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dj0f07hfcyed3"]
+[gd_scene load_steps=16 format=3 uid="uid://dj0f07hfcyed3"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
@@ -8,12 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/forest_middle.png" id="6_e22s8"]
 [ext_resource type="Texture2D" uid="uid://d048cvpcb6gim" path="res://assets/level_backgrounds/war_front.png" id="7_um18n"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
+[ext_resource type="Shader" path="res://src/Shaders/BombFlash.gdshader" id="9_o3xn3"]
 [ext_resource type="AudioStream" uid="uid://c2l72x44tr7ma" path="res://assets/audio/music/gameplay_music.ogg" id="9_pagyk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ff1cu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fiqf3"]
+shader = ExtResource("9_o3xn3")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ebs0"]
 font_size = 64
@@ -105,13 +109,16 @@ grow_vertical = 2
 theme = ExtResource("8_0dkwy")
 
 [node name="BombFlash" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
 modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_fiqf3")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 visible = false
@@ -120,6 +127,16 @@ offset_right = 70.0
 offset_bottom = 85.0
 text = "test"
 label_settings = SubResource("LabelSettings_2ebs0")
+
+[node name="WhiteColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Subtitles" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -148,7 +165,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="SceneEnd" type="ColorRect" parent="CanvasLayer/Control"]
+[node name="BlackColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15

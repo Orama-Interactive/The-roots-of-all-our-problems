@@ -57,7 +57,8 @@ var tree_collapse_percentage := -1
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
 @onready var bomb_flash: ColorRect = $CanvasLayer/Control/BombFlash
-@onready var scene_end: ColorRect = $CanvasLayer/Control/SceneEnd
+@onready var white_color_rect: ColorRect = $CanvasLayer/Control/WhiteColorRect
+@onready var black_color_rect: ColorRect = $CanvasLayer/Control/BlackColorRect
 @onready var tree_parent: Node2D = $TreeParent
 @onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
 @onready var barbed_wire_timer: Timer = $BarbedWireTimer
@@ -112,15 +113,17 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
 	Checkpoint.new([], [
 		Event.new(spawn_trees, [1, 2, -1]),
+		Event.new(fade_in, [white_color_rect, 0.1], 4),
 		Event.new(fade_in, [bomb_flash], 4),
-		Event.new(fade_out, [bomb_flash, 2.5], 8),
+		Event.new(fade_out, [white_color_rect, 1], 5.5),
+		Event.new(fade_out, [bomb_flash, 3], 6.5),
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/explosion.mp3"), 0, 3]),
 		Event.new(change_texture, [sky_background, BACKGROUND_WAR_SKY], 5),
 		Event.new(fade_in, [bomb], 5),
-		Event.new(fade_in, [bomb_flash], 18),
-		Event.new(bomb.play_animation, [], 8),
-		Event.new(fade_out, [bomb_flash], 24),
-		Event.new(stop_trees, [], 17),
+		Event.new(fade_in, [black_color_rect], 18),
+		Event.new(bomb.play_animation, [], 5),
+		Event.new(fade_out, [black_color_rect], 24),
+		Event.new(stop_trees, [], 13),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK], 19),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE], 19),
 		Event.new(fade_in, [front_layer], 19),
@@ -143,7 +146,7 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new(war_obstacles, []),
 	Checkpoint.new([], [
-		Event.new(fade_in, [scene_end]),
+		Event.new(fade_in, [black_color_rect]),
 		Event.new(ending, [], 2)
 	]),
 ]
@@ -307,6 +310,7 @@ func change_texture(sprite: Sprite2D, texture: Texture2D) -> void:
 
 
 func fade_in(ci: CanvasItem, duration := 1.0) -> void:
+	ci.show()
 	var color := ci.modulate
 	color.a = 1
 	create_tween().tween_property(ci, "modulate", color, duration)
@@ -315,7 +319,7 @@ func fade_in(ci: CanvasItem, duration := 1.0) -> void:
 func fade_out(ci: CanvasItem, duration := 1.0) -> void:
 	var color := ci.modulate
 	color.a = 0
-	create_tween().tween_property(ci, "modulate", color, duration)
+	create_tween().tween_property(ci, "modulate", color, duration).finished.connect(ci.hide)
 
 
 func play_sound(asp: AudioStreamPlayer, audio: AudioStream, volume: float = 99, duration := 1.0) -> void:
