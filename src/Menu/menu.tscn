@@ -592,7 +592,6 @@ bus = &"Menu"
 bus = &"Narration"
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
 
 [node name="introMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_oslqy")

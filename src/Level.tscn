@@ -180,40 +180,35 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
+bus = &"forest_ambiance"
 
 [node name="Sounds2" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
+bus = &"tree_chops"
 
 [node name="Sounds3" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
 
 [node name="Part1" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("10_wm3r8")
 volume_db = -18.0
-autoplay = true
 bus = &"Gameplay"
 
 [node name="Part2" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("11_lnty2")
 volume_db = -18.0
-autoplay = true
 bus = &"Gameplay"
 
 [node name="Part3" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("12_userk")
 volume_db = -18.0
-autoplay = true
 bus = &"Gameplay"
 
 [node name="Part4" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("13_0qqpw")
 volume_db = -18.0
-autoplay = true
 bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
@@ -226,3 +221,7 @@ bus = &"Narration"
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
 [connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]
 [connection signal="fell" from="Player" to="." method="_on_player_fell"]
+[connection signal="finished" from="Part1" to="." method="_on_part_1_finished"]
+[connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
+[connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
+[connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]

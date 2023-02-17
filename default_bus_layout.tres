@@ -1,4 +1,8 @@
-[gd_resource type="AudioBusLayout" load_steps=9 format=3 uid="uid://cr0d2sl7q0rv"]
+[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://cr0d2sl7q0rv"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_3vpy1"]
+resource_name = "Amplify"
+volume_db = 8.0
 
 [sub_resource type="AudioEffectRecord" id="AudioEffectRecord_2wjd1"]
 resource_name = "Record"
@@ -6,10 +10,16 @@ resource_name = "Record"
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_4ktad"]
 resource_name = "Compressor"
 threshold = -16.9
-ratio = 7.8
+ratio = 2.0
 attack_us = 96.0
 release_ms = 504.0
 sidechain = &"Narration"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_km3ht"]
+resource_name = "Compressor"
+threshold = -17.0
+ratio = 5.0
+sidechain = &"SFX"
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ynrgx"]
 resource_name = "Amplify"
@@ -34,7 +44,7 @@ volume_db = 3.0
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_yf03n"]
 resource_name = "Amplify"
-volume_db = 5.0
+volume_db = 10.0
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_aqla4"]
 resource_name = "Amplify"
@@ -59,25 +69,27 @@ bus/3/name = &"Music"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.0
+bus/3/volume_db = 0.16725
 bus/3/send = &"Master"
 bus/3/effect/0/effect = SubResource("AudioEffectCompressor_4ktad")
 bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectCompressor_km3ht")
+bus/3/effect/1/enabled = true
 bus/4/name = &"Narration"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = 0.0
+bus/4/volume_db = -2.3125
 bus/4/send = &"Master"
 bus/4/effect/0/effect = SubResource("AudioEffectAmplify_ynrgx")
-bus/4/effect/0/enabled = true
+bus/4/effect/0/enabled = false
 bus/4/effect/1/effect = SubResource("AudioEffectEQ10_0dxlh")
 bus/4/effect/1/enabled = true
-bus/5/name = &"Sounds"
+bus/5/name = &"SFX"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = 0.0
+bus/5/volume_db = -0.030508
 bus/5/send = &"Master"
 bus/6/name = &"Menu"
 bus/6/solo = false
@@ -100,7 +112,7 @@ bus/8/solo = false
 bus/8/mute = false
 bus/8/bypass_fx = false
 bus/8/volume_db = 0.0
-bus/8/send = &"Master"
+bus/8/send = &"Music"
 bus/8/effect/0/effect = SubResource("AudioEffectAmplify_yf03n")
 bus/8/effect/0/enabled = true
 bus/9/name = &"Outro"
@@ -111,3 +123,29 @@ bus/9/volume_db = 0.0
 bus/9/send = &"Master"
 bus/9/effect/0/effect = SubResource("AudioEffectAmplify_aqla4")
 bus/9/effect/0/enabled = true
+bus/10/name = &"forest_ambiance"
+bus/10/solo = false
+bus/10/mute = false
+bus/10/bypass_fx = false
+bus/10/volume_db = -0.626003
+bus/10/send = &"SFX"
+bus/10/effect/0/effect = SubResource("AudioEffectAmplify_3vpy1")
+bus/10/effect/0/enabled = true
+bus/11/name = &"tree_chops"
+bus/11/solo = false
+bus/11/mute = false
+bus/11/bypass_fx = false
+bus/11/volume_db = -4.25003
+bus/11/send = &"SFX"
+bus/12/name = &"tree_chops_close"
+bus/12/solo = false
+bus/12/mute = false
+bus/12/bypass_fx = false
+bus/12/volume_db = -6.24739
+bus/12/send = &"SFX"
+bus/13/name = &"treeFall"
+bus/13/solo = false
+bus/13/mute = false
+bus/13/bypass_fx = false
+bus/13/volume_db = -3.11736
+bus/13/send = &"SFX"
