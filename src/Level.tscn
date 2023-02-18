@@ -177,10 +177,8 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
-bus = &"forest_ambiance"
 
 [node name="Sounds2" type="AudioStreamPlayer" parent="."]
-bus = &"tree_chops"
 
 [node name="Sounds3" type="AudioStreamPlayer" parent="."]
 
