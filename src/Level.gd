@@ -141,16 +141,15 @@ var isLastPart = false
 		#Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE]),
+		Event.new(spawn_background_obstacles),
 		Event.new(fade_in, [back_layer]),
 		Event.new(fade_in, [middle_layer], 2),
-		Event.new(fade_in, [front_layer], 4)
+		Event.new(fade_in, [front_layer], 4),
 	]),
-	Checkpoint.new(war_obstacles, [
-		Event.new(spawn_background_obstacles)
-	]),
-	Checkpoint.new(war_obstacles, []),
-	Checkpoint.new(war_obstacles, []),
-	Checkpoint.new(war_obstacles, []),
+	Checkpoint.new(war_obstacles),
+	Checkpoint.new(war_obstacles),
+	Checkpoint.new(war_obstacles),
+	Checkpoint.new(war_obstacles),
 	Checkpoint.new([], [
 		Event.new(fade_in, [black_color_rect]),
 		Event.new(ending, [], 2)
@@ -202,6 +201,7 @@ func _ready() -> void:
 		change_checkpoint()
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
 			front_layer.modulate.a = 1
+			spawn_background_obstacles()
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
