@@ -74,10 +74,6 @@ centered = false
 [node name="TreeParent" type="Node2D" parent="."]
 z_index = -200
 
-[node name="BackgroundObstacleTimer" type="Timer" parent="."]
-
-[node name="BarbedWireTimer" type="Timer" parent="."]
-
 [node name="ObstacleTimer" type="Timer" parent="."]
 autostart = true
 
@@ -215,8 +211,6 @@ bus = &"Gameplay"
 autoplay = true
 bus = &"Narration"
 
-[connection signal="timeout" from="BackgroundObstacleTimer" to="." method="_on_background_obstacle_timer_timeout"]
-[connection signal="timeout" from="BarbedWireTimer" to="." method="_on_barbed_wire_timer_timeout"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
 [connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]
