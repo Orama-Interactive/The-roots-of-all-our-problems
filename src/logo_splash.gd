@@ -5,7 +5,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("splash")
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_anything_pressed():
 		get_tree().change_scene_to_file("res://src/Menu/menu.tscn")
 
