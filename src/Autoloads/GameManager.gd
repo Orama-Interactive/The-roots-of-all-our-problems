@@ -7,6 +7,7 @@ var config_file := ConfigFile.new()
 var show_ambient_subtitles := true
 var play_with_voice := false
 var mic_input_threshold := 0.2
+var menu_faded_in := false
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
