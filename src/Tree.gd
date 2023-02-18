@@ -3,8 +3,8 @@ extends Node2D
 
 var speed := 100.0
 var falling_sounds := [
-	preload("res://assets/audio/sounds/tree_falling_2.wav"),
-	preload("res://assets/audio/sounds/tree_falling_3.wav"),
+	preload("res://assets/audio/sounds/tree_falling_2.ogg"),
+	preload("res://assets/audio/sounds/tree_falling_3.ogg"),
 ]
 var despawn_limit := 1000.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

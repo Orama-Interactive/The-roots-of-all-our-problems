@@ -77,7 +77,7 @@ var hasMusicStarted = false
 
 @onready var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new([], [
-		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.wav")]),
+		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.ogg")]),
 		Event.new(spawn_trees, [0.1, 0.4])
 	], "[forest ambience]"),
 	Checkpoint.new(forest_obstacles, [Event.new(spawn_trees, [0.4, 2])],),
