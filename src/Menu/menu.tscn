@@ -1,12 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://dimkthlpwxk31"]
+[gd_scene load_steps=20 format=3 uid="uid://dimkthlpwxk31"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_315d5"]
 [ext_resource type="Script" path="res://src/Menu/menu.gd" id="2_of2g4"]
 [ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="3_55xt4"]
 [ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="4_76yoj"]
-[ext_resource type="Shader" path="res://src/Shaders/DualTexture.gdshader" id="4_rysc7"]
 [ext_resource type="Texture2D" uid="uid://doqu2sbglr5i1" path="res://assets/menu_screen_2.png" id="5_xn6ax"]
-[ext_resource type="Shader" path="res://src/Shaders/BookTurn.gdshader" id="6_qlyve"]
 [ext_resource type="AudioStream" uid="uid://jv2ajecwgcfx" path="res://assets/audio/narration/intro/1.ogg" id="9_sv7et"]
 [ext_resource type="AudioStream" uid="uid://cc0qvmccd7qts" path="res://assets/audio/narration/intro/2.ogg" id="10_7vhc1"]
 [ext_resource type="AudioStream" uid="uid://dn7p3d5er2cct" path="res://assets/audio/narration/intro/3.ogg" id="11_wpf82"]
@@ -15,22 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://rqog4vaqphgo" path="res://assets/audio/sounds/wind-1-44149.mp3" id="14_qhvya"]
 [ext_resource type="AudioStream" uid="uid://cukk6rgdxwfj8" path="res://assets/audio/music/Intro.wav" id="15_k083u"]
 [ext_resource type="AudioStream" uid="uid://dy83ypasnm2im" path="res://assets/audio/music/story_intro.ogg" id="15_oslqy"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5pev"]
-shader = ExtResource("4_rysc7")
-shader_parameter/old_tex = ExtResource("3_55xt4")
-shader_parameter/new_tex = ExtResource("5_xn6ax")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_im725"]
-shader = ExtResource("6_qlyve")
-shader_parameter/half_right = true
-shader_parameter/rect_size = Vector2(1920, 1080)
-shader_parameter/fov = 90.0
-shader_parameter/cull_back = true
-shader_parameter/y_rot = 0.0
-shader_parameter/x_rot = 0.0
-shader_parameter/inset = 0.0
-shader_parameter/tex = ExtResource("3_55xt4")
 
 [sub_resource type="LabelSettings" id="LabelSettings_55jyd"]
 font_size = 96
@@ -176,53 +158,17 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/11/type = "value"
+tracks/11/type = "audio"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/11/path = NodePath("menuMusic")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("BookTurn:material:shader_parameter/half_right")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("BookTurn:material:shader_parameter/tex")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_55xt4")]
-}
-tracks/14/type = "audio"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("menuMusic")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
 "clips": [],
 "times": PackedFloat32Array()
 }
-tracks/14/use_blend = true
+tracks/11/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
@@ -360,49 +306,13 @@ tracks/10/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/11/type = "value"
+tracks/11/type = "audio"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BookTurn:material:shader_parameter/y_rot")
+tracks/11/path = NodePath("menuMusic")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(27.5, 28.6, 29.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 90.0, 8.55e-06]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("BookTurn:material:shader_parameter/half_right")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(27.5, 28.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("BookTurn:material:shader_parameter/tex")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(27.5, 28.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_55xt4"), ExtResource("5_xn6ax")]
-}
-tracks/14/type = "audio"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("menuMusic")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -410,14 +320,14 @@ tracks/14/keys = {
 }],
 "times": PackedFloat32Array(0)
 }
-tracks/14/use_blend = true
-tracks/15/type = "audio"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Narration")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
+tracks/11/use_blend = true
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Narration")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -441,14 +351,14 @@ tracks/15/keys = {
 }],
 "times": PackedFloat32Array(1.7, 4.5, 13.1, 18.4, 30.5)
 }
-tracks/15/use_blend = true
-tracks/16/type = "audio"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Sounds")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/12/use_blend = true
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Sounds")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -456,7 +366,7 @@ tracks/16/keys = {
 }],
 "times": PackedFloat32Array(27.5)
 }
-tracks/16/use_blend = true
+tracks/13/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
@@ -482,26 +392,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_55xt4")
-
-[node name="DualTexture" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_t5pev")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BookTurn" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_im725")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 600)
