@@ -1,3 +1,4 @@
+class_name Level
 extends Node2D
 
 const CITY_FIRST_CHECKPOINT := 9
@@ -50,6 +51,8 @@ var narrations: Array[AudioStream] = [
 	preload("res://assets/audio/narration/level/1.ogg"), preload("res://assets/audio/narration/level/2.ogg"), preload("res://assets/audio/narration/level/3.ogg"), preload("res://assets/audio/narration/level/4.ogg"), preload("res://assets/audio/narration/level/5.ogg"), preload("res://assets/audio/narration/level/6.ogg"), preload("res://assets/audio/narration/level/7.ogg"), preload("res://assets/audio/narration/level/8.ogg"), preload("res://assets/audio/narration/level/9.ogg"), preload("res://assets/audio/narration/level/10.ogg"), preload("res://assets/audio/narration/level/11.ogg"), preload("res://assets/audio/narration/level/12.ogg"), preload("res://assets/audio/narration/level/13.ogg"), preload("res://assets/audio/narration/level/14.ogg"), preload("res://assets/audio/narration/level/15.ogg"), preload("res://assets/audio/narration/level/16.ogg"), preload("res://assets/audio/narration/level/17.ogg"), preload("res://assets/audio/narration/level/18.ogg"), preload("res://assets/audio/narration/level/19.ogg"), preload("res://assets/audio/narration/level/20.ogg"), preload("res://assets/audio/narration/level/21.ogg")
 ]
 var tree_collapse_percentage := -1
+var current_background_obstacle_position := Vector2.ZERO
+var current_barbed_wire_position := Vector2.ZERO
 @onready var player: Player = $Player
 @onready var sky_background: Sprite2D = $ParallaxBackground/SkyBackground
 @onready var bomb: AnimatedSprite2D = $ParallaxBackground/Bomb
@@ -60,8 +63,6 @@ var tree_collapse_percentage := -1
 @onready var white_color_rect: ColorRect = $CanvasLayer/Control/WhiteColorRect
 @onready var black_color_rect: ColorRect = $CanvasLayer/Control/BlackColorRect
 @onready var tree_parent: Node2D = $TreeParent
-@onready var background_obstacle_timer: Timer = $BackgroundObstacleTimer
-@onready var barbed_wire_timer: Timer = $BarbedWireTimer
 @onready var tree_timer: Timer = $TreeTimer
 @onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
@@ -162,7 +163,6 @@ class Event:
 		args = _args
 		delay = _delay
 
-
 	func fire(node: Node) -> void:
 		if delay > 0.0:
 			await node.get_tree().create_timer(delay).timeout
@@ -176,9 +176,7 @@ class Checkpoint:
 	var ambient_text := ""
 
 	func _init(
-	_obstacles: Array[PackedScene] = [],
-	_events: Array[Event] = [],
-	_ambient_text := "",
+		_obstacles: Array[PackedScene] = [], _events: Array[Event] = [], _ambient_text := "",
 	) -> void:
 		obstacles = _obstacles
 		events = _events
@@ -199,7 +197,7 @@ func _ready() -> void:
 		change_checkpoint()
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
 			front_layer.modulate.a = 1
-		if current_checkpoint > WAR_FIRST_CHECKPOINT:
+		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
 			change_texture(middle_layer, BACKGROUND_WAR_MIDDLE)
@@ -217,13 +215,13 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/Control/Label.text = str(pos)
 	if current_checkpoint >= checkpoints.size() -1:
 		return
-	if pos >= _calculate_checkpoint_position(current_checkpoint + 1):
+	if pos >= calculate_checkpoint_position(current_checkpoint + 1):
 		current_checkpoint += 1
 		change_checkpoint()
 
 
 func go_to_checkpoint() -> void:
-	player.position.x = _calculate_checkpoint_position(current_checkpoint) + 1
+	player.position.x = calculate_checkpoint_position(current_checkpoint) + 1
 	player.position.y = 160
 
 
@@ -240,7 +238,7 @@ func change_checkpoint() -> void:
 		subtitles.text += "\n" + checkpoints[current_checkpoint].ambient_text
 
 
-func _calculate_checkpoint_position(index: int) -> float:
+func calculate_checkpoint_position(index: int) -> float:
 	if index < 8:
 		return index * 2000.0 + 1000.0
 	if index < WAR_FIRST_CHECKPOINT:  # Increase checkpoint distance exponentially
@@ -250,20 +248,6 @@ func _calculate_checkpoint_position(index: int) -> float:
 	var distance := 7500
 	var offset := WAR_FIRST_CHECKPOINT * distance - (WAR_FIRST_CHECKPOINT * 3666.6)
 	return index * distance - offset
-
-
-func _on_background_obstacle_timer_timeout() -> void:
-	var obstacle: BackgroundObstacle = BACKGROUND_WAR_OBSTACLE.instantiate()
-	obstacle.player_pos = player.position
-	obstacle.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 6000
-	add_child(obstacle)
-
-
-func _on_barbed_wire_timer_timeout() -> void:
-	var obstacle: BackgroundObstacle = BARBED_WIRE_OBSTACLE.instantiate()
-	obstacle.player_pos = player.position
-	obstacle.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 1000
-	add_child(obstacle)
 
 
 func _on_obstacle_timer_timeout() -> void:
@@ -283,7 +267,7 @@ func _on_tree_timer_timeout() -> void:
 	else:
 		tree = building_tscn.instantiate()
 	if current_checkpoint > -1:
-		tree.despawn_limit = _calculate_checkpoint_position(current_checkpoint) - 400
+		tree.despawn_limit = calculate_checkpoint_position(current_checkpoint) - 400
 	tree.position = pos
 	tree_parent.add_child(tree)
 	if tree_collapse_percentage > -1:
@@ -337,10 +321,20 @@ func stop_sound(asp: AudioStreamPlayer) -> void:
 
 
 func spawn_background_obstacles() -> void:
-	background_obstacle_timer.start()
-	background_obstacle_timer.wait_time = 5  # Magic number but eh
-	barbed_wire_timer.start()
-	barbed_wire_timer.wait_time = 0.55
+	var barbed_wire: BackgroundObstacle = BARBED_WIRE_OBSTACLE.instantiate()
+	barbed_wire.start_pos = player.position
+	barbed_wire.despawn_limit = calculate_checkpoint_position(current_checkpoint) - 1000
+	barbed_wire.spawn_timer = 0.55
+	barbed_wire.scene = BARBED_WIRE_OBSTACLE
+	add_child(barbed_wire)
+
+	var background_obstacle: BackgroundObstacle = BACKGROUND_WAR_OBSTACLE.instantiate()
+	background_obstacle.start_pos = player.position
+	background_obstacle.despawn_limit = calculate_checkpoint_position(current_checkpoint) - 6000
+	background_obstacle.scene = BACKGROUND_WAR_OBSTACLE
+	background_obstacle.spawn_timer = 4.5
+	add_child(background_obstacle)
+
 
 # TODO: Rename method name, as this also spawns buildings
 func spawn_trees(from: float, to: float, collapse := -1) -> void:
