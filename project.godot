@@ -12,6 +12,8 @@ config_version=5
 
 config/name="The roots of all our problems"
 run/main_scene="res://src/logo_splash.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="the_roots_of_all_our_problems"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
