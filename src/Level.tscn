@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dj0f07hfcyed3"]
+[gd_scene load_steps=20 format=3 uid="uid://dj0f07hfcyed3"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/Part 2.ogg" id="11_lnty2"]
 [ext_resource type="AudioStream" uid="uid://bcxgqsur0fbux" path="res://assets/audio/music/Part 3 bridge.ogg" id="12_userk"]
 [ext_resource type="AudioStream" uid="uid://8dgm52hlnhy8" path="res://assets/audio/music/Part 4.ogg" id="13_0qqpw"]
+[ext_resource type="AudioStream" uid="uid://ka7tri71f43n" path="res://assets/audio/music/Part 5.ogg" id="14_ylew0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
@@ -207,6 +208,12 @@ stream = ExtResource("13_0qqpw")
 volume_db = -18.0
 bus = &"Gameplay"
 
+[node name="s" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_ylew0")
+volume_db = -18.0
+bus = &"Gameplay"
+
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 autoplay = true
 bus = &"Narration"
@@ -219,3 +226,4 @@ bus = &"Narration"
 [connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
 [connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
 [connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]
+[connection signal="finished" from="s" to="." method="_on_part_4_finished"]

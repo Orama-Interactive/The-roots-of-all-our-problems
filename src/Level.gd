@@ -71,9 +71,11 @@ var tree_collapse_percentage := -1
 @onready var sounds_3: AudioStreamPlayer = $Sounds3
 #@onready var music: AudioStreamPlayer = $Music
 @onready var narration: AudioStreamPlayer = $Narration
+@onready var getMusicVolume = AudioServer.get_bus_volume_db(3)
 #@onready var mixer: AudioBusLayout = load("res://default_bus_layout.tres")
 
 var hasMusicStarted = false
+var isLastPart = false
 
 @onready var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new([], [
@@ -215,6 +217,12 @@ func _process(_delta: float) -> void:
 	world_boundary.position.x = player.position.x
 	$CanvasLayer/Control/Label.text = str(pos)
 	ChangeAmbienceVolume()
+	if current_checkpoint == 14:
+		LowerMusicVolume()
+	if current_checkpoint >= 15:
+		if !isLastPart:
+			PlayLastPart()
+		IncreaseMusicVolume()
 	if current_checkpoint == 0 and !hasMusicStarted:
 		StartMusic()
 	if current_checkpoint >= checkpoints.size() -1:
@@ -361,11 +369,26 @@ func ChangeAmbienceVolume():
 	if current_checkpoint < 9:
 		AudioServer.set_bus_volume_db(10, 0)
 	elif current_checkpoint >= 9:
-		AudioServer.set_bus_volume_db(10, -14)
+		AudioServer.set_bus_volume_db(10, -10)
 
 func StartMusic():
 	$Part1.play()
 	hasMusicStarted = true
+
+func LowerMusicVolume():
+	if (getMusicVolume >= -80):
+		getMusicVolume -= 0.02
+		AudioServer.set_bus_volume_db(3, getMusicVolume)
+
+func IncreaseMusicVolume():
+	if (getMusicVolume < 0):
+		getMusicVolume += 0.02
+		AudioServer.set_bus_volume_db(3, getMusicVolume)
+
+func PlayLastPart():
+	$Part4.stop()
+	$Part5.play()
+	isLastPart = true
 
 func _on_part_1_finished():
 	$Part2.play()
@@ -385,3 +408,4 @@ func _on_part_3_finished():
 
 func _on_part_4_finished():
 	$Part4.play()
+

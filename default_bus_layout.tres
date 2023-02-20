@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://cr0d2sl7q0rv"]
+[gd_resource type="AudioBusLayout" load_steps=12 format=3 uid="uid://cr0d2sl7q0rv"]
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_3vpy1"]
 resource_name = "Amplify"
@@ -21,6 +21,11 @@ threshold = -17.0
 ratio = 5.0
 sidechain = &"SFX"
 
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_h6m8r"]
+resource_name = "Compressor"
+threshold = -12.0
+gain = 3.0
+
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ynrgx"]
 resource_name = "Amplify"
 volume_db = 2.0
@@ -28,8 +33,8 @@ volume_db = 2.0
 [sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_0dxlh"]
 resource_name = "EQ10"
 band_db/31_hz = -60.0
-band_db/62_hz = -8.8
-band_db/250_hz = -15.2
+band_db/62_hz = -30.0
+band_db/250_hz = -8.4
 band_db/500_hz = -4.8
 band_db/1000_hz = -6.8
 band_db/16000_hz = -13.2
@@ -75,6 +80,8 @@ bus/3/effect/0/effect = SubResource("AudioEffectCompressor_4ktad")
 bus/3/effect/0/enabled = true
 bus/3/effect/1/effect = SubResource("AudioEffectCompressor_km3ht")
 bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource("AudioEffectCompressor_h6m8r")
+bus/3/effect/2/enabled = true
 bus/4/name = &"Narration"
 bus/4/solo = false
 bus/4/mute = false
