@@ -23,6 +23,7 @@ func _ready() -> void:
 	sounds_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sounds"))) * 100
 	narration_volume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Narration"))) * 100
 	mic_threshold.value = GameManager.mic_input_threshold * 100
+	update_label_values()
 
 
 func _on_return_pressed() -> void:
@@ -52,8 +53,8 @@ func _on_mic_threshold_value_changed(value: float) -> void:
 
 # This is lazy, ideally the slider that has been edited should update only its corresponding label
 func update_label_values() -> void:
-	master_volume_label.text = "Master volume: %s" % master_volume.value
-	music_volume_label.text = "Music volume: %s" % music_volume.value
-	sounds_volume_label.text = "Sounds volume: %s" % sounds_volume.value
-	narration_volume_label.text = "Narration volume: %s" % narration_volume.value
-	mic_threshold_label.text = "Microphone input threshold: %s" % mic_threshold.value
+	master_volume_label.text = tr("Master volume: %s") % master_volume.value
+	music_volume_label.text = tr("Music volume: %s") % music_volume.value
+	sounds_volume_label.text = tr("Sounds volume: %s") % sounds_volume.value
+	narration_volume_label.text = tr("Narration volume: %s") % narration_volume.value
+	mic_threshold_label.text = tr("Microphone input threshold: %s") % mic_threshold.value

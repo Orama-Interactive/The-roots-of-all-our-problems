@@ -54,7 +54,6 @@ grow_vertical = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Master volume: 100"
 label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MasterVolume" type="TextureProgressBar" parent="VBoxContainer"]
@@ -73,7 +72,6 @@ show_arrows = false
 
 [node name="MusicVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Music volume: 100"
 label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MusicVolume" type="TextureProgressBar" parent="VBoxContainer"]
@@ -92,7 +90,6 @@ show_arrows = false
 
 [node name="SoundsVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Sounds volume: 100"
 label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="SoundsVolume" type="TextureProgressBar" parent="VBoxContainer"]
@@ -111,7 +108,6 @@ show_arrows = false
 
 [node name="NarrationVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Narration volume: 100"
 label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="NarrationVolume" type="TextureProgressBar" parent="VBoxContainer"]
@@ -141,7 +137,6 @@ text = "Play with voice"
 [node name="MicThresholdLabel" type="Label" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
-text = "Microphone input threshold: 20"
 label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MicThreshold" type="TextureProgressBar" parent="VBoxContainer"]
