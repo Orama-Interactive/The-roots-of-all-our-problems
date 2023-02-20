@@ -144,8 +144,8 @@ var tree_collapse_percentage := -1
 	Checkpoint.new(war_obstacles),
 	Checkpoint.new(war_obstacles),
 	Checkpoint.new([], [
-		Event.new(fade_in, [black_color_rect]),
-		Event.new(ending, [], 2)
+		Event.new(fade_in, [black_color_rect], 2),
+		Event.new(ending, [], 4)
 	]),
 ]
 
@@ -243,6 +243,8 @@ func calculate_checkpoint_position(index: int) -> float:
 		return pow(index / 2.0, 2) * 1000.0 + 1000.0
 	if index == WAR_FIRST_CHECKPOINT:
 			return index * 3666.6 # 54999
+	if index == checkpoints.size() - 1:  # Final checkpoint
+		return index * 4400
 	var distance := 7500
 	var offset := WAR_FIRST_CHECKPOINT * distance - (WAR_FIRST_CHECKPOINT * 3666.6)
 	return index * distance - offset
