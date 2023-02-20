@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/Part 2.ogg" id="11_lnty2"]
 [ext_resource type="AudioStream" uid="uid://bcxgqsur0fbux" path="res://assets/audio/music/Part 3 bridge.ogg" id="12_userk"]
 [ext_resource type="AudioStream" uid="uid://8dgm52hlnhy8" path="res://assets/audio/music/Part 4.ogg" id="13_0qqpw"]
-[ext_resource type="AudioStream" uid="uid://ka7tri71f43n" path="res://assets/audio/music/Part 5.ogg" id="14_ylew0"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/Part 5.ogg" id="14_ylew0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
