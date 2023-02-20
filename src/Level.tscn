@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://d048cvpcb6gim" path="res://assets/level_backgrounds/war_front.png" id="7_um18n"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="Shader" path="res://src/Shaders/BombFlash.gdshader" id="9_o3xn3"]
-[ext_resource type="AudioStream" uid="uid://db7joaldkhujy" path="res://assets/audio/music/Part 1.ogg" id="10_wm3r8"]
-[ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/Part 2.ogg" id="11_lnty2"]
-[ext_resource type="AudioStream" uid="uid://bcxgqsur0fbux" path="res://assets/audio/music/Part 3 bridge.ogg" id="12_userk"]
-[ext_resource type="AudioStream" uid="uid://8dgm52hlnhy8" path="res://assets/audio/music/Part 4.ogg" id="13_0qqpw"]
-[ext_resource type="AudioStream" path="res://assets/audio/music/Part 5.ogg" id="14_ylew0"]
+[ext_resource type="AudioStream" uid="uid://db7joaldkhujy" path="res://assets/audio/music/Part 1.ogg" id="10_ry5t3"]
+[ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/Part 2.ogg" id="11_5ahj6"]
+[ext_resource type="AudioStream" uid="uid://bcxgqsur0fbux" path="res://assets/audio/music/Part 3 bridge.ogg" id="12_tkgby"]
+[ext_resource type="AudioStream" uid="uid://8dgm52hlnhy8" path="res://assets/audio/music/Part 4.ogg" id="13_dssec"]
+[ext_resource type="AudioStream" uid="uid://ka7tri71f43n" path="res://assets/audio/music/Part 5.ogg" id="14_sk5e3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
@@ -184,40 +184,31 @@ color = Color(0, 0, 0, 1)
 
 [node name="Part1" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("10_wm3r8")
+stream = ExtResource("10_ry5t3")
 volume_db = -18.0
-bus = &"Gameplay"
 
 [node name="Part2" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("11_lnty2")
+stream = ExtResource("11_5ahj6")
 volume_db = -18.0
-bus = &"Gameplay"
 
 [node name="Part3" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("12_userk")
+stream = ExtResource("12_tkgby")
 volume_db = -18.0
-bus = &"Gameplay"
 
 [node name="Part4" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("13_0qqpw")
+stream = ExtResource("13_dssec")
 volume_db = -18.0
-<<<<<<< HEAD
-bus = &"Gameplay"
 
-[node name="s" type="AudioStreamPlayer" parent="."]
+[node name="Part5" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("14_ylew0")
+stream = ExtResource("14_sk5e3")
 volume_db = -18.0
-=======
->>>>>>> 45544e8 (Removed an old file)
-bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 autoplay = true
-bus = &"Narration"
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
@@ -227,7 +218,3 @@ bus = &"Narration"
 [connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
 [connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
 [connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]
-<<<<<<< HEAD
-[connection signal="finished" from="s" to="." method="_on_part_4_finished"]
-=======
->>>>>>> 45544e8 (Removed an old file)

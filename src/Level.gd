@@ -403,7 +403,6 @@ func _on_part_1_finished():
 func _on_part_2_finished():
 	if current_checkpoint >= 9:
 		$Part3.play()
-		pass
 	else:
 		$Part2.play()
 
