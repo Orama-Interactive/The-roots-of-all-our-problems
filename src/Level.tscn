@@ -186,26 +186,31 @@ color = Color(0, 0, 0, 1)
 process_mode = 3
 stream = ExtResource("10_ry5t3")
 volume_db = -18.0
+bus = &"Gameplay"
 
 [node name="Part2" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("11_5ahj6")
 volume_db = -18.0
+bus = &"Gameplay"
 
 [node name="Part3" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("12_tkgby")
 volume_db = -18.0
+bus = &"Gameplay"
 
 [node name="Part4" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("13_dssec")
 volume_db = -18.0
+bus = &"Gameplay"
 
 [node name="Part5" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("14_sk5e3")
 volume_db = -18.0
+bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 autoplay = true
