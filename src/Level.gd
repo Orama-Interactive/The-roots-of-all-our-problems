@@ -76,14 +76,14 @@ var tree_collapse_percentage := -1
 	Checkpoint.new([], [
 		Event.new(play_sound, [sounds, preload("res://assets/audio/sounds/forest_ambience.ogg")]),
 		Event.new(spawn_trees, [0.1, 0.4])
-	], "[forest ambience]"),
+	], tr("[forest ambience]")),
 	Checkpoint.new(forest_obstacles, [Event.new(spawn_trees, [0.4, 2])],),
 	Checkpoint.new(forest_obstacles, [Event.new(spawn_trees, [1, 2])]),
 	Checkpoint.new(forest_obstacles, [
 		Event.new(play_sound, [sounds_2, preload("res://assets/audio/sounds/chop_tree_far.mp3")]),
 		Event.new(play_sound, [sounds_3, preload("res://assets/audio/sounds/chop_tree_close.mp3")], 2),
 		Event.new(spawn_trees, [1, 3, 3])
-	], "[Trees being chopped with axes and trees falling]"),
+	], tr("[Trees being chopped with axes and trees falling]")),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.2, 3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
 	Checkpoint.new(forest_obstacles_2, [Event.new(spawn_trees, [1.3, 3.3, 3])]),
@@ -105,7 +105,7 @@ var tree_collapse_percentage := -1
 		Event.new(change_texture, [middle_layer, BACKGROUND_CITY_MIDDLE], 2),
 		Event.new(fade_in, [back_layer], 2.3),
 		Event.new(fade_in, [middle_layer], 5)
-	], "[sounds of a busy city]"),
+	], tr("[sounds of a busy city]")),
 	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
 	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
 	Checkpoint.new(city_obstacles, [Event.new(spawn_trees, [1, 2, -1])]),
@@ -129,7 +129,7 @@ var tree_collapse_percentage := -1
 #		Event.new(fade_out, [back_layer], 4),
 #		Event.new(fade_out, [middle_layer], 6),
 		Event.new(fade_out, [bomb], 19),
-	], "[bomb falling, exploding]"),
+	], tr("[bomb falling, exploding]")),
 	Checkpoint.new(war_obstacles, [  # WAR_FIRST_CHECKPOINT
 		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
