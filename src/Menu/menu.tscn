@@ -182,6 +182,21 @@ tracks/12/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_21gw3"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_3b4d5"]
 resource_name = "first_scene"
 length = 37.0
@@ -255,8 +270,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.7, 4.6, 13, 18.7, 22.5, 23, 27, 30),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "Once upon a time… (music)", "There was a tree. A big, well established tree with roots reaching deep into the soil. ", "What was special about this tree was its seeds. ", "With a single blow of the wind, its seeds would scatter through the air ", "", "And fly far far away, looking for a place to root.", "", "This is the story of one of those seeds. 
-"]
+"values": ["", "Once upon a time… (music)", "There was a tree. A big, well established tree with roots reaching deep into the soil.", "What was special about this tree was its seeds.", "With a single blow of the wind, its seeds would scatter through the air", "", "And fly far far away, looking for a place to root.", "", "This is the story of one of those seeds."]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -379,21 +393,6 @@ tracks/13/keys = {
 "times": PackedFloat32Array(27.5)
 }
 tracks/13/use_blend = true
-
-[sub_resource type="Animation" id="Animation_21gw3"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeIn:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
