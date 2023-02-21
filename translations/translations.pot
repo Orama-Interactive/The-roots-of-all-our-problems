@@ -1,0 +1,347 @@
+# LANGUAGE translation for The roots of all our problems for the following files:
+# res://src/bomb.gd
+# res://src/bomb.tscn
+# res://src/Building.tscn
+# res://src/ending.gd
+# res://src/ending.tscn
+# res://src/heat_displacement.tscn
+# res://src/Level.gd
+# res://src/Level.tscn
+# res://src/logo_splash.gd
+# res://src/logo_splash.tscn
+# res://src/Player.gd
+# res://src/player.tscn
+# res://src/Tree.gd
+# res://src/tree.tscn
+# res://src/Menu/credits.gd
+# res://src/Menu/credits.tscn
+# res://src/Menu/menu.gd
+# res://src/Menu/menu.tscn
+# res://src/Menu/MenuButton.gd
+# res://src/Menu/MenuButton.tscn
+# res://src/Menu/settings.gd
+# res://src/Menu/settings.tscn
+# res://src/Autoloads/GameManager.gd
+#
+# FIRST AUTHOR < EMAIL @ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The roots of all our problems\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/Level.gd
+msgid "[forest ambience]"
+msgstr ""
+
+#: src/Level.gd
+msgid "[Trees being chopped with axes and trees falling]"
+msgstr ""
+
+#: src/Level.gd
+msgid "[sounds of a busy city]"
+msgstr ""
+
+#: src/Level.gd
+msgid "[bomb falling, exploding]"
+msgstr ""
+
+#: src/Menu/credits.tscn
+msgid "The roots of all our problems"
+msgstr ""
+
+#: src/Menu/credits.tscn
+msgid "By Orama Interactive"
+msgstr ""
+
+#: src/Menu/credits.tscn
+msgid ""
+"[font_size=64]Emmanouil Papadeas[/font_size]\n"
+"Game Programming, Dialogue Development\n"
+"\n"
+"[font_size=64]Ioannis Nikitakis[/font_size]\n"
+"Art Direction, Story/Dialogue Development, Graphic Design, Narration\n"
+"\n"
+"[font_size=64]Eleni Louloudaki[/font_size]\n"
+"Cutscene Design, Graphic Design, Storyboards\n"
+"\n"
+"[font_size=64]Orion Bourazanis[/font_size]\n"
+"Concept Art, Graphic Design\n"
+"\n"
+"[font_size=64]Chris Douris[/font_size]\n"
+"Music Production\n"
+"\n"
+"Fonts: AmaticSc and Mansalva\n"
+"\n"
+"Game originally created with Godot within 48 hours for Global Game Jam 2023, but this is a post-jam version.\n"
+"\n"
+"Special thanks to the GGJ team and GGJ Athens for organising this jam event and helping inspire this game.\n"
+"\n"
+"Thank you for playing!"
+msgstr ""
+
+#: src/Menu/settings.gd
+#: src/Menu/settings.tscn
+msgid "Master volume: %s"
+msgstr ""
+
+#: src/Menu/settings.gd
+#: src/Menu/settings.tscn
+msgid "Music volume: %s"
+msgstr ""
+
+#: src/Menu/settings.gd
+#: src/Menu/settings.tscn
+msgid "Sounds volume: %s"
+msgstr ""
+
+#: src/Menu/settings.gd
+#: src/Menu/settings.tscn
+msgid "Narration volume: %s"
+msgstr ""
+
+#: src/Menu/settings.gd
+#: src/Menu/settings.tscn
+msgid "Microphone input threshold: %s"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "Settings"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "Show ambient subtitles"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "Play with voice"
+msgstr ""
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Hold any key to fly\n"
+"Release to fall"
+msgstr ""
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Touch and hold to fly\n"
+"Release to fall"
+msgstr ""
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Talk to fly\n"
+"Stop talking to fall"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "New game"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "Load game"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "Credits"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "Exit"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "Once upon a time… (music)"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "There was a tree. A big, well established tree with roots reaching deep into the soil."
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "What was special about this tree was its seeds."
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "With a single blow of the wind, its seeds would scatter through the air"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "And fly far far away, looking for a place to root."
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "This is the story of one of those seeds."
+msgstr ""
+
+#: src/Level.tscn
+msgid "The seed flew away, through a forest with big spruce trees."
+msgstr ""
+
+#: src/Level.tscn
+msgid "Navigating its way through the forest, the seed had to avoid the treetops."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“This forest is way too dense” the seed thought. “I won’t be able to root properly here, with so little sun reaching the forest bed.”"
+msgstr ""
+
+#: src/Level.tscn
+msgid "Suddenly, a cracking sound scared the little seed."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”"
+msgstr ""
+
+#: src/Level.tscn
+msgid "“But what will happen when I root and I become a tree myself? Will I fall like those trees are?”"
+msgstr ""
+
+#: src/Level.tscn
+msgid "The forest became less and less dense the further the seed traveled."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“What could have caused such a catastrophe?” The seed thought."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“I need to travel further, it's not safe here!”"
+msgstr ""
+
+#: src/Level.tscn
+msgid "But after a while things became even weirder. The forest lost its colours and the surroundings got very noisy."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traversed through that gray looking forest."
+msgstr ""
+
+#: src/Level.tscn
+msgid "It was getting more and more difficult for the seed to navigate between this place's obstacles but it was determined to find the perfect spot to root, so it carried on."
+msgstr ""
+
+#: src/Level.tscn
+msgid "After some time, the seed realized that this place isn't suitable for a tree to live there either."
+msgstr ""
+
+#: src/Level.tscn
+msgid "The seed was tired, but determined, so it went even further."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“This place really has no end” it thought. But it was abruptly interrupted by a sound. A scary sound unlike any other."
+msgstr ""
+
+#: src/Level.tscn
+msgid "And everything was calm."
+msgstr ""
+
+#: src/Level.tscn
+msgid "The forest was long gone."
+msgstr ""
+
+#: src/Level.tscn
+msgid "The seed felt scared and alone. Everything, even the sky, looked so hostile."
+msgstr ""
+
+#: src/Level.tscn
+msgid "“I can’t go on for much longer. It’s so cold and lonely out here.”"
+msgstr ""
+
+#: src/Level.tscn
+msgid "After all this way it had traveled the poor seed had no strength left within it. Even the air stopped supporting its journey. The seed was for the first time truly alone."
+msgstr ""
+
+#: src/Level.tscn
+msgid "The end."
+msgstr ""
+
+#: src/ending.tscn
+msgid "But Grandpa! What happened next?"
+msgstr ""
+
+#: src/ending.tscn
+msgid "The conflicts of the humans left fire and blood at their trails."
+msgstr ""
+
+#: src/ending.tscn
+msgid "Hope was naught but a faint light, yet wars were in humanity’s nature, never to be stopped."
+msgstr ""
+
+#: src/ending.tscn
+msgid "But nature itself would decay, for with each war life as a whole would be more and more in danger."
+msgstr ""
+
+#: src/ending.tscn
+msgid "- And what happened to the seed? Did it fall to the ground? Did it manage to root?"
+msgstr ""
+
+#: src/ending.tscn
+msgid "No, it did not manage to root. Not every story has to have a good ending you know!"
+msgstr ""
+
+#: src/ending.tscn
+msgid "Then I don't like this story!"
+msgstr ""
+
+#: src/ending.tscn
+msgid "I'm glad you said that."
+msgstr ""
+
+#: src/ending.tscn
+msgid "You see."
+msgstr ""
+
+#: src/ending.tscn
+msgid "This story and stories like that is the root of all our problems."
+msgstr ""
+
+#: src/ending.tscn
+msgid "It was supposed to only contain dark truths."
+msgstr ""
+
+#: src/ending.tscn
+msgid "Truths that make us desperate."
+msgstr ""
+
+#: src/ending.tscn
+msgid "Truths that make us give up all hope."
+msgstr ""
+
+#: src/ending.tscn
+msgid "Truths that are capable of killing each and every seed of hope left within us."
+msgstr ""
+
+#: src/ending.tscn
+msgid "But dark truths are only half the truth."
+msgstr ""
+
+#: src/ending.tscn
+msgid "And sometimes even less."
+msgstr ""
+
+#: src/ending.tscn
+msgid "Be careful, for the world is full of half truths like this."
+msgstr ""
+
+#: src/ending.tscn
+msgid "But they do not really represent us, they just sound believable and dark enough to paralyze our efforts of something brighter."
+msgstr ""
+
+#: src/ending.tscn
+msgid "We already have the seeds of hope from the ones that came before us in our own hearts."
+msgstr ""
+
+#: src/ending.tscn
+msgid "Now we have to choose the endings to the stories we believe in"
+msgstr ""
+
+#: src/ending.tscn
+msgid "for those seeds to really root for the ones who will come after."
+msgstr ""
