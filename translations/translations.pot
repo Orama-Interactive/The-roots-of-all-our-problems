@@ -151,7 +151,11 @@ msgid "Credits"
 msgstr ""
 
 #: src/Menu/menu.tscn
-msgid "Exit"
+msgid "Exit game"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "Return to menu"
 msgstr ""
 
 #: src/Menu/menu.tscn
