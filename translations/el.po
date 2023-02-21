@@ -362,7 +362,7 @@ msgstr "Βλέπεις."
 
 #: src/ending.tscn
 msgid "This story and stories like that is the root of all our problems."
-msgstr "Η ιστορία αυτή και όλες οι ιστορίες σαν κι αυτήν είναι η ρίζα των προβλημάτων μας."
+msgstr "Η ιστορία αυτή και όλες οι ιστορίες σαν κι αυτή είναι η ρίζα των προβλημάτων μας."
 
 #: src/ending.tscn
 msgid "It was supposed to only contain dark truths."

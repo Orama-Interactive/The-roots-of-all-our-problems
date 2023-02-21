@@ -228,7 +228,7 @@ func change_checkpoint() -> void:
 		GameManager.save_game(current_checkpoint)
 	checkpoints[current_checkpoint].fire_events(self)
 	if current_checkpoint < narrations.size():
-		subtitles.text = dialogue_lines[current_checkpoint]
+		subtitles.text = tr(dialogue_lines[current_checkpoint])
 		subtitle_timer.start()
 		narration.stream = narrations[current_checkpoint]
 		narration.play()
