@@ -1,14 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4h7wskyd1qpj"]
+[gd_scene load_steps=6 format=3 uid="uid://b4h7wskyd1qpj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_cngr4"]
 [ext_resource type="Script" path="res://src/Menu/settings.gd" id="2_1qla6"]
 [ext_resource type="Texture2D" uid="uid://djcul2kvl56fv" path="res://assets/menu_screen_1.png" id="2_4ylr3"]
 [ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="4_2lcpq"]
 [ext_resource type="Script" path="res://src/Nodes/ValueSlider.gd" id="4_oh5nr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_73jie"]
-font_size = 70
-font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -32,11 +28,6 @@ layout_mode = 0
 offset_left = 791.0
 offset_right = 1181.0
 offset_bottom = 931.0
-
-[node name="Header" type="Label" parent="Languages"]
-layout_mode = 2
-text = "Settings"
-label_settings = SubResource("LabelSettings_73jie")
 
 [node name="Label" type="Label" parent="Languages"]
 layout_mode = 2
