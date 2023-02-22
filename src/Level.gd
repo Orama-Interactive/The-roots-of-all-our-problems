@@ -225,9 +225,9 @@ func _process(_delta: float) -> void:
 	barbed_wire_collision.position.x = player.position.x - 160
 	$CanvasLayer/Control/Label.text = str(pos)
 	ChangeAmbienceVolume()
-	if current_checkpoint == 14:
+	if current_checkpoint == WAR_FIRST_CHECKPOINT - 1:
 		LowerMusicVolume()
-	if current_checkpoint >= 15:
+	if current_checkpoint >= WAR_FIRST_CHECKPOINT:
 		if !isLastPart:
 			PlayLastPart()
 		IncreaseMusicVolume()

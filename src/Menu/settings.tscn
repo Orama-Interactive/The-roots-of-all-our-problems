@@ -161,7 +161,7 @@ text_size = 90
 
 [connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Master"]]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Music"]]
-[connection signal="value_changed" from="VBoxContainer/SoundsVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Sounds"]]
+[connection signal="value_changed" from="VBoxContainer/SoundsVolume" to="." method="_on_volume_slider_value_changed" binds= [&"SFX"]]
 [connection signal="value_changed" from="VBoxContainer/NarrationVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Narration"]]
 [connection signal="toggled" from="VBoxContainer/AmbientSubs" to="." method="_on_ambient_subs_toggled"]
 [connection signal="toggled" from="VBoxContainer/MicrophoneInput" to="." method="_on_microphone_input_toggled"]

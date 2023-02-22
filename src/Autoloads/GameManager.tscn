@@ -7,4 +7,4 @@ process_mode = 3
 script = ExtResource("1_1fo1e")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
+bus = &"SFX"

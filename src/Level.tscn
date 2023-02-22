@@ -214,10 +214,13 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="Sounds2" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="Sounds3" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="Part1" type="AudioStreamPlayer" parent="."]
 process_mode = 3
