@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://jufa0xrr83so"
-path="res://.godot/imported/Mansalva-Regular.ttf-f9c1ec425c4772ecd08ad47f3103b814.fontdata"
+uid="uid://d4mcmf7kyx185"
+path="res://.godot/imported/MandysSketch-7BBwA.ttf-5a708b8b6d39d5a3b77b2f0c4412fe8c.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/mansalva/Mansalva-Regular.ttf"
-dest_files=["res://.godot/imported/Mansalva-Regular.ttf-f9c1ec425c4772ecd08ad47f3103b814.fontdata"]
+source_file="res://assets/fonts/mandys_sketch/MandysSketch-7BBwA.ttf"
+dest_files=["res://.godot/imported/MandysSketch-7BBwA.ttf-5a708b8b6d39d5a3b77b2f0c4412fe8c.fontdata"]
 
 [params]
 

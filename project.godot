@@ -68,7 +68,7 @@ skip={
 [internationalization]
 
 locale/translation_remaps={
-"res://assets/fonts/AmaticSC-Regular.ttf": PackedStringArray("res://assets/fonts/mansalva/Mansalva-Regular.ttf:el")
+"res://assets/fonts/AmaticSC-Regular.ttf": PackedStringArray("res://assets/fonts/mandys_sketch/MandysSketch-7BBwA.ttf:el")
 }
 locale/translations=PackedStringArray("res://translations/en.po", "res://translations/el.po")
 locale/translations_pot_files=PackedStringArray("res://src/bomb.gd", "res://src/bomb.tscn", "res://src/Building.tscn", "res://src/ending.gd", "res://src/ending.tscn", "res://src/heat_displacement.tscn", "res://src/Level.gd", "res://src/Level.tscn", "res://src/logo_splash.gd", "res://src/logo_splash.tscn", "res://src/Player.gd", "res://src/player.tscn", "res://src/Tree.gd", "res://src/tree.tscn", "res://src/Menu/credits.gd", "res://src/Menu/credits.tscn", "res://src/Menu/menu.gd", "res://src/Menu/menu.tscn", "res://src/Menu/MenuButton.gd", "res://src/Menu/MenuButton.tscn", "res://src/Menu/settings.gd", "res://src/Menu/settings.tscn", "res://src/Autoloads/GameManager.gd")
