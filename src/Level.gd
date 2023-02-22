@@ -70,8 +70,15 @@ var tree_collapse_percentage := -1
 @onready var sounds: AudioStreamPlayer = $Sounds
 @onready var sounds_2: AudioStreamPlayer = $Sounds2
 @onready var sounds_3: AudioStreamPlayer = $Sounds3
-@onready var music: AudioStreamPlayer = $Music
+#@onready var music: AudioStreamPlayer = $Music
 @onready var narration: AudioStreamPlayer = $Narration
+@onready var getMusicVolume = AudioServer.get_bus_volume_db(3)
+#@onready var mixer: AudioBusLayout = load("res://default_bus_layout.tres")
+
+var hasMusicStarted = false
+var isLastPart = false
+
+#@onready var mixer: AudioBusLayout = load("res://default_bus_layout.tres")
 
 @onready var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new([], [
@@ -135,9 +142,10 @@ var tree_collapse_percentage := -1
 		Event.new(fade_out, [bomb], 19),
 	], tr("[bomb falling, exploding]")),
 	Checkpoint.new(war_obstacles, [  # WAR_FIRST_CHECKPOINT
-		Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
+		#Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE]),
+		Event.new(spawn_background_obstacles),
 		Event.new(fade_in, [back_layer]),
 		Event.new(fade_in, [middle_layer], 2),
 		Event.new(fade_in, [front_layer], 4),
@@ -216,10 +224,18 @@ func _process(_delta: float) -> void:
 	world_boundary.position.x = player.position.x
 	barbed_wire_collision.position.x = player.position.x - 160
 	$CanvasLayer/Control/Label.text = str(pos)
+	ChangeAmbienceVolume()
+	if current_checkpoint == 14:
+		LowerMusicVolume()
+	if current_checkpoint >= 15:
+		if !isLastPart:
+			PlayLastPart()
+		IncreaseMusicVolume()
+	if current_checkpoint == 0 and !hasMusicStarted:
+		StartMusic()
 	if current_checkpoint >= checkpoints.size() -1:
 		return
 	if pos >= calculate_checkpoint_position(current_checkpoint + 1):
-		current_checkpoint += 1
 		change_checkpoint()
 
 
@@ -354,3 +370,50 @@ func stop_trees() -> void:
 
 func ending() -> void:
 	get_tree().change_scene_to_file("res://src/ending.tscn")
+
+# Manage Music and Audio
+
+func ChangeAmbienceVolume():
+	if current_checkpoint < 9:
+		AudioServer.set_bus_volume_db(10, 0)
+	elif current_checkpoint >= 9:
+		AudioServer.set_bus_volume_db(10, -10)
+
+func StartMusic():
+	$Part1.play()
+	hasMusicStarted = true
+
+
+func LowerMusicVolume():
+	if (getMusicVolume >= -80):
+		getMusicVolume -= 0.02
+		AudioServer.set_bus_volume_db(3, getMusicVolume)
+
+func IncreaseMusicVolume():
+	if (getMusicVolume < 0):
+		getMusicVolume += 0.02
+		AudioServer.set_bus_volume_db(3, getMusicVolume)
+
+func PlayLastPart():
+	$Part4.stop()
+	$Part5.play()
+	isLastPart = true
+
+
+func _on_part_1_finished():
+	$Part2.play()
+
+
+func _on_part_2_finished():
+	if current_checkpoint >= 9:
+		$Part3.play()
+	else:
+		$Part2.play()
+
+
+func _on_part_3_finished():
+	$Part4.play()
+
+
+func _on_part_4_finished():
+	$Part4.play()

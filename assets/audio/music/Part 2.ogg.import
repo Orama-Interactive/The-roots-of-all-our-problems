@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dpsns024vjsux"
+path="res://.godot/imported/Part 2.ogg-5ad7b73b9e6f894272174f9808c7dae0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Part 2.ogg"
+dest_files=["res://.godot/imported/Part 2.ogg-5ad7b73b9e6f894272174f9808c7dae0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

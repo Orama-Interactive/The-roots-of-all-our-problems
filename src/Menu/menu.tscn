@@ -9,9 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://cc0qvmccd7qts" path="res://assets/audio/narration/intro/2.ogg" id="10_7vhc1"]
 [ext_resource type="AudioStream" uid="uid://dn7p3d5er2cct" path="res://assets/audio/narration/intro/3.ogg" id="11_wpf82"]
 [ext_resource type="AudioStream" uid="uid://bmyy44q3jursr" path="res://assets/audio/narration/intro/4.ogg" id="12_6yatg"]
+[ext_resource type="AudioStream" uid="uid://c4tg8g2dm6np4" path="res://assets/audio/music/Menu.ogg" id="12_v6460"]
 [ext_resource type="AudioStream" uid="uid://jwwr65n566pk" path="res://assets/audio/narration/intro/5.ogg" id="13_edfm0"]
 [ext_resource type="AudioStream" uid="uid://rqog4vaqphgo" path="res://assets/audio/sounds/wind-1-44149.mp3" id="14_qhvya"]
-[ext_resource type="AudioStream" uid="uid://cukk6rgdxwfj8" path="res://assets/audio/music/Intro.wav" id="15_k083u"]
 [ext_resource type="AudioStream" uid="uid://dy83ypasnm2im" path="res://assets/audio/music/story_intro.ogg" id="15_oslqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_55jyd"]
@@ -462,10 +462,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1038.0
+offset_left = 882.0
 offset_top = 121.0
-offset_right = -143.0
-offset_bottom = -144.0
+offset_right = 1777.0
+offset_bottom = 936.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
@@ -509,7 +509,7 @@ libraries = {
 }
 
 [node name="menuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_k083u")
+stream = ExtResource("12_v6460")
 volume_db = -8.0
 autoplay = true
 bus = &"Menu"
@@ -518,7 +518,6 @@ bus = &"Menu"
 bus = &"Narration"
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
 
 [node name="introMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_oslqy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dj0f07hfcyed3"]
+[gd_scene load_steps=22 format=3 uid="uid://dj0f07hfcyed3"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
@@ -10,7 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://1bj8lk4dtdrj" path="res://assets/obstacles/barbedwire.png" id="7_yyqsd"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="Shader" path="res://src/Shaders/BombFlash.gdshader" id="9_o3xn3"]
-[ext_resource type="AudioStream" uid="uid://c2l72x44tr7ma" path="res://assets/audio/music/gameplay_music.ogg" id="9_pagyk"]
+[ext_resource type="AudioStream" uid="uid://db7joaldkhujy" path="res://assets/audio/music/Part 1.ogg" id="10_ry5t3"]
+[ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/Part 2.ogg" id="11_5ahj6"]
+[ext_resource type="AudioStream" uid="uid://bcxgqsur0fbux" path="res://assets/audio/music/Part 3 bridge.ogg" id="12_tkgby"]
+[ext_resource type="AudioStream" uid="uid://8dgm52hlnhy8" path="res://assets/audio/music/Part 4.ogg" id="13_dssec"]
+[ext_resource type="AudioStream" uid="uid://ka7tri71f43n" path="res://assets/audio/music/Part 5.ogg" id="14_sk5e3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8s0kk"]
 normal = Vector2(0, 1)
@@ -210,27 +214,50 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
 
 [node name="Sounds2" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
 
 [node name="Sounds3" type="AudioStreamPlayer" parent="."]
-bus = &"Sounds"
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Part1" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("9_pagyk")
+stream = ExtResource("10_ry5t3")
 volume_db = -18.0
-autoplay = true
+bus = &"Gameplay"
+
+[node name="Part2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_5ahj6")
+volume_db = -18.0
+bus = &"Gameplay"
+
+[node name="Part3" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("12_tkgby")
+volume_db = -18.0
+bus = &"Gameplay"
+
+[node name="Part4" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("13_dssec")
+volume_db = -18.0
+bus = &"Gameplay"
+
+[node name="Part5" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_sk5e3")
+volume_db = -18.0
 bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 autoplay = true
-bus = &"Narration"
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]
 [connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]
 [connection signal="fell" from="Player" to="." method="_on_player_fell"]
 [connection signal="body_entered" from="BarbedWireCollision" to="." method="_on_barbed_wire_collision_body_entered"]
+[connection signal="finished" from="Part1" to="." method="_on_part_1_finished"]
+[connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
+[connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
+[connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]
