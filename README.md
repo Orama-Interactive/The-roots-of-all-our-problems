@@ -5,3 +5,5 @@ Originally created with Godot 4.0 within 48 hours for Global Game Jam 2023 (Jam 
 We keep updating it after the jam, you can play the updated version on itch.io: https://orama-interactive.itch.io/the-roots-of-all-our-problems
 
 Original jam version: https://globalgamejam.org/2023/games/roots-all-our-problems-2
+
+All code is MIT-licensed, and assets are [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
