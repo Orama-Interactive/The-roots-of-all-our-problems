@@ -166,6 +166,10 @@ msgstr ""
 msgid "Exit game"
 msgstr ""
 
+#: src/Menu/menu.tscn
+msgid "Skip (space)"
+msgstr ""
+
 #: src/Menu/settings.tscn
 msgid "Return to menu"
 msgstr ""

@@ -108,7 +108,7 @@ msgstr ""
 "Το παιχνίδι αρχικά είχε φτιαχτεί με Godot σε 48 ώρες για το Global Game Jam "
 "2023, αλλά αυτή είναι αναβαθμισμένη έκδοση μετά το jam.\n"
 "\n"
-"Ειδικές ευχαριστίες στην ομάδα του GGJ και του GGJ Αθήνας για την οργάνωση "
+"Ευχαριστούμε ιδιαίτερα την ομάδα του GGJ και του GGJ Αθήνας για την οργάνωση "
 "της εκδήλωσης και την συμβολή τους στο να εμπνευστούμε το παιχνίδι.\n"
 "\n"
 "Ευχαριστούμε που παίξατε!"
@@ -183,11 +183,11 @@ msgstr "Ελληνικά"
 
 #: src/Menu/menu.tscn
 msgid "New game"
-msgstr "Νέο παιχνίδι"
+msgstr "Νέο"
 
 #: src/Menu/menu.tscn
 msgid "Load game"
-msgstr "Φόρτωση παιχνιδιού"
+msgstr "Φόρτωση"
 
 #: src/Menu/menu.tscn
 msgid "Credits"
@@ -197,9 +197,13 @@ msgstr "Συντελεστές"
 msgid "Exit game"
 msgstr "Έξοδος"
 
+#: src/Menu/menu.tscn
+msgid "Skip (space)"
+msgstr "Παράλειψη (space)"
+
 #: src/Menu/settings.tscn
 msgid "Return to menu"
-msgstr "Επιστροφή στο μενού"
+msgstr "Πίσω στο μενού"
 
 #: src/Menu/menu.tscn
 msgid "Once upon a time… (music)"

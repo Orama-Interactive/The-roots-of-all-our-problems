@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dy83ypasnm2im" path="res://assets/audio/music/story_intro.ogg" id="15_oslqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_55jyd"]
-font_size = 96
+font_size = 80
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_yilds"]
@@ -462,10 +462,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 882.0
+offset_left = -1038.0
 offset_top = 121.0
-offset_right = 1777.0
-offset_bottom = 936.0
+offset_right = -143.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_55jyd")
