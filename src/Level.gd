@@ -236,6 +236,7 @@ func _process(_delta: float) -> void:
 	if current_checkpoint >= checkpoints.size() -1:
 		return
 	if pos >= calculate_checkpoint_position(current_checkpoint + 1):
+		current_checkpoint += 1
 		change_checkpoint()
 
 
