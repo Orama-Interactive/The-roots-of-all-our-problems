@@ -203,9 +203,8 @@ func _ready() -> void:
 		GameManager.loaded = false
 		go_to_checkpoint()
 		change_checkpoint()
-		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
-			front_layer.modulate.a = 1
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
+			front_layer.modulate.a = 1
 			obstacle_layer.modulate.a = 1
 			spawn_background_obstacles()
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
@@ -217,6 +216,8 @@ func _ready() -> void:
 			change_texture(middle_layer, BACKGROUND_CITY_MIDDLE)
 	else:
 		tree_timer.start()
+	if !hasMusicStarted:
+		StartMusic()
 
 
 func _process(_delta: float) -> void:
@@ -225,14 +226,12 @@ func _process(_delta: float) -> void:
 	barbed_wire_collision.position.x = player.position.x - 160
 	$CanvasLayer/Control/Label.text = str(pos)
 	ChangeAmbienceVolume()
-	if current_checkpoint == WAR_FIRST_CHECKPOINT - 1:
+	if current_checkpoint == WAR_FIRST_CHECKPOINT - 1:  # Bomb
 		LowerMusicVolume()
 	if current_checkpoint >= WAR_FIRST_CHECKPOINT:
 		if !isLastPart:
 			PlayLastPart()
 		IncreaseMusicVolume()
-	if current_checkpoint == 0 and !hasMusicStarted:
-		StartMusic()
 	if current_checkpoint >= checkpoints.size() -1:
 		return
 	if pos >= calculate_checkpoint_position(current_checkpoint + 1):
@@ -381,7 +380,12 @@ func ChangeAmbienceVolume():
 		AudioServer.set_bus_volume_db(10, -10)
 
 func StartMusic():
-	$Part1.play()
+	if current_checkpoint < CITY_FIRST_CHECKPOINT:
+		$Part1.play()
+	elif current_checkpoint < WAR_FIRST_CHECKPOINT:
+		$Part3.play()
+	else:
+		$Part5.play()
 	hasMusicStarted = true
 
 
