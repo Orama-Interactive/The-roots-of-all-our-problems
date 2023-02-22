@@ -50,8 +50,6 @@ var narrations: Array[AudioStream] = [
 	preload("res://assets/audio/narration/level/1.ogg"), preload("res://assets/audio/narration/level/2.ogg"), preload("res://assets/audio/narration/level/3.ogg"), preload("res://assets/audio/narration/level/4.ogg"), preload("res://assets/audio/narration/level/5.ogg"), preload("res://assets/audio/narration/level/6.ogg"), preload("res://assets/audio/narration/level/7.ogg"), preload("res://assets/audio/narration/level/8.ogg"), preload("res://assets/audio/narration/level/9.ogg"), preload("res://assets/audio/narration/level/10.ogg"), preload("res://assets/audio/narration/level/11.ogg"), preload("res://assets/audio/narration/level/12.ogg"), preload("res://assets/audio/narration/level/13.ogg"), preload("res://assets/audio/narration/level/14.ogg"), preload("res://assets/audio/narration/level/15.ogg"), preload("res://assets/audio/narration/level/16.ogg"), preload("res://assets/audio/narration/level/17.ogg"), preload("res://assets/audio/narration/level/18.ogg"), preload("res://assets/audio/narration/level/19.ogg"), preload("res://assets/audio/narration/level/20.ogg"), preload("res://assets/audio/narration/level/21.ogg")
 ]
 var tree_collapse_percentage := -1
-var current_background_obstacle_position := Vector2.ZERO
-var current_barbed_wire_position := Vector2.ZERO
 @onready var player: Player = $Player
 @onready var sky_background: Sprite2D = $ParallaxBackground/SkyBackground
 @onready var bomb: AnimatedSprite2D = $ParallaxBackground/Bomb
@@ -238,8 +236,6 @@ func _process(_delta: float) -> void:
 	if current_checkpoint >= checkpoints.size() -1:
 		return
 	if pos >= calculate_checkpoint_position(current_checkpoint + 1):
-		current_checkpoint += 1
-		print_debug(current_checkpoint)
 		change_checkpoint()
 
 
