@@ -9,9 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://cc0qvmccd7qts" path="res://assets/audio/narration/intro/2.ogg" id="10_7vhc1"]
 [ext_resource type="AudioStream" uid="uid://dn7p3d5er2cct" path="res://assets/audio/narration/intro/3.ogg" id="11_wpf82"]
 [ext_resource type="AudioStream" uid="uid://bmyy44q3jursr" path="res://assets/audio/narration/intro/4.ogg" id="12_6yatg"]
+[ext_resource type="AudioStream" uid="uid://c4tg8g2dm6np4" path="res://assets/audio/music/Menu.ogg" id="12_v6460"]
 [ext_resource type="AudioStream" uid="uid://jwwr65n566pk" path="res://assets/audio/narration/intro/5.ogg" id="13_edfm0"]
 [ext_resource type="AudioStream" uid="uid://rqog4vaqphgo" path="res://assets/audio/sounds/wind-1-44149.mp3" id="14_qhvya"]
-[ext_resource type="AudioStream" uid="uid://cukk6rgdxwfj8" path="res://assets/audio/music/Intro.wav" id="15_k083u"]
 [ext_resource type="AudioStream" uid="uid://dy83ypasnm2im" path="res://assets/audio/music/story_intro.ogg" id="15_oslqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_55jyd"]
@@ -180,6 +180,21 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_21gw3"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3b4d5"]
@@ -380,21 +395,6 @@ tracks/13/keys = {
 }
 tracks/13/use_blend = true
 
-[sub_resource type="Animation" id="Animation_21gw3"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeIn:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg4f2"]
 _data = {
 "RESET": SubResource("Animation_7kksi"),
@@ -510,7 +510,7 @@ libraries = {
 }
 
 [node name="menuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_k083u")
+stream = ExtResource("12_v6460")
 volume_db = -8.0
 autoplay = true
 bus = &"Menu"

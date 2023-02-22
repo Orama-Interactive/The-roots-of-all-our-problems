@@ -24,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://bjakwrdugnxn" path="res://assets/audio/narration/outro/7.ogg" id="20_7vygn"]
 [ext_resource type="AudioStream" uid="uid://d4n2iq6meajw1" path="res://assets/audio/narration/outro/8.ogg" id="21_w4ki4"]
 [ext_resource type="AudioStream" uid="uid://qudff2pq1ja0" path="res://assets/audio/narration/outro/9.ogg" id="24_rvl8k"]
-[ext_resource type="AudioStream" uid="uid://c4tg8g2dm6np4" path="res://assets/audio/music/Menu.ogg" id="25_eflq3"]
+[ext_resource type="AudioStream" uid="uid://b1g6bb6702vdq" path="res://assets/audio/music/Outro.ogg" id="25_d2s3h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i58ny"]
 font_size = 50
@@ -363,8 +363,8 @@ offset = Vector2(960, 540)
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 bus = &"Narration"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("25_eflq3")
+[node name="Outro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_d2s3h")
 autoplay = true
 bus = &"Outro"
 
