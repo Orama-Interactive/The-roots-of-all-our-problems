@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://src/Nodes/ValueSlider.gd" id="4_oh5nr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73jie"]
-font_size = 90
+font_size = 70
 font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control"]
@@ -29,23 +29,18 @@ texture = ExtResource("2_4ylr3")
 
 [node name="Languages" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 852.0
-offset_top = 113.0
+offset_left = 791.0
 offset_right = 1181.0
-offset_bottom = 935.0
+offset_bottom = 931.0
+
+[node name="Header" type="Label" parent="Languages"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_73jie")
 
 [node name="Label" type="Label" parent="Languages"]
 layout_mode = 2
 text = "Language"
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-offset_left = 805.0
-offset_right = 1116.0
-offset_bottom = 119.0
-text = "Settings"
-label_settings = SubResource("LabelSettings_73jie")
-horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -55,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -683.0
 offset_right = -63.0
-offset_bottom = -200.0
+offset_bottom = -113.0
 grow_horizontal = 0
 grow_vertical = 2
 
