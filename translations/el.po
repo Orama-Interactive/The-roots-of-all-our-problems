@@ -57,11 +57,9 @@ msgid "The roots of all our problems"
 msgstr ""
 
 #: src/Menu/credits.tscn
-msgid "By Orama Interactive"
-msgstr "Από την Orama Interactive"
-
-#: src/Menu/credits.tscn
 msgid ""
+"[font_size=64]By Orama Interactive[/font_size]\n"
+"\n"
 "[font_size=64]Emmanouil Papadeas[/font_size]\n"
 "Game Programming, Dialogue Development\n"
 "\n"
@@ -87,6 +85,8 @@ msgid ""
 "\n"
 "Thank you for playing!"
 msgstr ""
+"[font_size=64]Από την Orama Interactive[/font_size]\n"
+"\n"
 "[font_size=64]Εμμανουήλ Παπαδέας[/font_size]\n"
 "Προγραμματισμός, ανάπτυξη διαλόγων\n"
 "\n"
