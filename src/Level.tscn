@@ -254,6 +254,7 @@ bus = &"Gameplay"
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 autoplay = true
+bus = &"Narration"
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="TreeTimer" to="." method="_on_tree_timer_timeout"]

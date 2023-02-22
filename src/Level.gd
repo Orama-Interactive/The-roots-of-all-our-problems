@@ -375,9 +375,9 @@ func ending() -> void:
 # Manage Music and Audio
 
 func ChangeAmbienceVolume():
-	if current_checkpoint < 9:
+	if current_checkpoint < CITY_FIRST_CHECKPOINT:
 		AudioServer.set_bus_volume_db(10, 0)
-	elif current_checkpoint >= 9:
+	elif current_checkpoint >= CITY_FIRST_CHECKPOINT:
 		AudioServer.set_bus_volume_db(10, -10)
 
 func StartMusic():
@@ -406,7 +406,7 @@ func _on_part_1_finished():
 
 
 func _on_part_2_finished():
-	if current_checkpoint >= 9:
+	if current_checkpoint >= CITY_FIRST_CHECKPOINT:
 		$Part3.play()
 	else:
 		$Part2.play()
