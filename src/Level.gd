@@ -11,7 +11,6 @@ const BACKGROUND_WAR_SKY := preload("res://assets/level_backgrounds/war_sky.png"
 const BACKGROUND_WAR_BACK := preload("res://assets/level_backgrounds/war_back.png")
 const BACKGROUND_WAR_MIDDLE := preload("res://assets/level_backgrounds/war_middle.png")
 const BACKGROUND_WAR_OBSTACLE := preload("res://src/Obstacles/background_obstacle.tscn")
-const BARBED_WIRE_OBSTACLE := preload("res://src/Obstacles/BarbedWire.tscn")
 
 @export_multiline var dialogue_lines: Array[String] = []
 
@@ -57,6 +56,7 @@ var tree_collapse_percentage := -1
 @onready var back_layer: Sprite2D = $ParallaxBackground/ParallaxLayer/BackLayer
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
+@onready var obstacle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer4/ObstacleLayer
 @onready var bomb_flash: ColorRect = $CanvasLayer/Control/BombFlash
 @onready var white_color_rect: ColorRect = $CanvasLayer/Control/WhiteColorRect
 @onready var black_color_rect: ColorRect = $CanvasLayer/Control/BlackColorRect
@@ -64,6 +64,7 @@ var tree_collapse_percentage := -1
 @onready var tree_timer: Timer = $TreeTimer
 @onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
+@onready var barbed_wire_collision: Area2D = $BarbedWireCollision
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
 @onready var tutorial: Label = $CanvasLayer/Control/Tutorial
 @onready var sounds: AudioStreamPlayer = $Sounds
@@ -124,10 +125,11 @@ var tree_collapse_percentage := -1
 		Event.new(fade_out, [black_color_rect], 24),
 		Event.new(stop_trees, [], 13),
 		Event.new(spawn_background_obstacles, [], 18.5),
-		Event.new(player.make_invincible, [10], 18.5),
+		Event.new(player.make_invincible, [10], 18.5),  # 10 seconds of invincibility
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK], 19),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE], 19),
 		Event.new(fade_in, [front_layer], 19),
+		Event.new(fade_in, [obstacle_layer], 19),
 #		Event.new(fade_out, [back_layer], 4),
 #		Event.new(fade_out, [middle_layer], 6),
 		Event.new(fade_out, [bomb], 19),
@@ -195,8 +197,9 @@ func _ready() -> void:
 		change_checkpoint()
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT + 1:
 			front_layer.modulate.a = 1
-			spawn_background_obstacles()
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
+			obstacle_layer.modulate.a = 1
+			spawn_background_obstacles()
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
 			change_texture(middle_layer, BACKGROUND_WAR_MIDDLE)
@@ -211,6 +214,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var pos := roundf(player.position.x)
 	world_boundary.position.x = player.position.x
+	barbed_wire_collision.position.x = player.position.x - 160
 	$CanvasLayer/Control/Label.text = str(pos)
 	if current_checkpoint >= checkpoints.size() -1:
 		return
@@ -288,6 +292,13 @@ func enable_bottom_limit() -> void:
 	world_boundary.get_node("BottomLimit").disabled = false
 
 
+func _on_barbed_wire_collision_body_entered(body: Node2D) -> void:
+	if obstacle_layer.modulate.a < 0.99:
+		return
+	if body is Player:
+		(body as Player).fall()
+
+
 # Events
 func change_texture(sprite: Sprite2D, texture: Texture2D) -> void:
 	sprite.texture = texture
@@ -322,13 +333,6 @@ func stop_sound(asp: AudioStreamPlayer) -> void:
 
 
 func spawn_background_obstacles() -> void:
-	var barbed_wire: BackgroundObstacle = BARBED_WIRE_OBSTACLE.instantiate()
-	barbed_wire.start_pos = player.position
-	barbed_wire.despawn_limit = calculate_checkpoint_position(current_checkpoint) - 1000
-	barbed_wire.spawn_timer = 0.55
-	barbed_wire.scene = BARBED_WIRE_OBSTACLE
-	add_child(barbed_wire)
-
 	var background_obstacle: BackgroundObstacle = BACKGROUND_WAR_OBSTACLE.instantiate()
 	background_obstacle.start_pos = player.position
 	background_obstacle.despawn_limit = calculate_checkpoint_position(current_checkpoint) - 6000
