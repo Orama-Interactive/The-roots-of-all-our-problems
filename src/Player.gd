@@ -5,7 +5,7 @@ signal fell
 
 const SPEED := 10000.0
 const JUMP_VELOCITY: = -400.0
-const INVINCIBILITY_SECONDS := 3
+const INVINCIBILITY_SECONDS := 3.0
 const SHAKE_DECAY_RATE := 0.7
 const CAMERA_MAX_OFFSET := Vector2(100, 0)
 const TRAUMA_POWER := 3
@@ -41,10 +41,14 @@ func _ready() -> void:
 
 func start() -> void:
 	animated_sprite_2d.play("default")
+	make_invincible()
+
+
+func make_invincible(seconds: float = INVINCIBILITY_SECONDS) -> void:
 	if can_move:
 		can_get_hit = false
-		_make_invincible()
-		await get_tree().create_timer(INVINCIBILITY_SECONDS).timeout
+		_flash_invincible()
+		await get_tree().create_timer(seconds).timeout
 		can_get_hit = true
 
 
@@ -109,13 +113,13 @@ func _shake() -> void:
 	camera_2d.offset.x = CAMERA_MAX_OFFSET.x * shake_amount * noise.get_noise_1d(noise_i)
 
 
-func _make_invincible() -> void:
+func _flash_invincible() -> void:
 	if can_get_hit:
 		return
 	var tween := create_tween()
 	tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 0), 0.1)
 	tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1), 0.1)
-	tween.finished.connect(_make_invincible)
+	tween.finished.connect(_flash_invincible)
 
 
 func _get_mic_input() -> float:

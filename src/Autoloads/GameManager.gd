@@ -47,11 +47,11 @@ func show_tutorial() -> void:
 	if get_tree().current_scene.name != "Level":
 		return
 	get_tree().paused = true
-	var tutorial := "Hold any key to fly\nRelease to fall"
+	var tutorial := tr("Hold any key to fly\nRelease to fall")
 	if DisplayServer.is_touchscreen_available():
-		tutorial = "Touch and hold to fly\nRelease to fall"
+		tutorial = tr("Touch and hold to fly\nRelease to fall")
 	if play_with_voice:
-		tutorial = "Talk to fly\nStop talking to fall"
+		tutorial = tr("Talk to fly\nStop talking to fall")
 
 	get_tree().current_scene.tutorial.text = tutorial
 

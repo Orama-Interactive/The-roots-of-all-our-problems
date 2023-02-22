@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://doa18a13ekdni" path="res://src/player.tscn" id="5_rirw7"]
 [ext_resource type="Texture2D" uid="uid://2ut4llab487f" path="res://assets/level_backgrounds/forest_middle.png" id="6_e22s8"]
 [ext_resource type="Texture2D" uid="uid://d048cvpcb6gim" path="res://assets/level_backgrounds/war_front.png" id="7_um18n"]
+[ext_resource type="Texture2D" uid="uid://1bj8lk4dtdrj" path="res://assets/obstacles/barbedwire.png" id="7_yyqsd"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="Shader" path="res://src/Shaders/BombFlash.gdshader" id="9_o3xn3"]
 [ext_resource type="AudioStream" uid="uid://db7joaldkhujy" path="res://assets/audio/music/Part 1.ogg" id="10_ry5t3"]
@@ -20,6 +21,9 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ff1cu"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quc2w"]
+size = Vector2(496, 88)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fiqf3"]
 shader = ExtResource("9_o3xn3")
 
@@ -28,13 +32,13 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kt5ra"]
-font_size = 70
+font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ljq6u")
-dialogue_lines = Array[String](["The seed flew away, through a forest with big spruce trees.", "Navigating its way through the forest, the seed had to avoid the treetops.", "“This forest is way too dense” the seed thought. “I won’t be able to root properly here, with so little sun reaching the forest bed.”", "Suddenly, a cracking sound scared the little seed.", "“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”", "“But what will happen when I root and I become a tree myself? Will I fall like those trees are?”", "The forest became less and less dense the further the seed traveled.", "\"What could have caused such a catastrophe?\" The seed thought.", "\"I need to travel further, it's not safe here!\"", "But after a while things became even weirder. The forest lost its colours and the surroundings got very noisy.", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traversed through that gray looking forest.", "It was getting more and more difficult for the seed to navigate between this place's obstacles but it was determined to find the perfect spot to root, so it carried on.", "After some time, the seed realized that this place isn't suitable for a tree to live there either.", "The seed was tired, but determined, so it went even further.", "\"This place really has no end\" it thought. But it was abruptly interrupted by a sound. A scary sound unlike any other.", "And everything was calm.", "The forest was long gone.", "The seed felt scared and alone. Everything, even the sky, looked so hostile.", "“I can’t go on for much longer. It’s so cold and lonely out here.” ", "After all this way it had traveled the poor seed had no strength left within it. Even the air stopped supporting its journey. The seed was for the first time truly alone.", "The end"])
+dialogue_lines = Array[String](["The seed flew away, through a forest with big spruce trees.", "Navigating its way through the forest, the seed had to avoid the treetops.", "“This forest is way too dense” the seed thought. “I won’t be able to root properly here, with so little sun reaching the forest bed.”", "Suddenly, a cracking sound scared the little seed.", "“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”", "“But what will happen when I root and I become a tree myself? Will I fall like those trees are?”", "The forest became less and less dense the further the seed traveled.", "“What could have caused such a catastrophe?” The seed thought.", "“I need to travel further, it's not safe here!”", "But after a while things became even weirder. The forest lost its colours and the surroundings got very noisy.", "“There’s barely any soil here, how will I find a place to root?” The seed thought as it traversed through that gray looking forest.", "It was getting more and more difficult for the seed to navigate between this place's obstacles but it was determined to find the perfect spot to root, so it carried on.", "After some time, the seed realized that this place isn't suitable for a tree to live there either.", "The seed was tired, but determined, so it went even further.", "“This place really has no end” it thought. But it was abruptly interrupted by a sound. A scary sound unlike any other.", "And everything was calm.", "The forest was long gone.", "The seed felt scared and alone. Everything, even the sky, looked so hostile.", "“I can’t go on for much longer. It’s so cold and lonely out here.”", "After all this way it had traveled the poor seed had no strength left within it. Even the air stopped supporting its journey. The seed was for the first time truly alone.", "The end."])
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -72,6 +76,34 @@ modulate = Color(1, 1, 1, 0)
 texture = ExtResource("7_um18n")
 centered = false
 
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2120, 0)
+
+[node name="ObstacleLayer" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("7_yyqsd")
+centered = false
+
+[node name="ObstacleLayer2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/ObstacleLayer"]
+position = Vector2(424, 0)
+texture = ExtResource("7_yyqsd")
+centered = false
+
+[node name="ObstacleLayer3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/ObstacleLayer"]
+position = Vector2(848, 0)
+texture = ExtResource("7_yyqsd")
+centered = false
+
+[node name="ObstacleLayer4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/ObstacleLayer"]
+position = Vector2(1272, 0)
+texture = ExtResource("7_yyqsd")
+centered = false
+
+[node name="ObstacleLayer5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/ObstacleLayer"]
+position = Vector2(1696, 0)
+texture = ExtResource("7_yyqsd")
+centered = false
+
 [node name="TreeParent" type="Node2D" parent="."]
 z_index = -200
 
@@ -96,6 +128,12 @@ shape = SubResource("WorldBoundaryShape2D_8s0kk")
 [node name="BottomLimit" type="CollisionShape2D" parent="WorldBoundary"]
 position = Vector2(0, 1080)
 shape = SubResource("WorldBoundaryShape2D_ff1cu")
+
+[node name="BarbedWireCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarbedWireCollision"]
+position = Vector2(238, 44)
+shape = SubResource("RectangleShape2D_quc2w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -125,7 +163,6 @@ visible = false
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 85.0
-text = "test"
 label_settings = SubResource("LabelSettings_2ebs0")
 
 [node name="WhiteColorRect" type="ColorRect" parent="CanvasLayer/Control"]
@@ -223,3 +260,4 @@ autoplay = true
 [connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
 [connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
 [connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]
+[connection signal="body_entered" from="BarbedWireCollision" to="." method="_on_barbed_wire_collision_body_entered"]

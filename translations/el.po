@@ -1,0 +1,475 @@
+# LANGUAGE translation for The roots of all our problems for the following files:
+# res://src/bomb.gd
+# res://src/bomb.tscn
+# res://src/Building.tscn
+# res://src/ending.gd
+# res://src/ending.tscn
+# res://src/heat_displacement.tscn
+# res://src/Level.gd
+# res://src/Level.tscn
+# res://src/logo_splash.gd
+# res://src/logo_splash.tscn
+# res://src/Player.gd
+# res://src/player.tscn
+# res://src/Tree.gd
+# res://src/tree.tscn
+# res://src/Menu/credits.gd
+# res://src/Menu/credits.tscn
+# res://src/Menu/menu.gd
+# res://src/Menu/menu.tscn
+# res://src/Menu/MenuButton.gd
+# res://src/Menu/MenuButton.tscn
+# res://src/Menu/settings.gd
+# res://src/Menu/settings.tscn
+# res://src/Autoloads/GameManager.gd
+#
+# FIRST AUTHOR < EMAIL @ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The roots of all our problems\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Level.gd
+msgid "[forest ambience]"
+msgstr "[ήχοι δάσους]"
+
+#: src/Level.gd
+msgid "[Trees being chopped with axes and trees falling]"
+msgstr "[δέντρα που κόβονται με τσεκούρια και δέντρα που πέφτουν]"
+
+#: src/Level.gd
+msgid "[sounds of a busy city]"
+msgstr "[ήχοι πόλης]"
+
+#: src/Level.gd
+msgid "[bomb falling, exploding]"
+msgstr "[έκρηξη βόμβας]"
+
+#: src/Menu/credits.tscn
+msgid "The roots of all our problems"
+msgstr ""
+
+#: src/Menu/credits.tscn
+msgid ""
+"[font_size=64]By Orama Interactive[/font_size]\n"
+"\n"
+"[font_size=64]Emmanouil Papadeas[/font_size]\n"
+"Game Programming, Dialogue Development\n"
+"\n"
+"[font_size=64]Ioannis Nikitakis[/font_size]\n"
+"Art Direction, Story/Dialogue Development, Graphic Design, Narration\n"
+"\n"
+"[font_size=64]Eleni Louloudaki[/font_size]\n"
+"Cutscene Design, Graphic Design, Storyboards\n"
+"\n"
+"[font_size=64]Orion Bourazanis[/font_size]\n"
+"Concept Art, Graphic Design\n"
+"\n"
+"[font_size=64]Chris Douris[/font_size]\n"
+"Music Production\n"
+"\n"
+"Fonts: AmaticSc and Mansalva\n"
+"\n"
+"Game originally created with Godot within 48 hours for Global Game Jam 2023, "
+"but this is a post-jam version.\n"
+"\n"
+"Special thanks to the GGJ team and GGJ Athens for organising this jam event "
+"and helping inspire this game.\n"
+"\n"
+"Thank you for playing!"
+msgstr ""
+"[font_size=64]Από την Orama Interactive[/font_size]\n"
+"\n"
+"[font_size=64]Εμμανουήλ Παπαδέας[/font_size]\n"
+"Προγραμματισμός, ανάπτυξη διαλόγων\n"
+"\n"
+"[font_size=64]Ιώαννης Νικητάκης[/font_size]\n"
+"Καλλιτεχνική επιμέλεια, Ανάπτυξη ιστορίας και διαλόγων, σχεδίαση γραφικών, "
+"αφήγηση\n"
+"\n"
+"[font_size=64]Ελένη Λουλουδάκη[/font_size]\n"
+"Σχεδίαση σκηνών, σχεδίαση γραφικών, Storyboards\n"
+"\n"
+"[font_size=64]Ωρίωνας Μπουραζάνης[/font_size]\n"
+"Concept Art, σχεδίαση γραφικών\n"
+"\n"
+"[font_size=64]Χρήστος Δούρης[/font_size]\n"
+"Μουσική παραγωγή\n"
+"\n"
+"Γραμματοσειρές: AmaticSc and Mansalva\n"
+"\n"
+"Το παιχνίδι αρχικά είχε φτιαχτεί με Godot σε 48 ώρες για το Global Game Jam "
+"2023, αλλά αυτή είναι αναβαθμισμένη έκδοση μετά το jam.\n"
+"\n"
+"Ειδικές ευχαριστίες στην ομάδα του GGJ και του GGJ Αθήνας για την οργάνωση "
+"της εκδήλωσης και την συμβολή τους στο να εμπνευστούμε το παιχνίδι.\n"
+"\n"
+"Ευχαριστούμε που παίξατε!"
+
+#: src/Menu/settings.tscn
+msgid "Language"
+msgstr "Γλώσσα"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Master volume: %s"
+msgstr "Κύρια ένταση ήχου: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Music volume: %s"
+msgstr "Ένταση μουσικής: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Sounds volume: %s"
+msgstr "Ένταση ήχων: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Narration volume: %s"
+msgstr "Ένταση αφήγησης: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Microphone input threshold: %s"
+msgstr "Όριο εισόδου μικροφώνου: %s"
+
+#: src/Menu/settings.tscn
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: src/Menu/settings.tscn
+msgid "Show ambient subtitles"
+msgstr "Εμφάνιση υποτίτλων ήχων"
+
+#: src/Menu/settings.tscn
+msgid "Play with voice"
+msgstr "Χρήση φωνής για παιχνίδι"
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Hold any key to fly\n"
+"Release to fall"
+msgstr ""
+"Πατήστε οποιοδήποτε πλήκτρο για πέταγμα\n"
+"Αφήστε για πτώση"
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Touch and hold to fly\n"
+"Release to fall"
+msgstr ""
+"Κρατήστε πατημένη την οθόνη για πέταγμα\n"
+"Αφήστε για πτώση"
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Talk to fly\n"
+"Stop talking to fall"
+msgstr ""
+"Μιλήστε για πέταγμα\n"
+"Σταματήστε να μιλάτε για πτώση"
+
+#: src/Menu/settings.tscn
+msgid "English"
+msgstr "Αγγλικά"
+
+#: src/Menu/settings.tscn
+msgid "Greek"
+msgstr "Ελληνικά"
+
+#: src/Menu/menu.tscn
+msgid "New game"
+msgstr "Νέο παιχνίδι"
+
+#: src/Menu/menu.tscn
+msgid "Load game"
+msgstr "Φόρτωση παιχνιδιού"
+
+#: src/Menu/menu.tscn
+msgid "Credits"
+msgstr "Συντελεστές"
+
+#: src/Menu/menu.tscn
+msgid "Exit game"
+msgstr "Έξοδος"
+
+#: src/Menu/settings.tscn
+msgid "Return to menu"
+msgstr "Επιστροφή στο μενού"
+
+#: src/Menu/menu.tscn
+msgid "Once upon a time… (music)"
+msgstr "Μία φορά και έναν καιρό... (μουσική)"
+
+#: src/Menu/menu.tscn
+msgid ""
+"There was a tree. A big, well established tree with roots reaching deep into "
+"the soil."
+msgstr ""
+"Υπήρχε ένα δέντρο. Ένα μεγάλο δέντρο με ρίζες που έφταναν βαθιά μέσα στο "
+"χώμα."
+
+#: src/Menu/menu.tscn
+msgid "What was special about this tree was its seeds."
+msgstr "Αυτό που είχε ως ξεχωριστό αυτό το δέντρο ήταν οι σπόροι του."
+
+#: src/Menu/menu.tscn
+msgid "With a single blow of the wind, its seeds would scatter through the air"
+msgstr "Με ένα μόνο φύσημα του ανέμου, οι σπόροι του θα σκορπίζονταν στον αέρα"
+
+#: src/Menu/menu.tscn
+msgid "And fly far far away, looking for a place to root."
+msgstr "Και θα πετούσαν πολύ πολύ μακρία, ψάχνοντας για ένα μέρος να ριζώσουν"
+
+#: src/Menu/menu.tscn
+msgid "This is the story of one of those seeds."
+msgstr "Αυτή είναι η ιστορία ενός από αυτών των σπόρων"
+
+#: src/Level.tscn
+msgid "The seed flew away, through a forest with big spruce trees."
+msgstr "Ο σπόρος πέταξε μακριά, μέσα από ένα δάσος με μεγάλα έλατα."
+
+#: src/Level.tscn
+msgid ""
+"Navigating its way through the forest, the seed had to avoid the treetops."
+msgstr ""
+"Περνώντας μέσα στο δάσος, ο σπόρος έπρεπε να αποφύγει τις κορυφές των "
+"δέντρων."
+
+#: src/Level.tscn
+msgid ""
+"“This forest is way too dense” the seed thought. “I won’t be able to root "
+"properly here, with so little sun reaching the forest bed.”"
+msgstr ""
+"«Αυτό το δάσος είναι πολύ πυκνό» σκέφτηκε ο σπόρος. «Δεν θα μπορώ να ριζώσω "
+"σωστά εδώ, με τόσο λίγο ήλιο να φτάνει στο δάσος»."
+
+#: src/Level.tscn
+msgid "Suddenly, a cracking sound scared the little seed."
+msgstr "Ξαφνικά, ένας θόρυβος τρόμαξε το σποράκι."
+
+#: src/Level.tscn
+msgid ""
+"“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”"
+msgstr ""
+"«Γιατί πέφτουν τα δέντρα από το πουθενά; Ίσως αυτή είναι η ευκαιρία μου να "
+"ριζώσω!»"
+
+#: src/Level.tscn
+msgid ""
+"“But what will happen when I root and I become a tree myself? Will I fall "
+"like those trees are?”"
+msgstr ""
+"«Μα τι θα γίνει όταν ριζώσω και γίνω και εγώ δέντρο; Θα πέσω όπως αυτά τα "
+"δέντρα;»"
+
+#: src/Level.tscn
+msgid "The forest became less and less dense the further the seed traveled."
+msgstr ""
+"Το δάσος γινόταν όλο και λιγότερο πυκνό όσο περισσότερο ταξίδευε ο σπόρος."
+
+#: src/Level.tscn
+msgid "“What could have caused such a catastrophe?” The seed thought."
+msgstr ""
+"«Τι θα μπορούσε να έχει προκαλέσει μια τέτοια καταστροφή;» Σκέφτηκε ο σπόρος."
+
+#: src/Level.tscn
+msgid "“I need to travel further, it's not safe here!”"
+msgstr "«Πρέπει να ταξιδέψω πιο μακριά, δεν είναι ασφαλές εδώ!»"
+
+#: src/Level.tscn
+msgid ""
+"But after a while things became even weirder. The forest lost its colours "
+"and the surroundings got very noisy."
+msgstr ""
+"Όμως μετά από λίγο τα πράγματα έγιναν ακόμα πιο περίεργα. Το δάσος έχασε τα "
+"χρώματα του και το περιβάλλον έγινε πολύ θορυβώδες."
+
+#: src/Level.tscn
+msgid ""
+"“There’s barely any soil here, how will I find a place to root?” The seed "
+"thought as it traversed through that gray looking forest."
+msgstr ""
+"«Δεν υπάρχει σχεδόν καθόλου χώμα εδώ, πώς θα βρω ένα μέρος να ριζώσω;» Ο "
+"σπόρος σκέφτηκε καθώς διέσχιζε αυτό το γκρίζο δάσος."
+
+#: src/Level.tscn
+msgid ""
+"It was getting more and more difficult for the seed to navigate between this "
+"place's obstacles but it was determined to find the perfect spot to root, so "
+"it carried on."
+msgstr ""
+"Γίνονταν όλο και πιο δύσκολο για τον σπόρο να πλοηγηθεί ανάμεσα στα εμπόδια "
+"αυτού του τόπου, αλλά ήταν αποφασισμένο να βρει το τέλειο σημείο για να "
+"ριζώσει, οπότε συνέχισε."
+
+#: src/Level.tscn
+msgid ""
+"After some time, the seed realized that this place isn't suitable for a tree "
+"to live there either."
+msgstr ""
+"Μετά από λίγο, ο σπόρος συνειδητοποίησε ότι ούτε αυτό το μέρος είναι "
+"κατάλληλο για να ζήσει ένα δέντρο εκεί."
+
+#: src/Level.tscn
+msgid "The seed was tired, but determined, so it went even further."
+msgstr ""
+"Ο σπόρος ήταν κουρασμένος, αλλά αποφασισμένος, έτσι προχώρησε ακόμα πιο "
+"μακριά."
+
+#: src/Level.tscn
+msgid ""
+"“This place really has no end” it thought. But it was abruptly interrupted "
+"by a sound. A scary sound unlike any other."
+msgstr ""
+"«Αυτό το μέρος πραγματικά δεν έχει τέλος» σκέφτηκε. Όμως διακόπηκε απότομα "
+"από έναν ήχο. Έναν τρομακτικό ήχο που όμοιός του δεν υπάρχει."
+
+#: src/Level.tscn
+msgid "And everything was calm."
+msgstr "Και όλα ήταν ήρεμα."
+
+#: src/Level.tscn
+msgid "The forest was long gone."
+msgstr "Το δάσος είχε χαθεί για τα καλά."
+
+#: src/Level.tscn
+msgid ""
+"The seed felt scared and alone. Everything, even the sky, looked so hostile."
+msgstr ""
+"Ο σπόρος ένιωθε φοβισμένος και μόνος. Όλα, ακόμα και ο ουρανός, έμοιαζαν "
+"τόσο εχθρικά."
+
+#: src/Level.tscn
+msgid "“I can’t go on for much longer. It’s so cold and lonely out here.”"
+msgstr ""
+"«Δεν μπορώ να συνεχίσω για πολύ ακόμα. Είναι τόσο κρύα και μοναχικά εδώ "
+"πέρα»."
+
+#: src/Level.tscn
+msgid ""
+"After all this way it had traveled the poor seed had no strength left within "
+"it. Even the air stopped supporting its journey. The seed was for the first "
+"time truly alone."
+msgstr ""
+"Μετά από όλο αυτό τον δρόμο που είχε διανύσει, ο καημένος σπόρος δεν είχε "
+"δύναμη μέσα του. Ακόμη και ο αέρας σταμάτησε να βοηθά το ταξίδι του. Ο "
+"σπόρος ήταν για πρώτη φορά πραγματικά μόνος."
+
+#: src/Level.tscn
+msgid "The end."
+msgstr "Τέλος."
+
+#: src/ending.tscn
+msgid "But Grandpa! What happened next?"
+msgstr "Μα παππού! Τι έγινε μετά;"
+
+#: src/ending.tscn
+msgid "The conflicts of the humans left fire and blood at their trails."
+msgstr "Οι διαμάχες των ανθρώπων άφησαν φωτιά και αίμα στον διάβα τους."
+
+#: src/ending.tscn
+msgid ""
+"Hope was naught but a faint light, yet wars were in humanity’s nature, never "
+"to be stopped."
+msgstr ""
+"Η ελπίδα δεν ήταν παρά ένα μακρινό φως, μα οι πόλεμοι ήταν στη φύση του "
+"ανθρώπου, ποτέ δε σταματούσαν."
+
+#: src/ending.tscn
+msgid ""
+"But nature itself would decay, for with each war life as a whole would be "
+"more and more in danger."
+msgstr ""
+"Αλλά η ίδια η φυση θα καταστρεφόταν, καθώς για κάθε πόλεμο ολόκληρη η ζωή θα "
+"βρισκόταν όλο και περισσότερο σε κίνδυνο"
+
+#: src/ending.tscn
+msgid ""
+"- And what happened to the seed? Did it fall to the ground? Did it manage to "
+"root?"
+msgstr "- Και τι έγινε με το σπόρο; Έπεσε στο έδαφος; Κατάφερε να ριζώσει;"
+
+#: src/ending.tscn
+msgid ""
+"No, it did not manage to root. Not every story has to have a good ending you "
+"know!"
+msgstr ""
+"Όχι, δεν κατάφερε να ριζώσει. Δεν έχουν όλες οι ιστορίες καλό τέλος ξέρεις!"
+
+#: src/ending.tscn
+msgid "Then I don't like this story!"
+msgstr "Τότε δεν μου αρεσει αυτή η ιστορία!"
+
+#: src/ending.tscn
+msgid "I'm glad you said that."
+msgstr "Χαίρομαι που το είπες αυτό."
+
+#: src/ending.tscn
+msgid "You see."
+msgstr "Βλέπεις."
+
+#: src/ending.tscn
+msgid "This story and stories like that is the root of all our problems."
+msgstr ""
+"Η ιστορία αυτή και όλες οι ιστορίες σαν κι αυτή είναι η ρίζα των προβλημάτων "
+"μας."
+
+#: src/ending.tscn
+msgid "It was supposed to only contain dark truths."
+msgstr "Υποτίθεται ότι περιέχει μόνο σκοτεινές αλήθειες."
+
+#: src/ending.tscn
+msgid "Truths that make us desperate."
+msgstr "Αλήθειες που μας απελπίζουν."
+
+#: src/ending.tscn
+msgid "Truths that make us give up all hope."
+msgstr "Αλήθειες που μας κάνουν να χάνουμε ελπίδα."
+
+#: src/ending.tscn
+msgid ""
+"Truths that are capable of killing each and every seed of hope left within "
+"us."
+msgstr ""
+"Αλήθειες που είναι ικανές να σκοτώσουν κάθε τελευταίο σπόρο ελπίδας που "
+"έχουμε μέσα μας."
+
+#: src/ending.tscn
+msgid "But dark truths are only half the truth."
+msgstr "Μα οι σκοτεινές αλήθειες δεν είναι παρά μόνο οι μισές αλήθειες"
+
+#: src/ending.tscn
+msgid "And sometimes even less."
+msgstr "Και μερικές φορές, ακόμα λιγότερο."
+
+#: src/ending.tscn
+msgid "Be careful, for the world is full of half truths like this."
+msgstr "Να προσέχεις, καθώς ο κόσμος είναι γεμάτος ιστορίες σαν κι αυτές."
+
+#: src/ending.tscn
+msgid ""
+"But they do not really represent us, they just sound believable and dark "
+"enough to paralyze our efforts of something brighter."
+msgstr ""
+"Αλλά δεν μας αντιπροσωπεύουν πραγματικά, απλώς ακούγονται πειστικές για να "
+"παραλύσουν τις προσπάθειες μας για κάτι καλύτερο."
+
+#: src/ending.tscn
+msgid ""
+"We already have the seeds of hope from the ones that came before us in our "
+"own hearts."
+msgstr ""
+"Έχουμε ήδη σπόρους ελπίδας από όσους ήρθαν πριν από εμάς στις καρδιές μας."
+
+#: src/ending.tscn
+msgid "Now we have to choose the endings to the stories we believe in"
+msgstr "Τώρα, πρέπει να επιλέξουμε τις ιστορίες τις οποίες πιστεύουμε,"
+
+#: src/ending.tscn
+msgid "for those seeds to really root for the ones who will come after."
+msgstr "ώστε οι σπόροι αυτοί να ριζώσουν για αυτούς που θα έρθουν μετά."
