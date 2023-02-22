@@ -65,6 +65,7 @@ var tree_collapse_percentage := -1
 @onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
 @onready var barbed_wire_collision: Area2D = $BarbedWireCollision
+@onready var progress_label: Label = $CanvasLayer/Control/ProgressLabel
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
 @onready var tutorial: Label = $CanvasLayer/Control/Tutorial
 @onready var sounds: AudioStreamPlayer = $Sounds
@@ -224,7 +225,8 @@ func _process(_delta: float) -> void:
 	var pos := roundf(player.position.x)
 	world_boundary.position.x = player.position.x
 	barbed_wire_collision.position.x = player.position.x - 160
-	$CanvasLayer/Control/Label.text = str(pos)
+	var next_checkpoint := calculate_checkpoint_position(current_checkpoint + 1)
+	progress_label.text = "%s/%s" % [pos, next_checkpoint]
 	ChangeAmbienceVolume()
 	if current_checkpoint == WAR_FIRST_CHECKPOINT - 1:  # Bomb
 		LowerMusicVolume()
@@ -234,7 +236,7 @@ func _process(_delta: float) -> void:
 		IncreaseMusicVolume()
 	if current_checkpoint >= checkpoints.size() -1:
 		return
-	if pos >= calculate_checkpoint_position(current_checkpoint + 1):
+	if pos >= next_checkpoint:
 		current_checkpoint += 1
 		change_checkpoint()
 
