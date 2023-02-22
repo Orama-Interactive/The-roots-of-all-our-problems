@@ -1,0 +1,468 @@
+# LANGUAGE translation for The roots of all our problems for the following files:
+# res://src/bomb.gd
+# res://src/bomb.tscn
+# res://src/Building.tscn
+# res://src/ending.gd
+# res://src/ending.tscn
+# res://src/heat_displacement.tscn
+# res://src/Level.gd
+# res://src/Level.tscn
+# res://src/logo_splash.gd
+# res://src/logo_splash.tscn
+# res://src/Player.gd
+# res://src/player.tscn
+# res://src/Tree.gd
+# res://src/tree.tscn
+# res://src/Menu/credits.gd
+# res://src/Menu/credits.tscn
+# res://src/Menu/menu.gd
+# res://src/Menu/menu.tscn
+# res://src/Menu/MenuButton.gd
+# res://src/Menu/MenuButton.tscn
+# res://src/Menu/settings.gd
+# res://src/Menu/settings.tscn
+# res://src/Autoloads/GameManager.gd
+#
+# FIRST AUTHOR < EMAIL @ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The roots of all our problems\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Level.gd
+msgid "[forest ambience]"
+msgstr "[forest ambience]"
+
+#: src/Level.gd
+msgid "[Trees being chopped with axes and trees falling]"
+msgstr "[Trees being chopped with axes and trees falling]"
+
+#: src/Level.gd
+msgid "[sounds of a busy city]"
+msgstr "[sounds of a busy city]"
+
+#: src/Level.gd
+msgid "[bomb falling, exploding]"
+msgstr "[bomb falling, exploding]"
+
+#: src/Menu/credits.tscn
+msgid "The roots of all our problems"
+msgstr "The roots of all our problems"
+
+#: src/Menu/credits.tscn
+msgid "By Orama Interactive"
+msgstr "By Orama Interactive"
+
+#: src/Menu/credits.tscn
+msgid ""
+"[font_size=64]Emmanouil Papadeas[/font_size]\n"
+"Game Programming, Dialogue Development\n"
+"\n"
+"[font_size=64]Ioannis Nikitakis[/font_size]\n"
+"Art Direction, Story/Dialogue Development, Graphic Design, Narration\n"
+"\n"
+"[font_size=64]Eleni Louloudaki[/font_size]\n"
+"Cutscene Design, Graphic Design, Storyboards\n"
+"\n"
+"[font_size=64]Orion Bourazanis[/font_size]\n"
+"Concept Art, Graphic Design\n"
+"\n"
+"[font_size=64]Chris Douris[/font_size]\n"
+"Music Production\n"
+"\n"
+"Fonts: AmaticSc and Mansalva\n"
+"\n"
+"Game originally created with Godot within 48 hours for Global Game Jam 2023, "
+"but this is a post-jam version.\n"
+"\n"
+"Special thanks to the GGJ team and GGJ Athens for organising this jam event "
+"and helping inspire this game.\n"
+"\n"
+"Thank you for playing!"
+msgstr ""
+"[font_size=64]Emmanouil Papadeas[/font_size]\n"
+"Game Programming, Dialogue Development\n"
+"\n"
+"[font_size=64]Ioannis Nikitakis[/font_size]\n"
+"Art Direction, Story/Dialogue Development, Graphic Design, Narration\n"
+"\n"
+"[font_size=64]Eleni Louloudaki[/font_size]\n"
+"Cutscene Design, Graphic Design, Storyboards\n"
+"\n"
+"[font_size=64]Orion Bourazanis[/font_size]\n"
+"Concept Art, Graphic Design\n"
+"\n"
+"[font_size=64]Chris Douris[/font_size]\n"
+"Music Production\n"
+"\n"
+"Fonts: AmaticSc and Mansalva\n"
+"\n"
+"Game originally created with Godot within 48 hours for Global Game Jam 2023, "
+"but this is a post-jam version.\n"
+"\n"
+"Special thanks to the GGJ team and GGJ Athens for organising this jam event "
+"and helping inspire this game.\n"
+"\n"
+"Thank you for playing!"
+
+#: src/Menu/settings.tscn
+msgid "Language"
+msgstr ""
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Master volume: %s"
+msgstr "Master volume: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Music volume: %s"
+msgstr "Music volume: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Sounds volume: %s"
+msgstr "Sounds volume: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Narration volume: %s"
+msgstr "Narration volume: %s"
+
+#: src/Menu/settings.gd src/Menu/settings.tscn
+msgid "Microphone input threshold: %s"
+msgstr "Microphone input threshold: %s"
+
+#: src/Menu/settings.tscn
+msgid "Settings"
+msgstr "Settings"
+
+#: src/Menu/settings.tscn
+msgid "Show ambient subtitles"
+msgstr "Show ambient subtitles"
+
+#: src/Menu/settings.tscn
+msgid "Play with voice"
+msgstr "Play with voice"
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Hold any key to fly\n"
+"Release to fall"
+msgstr ""
+"Hold any key to fly\n"
+"Release to fall"
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Touch and hold to fly\n"
+"Release to fall"
+msgstr ""
+"Touch and hold to fly\n"
+"Release to fall"
+
+#: src/Autoloads/GameManager.gd
+msgid ""
+"Talk to fly\n"
+"Stop talking to fall"
+msgstr ""
+"Talk to fly\n"
+"Stop talking to fall"
+
+#: src/Menu/settings.tscn
+msgid "English"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "Greek"
+msgstr ""
+
+#: src/Menu/menu.tscn
+msgid "New game"
+msgstr "New game"
+
+#: src/Menu/menu.tscn
+msgid "Load game"
+msgstr "Load game"
+
+#: src/Menu/menu.tscn
+msgid "Credits"
+msgstr "Credits"
+
+#: src/Menu/menu.tscn
+msgid "Exit game"
+msgstr "Exit game"
+
+#: src/Menu/settings.tscn
+msgid "Return to menu"
+msgstr "Return to menu"
+
+#: src/Menu/menu.tscn
+msgid "Once upon a time… (music)"
+msgstr "Once upon a time… (music)"
+
+#: src/Menu/menu.tscn
+msgid ""
+"There was a tree. A big, well established tree with roots reaching deep into "
+"the soil."
+msgstr ""
+"There was a tree. A big, well established tree with roots reaching deep into "
+"the soil."
+
+#: src/Menu/menu.tscn
+msgid "What was special about this tree was its seeds."
+msgstr "What was special about this tree was its seeds."
+
+#: src/Menu/menu.tscn
+msgid "With a single blow of the wind, its seeds would scatter through the air"
+msgstr ""
+"With a single blow of the wind, its seeds would scatter through the air"
+
+#: src/Menu/menu.tscn
+msgid "And fly far far away, looking for a place to root."
+msgstr "And fly far far away, looking for a place to root."
+
+#: src/Menu/menu.tscn
+msgid "This is the story of one of those seeds."
+msgstr "This is the story of one of those seeds."
+
+#: src/Level.tscn
+msgid "The seed flew away, through a forest with big spruce trees."
+msgstr "The seed flew away, through a forest with big spruce trees."
+
+#: src/Level.tscn
+msgid ""
+"Navigating its way through the forest, the seed had to avoid the treetops."
+msgstr ""
+"Navigating its way through the forest, the seed had to avoid the treetops."
+
+#: src/Level.tscn
+msgid ""
+"“This forest is way too dense” the seed thought. “I won’t be able to root "
+"properly here, with so little sun reaching the forest bed.”"
+msgstr ""
+"“This forest is way too dense” the seed thought. “I won’t be able to root "
+"properly here, with so little sun reaching the forest bed.”"
+
+#: src/Level.tscn
+msgid "Suddenly, a cracking sound scared the little seed."
+msgstr "Suddenly, a cracking sound scared the little seed."
+
+#: src/Level.tscn
+msgid ""
+"“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”"
+msgstr ""
+"“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”"
+
+#: src/Level.tscn
+msgid ""
+"“But what will happen when I root and I become a tree myself? Will I fall "
+"like those trees are?”"
+msgstr ""
+"“But what will happen when I root and I become a tree myself? Will I fall "
+"like those trees are?”"
+
+#: src/Level.tscn
+msgid "The forest became less and less dense the further the seed traveled."
+msgstr "The forest became less and less dense the further the seed traveled."
+
+#: src/Level.tscn
+msgid "“What could have caused such a catastrophe?” The seed thought."
+msgstr "“What could have caused such a catastrophe?” The seed thought."
+
+#: src/Level.tscn
+msgid "“I need to travel further, it's not safe here!”"
+msgstr "“I need to travel further, it's not safe here!”"
+
+#: src/Level.tscn
+msgid ""
+"But after a while things became even weirder. The forest lost its colours "
+"and the surroundings got very noisy."
+msgstr ""
+"But after a while things became even weirder. The forest lost its colours "
+"and the surroundings got very noisy."
+
+#: src/Level.tscn
+msgid ""
+"“There’s barely any soil here, how will I find a place to root?” The seed "
+"thought as it traversed through that gray looking forest."
+msgstr ""
+"“There’s barely any soil here, how will I find a place to root?” The seed "
+"thought as it traversed through that gray looking forest."
+
+#: src/Level.tscn
+msgid ""
+"It was getting more and more difficult for the seed to navigate between this "
+"place's obstacles but it was determined to find the perfect spot to root, so "
+"it carried on."
+msgstr ""
+"It was getting more and more difficult for the seed to navigate between this "
+"place's obstacles but it was determined to find the perfect spot to root, so "
+"it carried on."
+
+#: src/Level.tscn
+msgid ""
+"After some time, the seed realized that this place isn't suitable for a tree "
+"to live there either."
+msgstr ""
+"After some time, the seed realized that this place isn't suitable for a tree "
+"to live there either."
+
+#: src/Level.tscn
+msgid "The seed was tired, but determined, so it went even further."
+msgstr "The seed was tired, but determined, so it went even further."
+
+#: src/Level.tscn
+msgid ""
+"“This place really has no end” it thought. But it was abruptly interrupted "
+"by a sound. A scary sound unlike any other."
+msgstr ""
+"“This place really has no end” it thought. But it was abruptly interrupted "
+"by a sound. A scary sound unlike any other."
+
+#: src/Level.tscn
+msgid "And everything was calm."
+msgstr "And everything was calm."
+
+#: src/Level.tscn
+msgid "The forest was long gone."
+msgstr "The forest was long gone."
+
+#: src/Level.tscn
+msgid ""
+"The seed felt scared and alone. Everything, even the sky, looked so hostile."
+msgstr ""
+"The seed felt scared and alone. Everything, even the sky, looked so hostile."
+
+#: src/Level.tscn
+msgid "“I can’t go on for much longer. It’s so cold and lonely out here.”"
+msgstr "“I can’t go on for much longer. It’s so cold and lonely out here.”"
+
+#: src/Level.tscn
+msgid ""
+"After all this way it had traveled the poor seed had no strength left within "
+"it. Even the air stopped supporting its journey. The seed was for the first "
+"time truly alone."
+msgstr ""
+"After all this way it had traveled the poor seed had no strength left within "
+"it. Even the air stopped supporting its journey. The seed was for the first "
+"time truly alone."
+
+#: src/Level.tscn
+msgid "The end."
+msgstr "The end."
+
+#: src/ending.tscn
+msgid "But Grandpa! What happened next?"
+msgstr "But Grandpa! What happened next?"
+
+#: src/ending.tscn
+msgid "The conflicts of the humans left fire and blood at their trails."
+msgstr "The conflicts of the humans left fire and blood at their trails."
+
+#: src/ending.tscn
+msgid ""
+"Hope was naught but a faint light, yet wars were in humanity’s nature, never "
+"to be stopped."
+msgstr ""
+"Hope was naught but a faint light, yet wars were in humanity’s nature, never "
+"to be stopped."
+
+#: src/ending.tscn
+msgid ""
+"But nature itself would decay, for with each war life as a whole would be "
+"more and more in danger."
+msgstr ""
+"But nature itself would decay, for with each war life as a whole would be "
+"more and more in danger."
+
+#: src/ending.tscn
+msgid ""
+"- And what happened to the seed? Did it fall to the ground? Did it manage to "
+"root?"
+msgstr ""
+"- And what happened to the seed? Did it fall to the ground? Did it manage to "
+"root?"
+
+#: src/ending.tscn
+msgid ""
+"No, it did not manage to root. Not every story has to have a good ending you "
+"know!"
+msgstr ""
+"No, it did not manage to root. Not every story has to have a good ending you "
+"know!"
+
+#: src/ending.tscn
+msgid "Then I don't like this story!"
+msgstr "Then I don't like this story!"
+
+#: src/ending.tscn
+msgid "I'm glad you said that."
+msgstr "I'm glad you said that."
+
+#: src/ending.tscn
+msgid "You see."
+msgstr "You see."
+
+#: src/ending.tscn
+msgid "This story and stories like that is the root of all our problems."
+msgstr "This story and stories like that is the root of all our problems."
+
+#: src/ending.tscn
+msgid "It was supposed to only contain dark truths."
+msgstr "It was supposed to only contain dark truths."
+
+#: src/ending.tscn
+msgid "Truths that make us desperate."
+msgstr "Truths that make us desperate."
+
+#: src/ending.tscn
+msgid "Truths that make us give up all hope."
+msgstr "Truths that make us give up all hope."
+
+#: src/ending.tscn
+msgid ""
+"Truths that are capable of killing each and every seed of hope left within "
+"us."
+msgstr ""
+"Truths that are capable of killing each and every seed of hope left within "
+"us."
+
+#: src/ending.tscn
+msgid "But dark truths are only half the truth."
+msgstr "But dark truths are only half the truth."
+
+#: src/ending.tscn
+msgid "And sometimes even less."
+msgstr "And sometimes even less."
+
+#: src/ending.tscn
+msgid "Be careful, for the world is full of half truths like this."
+msgstr "Be careful, for the world is full of half truths like this."
+
+#: src/ending.tscn
+msgid ""
+"But they do not really represent us, they just sound believable and dark "
+"enough to paralyze our efforts of something brighter."
+msgstr ""
+"But they do not really represent us, they just sound believable and dark "
+"enough to paralyze our efforts of something brighter."
+
+#: src/ending.tscn
+msgid ""
+"We already have the seeds of hope from the ones that came before us in our "
+"own hearts."
+msgstr ""
+"We already have the seeds of hope from the ones that came before us in our "
+"own hearts."
+
+#: src/ending.tscn
+msgid "Now we have to choose the endings to the stories we believe in"
+msgstr "Now we have to choose the endings to the stories we believe in"
+
+#: src/ending.tscn
+msgid "for those seeds to really root for the ones who will come after."
+msgstr "for those seeds to really root for the ones who will come after."

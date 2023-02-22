@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4h7wskyd1qpj"]
+[gd_scene load_steps=7 format=3 uid="uid://b4h7wskyd1qpj"]
 
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_cngr4"]
 [ext_resource type="Script" path="res://src/Menu/settings.gd" id="2_1qla6"]
@@ -7,11 +7,7 @@
 [ext_resource type="Script" path="res://src/Nodes/ValueSlider.gd" id="4_oh5nr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73jie"]
-font_size = 128
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_kpwpc"]
-font_size = 50
+font_size = 90
 font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control"]
@@ -31,11 +27,22 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_4ylr3")
 
+[node name="Languages" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 852.0
+offset_top = 113.0
+offset_right = 1181.0
+offset_bottom = 935.0
+
+[node name="Label" type="Label" parent="Languages"]
+layout_mode = 2
+text = "Language"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 804.5
-offset_right = 1115.5
-offset_bottom = 166.0
+offset_left = 805.0
+offset_right = 1116.0
+offset_bottom = 119.0
 text = "Settings"
 label_settings = SubResource("LabelSettings_73jie")
 horizontal_alignment = 1
@@ -54,7 +61,6 @@ grow_vertical = 2
 
 [node name="MasterVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MasterVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -72,7 +78,6 @@ show_arrows = false
 
 [node name="MusicVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MusicVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -90,7 +95,6 @@ show_arrows = false
 
 [node name="SoundsVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="SoundsVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -108,7 +112,6 @@ show_arrows = false
 
 [node name="NarrationVolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="NarrationVolume" type="TextureProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -136,7 +139,6 @@ text = "Play with voice"
 [node name="MicThresholdLabel" type="Label" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
-label_settings = SubResource("LabelSettings_kpwpc")
 
 [node name="MicThreshold" type="TextureProgressBar" parent="VBoxContainer"]
 visible = false
@@ -162,13 +164,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -672.0
-offset_top = -189.0
+offset_left = -491.0
+offset_top = -151.0
 offset_right = -64.0
-offset_bottom = -39.0
+offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
 actual_text = "Return to menu"
+text_size = 90
 
 [connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Master"]]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_volume_slider_value_changed" binds= [&"Music"]]

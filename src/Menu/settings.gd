@@ -1,5 +1,6 @@
 extends Control
 
+@onready var languages: VBoxContainer = $Languages
 @onready var ambient_subs: CheckBox = $VBoxContainer/AmbientSubs
 @onready var microphone_input: CheckBox = $VBoxContainer/MicrophoneInput
 @onready var master_volume: TextureProgressBar = $VBoxContainer/MasterVolume
@@ -15,6 +16,22 @@ extends Control
 
 
 func _ready() -> void:
+	var loaded_locales := TranslationServer.get_loaded_locales()
+	var language_button_group := ButtonGroup.new()
+#	loaded_locales.sort()
+	for locale in loaded_locales:
+		var check_box := CheckBox.new()
+		check_box.button_group = language_button_group
+		check_box.name = TranslationServer.get_locale_name(locale)
+		check_box.text = check_box.name
+		if locale == TranslationServer.get_locale():
+			check_box.button_pressed = true
+		check_box.pressed.connect(_on_language_pressed.bind(locale))
+		languages.add_child(check_box)
+	if not is_instance_valid(language_button_group.get_pressed_button()):
+		var check_box := languages.get_node("English") as CheckBox
+		check_box.button_pressed = true
+
 	master_volume.grab_focus()
 	ambient_subs.button_pressed = GameManager.show_ambient_subtitles
 	microphone_input.button_pressed = GameManager.play_with_voice
@@ -28,6 +45,11 @@ func _ready() -> void:
 
 func _on_return_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/Menu/menu.tscn")
+
+
+func _on_language_pressed(locale: String) -> void:
+	TranslationServer.set_locale(locale)
+	update_label_values()
 
 
 func _on_ambient_subs_toggled(button_pressed: bool) -> void:
@@ -47,7 +69,7 @@ func _on_volume_slider_value_changed(value: float, bus: StringName) -> void:
 
 
 func _on_mic_threshold_value_changed(value: float) -> void:
-	GameManager.mic_input_threshold = value / 100
+	GameManager.mic_input_threshold = value / 100.0
 	update_label_values()
 
 

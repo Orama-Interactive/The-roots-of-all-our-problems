@@ -91,7 +91,8 @@ msgstr ""
 "Προγραμματισμός, ανάπτυξη διαλόγων\n"
 "\n"
 "[font_size=64]Ιώαννης Νικητάκης[/font_size]\n"
-"Καλλιτεχνική επιμέλεια, Ανάπτυξη ιστορίας και διαλόγων, σχεδίαση γραφικών, αφήγηση\n"
+"Καλλιτεχνική επιμέλεια, Ανάπτυξη ιστορίας και διαλόγων, σχεδίαση γραφικών, "
+"αφήγηση\n"
 "\n"
 "[font_size=64]Ελένη Λουλουδάκη[/font_size]\n"
 "Σχεδίαση σκηνών, σχεδίαση γραφικών, Storyboards\n"
@@ -104,13 +105,17 @@ msgstr ""
 "\n"
 "Γραμματοσειρές: AmaticSc and Mansalva\n"
 "\n"
-"Το παιχνίδι αρχικά είχε φτιαχτεί με Godot σε 48 ώρες για το Global Game Jam 2023, "
-"αλλά αυτή είναι αναβαθμισμένη έκδοση μετά το jam.\n"
+"Το παιχνίδι αρχικά είχε φτιαχτεί με Godot σε 48 ώρες για το Global Game Jam "
+"2023, αλλά αυτή είναι αναβαθμισμένη έκδοση μετά το jam.\n"
 "\n"
-"Ειδικές ευχαριστίες στην ομάδα του GGJ και του GGJ Αθήνας για την οργάνωση της εκδήλωσης "
-"και την συμβολή τους στο να εμπνευστούμε το παιχνίδι.\n"
+"Ειδικές ευχαριστίες στην ομάδα του GGJ και του GGJ Αθήνας για την οργάνωση "
+"της εκδήλωσης και την συμβολή τους στο να εμπνευστούμε το παιχνίδι.\n"
 "\n"
 "Ευχαριστούμε που παίξατε!"
+
+#: src/Menu/settings.tscn
+msgid "Language"
+msgstr "Γλώσσα"
 
 #: src/Menu/settings.gd src/Menu/settings.tscn
 msgid "Master volume: %s"
@@ -148,22 +153,33 @@ msgstr "Χρήση φωνής για παιχνίδι"
 msgid ""
 "Hold any key to fly\n"
 "Release to fall"
-msgstr "Πατήστε οποιοδήποτε πλήκτρο για πέταγμα\n"
+msgstr ""
+"Πατήστε οποιοδήποτε πλήκτρο για πέταγμα\n"
 "Αφήστε για πτώση"
 
 #: src/Autoloads/GameManager.gd
 msgid ""
 "Touch and hold to fly\n"
 "Release to fall"
-msgstr "Κρατήστε πατημένη την οθόνη για πέταγμα\n"
+msgstr ""
+"Κρατήστε πατημένη την οθόνη για πέταγμα\n"
 "Αφήστε για πτώση"
 
 #: src/Autoloads/GameManager.gd
 msgid ""
 "Talk to fly\n"
 "Stop talking to fall"
-msgstr "Μιλήστε για πέταγμα\n"
+msgstr ""
+"Μιλήστε για πέταγμα\n"
 "Σταματήστε να μιλάτε για πτώση"
+
+#: src/Menu/settings.tscn
+msgid "English"
+msgstr "Αγγλικά"
+
+#: src/Menu/settings.tscn
+msgid "Greek"
+msgstr "Ελληνικά"
 
 #: src/Menu/menu.tscn
 msgid "New game"
@@ -193,7 +209,9 @@ msgstr "Μία φορά και έναν καιρό... (μουσική)"
 msgid ""
 "There was a tree. A big, well established tree with roots reaching deep into "
 "the soil."
-msgstr "Υπήρχε ένα δέντρο. Ένα μεγάλο δέντρο με ρίζες που έφταναν βαθιά μέσα στο χώμα."
+msgstr ""
+"Υπήρχε ένα δέντρο. Ένα μεγάλο δέντρο με ρίζες που έφταναν βαθιά μέσα στο "
+"χώμα."
 
 #: src/Menu/menu.tscn
 msgid "What was special about this tree was its seeds."
@@ -218,13 +236,17 @@ msgstr "Ο σπόρος πέταξε μακριά, μέσα από ένα δάσ
 #: src/Level.tscn
 msgid ""
 "Navigating its way through the forest, the seed had to avoid the treetops."
-msgstr "Περνώντας μέσα στο δάσος, ο σπόρος έπρεπε να αποφύγει τις κορυφές των δέντρων."
+msgstr ""
+"Περνώντας μέσα στο δάσος, ο σπόρος έπρεπε να αποφύγει τις κορυφές των "
+"δέντρων."
 
 #: src/Level.tscn
 msgid ""
 "“This forest is way too dense” the seed thought. “I won’t be able to root "
 "properly here, with so little sun reaching the forest bed.”"
-msgstr "«Αυτό το δάσος είναι πολύ πυκνό» σκέφτηκε ο σπόρος. «Δεν θα μπορώ να ριζώσω σωστά εδώ, με τόσο λίγο ήλιο να φτάνει στο δάσος»."
+msgstr ""
+"«Αυτό το δάσος είναι πολύ πυκνό» σκέφτηκε ο σπόρος. «Δεν θα μπορώ να ριζώσω "
+"σωστά εδώ, με τόσο λίγο ήλιο να φτάνει στο δάσος»."
 
 #: src/Level.tscn
 msgid "Suddenly, a cracking sound scared the little seed."
@@ -233,21 +255,27 @@ msgstr "Ξαφνικά, ένας θόρυβος τρόμαξε το σποράκ
 #: src/Level.tscn
 msgid ""
 "“Why are the trees falling out of nowhere? Maybe that’s my chance to root!”"
-msgstr "«Γιατί πέφτουν τα δέντρα από το πουθενά; Ίσως αυτή είναι η ευκαιρία μου να ριζώσω!»"
+msgstr ""
+"«Γιατί πέφτουν τα δέντρα από το πουθενά; Ίσως αυτή είναι η ευκαιρία μου να "
+"ριζώσω!»"
 
 #: src/Level.tscn
 msgid ""
 "“But what will happen when I root and I become a tree myself? Will I fall "
 "like those trees are?”"
-msgstr "«Μα τι θα γίνει όταν ριζώσω και γίνω και εγώ δέντρο; Θα πέσω όπως αυτά τα δέντρα;»"
+msgstr ""
+"«Μα τι θα γίνει όταν ριζώσω και γίνω και εγώ δέντρο; Θα πέσω όπως αυτά τα "
+"δέντρα;»"
 
 #: src/Level.tscn
 msgid "The forest became less and less dense the further the seed traveled."
-msgstr "Το δάσος γινόταν όλο και λιγότερο πυκνό όσο περισσότερο ταξίδευε ο σπόρος."
+msgstr ""
+"Το δάσος γινόταν όλο και λιγότερο πυκνό όσο περισσότερο ταξίδευε ο σπόρος."
 
 #: src/Level.tscn
 msgid "“What could have caused such a catastrophe?” The seed thought."
-msgstr "«Τι θα μπορούσε να έχει προκαλέσει μια τέτοια καταστροφή;» Σκέφτηκε ο σπόρος."
+msgstr ""
+"«Τι θα μπορούσε να έχει προκαλέσει μια τέτοια καταστροφή;» Σκέφτηκε ο σπόρος."
 
 #: src/Level.tscn
 msgid "“I need to travel further, it's not safe here!”"
@@ -257,36 +285,49 @@ msgstr "«Πρέπει να ταξιδέψω πιο μακριά, δεν είν�
 msgid ""
 "But after a while things became even weirder. The forest lost its colours "
 "and the surroundings got very noisy."
-msgstr "Όμως μετά από λίγο τα πράγματα έγιναν ακόμα πιο περίεργα. Το δάσος έχασε τα χρώματα του και το περιβάλλον έγινε πολύ θορυβώδες."
+msgstr ""
+"Όμως μετά από λίγο τα πράγματα έγιναν ακόμα πιο περίεργα. Το δάσος έχασε τα "
+"χρώματα του και το περιβάλλον έγινε πολύ θορυβώδες."
 
 #: src/Level.tscn
 msgid ""
 "“There’s barely any soil here, how will I find a place to root?” The seed "
 "thought as it traversed through that gray looking forest."
-msgstr "«Δεν υπάρχει σχεδόν καθόλου χώμα εδώ, πώς θα βρω ένα μέρος να ριζώσω;» Ο σπόρος σκέφτηκε καθώς διέσχιζε αυτό το γκρίζο δάσος."
+msgstr ""
+"«Δεν υπάρχει σχεδόν καθόλου χώμα εδώ, πώς θα βρω ένα μέρος να ριζώσω;» Ο "
+"σπόρος σκέφτηκε καθώς διέσχιζε αυτό το γκρίζο δάσος."
 
 #: src/Level.tscn
 msgid ""
 "It was getting more and more difficult for the seed to navigate between this "
 "place's obstacles but it was determined to find the perfect spot to root, so "
 "it carried on."
-msgstr "Γίνονταν όλο και πιο δύσκολο για τον σπόρο να πλοηγηθεί ανάμεσα στα εμπόδια αυτού του τόπου, αλλά ήταν αποφασισμένο να βρει το τέλειο σημείο για να ριζώσει, οπότε συνέχισε."
+msgstr ""
+"Γίνονταν όλο και πιο δύσκολο για τον σπόρο να πλοηγηθεί ανάμεσα στα εμπόδια "
+"αυτού του τόπου, αλλά ήταν αποφασισμένο να βρει το τέλειο σημείο για να "
+"ριζώσει, οπότε συνέχισε."
 
 #: src/Level.tscn
 msgid ""
 "After some time, the seed realized that this place isn't suitable for a tree "
 "to live there either."
-msgstr "Μετά από λίγο, ο σπόρος συνειδητοποίησε ότι ούτε αυτό το μέρος είναι κατάλληλο για να ζήσει ένα δέντρο εκεί."
+msgstr ""
+"Μετά από λίγο, ο σπόρος συνειδητοποίησε ότι ούτε αυτό το μέρος είναι "
+"κατάλληλο για να ζήσει ένα δέντρο εκεί."
 
 #: src/Level.tscn
 msgid "The seed was tired, but determined, so it went even further."
-msgstr "Ο σπόρος ήταν κουρασμένος, αλλά αποφασισμένος, έτσι προχώρησε ακόμα πιο μακριά."
+msgstr ""
+"Ο σπόρος ήταν κουρασμένος, αλλά αποφασισμένος, έτσι προχώρησε ακόμα πιο "
+"μακριά."
 
 #: src/Level.tscn
 msgid ""
 "“This place really has no end” it thought. But it was abruptly interrupted "
 "by a sound. A scary sound unlike any other."
-msgstr "«Αυτό το μέρος πραγματικά δεν έχει τέλος» σκέφτηκε. Όμως διακόπηκε απότομα από έναν ήχο. Έναν τρομακτικό ήχο που όμοιός του δεν υπάρχει."
+msgstr ""
+"«Αυτό το μέρος πραγματικά δεν έχει τέλος» σκέφτηκε. Όμως διακόπηκε απότομα "
+"από έναν ήχο. Έναν τρομακτικό ήχο που όμοιός του δεν υπάρχει."
 
 #: src/Level.tscn
 msgid "And everything was calm."
@@ -299,18 +340,25 @@ msgstr "Το δάσος είχε χαθεί για τα καλά."
 #: src/Level.tscn
 msgid ""
 "The seed felt scared and alone. Everything, even the sky, looked so hostile."
-msgstr "Ο σπόρος ένιωθε φοβισμένος και μόνος. Όλα, ακόμα και ο ουρανός, έμοιαζαν τόσο εχθρικά."
+msgstr ""
+"Ο σπόρος ένιωθε φοβισμένος και μόνος. Όλα, ακόμα και ο ουρανός, έμοιαζαν "
+"τόσο εχθρικά."
 
 #: src/Level.tscn
 msgid "“I can’t go on for much longer. It’s so cold and lonely out here.”"
-msgstr "«Δεν μπορώ να συνεχίσω για πολύ ακόμα. Είναι τόσο κρύα και μοναχικά εδώ πέρα»."
+msgstr ""
+"«Δεν μπορώ να συνεχίσω για πολύ ακόμα. Είναι τόσο κρύα και μοναχικά εδώ "
+"πέρα»."
 
 #: src/Level.tscn
 msgid ""
 "After all this way it had traveled the poor seed had no strength left within "
 "it. Even the air stopped supporting its journey. The seed was for the first "
 "time truly alone."
-msgstr "Μετά από όλο αυτό τον δρόμο που είχε διανύσει, ο καημένος σπόρος δεν είχε δύναμη μέσα του. Ακόμη και ο αέρας σταμάτησε να βοηθά το ταξίδι του. Ο σπόρος ήταν για πρώτη φορά πραγματικά μόνος."
+msgstr ""
+"Μετά από όλο αυτό τον δρόμο που είχε διανύσει, ο καημένος σπόρος δεν είχε "
+"δύναμη μέσα του. Ακόμη και ο αέρας σταμάτησε να βοηθά το ταξίδι του. Ο "
+"σπόρος ήταν για πρώτη φορά πραγματικά μόνος."
 
 #: src/Level.tscn
 msgid "The end."
@@ -328,13 +376,17 @@ msgstr "Οι διαμάχες των ανθρώπων άφησαν φωτιά κ
 msgid ""
 "Hope was naught but a faint light, yet wars were in humanity’s nature, never "
 "to be stopped."
-msgstr "Η ελπίδα δεν ήταν παρά ένα μακρινό φως, μα οι πόλεμοι ήταν στη φύση του ανθρώπου, ποτέ δε σταματούσαν."
+msgstr ""
+"Η ελπίδα δεν ήταν παρά ένα μακρινό φως, μα οι πόλεμοι ήταν στη φύση του "
+"ανθρώπου, ποτέ δε σταματούσαν."
 
 #: src/ending.tscn
 msgid ""
 "But nature itself would decay, for with each war life as a whole would be "
 "more and more in danger."
-msgstr "Αλλά η ίδια η φυση θα καταστρεφόταν, καθώς για κάθε πόλεμο ολόκληρη η ζωή θα βρισκόταν όλο και περισσότερο σε κίνδυνο"
+msgstr ""
+"Αλλά η ίδια η φυση θα καταστρεφόταν, καθώς για κάθε πόλεμο ολόκληρη η ζωή θα "
+"βρισκόταν όλο και περισσότερο σε κίνδυνο"
 
 #: src/ending.tscn
 msgid ""
@@ -346,7 +398,8 @@ msgstr "- Και τι έγινε με το σπόρο; Έπεσε στο έδα�
 msgid ""
 "No, it did not manage to root. Not every story has to have a good ending you "
 "know!"
-msgstr "Όχι, δεν κατάφερε να ριζώσει. Δεν έχουν όλες οι ιστορίες καλό τέλος ξέρεις!"
+msgstr ""
+"Όχι, δεν κατάφερε να ριζώσει. Δεν έχουν όλες οι ιστορίες καλό τέλος ξέρεις!"
 
 #: src/ending.tscn
 msgid "Then I don't like this story!"
@@ -362,7 +415,9 @@ msgstr "Βλέπεις."
 
 #: src/ending.tscn
 msgid "This story and stories like that is the root of all our problems."
-msgstr "Η ιστορία αυτή και όλες οι ιστορίες σαν κι αυτή είναι η ρίζα των προβλημάτων μας."
+msgstr ""
+"Η ιστορία αυτή και όλες οι ιστορίες σαν κι αυτή είναι η ρίζα των προβλημάτων "
+"μας."
 
 #: src/ending.tscn
 msgid "It was supposed to only contain dark truths."
@@ -380,7 +435,9 @@ msgstr "Αλήθειες που μας κάνουν να χάνουμε ελπί
 msgid ""
 "Truths that are capable of killing each and every seed of hope left within "
 "us."
-msgstr "Αλήθειες που είναι ικανές να σκοτώσουν κάθε τελευταίο σπόρο ελπίδας που έχουμε μέσα μας."
+msgstr ""
+"Αλήθειες που είναι ικανές να σκοτώσουν κάθε τελευταίο σπόρο ελπίδας που "
+"έχουμε μέσα μας."
 
 #: src/ending.tscn
 msgid "But dark truths are only half the truth."
@@ -398,13 +455,16 @@ msgstr "Να προσέχεις, καθώς ο κόσμος είναι γεμά�
 msgid ""
 "But they do not really represent us, they just sound believable and dark "
 "enough to paralyze our efforts of something brighter."
-msgstr "Αλλά δεν μας αντιπροσωπεύουν πραγματικά, απλώς ακούγονται πειστικές για να παραλύσουν τις προσπάθειες μας για κάτι καλύτερο."
+msgstr ""
+"Αλλά δεν μας αντιπροσωπεύουν πραγματικά, απλώς ακούγονται πειστικές για να "
+"παραλύσουν τις προσπάθειες μας για κάτι καλύτερο."
 
 #: src/ending.tscn
 msgid ""
 "We already have the seeds of hope from the ones that came before us in our "
 "own hearts."
-msgstr "Έχουμε ήδη σπόρους ελπίδας από όσους ήρθαν πριν από εμάς στις καρδιές μας."
+msgstr ""
+"Έχουμε ήδη σπόρους ελπίδας από όσους ήρθαν πριν από εμάς στις καρδιές μας."
 
 #: src/ending.tscn
 msgid "Now we have to choose the endings to the stories we believe in"

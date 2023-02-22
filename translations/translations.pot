@@ -83,6 +83,10 @@ msgid ""
 "Thank you for playing!"
 msgstr ""
 
+#: src/Menu/settings.tscn
+msgid "Language"
+msgstr ""
+
 #: src/Menu/settings.gd
 #: src/Menu/settings.tscn
 msgid "Master volume: %s"
@@ -136,6 +140,14 @@ msgstr ""
 msgid ""
 "Talk to fly\n"
 "Stop talking to fall"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "English"
+msgstr ""
+
+#: src/Menu/settings.tscn
+msgid "Greek"
 msgstr ""
 
 #: src/Menu/menu.tscn
