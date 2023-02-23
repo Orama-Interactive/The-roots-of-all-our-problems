@@ -172,7 +172,7 @@ class Event:
 
 	func fire(node: Node) -> void:
 		if delay > 0.0:
-			await node.get_tree().create_timer(delay).timeout
+			await node.get_tree().create_timer(delay, false).timeout
 		callable.callv(args)
 
 

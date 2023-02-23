@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 
 
 func collapse() -> void:
-	await get_tree().create_timer(randf_range(0.1, 2)).timeout
+	await get_tree().create_timer(randf_range(0.1, 2), false).timeout
 	var collapse_direction := rand_bool()
 	if collapse_direction:
 		animation_player.play("collapse_right")

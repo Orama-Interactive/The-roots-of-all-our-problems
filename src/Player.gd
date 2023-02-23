@@ -48,7 +48,7 @@ func make_invincible(seconds: float = INVINCIBILITY_SECONDS) -> void:
 	if can_move:
 		can_get_hit = false
 		_flash_invincible()
-		await get_tree().create_timer(seconds).timeout
+		await get_tree().create_timer(seconds, false).timeout
 		can_get_hit = true
 
 
