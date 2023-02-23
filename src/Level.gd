@@ -248,6 +248,8 @@ func go_to_checkpoint() -> void:
 func change_checkpoint() -> void:
 	if current_checkpoint < checkpoints.size() - 1:  # Do not save the final checkpoint
 		GameManager.save_game(current_checkpoint)
+	else:
+		progress_label.visible = false
 	checkpoints[current_checkpoint].fire_events(self)
 	if current_checkpoint < narrations.size():
 		subtitles.text = tr(dialogue_lines[current_checkpoint])

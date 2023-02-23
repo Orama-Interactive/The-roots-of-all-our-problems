@@ -29,7 +29,7 @@ size = Vector2(496, 88)
 shader = ExtResource("9_o3xn3")
 
 [sub_resource type="LabelSettings" id="LabelSettings_v3vy8"]
-font_size = 50
+font_size = 55
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
@@ -171,11 +171,15 @@ grow_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="ProgressLabel" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 12.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
 offset_top = 12.0
-offset_right = 215.0
+offset_right = 101.5
 offset_bottom = 126.0
+grow_horizontal = 2
 label_settings = SubResource("LabelSettings_v3vy8")
 
 [node name="WhiteColorRect" type="ColorRect" parent="CanvasLayer/Control"]
