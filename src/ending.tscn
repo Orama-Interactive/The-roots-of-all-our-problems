@@ -320,12 +320,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -176.0
-offset_bottom = 60.0
+offset_top = -536.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_i58ny")
 horizontal_alignment = 1
+vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -342,17 +343,17 @@ offset_bottom = 40.0
 [node name="ColorRect2" type="ColorRect" parent="WhiteBars"]
 layout_mode = 0
 offset_left = 504.0
-offset_top = 910.0
+offset_top = 1007.0
 offset_right = 545.0
-offset_bottom = 950.0
+offset_bottom = 1047.0
 scale = Vector2(8.52, 1.36)
 
 [node name="ColorRect3" type="ColorRect" parent="WhiteBars"]
 layout_mode = 0
 offset_left = 928.0
-offset_top = 910.0
+offset_top = 1007.0
 offset_right = 968.0
-offset_bottom = 950.0
+offset_bottom = 1047.0
 scale = Vector2(14, 1.36)
 
 [node name="Camera2D" type="Camera2D" parent="."]
