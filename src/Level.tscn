@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://shfn1xnxmgp2"]
+[gd_scene load_steps=25 format=3 uid="uid://shfn1xnxmgp2"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
 [ext_resource type="Shader" path="res://src/Shaders/BombFlash.gdshader" id="9_o3xn3"]
 [ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/part_2.ogg" id="11_mfpvx"]
+[ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="11_o4us6"]
 [ext_resource type="AudioStream" uid="uid://db7joaldkhujy" path="res://assets/audio/music/part_1.ogg" id="11_wr8lh"]
 [ext_resource type="AudioStream" uid="uid://bcxgqsur0fbux" path="res://assets/audio/music/part_3_bridge.ogg" id="13_xlu2o"]
 [ext_resource type="AudioStream" uid="uid://ka7tri71f43n" path="res://assets/audio/music/part_5.ogg" id="14_ubty7"]
@@ -33,6 +34,16 @@ outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kt5ra"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_utef3"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3ffd"]
 font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
@@ -213,6 +224,65 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="PauseMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Control/PauseMenu"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_kt5ra")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Resume" parent="CanvasLayer/Control/PauseMenu" instance=ExtResource("11_o4us6")]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+actual_text = "Resume"
+text_size = 64
+text_color = Color(1, 1, 1, 1)
+text_color_hover = Color(0.69, 0.69, 0.69, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Label" parent="CanvasLayer/Control/PauseMenu/Resume" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_right = 62.5
+grow_horizontal = 2
+text = "Resume"
+label_settings = SubResource("LabelSettings_utef3")
+
+[node name="ReturnToMenu" parent="CanvasLayer/Control/PauseMenu" instance=ExtResource("11_o4us6")]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+actual_text = "Return to menu"
+text_size = 64
+text_color = Color(1, 1, 1, 1)
+text_color_hover = Color(0.69, 0.69, 0.69, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Label" parent="CanvasLayer/Control/PauseMenu/ReturnToMenu" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.5
+offset_right = 145.5
+grow_horizontal = 2
+text = "Return to menu"
+label_settings = SubResource("LabelSettings_j3ffd")
+
 [node name="BlackColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -272,7 +342,12 @@ bus = &"Narration"
 [connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]
 [connection signal="fell" from="Player" to="." method="_on_player_fell"]
 [connection signal="body_entered" from="BarbedWireCollision" to="." method="_on_barbed_wire_collision_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Control/PauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PauseMenu/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
 [connection signal="finished" from="Part1" to="." method="_on_part_1_finished"]
 [connection signal="finished" from="Part2" to="." method="_on_part_2_finished"]
 [connection signal="finished" from="Part3" to="." method="_on_part_3_finished"]
 [connection signal="finished" from="Part4" to="." method="_on_part_4_finished"]
+
+[editable path="CanvasLayer/Control/PauseMenu/Resume"]
+[editable path="CanvasLayer/Control/PauseMenu/ReturnToMenu"]

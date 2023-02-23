@@ -68,6 +68,7 @@ var tree_collapse_percentage := -1
 @onready var progress_label: Label = $CanvasLayer/Control/ProgressLabel
 @onready var subtitles: Label = $CanvasLayer/Control/Subtitles
 @onready var tutorial: Label = $CanvasLayer/Control/Tutorial
+@onready var pause_menu: VBoxContainer = $CanvasLayer/Control/PauseMenu
 @onready var sounds: AudioStreamPlayer = $Sounds
 @onready var sounds_2: AudioStreamPlayer = $Sounds2
 @onready var sounds_3: AudioStreamPlayer = $Sounds3
@@ -304,6 +305,15 @@ func _on_subtitle_timer_timeout() -> void:
 
 func _on_player_fell() -> void:
 	world_boundary.get_node("BottomLimit").set_deferred("disabled", true)
+
+
+func _on_resume_pressed() -> void:
+	GameManager.unpause()
+
+
+func _on_return_to_menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://src/Menu/menu.tscn")
 
 
 func enable_bottom_limit() -> void:

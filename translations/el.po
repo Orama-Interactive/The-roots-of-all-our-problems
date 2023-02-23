@@ -52,6 +52,14 @@ msgstr "[ήχοι πόλης]"
 msgid "[bomb falling, exploding]"
 msgstr "[έκρηξη βόμβας]"
 
+#: src/Level.tscn
+msgid "Paused"
+msgstr "Παύση"
+
+#: src/Level.tscn
+msgid "Resume"
+msgstr "Συνέχεια"
+
 #: src/Menu/credits.tscn
 msgid "The roots of all our problems"
 msgstr ""
@@ -173,10 +181,6 @@ msgstr ""
 "Μιλήστε για πέταγμα\n"
 "Σταματήστε να μιλάτε για πτώση"
 
-#: src/Autoloads/GameManager.gd
-msgid "Paused"
-msgstr "Παύση"
-
 #: src/Menu/settings.tscn
 msgid "English"
 msgstr "Αγγλικά"
@@ -205,7 +209,7 @@ msgstr "Έξοδος"
 msgid "Skip (space)"
 msgstr "Παράλειψη (space)"
 
-#: src/Menu/settings.tscn
+#: src/Level.tscn src/Menu/settings.tscn
 msgid "Return to menu"
 msgstr "Πίσω στο μενού"
 

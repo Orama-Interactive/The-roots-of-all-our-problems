@@ -49,6 +49,14 @@ msgstr ""
 msgid "[bomb falling, exploding]"
 msgstr ""
 
+#: src/Level.tscn
+msgid "Paused"
+msgstr ""
+
+#: src/Level.tscn
+msgid "Resume"
+msgstr ""
+
 #: src/Menu/credits.tscn
 msgid "The roots of all our problems"
 msgstr ""
@@ -142,10 +150,6 @@ msgid ""
 "Stop talking to fall"
 msgstr ""
 
-#: src/Autoloads/GameManager.gd
-msgid "Paused"
-msgstr ""
-
 #: src/Menu/settings.tscn
 msgid "English"
 msgstr ""
@@ -174,6 +178,7 @@ msgstr ""
 msgid "Skip (space)"
 msgstr ""
 
+#: src/Level.tscn
 #: src/Menu/settings.tscn
 msgid "Return to menu"
 msgstr ""

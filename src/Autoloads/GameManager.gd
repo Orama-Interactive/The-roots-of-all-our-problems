@@ -8,6 +8,7 @@ var show_ambient_subtitles := true
 var play_with_voice := false
 var mic_input_threshold := 0.2
 var menu_faded_in := false
+var tutorial_shown := false
 
 @onready var sound_player: AudioStreamPlayer = $SoundPlayer
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
@@ -19,9 +20,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		pause()
 		return
-	if not event is InputEventMouseMotion and not event.is_action("pause"):
-		if get_tree().paused:
-			unpause()
+	if not event is InputEventMouseMotion and tutorial_shown:
+		tutorial_shown = false
+		unpause()
 
 
 func save_game(checkpoint: int) -> void:
@@ -47,6 +48,7 @@ func game_over() -> void:
 
 
 func show_tutorial() -> void:
+	var scene := get_tree().current_scene
 	if get_tree().current_scene.name != "Level":
 		return
 	var tutorial := tr("Hold any key to fly\nRelease to fall")
@@ -54,10 +56,13 @@ func show_tutorial() -> void:
 		tutorial = tr("Touch and hold to fly\nRelease to fall")
 	if play_with_voice:
 		tutorial = tr("Talk to fly\nStop talking to fall")
-	pause(tutorial)
+	get_tree().paused = true
+	scene.tutorial.text = tutorial
+	tutorial_shown = true
+	create_tween().tween_property(scene.pause_rect, "color", Color(0, 0, 0, 0.4), 0.3)
 
 
-func pause(text := tr("Paused")) -> void:
+func pause() -> void:
 	var scene := get_tree().current_scene
 	if scene.name != "Level":
 		return
@@ -65,14 +70,16 @@ func pause(text := tr("Paused")) -> void:
 		unpause()
 		return
 	get_tree().paused = true
-	scene.tutorial.text = text
-	create_tween().tween_property(scene.pause_rect, "color", Color(0, 0, 0, 0.40), 0.3)
+	scene.pause_menu.visible = true
+	scene.pause_menu.get_child(1).grab_focus()
+	create_tween().tween_property(scene.pause_rect, "color", Color(0, 0, 0, 0.4), 0.3)
 
 
 func unpause() -> void:
 	var scene := get_tree().current_scene
 	get_tree().paused = false
 	scene.tutorial.text = ""
+	scene.pause_menu.visible = false
 	create_tween().tween_property(scene.pause_rect, "color", Color(0, 0, 0, 0), 0.3)
 
 
@@ -81,12 +88,13 @@ func play_sound(audio: AudioStream) -> void:
 	sound_player.play()
 
 
-func play_music(audio: AudioStream = null) -> void:
+func play_music(audio: AudioStream = null, db := -8) -> void:
 	if music_player.playing:
 		if not audio or audio == music_player.stream:
 			return
 	if audio:
 		music_player.stream = audio
+	music_player.volume_db = db
 	music_player.play()
 
 
