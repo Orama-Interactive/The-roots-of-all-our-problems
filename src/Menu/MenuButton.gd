@@ -44,4 +44,4 @@ func _on_focus_exited() -> void:
 
 
 func _on_pressed() -> void:
-	GameManager.play_audio(sound)
+	GameManager.play_sound(sound)

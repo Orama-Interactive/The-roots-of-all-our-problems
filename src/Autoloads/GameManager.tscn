@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkjp0xgl2orgo"]
+[gd_scene load_steps=3 format=3 uid="uid://bkjp0xgl2orgo"]
 
 [ext_resource type="Script" path="res://src/Autoloads/GameManager.gd" id="1_1fo1e"]
+[ext_resource type="AudioStream" uid="uid://c4tg8g2dm6np4" path="res://assets/audio/music/Menu.ogg" id="2_53xy2"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_1fo1e")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_53xy2")
+volume_db = -8.0
+bus = &"Menu"

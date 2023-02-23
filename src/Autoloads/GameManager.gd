@@ -9,7 +9,8 @@ var play_with_voice := false
 var mic_input_threshold := 0.2
 var menu_faded_in := false
 
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var sound_player: AudioStreamPlayer = $SoundPlayer
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 
 func _input(event: InputEvent) -> void:
@@ -56,6 +57,19 @@ func show_tutorial() -> void:
 	get_tree().current_scene.tutorial.text = tutorial
 
 
-func play_audio(audio: AudioStream) -> void:
-	audio_stream_player.stream = audio
-	audio_stream_player.play()
+func play_sound(audio: AudioStream) -> void:
+	sound_player.stream = audio
+	sound_player.play()
+
+
+func play_music(audio: AudioStream = null) -> void:
+	if music_player.playing:
+		if not audio or audio == music_player.stream:
+			return
+	if audio:
+		music_player.stream = audio
+	music_player.play()
+
+
+func stop_music(duration := 1.0) -> void:
+	create_tween().tween_property(music_player,"volume_db", -100, duration).finished.connect(music_player.stop)
