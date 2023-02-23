@@ -50,6 +50,7 @@ func _on_return_pressed() -> void:
 
 func _on_language_pressed(locale: String) -> void:
 	TranslationServer.set_locale(locale)
+	GameManager.change_font(theme)
 	update_label_values()
 
 

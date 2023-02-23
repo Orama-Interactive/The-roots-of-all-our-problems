@@ -3,6 +3,7 @@ extends Control
 
 func _ready() -> void:
 	TranslationServer.set_locale(OS.get_locale())
+	GameManager.change_font(theme)
 	$AnimationPlayer.play("splash")
 
 

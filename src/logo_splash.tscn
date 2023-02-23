@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://74psqpyqubep"]
+[gd_scene load_steps=7 format=3 uid="uid://74psqpyqubep"]
 
 [ext_resource type="Texture2D" uid="uid://b70jnavaogwna" path="res://assets/logo/orama_logo_handrawn.png" id="1_4dww5"]
 [ext_resource type="Script" path="res://src/logo_splash.gd" id="1_jpouf"]
+[ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="1_upbwy"]
 
 [sub_resource type="Animation" id="Animation_p8fct"]
 length = 0.001
@@ -47,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_upbwy")
 script = ExtResource("1_jpouf")
 
 [node name="TextureRect" type="TextureRect" parent="."]

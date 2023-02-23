@@ -1,6 +1,8 @@
 extends Node
 
 const CONFIG_PATH := "user://save.cfg"
+const AMATIC_SC := preload("res://assets/fonts/AmaticSC-Regular.ttf")
+const MANDYS_SKETCH := preload("res://assets/fonts/mandys_sketch/MandysSketch-7BBwA.ttf")
 
 var loaded := false
 var config_file := ConfigFile.new()
@@ -100,3 +102,10 @@ func play_music(audio: AudioStream = null, db := -8) -> void:
 
 func stop_music(duration := 1.0) -> void:
 	create_tween().tween_property(music_player,"volume_db", -100, duration).finished.connect(music_player.stop)
+
+
+func change_font(theme: Theme) -> void:
+	if TranslationServer.get_locale().begins_with("el"):
+		theme.default_font = MANDYS_SKETCH
+	else:
+		theme.default_font = AMATIC_SC
