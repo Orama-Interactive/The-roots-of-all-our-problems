@@ -22,6 +22,7 @@ func _on_new_pressed() -> void:
 		button.disabled = true
 	var music_delay := 5.5
 	GameManager.stop_music(music_delay)
+	GameManager.loaded = false
 	await get_tree().create_timer(music_delay).timeout
 	intro_music.play()
 
