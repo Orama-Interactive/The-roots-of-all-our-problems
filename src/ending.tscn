@@ -341,17 +341,17 @@ offset_bottom = 40.0
 
 [node name="ColorRect2" type="ColorRect" parent="WhiteBars"]
 layout_mode = 0
-offset_left = 511.0
+offset_left = 504.0
 offset_top = 910.0
-offset_right = 551.0
+offset_right = 545.0
 offset_bottom = 950.0
 scale = Vector2(8.52, 1.36)
 
 [node name="ColorRect3" type="ColorRect" parent="WhiteBars"]
 layout_mode = 0
-offset_left = 932.0
+offset_left = 928.0
 offset_top = 910.0
-offset_right = 972.0
+offset_right = 968.0
 offset_bottom = 950.0
 scale = Vector2(14, 1.36)
 
