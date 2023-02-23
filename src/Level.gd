@@ -142,7 +142,6 @@ var isLastPart = false
 		Event.new(fade_out, [bomb], 19),
 	], tr("[bomb falling, exploding]")),
 	Checkpoint.new(war_obstacles, [  # WAR_FIRST_CHECKPOINT
-		#Event.new(play_sound, [music, preload("res://assets/audio/sounds/distant-warfare-51848.mp3"), 0]),
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE]),
 		Event.new(spawn_background_obstacles),
