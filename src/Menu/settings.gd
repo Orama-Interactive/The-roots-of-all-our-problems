@@ -16,6 +16,7 @@ extends Control
 
 
 func _ready() -> void:
+	var current_locale := TranslationServer.get_locale()
 	var loaded_locales := TranslationServer.get_loaded_locales()
 	var language_button_group := ButtonGroup.new()
 #	loaded_locales.sort()
@@ -24,7 +25,7 @@ func _ready() -> void:
 		check_box.button_group = language_button_group
 		check_box.name = TranslationServer.get_locale_name(locale)
 		check_box.text = check_box.name
-		if locale == TranslationServer.get_locale():
+		if locale == current_locale or locale + "_" in current_locale:
 			check_box.button_pressed = true
 		check_box.pressed.connect(_on_language_pressed.bind(locale))
 		languages.add_child(check_box)
