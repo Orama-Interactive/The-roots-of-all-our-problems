@@ -11,7 +11,7 @@ var spawn_timer := 1.0
 
 func _ready() -> void:
 	position.x = start_pos.x + 1940
-	await get_tree().create_timer(spawn_timer).timeout
+	await get_tree().create_timer(spawn_timer, false).timeout
 	var level: Level = get_parent()
 	var sprite_width := sprite.texture.get_width()
 	var obstacle: BackgroundObstacle = scene.instantiate()
