@@ -142,6 +142,10 @@ msgid ""
 "Stop talking to fall"
 msgstr ""
 
+#: src/Autoloads/GameManager.gd
+msgid "Paused"
+msgstr ""
+
 #: src/Menu/settings.tscn
 msgid "English"
 msgstr ""

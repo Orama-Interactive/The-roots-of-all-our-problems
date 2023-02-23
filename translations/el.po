@@ -173,6 +173,10 @@ msgstr ""
 "Μιλήστε για πέταγμα\n"
 "Σταματήστε να μιλάτε για πτώση"
 
+#: src/Autoloads/GameManager.gd
+msgid "Paused"
+msgstr "Παύση"
+
 #: src/Menu/settings.tscn
 msgid "English"
 msgstr "Αγγλικά"

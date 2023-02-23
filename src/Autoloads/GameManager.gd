@@ -16,10 +16,12 @@ var menu_faded_in := false
 func _input(event: InputEvent) -> void:
 	if get_tree().current_scene.name != "Level":
 		return
-	if not event is InputEventMouseMotion:
+	if event.is_action_pressed("pause"):
+		pause()
+		return
+	if not event is InputEventMouseMotion and not event.is_action("pause"):
 		if get_tree().paused:
-			get_tree().paused = false
-			get_tree().current_scene.tutorial.text = ""
+			unpause()
 
 
 func save_game(checkpoint: int) -> void:
@@ -47,14 +49,31 @@ func game_over() -> void:
 func show_tutorial() -> void:
 	if get_tree().current_scene.name != "Level":
 		return
-	get_tree().paused = true
 	var tutorial := tr("Hold any key to fly\nRelease to fall")
 	if DisplayServer.is_touchscreen_available():
 		tutorial = tr("Touch and hold to fly\nRelease to fall")
 	if play_with_voice:
 		tutorial = tr("Talk to fly\nStop talking to fall")
+	pause(tutorial)
 
-	get_tree().current_scene.tutorial.text = tutorial
+
+func pause(text := tr("Paused")) -> void:
+	var scene := get_tree().current_scene
+	if scene.name != "Level":
+		return
+	if get_tree().paused:
+		unpause()
+		return
+	get_tree().paused = true
+	scene.tutorial.text = text
+	create_tween().tween_property(scene.pause_rect, "color", Color(0, 0, 0, 0.40), 0.3)
+
+
+func unpause() -> void:
+	var scene := get_tree().current_scene
+	get_tree().paused = false
+	scene.tutorial.text = ""
+	create_tween().tween_property(scene.pause_rect, "color", Color(0, 0, 0, 0), 0.3)
 
 
 func play_sound(audio: AudioStream) -> void:

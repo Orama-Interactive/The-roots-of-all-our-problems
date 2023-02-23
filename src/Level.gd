@@ -17,32 +17,32 @@ const BACKGROUND_WAR_OBSTACLE := preload("res://src/Obstacles/background_obstacl
 var tree_tscn := preload("res://src/tree.tscn")
 var building_tscn := preload("res://src/Building.tscn")
 var forest_obstacles: Array[PackedScene] = [
-		preload("res://src/Obstacles/Treetop_1.tscn"),
-		preload("res://src/Obstacles/Treetop_2.tscn"),
-		preload("res://src/Obstacles/Treetop_3.tscn"),
-		preload("res://src/Obstacles/Treetop_4.tscn"),
-	]
+	preload("res://src/Obstacles/Treetop_1.tscn"),
+	preload("res://src/Obstacles/Treetop_2.tscn"),
+	preload("res://src/Obstacles/Treetop_3.tscn"),
+	preload("res://src/Obstacles/Treetop_4.tscn"),
+]
 var forest_obstacles_2: Array[PackedScene] = [
-		preload("res://src/Obstacles/Treetop_1.tscn"),
-		preload("res://src/Obstacles/Treetop_2.tscn"),
-		preload("res://src/Obstacles/Treetop_3.tscn"),
-		preload("res://src/Obstacles/Treetop_4.tscn"),
-		preload("res://src/Obstacles/Branch_1.tscn"),
-		preload("res://src/Obstacles/Branch_2.tscn"),
-	]
+	preload("res://src/Obstacles/Treetop_1.tscn"),
+	preload("res://src/Obstacles/Treetop_2.tscn"),
+	preload("res://src/Obstacles/Treetop_3.tscn"),
+	preload("res://src/Obstacles/Treetop_4.tscn"),
+	preload("res://src/Obstacles/Branch_1.tscn"),
+	preload("res://src/Obstacles/Branch_2.tscn"),
+]
 var city_obstacles: Array[PackedScene] = [
-		preload("res://src/Obstacles/Antenna_1.tscn"),
-		preload("res://src/Obstacles/Antenna_2.tscn"),
-		preload("res://src/Obstacles/Cables.tscn"),
-	]
+	preload("res://src/Obstacles/Antenna_1.tscn"),
+	preload("res://src/Obstacles/Antenna_2.tscn"),
+	preload("res://src/Obstacles/Cables.tscn"),
+]
 var war_obstacles: Array[PackedScene] = [
-		preload("res://src/Obstacles/Treetrunk_2.tscn"),
-		preload("res://src/Obstacles/Treetrunk_3.tscn"),
-		preload("res://src/Obstacles/Treetrunk_4.tscn"),
-		preload("res://src/Obstacles/Rock_1.tscn"),
-		preload("res://src/Obstacles/Rock_2.tscn"),
-		preload("res://src/Obstacles/Arrow.tscn"),
-	]
+	preload("res://src/Obstacles/Treetrunk_2.tscn"),
+	preload("res://src/Obstacles/Treetrunk_3.tscn"),
+	preload("res://src/Obstacles/Treetrunk_4.tscn"),
+	preload("res://src/Obstacles/Rock_1.tscn"),
+	preload("res://src/Obstacles/Rock_2.tscn"),
+	preload("res://src/Obstacles/Arrow.tscn"),
+]
 
 var current_checkpoint := -1
 var narrations: Array[AudioStream] = [
@@ -59,6 +59,7 @@ var tree_collapse_percentage := -1
 @onready var bomb_flash: ColorRect = $CanvasLayer/Control/BombFlash
 @onready var white_color_rect: ColorRect = $CanvasLayer/Control/WhiteColorRect
 @onready var black_color_rect: ColorRect = $CanvasLayer/Control/BlackColorRect
+@onready var pause_rect: ColorRect = $CanvasLayer/Control/PauseRect
 @onready var tree_parent: Node2D = $TreeParent
 @onready var tree_timer: Timer = $TreeTimer
 @onready var subtitle_timer: Timer = $SubtitleTimer

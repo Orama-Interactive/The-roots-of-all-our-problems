@@ -192,6 +192,15 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 
+[node name="PauseRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [node name="Tutorial" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
