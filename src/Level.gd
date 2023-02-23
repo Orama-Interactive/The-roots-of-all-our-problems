@@ -264,11 +264,11 @@ func calculate_checkpoint_position(index: int) -> float:
 	if index < WAR_FIRST_CHECKPOINT:  # Increase checkpoint distance exponentially
 		return pow(index / 2.0, 2) * 1000.0 + 1000.0
 	if index == WAR_FIRST_CHECKPOINT:
-			return index * 3666.6 # 54999
+			return index * 3666.6 + 1 # 54999
 	if index == checkpoints.size() - 1:  # Final checkpoint
 		return index * 4400
 	var distance := 7500
-	var offset := WAR_FIRST_CHECKPOINT * distance - (WAR_FIRST_CHECKPOINT * 3666.6)
+	var offset := WAR_FIRST_CHECKPOINT * distance - (WAR_FIRST_CHECKPOINT * 3666.6) - 1
 	return index * distance - offset
 
 
