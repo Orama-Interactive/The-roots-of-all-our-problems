@@ -38,12 +38,12 @@ font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8k7g4"]
+[sub_resource type="LabelSettings" id="LabelSettings_a1iih"]
 font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_o4pdk"]
+[sub_resource type="LabelSettings" id="LabelSettings_02vnu"]
 font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
@@ -232,12 +232,13 @@ autowrap_mode = 2
 process_mode = 3
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -362.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 718.0
 grow_horizontal = 2
-grow_vertical = 2
 alignment = 1
 
 [node name="Header" type="Label" parent="CanvasLayer/Control/PauseMenu"]
@@ -266,7 +267,7 @@ offset_left = -62.5
 offset_right = 62.5
 grow_horizontal = 2
 text = "Resume"
-label_settings = SubResource("LabelSettings_8k7g4")
+label_settings = SubResource("LabelSettings_a1iih")
 
 [node name="ReturnToMenu" parent="CanvasLayer/Control/PauseMenu" instance=ExtResource("11_o4us6")]
 custom_minimum_size = Vector2(300, 80)
@@ -286,7 +287,7 @@ offset_left = -145.5
 offset_right = 145.5
 grow_horizontal = 2
 text = "Return to menu"
-label_settings = SubResource("LabelSettings_o4pdk")
+label_settings = SubResource("LabelSettings_02vnu")
 
 [node name="BlackColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 visible = false
