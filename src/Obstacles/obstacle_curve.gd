@@ -1,3 +1,4 @@
+class_name ObstacleThrowing
 extends Obstacle
 
 enum RotationBehavior { ROT_FOLLOW_DIR, ROT_CONSTANT }

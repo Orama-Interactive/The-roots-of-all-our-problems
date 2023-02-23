@@ -61,6 +61,7 @@ var tree_collapse_percentage := -1
 @onready var black_color_rect: ColorRect = $CanvasLayer/Control/BlackColorRect
 @onready var pause_rect: ColorRect = $CanvasLayer/Control/PauseRect
 @onready var tree_parent: Node2D = $TreeParent
+@onready var obstacle_timer: Timer = $ObstacleTimer
 @onready var tree_timer: Timer = $TreeTimer
 @onready var subtitle_timer: Timer = $SubtitleTimer
 @onready var world_boundary: StaticBody2D = $WorldBoundary
@@ -75,12 +76,9 @@ var tree_collapse_percentage := -1
 #@onready var music: AudioStreamPlayer = $Music
 @onready var narration: AudioStreamPlayer = $Narration
 @onready var getMusicVolume = AudioServer.get_bus_volume_db(3)
-#@onready var mixer: AudioBusLayout = load("res://default_bus_layout.tres")
 
 var hasMusicStarted = false
 var isLastPart = false
-
-#@onready var mixer: AudioBusLayout = load("res://default_bus_layout.tres")
 
 @onready var checkpoints: Array[Checkpoint] = [
 	Checkpoint.new([], [
@@ -280,6 +278,17 @@ func _on_obstacle_timer_timeout() -> void:
 	var obstacle: Obstacle = checkpoints[current_checkpoint].obstacles.pick_random().instantiate()
 	obstacle.player_pos = player.position
 	add_child(obstacle)
+	if current_checkpoint < WAR_FIRST_CHECKPOINT:
+		return
+	if obstacle is ObstacleThrowing:
+		obstacle_timer.stop()
+		obstacle_timer.wait_time = 2
+		obstacle_timer.start()
+	else:
+		if obstacle_timer.wait_time > 1:
+			obstacle_timer.stop()
+			obstacle_timer.wait_time = 1
+			obstacle_timer.start()
 
 
 func _on_tree_timer_timeout() -> void:
