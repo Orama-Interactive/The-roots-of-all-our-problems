@@ -11,4 +11,8 @@ We keep updating it after the jam, you can play the updated version on itch.io: 
 
 Original jam version: https://globalgamejam.org/2023/games/roots-all-our-problems-2
 
+If you like, consider helping us by sponsoring our work!
+
+[![Become a Patron!](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://patreon.com/OramaInteractive)
+
 All code is MIT-licensed, and assets are [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
