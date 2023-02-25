@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://shfn1xnxmgp2"]
+[gd_scene load_steps=26 format=3 uid="uid://shfn1xnxmgp2"]
 
 [ext_resource type="Script" path="res://src/Level.gd" id="1_ljq6u"]
 [ext_resource type="Texture2D" uid="uid://w4l34chfm017" path="res://assets/level_backgrounds/forest_sky.png" id="2_4uuu4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d048cvpcb6gim" path="res://assets/level_backgrounds/war_front.png" id="7_um18n"]
 [ext_resource type="Texture2D" uid="uid://1bj8lk4dtdrj" path="res://assets/obstacles/barbedwire.png" id="7_yyqsd"]
 [ext_resource type="Theme" uid="uid://ben2451hr7117" path="res://assets/theme.tres" id="8_0dkwy"]
+[ext_resource type="Texture2D" uid="uid://cghnmyhk66xlt" path="res://assets/level_backgrounds/war_obstacle.png" id="8_de5bp"]
 [ext_resource type="Shader" path="res://src/Shaders/BombFlash.gdshader" id="9_o3xn3"]
 [ext_resource type="AudioStream" uid="uid://dpsns024vjsux" path="res://assets/audio/music/part_2.ogg" id="11_mfpvx"]
 [ext_resource type="PackedScene" uid="uid://cott2t5ahccvc" path="res://src/Menu/MenuButton.tscn" id="11_o4us6"]
@@ -23,7 +24,7 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ff1cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quc2w"]
-size = Vector2(496, 88)
+size = Vector2(496, 98)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fiqf3"]
 shader = ExtResource("9_o3xn3")
@@ -38,12 +39,12 @@ font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_tnes0"]
+[sub_resource type="LabelSettings" id="LabelSettings_kr6oo"]
 font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_63lyd"]
+[sub_resource type="LabelSettings" id="LabelSettings_v1mvf"]
 font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
@@ -116,6 +117,14 @@ position = Vector2(1696, 0)
 texture = ExtResource("7_yyqsd")
 centered = false
 
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3840, 0)
+
+[node name="ObstacleLayer2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("8_de5bp")
+centered = false
+
 [node name="TreeParent" type="Node2D" parent="."]
 z_index = -200
 
@@ -145,6 +154,10 @@ shape = SubResource("WorldBoundaryShape2D_ff1cu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarbedWireCollision"]
 position = Vector2(238, 44)
+shape = SubResource("RectangleShape2D_quc2w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BarbedWireCollision"]
+position = Vector2(238, 1031)
 shape = SubResource("RectangleShape2D_quc2w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -267,7 +280,7 @@ offset_left = -62.5
 offset_right = 62.5
 grow_horizontal = 2
 text = "Resume"
-label_settings = SubResource("LabelSettings_tnes0")
+label_settings = SubResource("LabelSettings_kr6oo")
 
 [node name="ReturnToMenu" parent="CanvasLayer/Control/PauseMenu" instance=ExtResource("11_o4us6")]
 custom_minimum_size = Vector2(300, 80)
@@ -287,7 +300,7 @@ offset_left = -145.5
 offset_right = 145.5
 grow_horizontal = 2
 text = "Return to menu"
-label_settings = SubResource("LabelSettings_63lyd")
+label_settings = SubResource("LabelSettings_v1mvf")
 
 [node name="BlackColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 visible = false

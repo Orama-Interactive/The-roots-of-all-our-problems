@@ -56,6 +56,7 @@ var tree_collapse_percentage := -1
 @onready var middle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer2/MiddleLayer
 @onready var front_layer: Sprite2D = $ParallaxBackground/ParallaxLayer3/FrontLayer
 @onready var obstacle_layer: Sprite2D = $ParallaxBackground/ParallaxLayer4/ObstacleLayer
+@onready var obstacle_layer_2: Sprite2D = $ParallaxBackground/ParallaxLayer5/ObstacleLayer2
 @onready var bomb_flash: ColorRect = $CanvasLayer/Control/BombFlash
 @onready var white_color_rect: ColorRect = $CanvasLayer/Control/WhiteColorRect
 @onready var black_color_rect: ColorRect = $CanvasLayer/Control/BlackColorRect
@@ -131,12 +132,13 @@ var isLastPart = false
 		Event.new(bomb.play_animation, [], 5),
 		Event.new(fade_out, [black_color_rect], 24),
 		Event.new(stop_trees, [], 13),
-		Event.new(spawn_background_obstacles, [], 18.5),
+#		Event.new(spawn_background_obstacles, [], 18.5),
 		Event.new(player.make_invincible, [10], 18.5),  # 10 seconds of invincibility
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK], 19),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE], 19),
 		Event.new(fade_in, [front_layer], 19),
 		Event.new(fade_in, [obstacle_layer], 19),
+		Event.new(fade_in, [obstacle_layer_2], 19),
 #		Event.new(fade_out, [back_layer], 4),
 #		Event.new(fade_out, [middle_layer], 6),
 		Event.new(fade_out, [bomb], 19),
@@ -144,7 +146,7 @@ var isLastPart = false
 	Checkpoint.new(war_obstacles, [  # WAR_FIRST_CHECKPOINT
 		Event.new(change_texture, [back_layer, BACKGROUND_WAR_BACK]),
 		Event.new(change_texture, [middle_layer, BACKGROUND_WAR_MIDDLE]),
-		Event.new(spawn_background_obstacles),
+#		Event.new(spawn_background_obstacles),
 		Event.new(fade_in, [back_layer]),
 		Event.new(fade_in, [middle_layer], 2),
 		Event.new(fade_in, [front_layer], 4),
@@ -205,7 +207,8 @@ func _ready() -> void:
 		if current_checkpoint >= WAR_FIRST_CHECKPOINT:
 			front_layer.modulate.a = 1
 			obstacle_layer.modulate.a = 1
-			spawn_background_obstacles()
+			obstacle_layer_2.modulate.a = 1
+#			spawn_background_obstacles()
 			change_texture(sky_background, BACKGROUND_WAR_SKY)
 			change_texture(back_layer, BACKGROUND_WAR_BACK)
 			change_texture(middle_layer, BACKGROUND_WAR_MIDDLE)
