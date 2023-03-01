@@ -48,7 +48,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fr7b"]
 radius = 37.5
-height = 146.0
+height = 114.0
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_4a42a"]
 
@@ -60,7 +60,7 @@ sprite_frames = SubResource("SpriteFrames_ux0rx")
 animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 23)
+position = Vector2(-1, 39)
 shape = SubResource("CapsuleShape2D_8fr7b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
