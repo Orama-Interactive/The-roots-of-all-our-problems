@@ -100,6 +100,7 @@ func fall() -> void:
 		return
 	if not falling:
 		trauma = 1.0
+		audio_stream_player.stop()
 		falling_sound_player.stream = falling_sound
 		falling_sound_player.play()
 		animated_sprite_2d.play("fall")
