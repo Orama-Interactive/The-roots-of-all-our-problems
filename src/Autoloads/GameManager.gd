@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	if get_tree().current_scene.name != "Level":
+	if is_instance_valid(get_tree().current_scene) and get_tree().current_scene.name != "Level":
 		return
 	if event.is_action_pressed("pause"):
 		pause()

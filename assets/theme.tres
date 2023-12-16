@@ -56,6 +56,7 @@ LineEdit/colors/font_uneditable_color = Color(0.87451, 0.87451, 0.87451, 0)
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/line_separation = -20
 RichTextLabel/font_sizes/normal_font_size = 50
+ValueSlider/base_type = &"TextureProgressBar"
 ValueSlider/colors/progress_color = Color(0.505882, 0.505882, 0.505882, 1)
 ValueSlider/colors/under_color = Color(0.360784, 0.360784, 0.360784, 1)
 ValueSlider/icons/arrow_hover = ExtResource("1_jtjqq")
